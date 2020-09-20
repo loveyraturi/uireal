@@ -1,0 +1,241 @@
+<navigation></navigation>
+<!-- Hero Section Begin -->
+<section class="hero-section">
+  <div class="hero-items owl-carousel owl-loaded owl-drag">
+    <div class="owl-stage-outer">
+      <div class="owl-stage">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <button class="btn btn-success buttonStyle" (click)="modelClick()">Edit Images</button>
+          <div class="carousel-inner" style="height: 300px;">
+            <div class="carousel-item active">
+              <img class="d-block w-100" height="300" src="{{properties.frontImage}}" alt="First slide">
+            </div>
+            <div class="carousel-item" *ngFor="let imageCarasoule of properties.images | slice:1;">
+              <img class="d-block w-100" height="300" src="./assets/properties/{{imageCarasoule.imageName}}"
+                alt="Second slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- Hero Section End -->
+<!--details properties start -->
+<section class="property-details-section spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="pd-details-text">
+          <div class="pd-details-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-send"></i></a>
+            <a href="#"><i class="fa fa-star"></i></a>
+            <a href="#"><i class="fa fa-print"></i></a>
+            <a href="#"><i class="fa fa-cloud-download"></i></a>
+          </div>
+          <div class="pd-desc">
+            <h4>Description</h4>
+          </div>
+          <div class="pd-details-tab">
+            <div class="tab-item">
+              <ul class="nav" role="tablist">
+                <li>
+                  <a class="active" data-toggle="tab" (click)="showBlock('tab1')" role="tab">Overview</a>
+                </li>
+                <li>
+                  <a data-toggle="tab" (click)="showBlock('tab2')" role="tab">Description</a>
+                </li>
+                <li>
+                  <a data-toggle="tab" (click)="showBlock('tab3')" role="tab">Amenities</a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-item-content">
+              <div class="tab-content">
+                <div class="tab-pane fade-in {{tab1Style}}" id="tab-1" role="tabpanel">
+                  <div class="property-more-table">
+                    <table class="left-table">
+                      <tbody>
+                        <tr>
+                          <td class="pt-name">BHK</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.bhk"
+                              value="{{properties.name}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Monthly rentals</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.price"
+                              value="{{properties.price}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Property Type</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.property_type"
+                              value="{{properties.property_type}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Furnish</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.furnish"
+                              value="{{properties.furnish}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Allowed</td>
+                          <td class="p-value">
+                            <!-- <input type="text" [(ngModel)]="properties.allowed"
+                              value="{{properties.allowed}}" class="form-control" /> -->
+                              <ng-multiselect-dropdown [placeholder]="'Select Allowed'" [data]="dropdownList" [(ngModel)]="selectedItems"
+                               (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+                              (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"[settings]="dropdownSettings">
+                            </ng-multiselect-dropdown>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Bathrooms</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.washroom"
+                              value="{{properties.washroom}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Rooms</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.bedroom"
+                              value="{{properties.bedroom}}" class="form-control" /></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="right-table">
+                      <tbody>
+                        <tr>
+                          <td class="pt-name">Phone Number</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.phoneNumber"
+                              value="{{properties.phoneNumber}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Beds</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.bedroom"
+                              value="{{properties.bedroom}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">parking</td>
+                          <td class="p-value">
+                            <!-- <input type="text" [(ngModel)]="properties.parking"
+                              value="{{properties.parking}}" class="form-control" /> -->
+                            <select class="form-control" [(ngModel)]="properties.parking">
+                              <option value="" selected disabled>Parking</option>
+                              <option value="car">Car</option>
+                              <option value="bike">Bike</option>
+                              <option value="both">Car And Bike</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">parking</td>
+                          <td class="p-value">
+                            <select class="form-control" [(ngModel)]="properties.modular">
+                              <option value="" selected disabled>Modular Kitchen</option>
+                              <option value="yes">Yes</option>
+                              <option value="no">No</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">Builtup area</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.area"
+                              value="{{properties.area}}" class="form-control" /> </td>
+                        </tr>
+
+
+                        <tr>
+                          <td class="pt-name">address</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.address"
+                              value="{{properties.address}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">locality</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.locality"
+                              value="{{properties.locality}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">city</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.city"
+                              value="{{properties.city}}" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">state</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.state"
+                              value="{{properties.state}}" class="form-control" /> </td>
+                        </tr>
+                        <tr>
+                          <td class="pt-name">country</td>
+                          <td class="p-value"><input type="text" [(ngModel)]="properties.country"
+                              value="{{properties.country}}" class="form-control" /> </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <button class="btn btn-success" (click)="submit()">Save</button>
+                  </div>
+                </div>
+                <div class="tab-pane fade {{tab2Style}}" id="tab-2" role="tabpanel">
+                  <div class="pd-table-desc"><textarea style="height: 242px;" [(ngModel)]="properties.description"
+                      value="{{properties.description}}" class="form-control">
+                    {{properties.description}}
+                    </textarea>
+                    <button class="btn btn-success" (click)="submit()">Save</button>
+                  </div>
+                </div>
+                <div class="tab-pane fade {{tab3Style}}" id="tab-3" role="tabpanel">
+                  <div class="pd-table-amenities">
+                    <ng-multiselect-dropdown [placeholder]="'Select Amenities'" [data]="dropdownListamenities"
+                      [(ngModel)]="selectedItemsAmenities"
+                      (onSelect)="onItemSelectAmenities($event)" (onDeSelect)="OnItemDeSelectAmenities($event)"
+                      (onSelectAll)="onItemSelectAllAmenities($event)" (onDeSelectAll)="onDeSelectAllAmenities($event)"
+                      [settings]="dropdownSettingsAmenities">
+                    </ng-multiselect-dropdown>
+                    <button class="btn btn-success" (click)="submit()">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--details properties end-->
+<div id="myModal1" class="{{modelClass1}}">
+  <!-- Modal content -->
+  <div class="modal-content1">
+    <span class="close" (click)="closeModal1()">&times;</span>
+    Successfully Updated Property
+  </div>
+</div>
+
+<div id="myModal" class="{{modelClass}}">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div class="form-group">
+      <label for="file">File</label>
+      <input id="file" type="file" class="form-control" multiple="" (change)="onFileChange($event)">
+    </div>
+    <div class="row">
+      <div class="col-md-3" *ngFor='let url of imagesBanner'>
+        <i (click)="removeImage(url.index)" style="position: absolute;" class="glyphicon glyphicon-remove">X</i>
+        <img [src]="url.fileSource" height="150" width="200px" style="margin: 3px;">
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="saveImages()">Save</button>
+  </div>
+</div>

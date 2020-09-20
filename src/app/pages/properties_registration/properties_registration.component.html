@@ -1,0 +1,267 @@
+<navigation></navigation>
+<section class="property-section">
+
+  <div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+      <div *ngIf="sliderPosition=='slide1'" class="reg1 shadow">
+        <h4 style="padding: 2%;">Property Details</h4>
+        <div class="form-row" style="padding: 3%;">
+          <div class="col-md-4 mb-5">
+            <input list="bhk" type="text" formControlName="name" class="form-control " id="name" placeholder="BHK"
+              required>
+            <datalist id="bhk">
+              <option value="" selected disabled>Select BHK</option>
+              <option value="1BHK">1BHK</option>
+              <option value="2BHK">2BHK</option>
+              <option value="3BHK">3BHK</option>
+              <option value="4BHK">4BHK</option>
+              <option value="5BHK">5BHK</option>
+            </datalist>
+          </div>
+          <div class="col-md-4 mb-5">
+            <input type="text" formControlName="phoneNumber" class="form-control " id="phoneNumber"
+              placeholder="Phone number" value="Mark" required>
+          </div>
+          <div class="col-md-4 mb-5">
+            <input list="bedroomlist" type="text" formControlName="bedroom" class="form-control " id="name"
+              placeholder="Number of bedrooms" required>
+            <datalist id="bedroomlist">
+              <option value="" selected disabled>Select Bedrooms</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </datalist>
+          </div>
+          <div class="col-md-4 mb-5">
+            <select class="form-control" formControlName="washrooms" id="washrooms">
+              <option value="" selected disabled>Number of bathroom</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-5">
+            <!-- <select multiple class="form-control" formControlName="allowed">
+                <option value="" selected disabled>Tenant Type</option>
+                <option value="family">Family</option>
+                <option value="bachelor">Bachelor</option>
+                <option value="student">Student</option>
+                <option value="unmarried_couple">Unmarried couple</option>
+              </select> -->
+            <!-- <angular4-multiselect [data]="dropdownListamenities" formControlName="amenities" [settings]="dropdownSettingsAmenities"
+              (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"></angular4-multiselect> -->
+            <ng-multiselect-dropdown [placeholder]="'Select Amenities'" [data]="dropdownListamenities"
+              formControlName="selectedItemsAmenities" [(ngModel)]="selectedItemsAmenities"
+              (onSelect)="onItemSelectAmenities($event)" (onDeSelect)="OnItemDeSelectAmenities($event)"
+              (onSelectAll)="onSelectAllAmenities($event)" (onDeSelectAll)="onDeSelectAllAmenities($event)"
+              [settings]="dropdownSettingsAmenities">
+            </ng-multiselect-dropdown>
+          </div>
+          <div class="col-md-4 mb-5">
+            <input type="text" formControlName="area" class="form-control " id="area" placeholder="Builtup area"
+              value="Mark" required>
+          </div>
+          <div class="col-md-12 mb-5">
+            <textarea formControlName="description" class="form-control " id="description"
+              placeholder="Property Description" required></textarea>
+          </div>
+          <div class="col-md-12" style="padding: 3%;">
+            <button style="float: left;" disabled ="slidePrevious('slide1')" class="btn btn-success">previous</button>
+            <button style="float: right;" (click)="slideNext('slide2')" class="btn btn-success">next</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="sliderPosition=='slide2'" class="reg1 shadow">
+        <h4 style="padding: 2%;">Property type</h4>
+        <div class="form-row" style="padding: 3%;">
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="furnish">
+              <option value="" selected disabled>Furnished Type</option>
+              <option value="fully_furnished">Fully Furnished</option>
+              <option value="semi_furnished">Semi Furnished</option>
+              <option value="un_furnished">Unfurnished Furnished </option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="propertyType">
+              <option value="" selected disabled>Property Type</option>
+              <option value="flat">Flat</option>
+              <option value="row_house">Row House</option>
+              <option value="pg">PG</option>
+              <option value="hostel">Hostel</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="parking">
+              <option value="" selected disabled>Parking</option>
+              <option value="car">Car</option>
+              <option value="bike">Bike</option>
+              <option value="both">Car And Bike</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="modular">
+              <option value="" selected disabled>Modular Kitchen</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <!-- <select multiple class="form-control" formControlName="allowed">
+              <option value="" selected disabled>Tenant Type</option>
+              <option value="family">Family</option>
+              <option value="bachelor">Bachelor</option>
+              <option value="student">Student</option>
+              <option value="unmarried_couple">Unmarried couple</option>
+            </select> -->
+            <!-- <angular4-multiselect [data]="dropdownList" formControlName="allowed" [settings]="dropdownSettings"
+            (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+            (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"></angular4-multiselect> -->
+            <ng-multiselect-dropdown [placeholder]="'Select Allowed'" [data]="dropdownList" [(ngModel)]="selectedItems"
+              formControlName="selectedItems"  (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"[settings]="dropdownSettings">
+            </ng-multiselect-dropdown>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="price" class="form-control " id="price" placeholder="Monthly rentals"
+              required>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="maintainance" class="form-control " id="maintainance"
+              placeholder="Maintainance" required>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="security" class="form-control " id="security"
+              placeholder="Security deposit" required>
+          </div>
+          <div class="col-md-12 mb-2">
+            <textarea formControlName="address" class="form-control " id="address" placeholder="Address"
+              required></textarea>
+          </div>
+          <div class="col-md-12" style="padding: 2%;">
+            <button style="float: left;" (click)="slidePrevious('slide1')" class="btn btn-success">previous</button>
+            <button style="float: right;" (click)="slideNext('slide3')" class="btn btn-success">next</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="sliderPosition=='slide3'" class="shadowbig">
+        <h4 style="padding: 2%;">Address Details</h4>
+        <div class="form-row" style="padding: 3%;">
+          <div class="col-md-1 mb-5">
+            <input type="image" (click)="getGeoLocation()" style="width: 50%;" src="./assets/img/location.png" />
+          </div>
+          <div class="col-md-5 mb-5">
+            <input type="text" formControlName="latitude" [(ngModel)]="currentLat" class="form-control " id="Latitude"
+              placeholder="Latitude" disabled>
+          </div>
+
+          <div class="col-md-5 mb-5">
+            <input type="text" formControlName="longitude" [(ngModel)]="currentLong" class="form-control "
+              id="Longitude" placeholder="Longitude" disabled>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="locality" class="form-control " id="Locality" placeholder="Locality">
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="city" class="form-control " id="City" placeholder="City">
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="state" class="form-control " id="State" placeholder="State">
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="country" class="form-control " id="Country" placeholder="Country">
+          </div>
+          <div class="col-md-12" style="padding: 3%;">
+            <button style="float: left;" (click)="slidePrevious('slide2')" class="btn btn-success">previous</button>
+            <button style="float: right;" (click)="slideNext('slide4')" class="btn btn-success">next</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="sliderPosition=='slide4'" class="reg1 shadow">
+        <h4 style="padding: 2%;">Upload Images</h4>
+        <div class="form-group" style="padding: 3%;">
+          <!-- <div class="form-group">
+              <label for="fileName">Name</label>
+              <input formControlName="fileName" id="fileName" type="text" class="form-control">
+              <div *ngIf="f.fileName.touched && f.fileName.invalid" class="alert alert-danger">
+                <div *ngIf="f.fileName.errors.required">fileName is required.</div>
+                <div *ngIf="f.fileName.errors.minlength">fileName should be 3 character.</div>
+              </div>
+            </div> -->
+
+          <input formControlName="ownerName" id="ownerName" [(ngModel)]="username" type="hidden" class="form-control">
+
+          <div class="form-group">
+            <label for="file">Properties Images</label>
+            <div class="row">
+              <div class="col-md-3" *ngFor='let url of images; let i = index'>
+                <i (click)="removeImage(i)" style="position: absolute;" class="glyphicon glyphicon-remove">X</i>
+                <img [src]="url" height="150" width="200px" style="margin: 3px;">
+              </div>
+              <div class="col-md-3" style="height: 150px;border: 2px dotted greenyellow;">
+                <input formControlName="file" id="file" type="file" style=" margin-top: 31%!important; "
+                  class="btnupload form-control" multiple="" (change)="onFileChange($event)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+
+
+          <br />
+          <div class="form-group" style="padding: 3%;">
+            <label for="file">Address Proof</label>
+            <input formControlName="file" id="addressProof" type="file" class="btnupload form-control" multiple=""
+              (change)="onFileChangeAddressProof($event)">
+          </div>
+
+          <button style="margin-left: 45%;" type="submit" class="btn btn-primary submitbtn">Submit</button>
+          <div class="col-md-12 slidernext" style="padding-bottom: 7%;">
+            <button style="float: left;" (click)="slidePrevious('slide3')" class="btn btn-success">previous</button>
+            <button disabled style="float: right;" (click)="slideNext('slide4')"
+              class="btn btn-success btnlastnext">next</button>
+          </div>
+          <alert></alert>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+
+</section>
+<!-- <section class="property-section">
+  <div class="container">
+    <div class="row register">
+      <div class="col-lg-3 formStyle">
+        <div class="property-sidebar">
+          <h4 style="color:white;">Add Property</h4>
+           <form [formGroup]="myForm" (ngSubmit)="submit()"> 
+
+          <hr>
+
+          <hr>
+
+          
+      </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<div id="myModal" class="{{modelClass}}">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+   <div class="modalContent"> {{message}}</div>
+  </div>
+</div>
+<footer></footer>
+<div *ngIf="spinner" class="spinnerAngular"><div class="spinner-border spinnerStyle" role="status">
+    <span class="sr-only">Loading...</span>
+  </div></div>

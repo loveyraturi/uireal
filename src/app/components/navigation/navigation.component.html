@@ -1,0 +1,415 @@
+<!-- Offcanvas Menu Section Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="canvas-open" (click)="showMenu(showMenuBar)">
+  <i class="icon_menu"></i>
+</div>
+<!-- Offcanvas Menu Section End -->
+
+<!-- Header Section Begin -->
+<header class="header-section">
+  <div class="top-nav {{showMenuBar}}" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <i>hi</i>
+          <div *ngIf="!showMain" class="col-lg-3">
+            <div class="logo">
+              <a href="./index.html"><img src="./assets/img/ownertanenlogo.jpg" alt="" style="max-width: 121%;"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <nav class="main-menu">
+            <ul>
+              <li (click)="navigateTo('main')" style="cursor: pointer;font-size: 12px;"><a>Home</a></li>
+              <li><a class="plan" style="cursor: pointer;font-size: 12px;">{{page}} Choose your plan</a>
+                <div class="menu2">
+                  <p (click)="modelClick4('owner')" style="cursor: pointer;" class="menuItems2"><i class="fa fa-user-circle-o"></i> For Owner</p>
+                  <p (click)="modelClick4('tenant')" style="cursor: pointer;" class="menuItems2"><i class="fa fa-user-circle"></i> For Tenants
+                  </p>
+                </div>
+              </li>
+              <li><a class="home" style="cursor: pointer;font-size: 12px;">Tenant</a>
+                <div class="menu">
+                  <p (click)="navigateTo('sortlisted')" style="cursor: pointer;" class="menuItems"><i class="fa fa-list"></i> Sortlisted
+                    properties</p>
+                  <p (click)="navigateTo('match_requirements')" style="cursor: pointer;" class="menuItems"><i class="fa fa-search-plus"></i>
+                    Match requirements</p>
+                </div>
+              </li>
+              <li><a class="owner" style="cursor: pointer;font-size: 12px;">Owner</a>
+                <div class="menu1">
+                  <p (click)="navigateTo('manage')" style="cursor: pointer;" class="menuItems1"><i class="fa fa-files-o"></i> Manage properties
+                  </p>
+                  <p (click)="navigateTo('properties_registration')" style="cursor: pointer;" class="menuItems1"><i class="fa fa-list"></i> List
+                    your property</p>
+                </div>
+              </li>
+              <li (click)="navigateTo('properties_registration')" style="font-size: 12px;"><a>Free property Listing</a></li>
+              <li><a style="cursor: pointer;font-size: 12px;" class="signupLogin"> {{loginMessage}}</a>
+                <div *ngIf="isLogin==false" class="menu3">
+                  <p (click)="navigateTo('login')" style="cursor: pointer;" class="menuItems3"><i class="fa fa-sign-in"></i> Login</p>
+                  <p (click)="navigateTo('registration')" style="cursor: pointer;" class="menuItems3"><i class="fa fa-user-plus"></i> SignUp</p>
+                </div>
+                <div *ngIf="isLogin==true" class="menu3">
+                  <p (click)="navigateTo('profile')" style="cursor: pointer;" class="menuItems3"><i class="fa fa-user-plus"></i> Profile</p>
+                  <p (click)="logout()" style="cursor: pointer;" class="menuItems3"><i class="fa fa-sign-out"></i> Logout</p>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <!-- <div class="top-right">
+                <div class="language-option">
+                  <img src="./assets/flag.png" alt="">
+                  <span *ngIf="registerMessage">{{registerMessage}}</span>
+                  <span *ngIf="!registerMessage">Login/Sign Up</span>
+                  <i class="fa fa-angle-down"></i>
+                  <div class="flag-dropdown">
+                    <ul *ngIf="!registerMessage">
+                      <li><a (click)="login()">Login</a></li>
+                      <li><a (click)="signup()">Sign Up</a></li>
+                    </ul>
+                    <ul *ngIf="registerMessage">
+                      <li><a>{{registerMessage}}</a></li>
+                      <li><a (click)="logout()">Logout</a></li>
+                      <li><a>Setting</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <a href="#" class="property-sub">Submit Property</a>
+              </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showMain" class="nav-logo">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="logo" style="padding: 10px 0;">
+            <a href="./index.html"><img src="./assets/img/ownertanenlogo.jpg" alt="" style="max-width: 45%;"></a>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="nav-logo-right">
+            <ul>
+              <li>
+                <i class="icon_phone" style="width: 40px;"></i>
+                <div class="info-text">
+                  <span>Phone:</span>
+                  <p>(+91) 9109769242</p>
+                </div>
+              </li>
+              <li>
+                <i class="icon_map" style="width: 40px;"></i>
+                <div class="info-text">
+                  <span>Address:</span>
+                  <p>AB Road Bypass, <span>Indore</span></p>
+                </div>
+              </li>
+              <li>
+                <i class="icon_mail" style="width: 40px;"></i>
+                <div class="info-text">
+                  <span>Email:</span>
+                  <p>support@ownertenants.com</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Header End -->
+
+<div id="myModal4" class="{{modelClass4}}">
+  <!-- Modal content -->
+  <div class="modal-content4">
+    <span class="close" (click)="closeModal4()">&times;</span>
+    <div *ngIf="modelType=='owner'" class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                Standard</h3>
+            </div>
+            <div class="panel-body">
+              <div class="the-price">
+                <h1>₹ 999</h1>
+              </div>
+              <table class="table">
+                <tr>
+                  <td>
+                    Dedicated Relationship Manager
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Tenant Search
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Online tenant verification
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Appointment for site visit
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Number privacy
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    NA
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    NA
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    NA
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    NA
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Validity : 90 days
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="panel-footer">
+              <a class="btn btn-success" (click)="subscribe('owner','standard',999)" role="button">Subscribe</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 popularPlan">
+          <div class="panel panel-success">
+            <div class="cnrflash">
+              <div class="cnrflash-inner">
+                <span class="cnrflash-label">MOST
+                  <br>
+                  POPULR</span>
+              </div>
+            </div>
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                Execlusive</h3>
+            </div>
+            <div class="panel-body">
+              <div class="the-price">
+                <h1>₹ 3999</h1>
+              </div>
+              <table class="table">
+                <tr>
+                  <td>
+                    Dedicated Relationship Manager
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Tenant Search
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Online tenant verification
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Appointment for site visit
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Number privacy
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Rent Negotiation
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    House visit assistance
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Rental aggrement Assistance
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Photo shoot Assistance
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Validity : 90 days
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="panel-footer">
+              <a class="btn btn-success" (click)="subscribe('owner','execlusive',3999)" role="button">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="modelType=='tenant'" class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                Standard</h3>
+            </div>
+            <div class="panel-body">
+              <div class="the-price">
+                <h1>₹ 999</h1>
+              </div>
+              <table class="table">
+                <tr>
+                  <td>
+                    Dedicated Relationship Manager
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    House Rental Search
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Online house verification
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Appointment for site visit
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Number privacy
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Rent Negotiation
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    NA
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    NA
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Validity: 90 days
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="panel-footer">
+              <a class="btn btn-success" (click)="subscribe('tenants','standard',999)" role="button">Subscribe</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6  popularPlan">
+          <div class="panel panel-success">
+            <div class="cnrflash">
+              <div class="cnrflash-inner">
+                <span class="cnrflash-label">MOST
+                  <br>
+                  POPULR</span>
+              </div>
+            </div>
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                Execlusive</h3>
+            </div>
+            <div class="panel-body">
+              <div class="the-price">
+                <h1>₹ 2999</h1>
+              </div>
+              <table class="table">
+                <tr>
+                  <td>
+                    Dedicated Relationship Manager
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    House Rental Search
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Online house verification
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Appointment for site visit
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Number privacy
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Rent Negotiation
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    House visit assistance
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Rental aggrement Assistance
+                  </td>
+                </tr>
+                <tr class="active">
+                  <td>
+                    Validity : 90 days
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="panel-footer">
+              <a class="btn btn-success" (click)="subscribe('tenants','execlusive',2999)" role="button">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

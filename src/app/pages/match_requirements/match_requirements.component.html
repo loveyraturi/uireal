@@ -1,0 +1,137 @@
+<navigation></navigation>
+<section class="property-section">
+
+  <div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+      <div class="reg1 shadow">
+        <h4 style="padding: 2%; text-align: center;">Match Requirements</h4>
+        <div class="form-row" style="padding: 3%;">
+          <div class="col-md-3 mb-5">
+            <input list="bhk" type="text" formControlName="name" class="form-control " id="name" placeholder="BHK"
+              required>
+            <datalist id="bhk">
+              <option value="" selected disabled>BHK</option>
+              <option value="1BHK">1BHK</option>
+              <option value="2BHK">2BHK</option>
+              <option value="3BHK">3BHK</option>
+              <option value="4BHK">4BHK</option>
+              <option value="5BHK">5BHK</option>
+            </datalist>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input list="bedroomlist" type="text" formControlName="bedroom" class="form-control " id="name"
+              placeholder="Number of Bedrooms" required>
+            <datalist id="bedroomlist">
+              <option value="" selected disabled>Select Bedrooms</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </datalist>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="washrooms" id="washrooms">
+              <option value="" selected disabled>Number of bathroom</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="area" class="form-control " id="area" placeholder="Builtup area"
+              value="Mark" required>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="furnish">
+              <option value="" selected disabled>Furnished Type</option>
+              <option value="fully_furnished">Fully Furnished</option>
+              <option value="semi_furnished">Semi Furnished</option>
+              <option value="un_furnished">Unfurnished Furnished </option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="propertyType">
+              <option value="" selected disabled>Property Type</option>
+              <option value="flat">Flat</option>
+              <option value="row_house">Row House</option>
+              <option value="pg">PG</option>
+              <option value="hostel">Hostel</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="parking">
+              <option value="" selected disabled>Parking</option>
+              <option value="car">Car</option>
+              <option value="bike">Bike</option>
+              <option value="both">Car and Bike</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <select class="form-control" formControlName="modular">
+              <option value="" selected disabled>Modular Kitchen</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="price" class="form-control " id="price" placeholder="Monthly Rental"
+              required>
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="locality" class="form-control " id="Locality" placeholder="Locality">
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="city" class="form-control " id="City" placeholder="City">
+            <input type="hidden" formControlName="username" [(ngModel)]="username" id="username">
+
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="state" class="form-control " id="State" placeholder="State">
+          </div>
+          <div class="col-md-3 mb-5">
+            <input type="text" formControlName="country" class="form-control " id="Country" placeholder="Country">
+          </div>
+          <div class="col-md-12 mb-5">
+            <button style="margin-left: 45%;" type="submit" class="btn btn-primary btnsubmit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</section>
+<!-- <section class="property-section">
+  <div class="container">
+    <div class="row register">
+      <div class="col-lg-3 formStyle">
+        <div class="property-sidebar">
+          <h4 style="color:white;">Add Property</h4>
+           <form [formGroup]="myForm" (ngSubmit)="submit()"> 
+
+          <hr>
+
+          <hr>
+
+          
+      </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<div id="myModal" class="{{modelClass}}">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div class="modalContent">{{message}}</div>
+  </div>
+</div>
+<footer></footer>
+<div *ngIf="spinner" class="spinnerAngular">
+    <div class="spinner-border spinnerStyle" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>

@@ -1,0 +1,107 @@
+<navigation></navigation>
+
+<section class="property-section spad" style="padding-top: 0;">
+  <div class="container" style="padding: 0 0;">
+    <div class="row">
+      <div class="col-lg-3 formStyle">
+        <div class="property-sidebar">
+          <section class="howit-works spad" style="padding-top: 0;">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="section-title">
+                    <h2>Manage Properties</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="property-list">
+                    <div class="single-property-item" *ngFor="let property of properties;  let i = index">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="d-block w-100" src="./assets/properties/{{property.frontImage}}"
+                                  alt="First slide">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <div class="property-pic"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+            
+                              <img src="{{property.frontImage}}" alt=""><i class="fa fa-arrow-right" aria-hidden="true"></i>
+            
+                            </div> -->
+                        </div>
+                        <div class="col-md-9">
+                          <div class="property-text">
+                            <div class="s-text">For Sale</div>
+                            <p>{{property.description}} <a (click)="editProperty(property.id)"
+                                style="float: right; cursor: pointer;">Edit</a></p>
+                            <button (click)="propertyStatus(property,1)"
+                              [ngClass]="(property.isavailable==1)?'btn btn-success':'btn btn-secondary'">Available</button>
+                            <button (click)="propertyStatus(property,0)"
+                              [ngClass]="(property.isavailable==1)?'btn btn-secondary':'btn btn-success'">Occupied</button>
+                            <br>
+                            <br>
+                            <ul class="room-features">
+                              <li>
+                                <i class="fa fa-arrows"></i>
+                                <p>{{property.area}} sqft</p>
+                              </li>
+                              <li>
+                                <i class="fa fa-bed"></i>
+                                <p>{{property.bedroom}} Bed Room</p>
+                              </li>
+                              <li>
+                                <i class="fa fa-bath"></i>
+                                <p>{{property.washroom}} Baths Bed</p>
+                              </li>
+                              <li>
+                                <i class="fa fa-inr"></i>
+                                <p>{{property.price}}/month</p>
+                              </li>
+
+                              <li>
+                                <i class="fa fa-car"></i>
+                                <p>{{property.parking}} Parking</p>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                    </div>
+                  </div>
+                  <div class="property-pagination">
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="myModal" class="{{modelClass}}">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      {{message}}
+
+    </div>
+
+  </div>
+</section>
+
+<footer></footer>

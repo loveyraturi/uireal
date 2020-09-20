@@ -1,0 +1,208 @@
+<navigation></navigation>
+<!-- Header End -->
+<div class="backgroundBody">
+  <div class="mainsearch">
+    <div class="outer-search">
+      <div class="row inner-search">
+        <div class="col-md-3 align" style="z-index: 100;">
+          <select class="alignSelect" (change)="priceFilter($event.target.value)" id="bedrooms">
+            <option selected disabled value="">Rent Range</option>
+            <option value="&lt;10000">&lt; 10K</option>
+            <option value="10000,30000">10-30k
+            </option>
+            <option value="20000,30000">20-30k</option>
+            <option value="&gt;30000">&gt; 30k</option>
+          </select>
+        </div>
+        <div class="col-md-3 align">
+          <!-- <input class="alignSelect" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/> -->
+          <input list="hosting-plan" class="alignSelect" (input)="searchAddress($event.target.value)"
+            [(ngModel)]="addressSelected" placeholder="Enter City/Locality" type="text" />
+          <datalist id="hosting-plan" *ngFor="let add of  addressList">
+            <option value="{{add}}">{{add}}</option>
+          </datalist>
+        </div>
+        <div class="col-md-3 align" style="z-index: 100;">
+          <select class="alignSelect" (change)="propertyTypeFilter($event.target.value)" id="bedrooms">
+            <option selected disabled value="">Property Types</option>
+            <option value="flat">Flat</option>
+            <option value="row_house">Row House</option>
+            <option value="pg">PG</option>
+            <option value="hostel">Hostel</option>
+          </select>
+          <!-- <ul>
+          <li (mouseenter)="showDiv()" class="drops">
+            <a style="position: absolute; top: 10px; left: 10%;"><span *ngIf="propertyTypes"
+                class="nav-label">{{propertyTypes}}, {{propertyBhk}}</span><span *ngIf="!propertyTypes"
+                class="nav-label">Property Type</span>
+              <div class="{{dropdownMenu}}">
+                <ul class="nav metismenu" style="    width: 160%;" id="side-menu">
+                  <li class="outerdrop">
+                    <a><i class="fa fa-book"></i> <span class="nav-label">Appartment</span>
+                      <div class="innerdrop">
+                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu">
+                          <li class="elementItem" (click)="propertyType('appartment','1BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">1
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('appartment','2BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">2
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('appartment','3BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">3
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('appartment','4BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">4
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('appartment','5BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">5
+                                BHK</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="outerdrop">
+                    <a><i class="fa fa-book"></i> <span class="nav-label">Independent House</span>
+                      <div class="innerdrop" style="bottom: 70%;">
+                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu1">
+                          <li class="elementItem" (click)="propertyType('independent','1BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">1
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('independent','2BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">2
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('independent','3BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">3
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('independent','4BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">4
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('independent','5BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">5
+                                BHK</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="outerdrop">
+                    <a><i class="fa fa-book"></i> <span class="nav-label">PG</span>
+                      <div class="innerdrop" style="bottom: 50%;">
+                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu">
+                          <li class="elementItem" (click)="propertyType('PG','1BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">1
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('PG','2BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">2
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('PG','3BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">3
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('PG','4BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">4
+                                BHK</span></a>
+                          </li>
+                          <li class="elementItem" (click)="propertyType('PG','5BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">5
+                                BHK</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="outerdrop">
+                    <a><i class="fa fa-book"></i> <span class="nav-label">Hostel</span>
+                      <div class="innerdrop" style="bottom: 30%;">
+                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu">
+                          <li (click)="propertyType('hostel','1BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">1
+                                BHK</span></a>
+                          </li>
+                          <li (click)="propertyType('hostel','2BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">2
+                                BHK</span></a>
+                          </li>
+                          <li (click)="propertyType('hostel','3BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">3
+                                BHK</span></a>
+                          </li>
+                          <li (click)="propertyType('hostel','4BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">4
+                                BHK</span></a>
+                          </li>
+                          <li (click)="propertyType('hostel','5BHK')">
+                            <a><i class="fa fa-book"></i> <span class="nav-label">5
+                                BHK</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </li>
+
+        </ul> -->
+        </div>
+        <div class="col-md-3 align">
+          <button class="searchButton" (click)="submit()"> SEARCH</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tagline">
+    Exclusive Rental Search Site.
+    </div>
+</div>
+
+<section class="howit-works spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <span>Find Your Dream House</span>
+          <h2>How It Works</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+          <i class="fa fa-money" style="font-size: 300%"></i>
+          <h4>Zero Brokerage</h4>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+            <i class="fa fa-home" style="font-size: 300%"></i>
+          <h4>Add property for free</h4>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+            <i class="fa fa-handshake-o" style="font-size: 300%"></i>
+          <h4>Dedicated Relationship Manager</h4>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+            <i class="fa fa-check" style="font-size: 300%"></i>
+          <h4>Verified Owner/Tenants</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer></footer>

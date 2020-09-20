@@ -1,0 +1,237 @@
+
+.menuItems{
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+.menuItems:hover{
+  font-size: 13px;
+}
+.tagline{
+  padding-top: 4%;
+  position: absolute;
+  padding-left: 27%;
+  color: white;
+  font-size: 40px;
+}
+.menuItems1{
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+.menuItems1:hover{
+  font-size: 13px;
+}
+.menuItems2{
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+.menuItems2:hover{
+  font-size: 13px;
+}
+.menuItems3{
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+.menuItems3:hover{
+  font-size: 13px;
+}
+.menu{
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+.home:hover + .menu{
+  display: block;
+}
+.menu:hover {
+  display: block;
+}
+
+.menu1 {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+.owner:hover + .menu1{
+  display: block;
+}
+.menu1:hover {
+  display: block;
+}
+
+.menu2 {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+.plan:hover + .menu2{
+  display: block;
+}
+.menu2:hover {
+  display: block;
+}
+
+.menu3 {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+.signupLogin:hover + .menu3{
+  display: block;
+}
+.menu3:hover {
+  display: block;
+}
+
+.backgroundBody {
+  background-image: url('https://ownertenants.com/realestateui/assets/images/Searchs_002.png');
+  width: 100%;
+  height: 400px;
+  background-size: 100% 100%;
+}
+.mainsearch{
+  padding-top: 10%;
+}
+
+.outer-search {
+  margin: auto;
+  width: 70%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.inner-search {
+  margin-left: .1%;
+  width: 100%;
+  opacity: 1;
+}
+
+.align {
+  top: -9px;
+  left: -2.9%;
+}
+
+.alignSelect {
+  width: 117%;
+  height: 162%;
+
+}
+
+.innerdrop {
+  display: none;
+  position: absolute;
+  left: 100%;
+  bottom: 108%;
+  z-index: 100;
+  width: 50%;
+}
+
+.drop {
+  display: none
+}
+
+.drops:hover .drop {
+  display: block
+}
+
+.outerdrop:hover .innerdrop {
+  display: block
+}
+
+.innerdrop:hover .drop {
+  display: block
+}
+
+.img-custom {
+  width: 100%
+}
+
+.outerdrop {
+  width: 100%;
+}
+
+.metismenu {
+  position: absolute;
+  background-color: white;
+  padding: 5% 0 5% 5%;
+}
+
+li {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.searchButton {
+  background-color: #2CBDB8;
+  border: 0;
+  width: 100%;
+  height: 161%;
+  margin-left: 27%;
+}
+.elementDrop{
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .inner-search {
+    height: 425px;
+  }
+
+  .outer-search {
+    height: 450px;
+  }
+
+  .searchButton {
+    background-color: #2CBDB8;
+    border: 0;
+    width: 100%;
+    height: 30%;
+    margin-left: 15px;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
+  .inner-search {
+    height: 425px;
+  }
+
+  .outer-search {
+    height: 450px;
+  }
+
+  .searchButton {
+    background-color: #2CBDB8;
+    border: 0;
+    width: 100%;
+    height: 30%;
+    margin-left: 15px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .alignSelect{
+    width: 107%;
+    height: 42%;
+}
+}

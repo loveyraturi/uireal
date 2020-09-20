@@ -1,0 +1,391 @@
+<navigation></navigation>
+
+<!-- Search Form Section Begin -->
+<div class="row spad">
+  <section class="col-md-3 search-form">
+    <div class="container">
+      <div class="col-sm-12">
+        <div class="row">
+          <!-- <form action="#" class="filter-form"> -->
+          <!-- <div class="first-row"> -->
+          <div class="row">
+            <div class="col-md-12 form-style">
+              <select class="form-control" (change)="furnishingFilter($event.target.value)">
+                <option selected disabled>Furnished Type</option>
+                <option value="fully_furnished">Fully Furnished</option>
+                <option value="semi_furnished">Semi Furnished</option>
+                <option value="un_furnished">Unfurnished Furnished </option>
+              </select>
+            </div>
+            <div class="col-md-12 form-style">
+              <input list="hosting-plan" class="form-control" (keypress)="searchAddress()" [(ngModel)]="addressSelected"
+                placeholder="Location" type="text">
+              <datalist id="hosting-plan">
+                <option *ngFor="let add of  addressList" [value]="add"></option>
+              </datalist>
+            </div>
+            <div class="col-md-12 form-style">
+              <input list="bedroomlist" type="text" (change)="bedroomsFilter($event.target.value)" class="form-control "
+                id="name" placeholder="Number of bedrooms" required>
+              <datalist id="bedroomlist">
+                <option value="" selected disabled>Select BHK</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </datalist>
+            </div>
+            <div class="col-md-12 form-style">
+              <select class="form-control" (change)="bathroomFilter($event.target.value)" id="bedrooms">
+                <option value="default" selected disabled>Number of bathrooms</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <!-- </div>
+        <div class="second-row"> -->
+            <div class="col-md-12 form-style">
+              <select class="form-control" (change)="garageFilter($event.target.value)" id="parkling">
+                <option selected disabled value="">Parking</option>
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="car_bike">Car and Bike</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 form-style">
+            <div class="price-text">
+              <label style="font-size: 12px;" for="roomsizeRangeP">Builtup area:</label>
+              <input type="range" style="width: 40%;" (change)="sizeFilter($event.target.value)" class="rangestyle"
+                min="0" max="5000" id="size">
+              <label style="font-size: 12px;" for="priceRangeP">0 TO </label><input
+                style="width: 25%;font-size: 12px;background-color: white; border: 0;" type="text" value="{{size}}" />
+            </div>
+          </div>
+          <div class="col-md-12  form-style">
+            <div class="price-text">
+              <label style="font-size: 12px;" for="priceRangeP">Monthly Rental:</label>
+              <input type="range" style="width: 40%;" class="rangestyle" (change)="priceFilter($event.target.value)"
+                min="0" max="100000" id="price">
+              <label style="font-size: 12px;" for="priceRangeP">0 TO </label><input
+                style="width: 25%;font-size: 12px;background-color: white; border: 0;" type="text" value="{{price}}" />
+            </div>
+          </div>
+          <div class="col-md-12  form-style">
+            <button style="width: 100%;" type="button" class="search-btn" (click)="filter()">Search</button>
+          </div>
+          <!-- <div class="price-range-wrap">
+            <div class="price-text">
+              <label for="priceRange">Price:</label>
+              <input type="text" id="priceRange" readonly="">
+            </div>
+            <div id="price-range"
+              class="slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+              <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 62.5%;"></div><span
+                tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span
+                tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 62.5%;"></span>
+            </div>
+          </div> -->
+          <!-- <div class="room-size-range">
+            <div class="price-text">
+              <label for="roomsizeRange">Size:</label>
+              <input type="text" id="roomsizeRange" readonly="">
+            </div>
+            <div id="roomsize-range"
+              class="slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+              <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 11.1111%; width: 55.5556%;">
+              </div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                style="left: 11.1111%;"></span><span tabindex="0"
+                class="ui-slider-handle ui-corner-all ui-state-default" style="left: 66.6667%;"></span>
+            </div>
+          </div> -->
+
+          <!-- </div> -->
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Search Form Section End -->
+
+  <!-- How It Works Section Begin -->
+  <section class="col-md-8 howit-works">
+    <div class="container" style="padding-left: 3%;">
+      <div class="row">
+        <div *ngIf="numberOfProperties!=0" class="col-lg-12">
+          <div class="section-title">
+            <span>Find Your Dream House</span>
+            <h2>Properties</h2>
+          </div>
+        </div>
+        <div *ngIf="numberOfProperties==0" class="col-lg-12">
+          <div class="section-title">
+            <span>No Property Found</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="property-list">
+            <div class="single-property-item" *ngFor="let property of properties;  let i = index">
+              <div class="row">
+                <div class="col-md-12">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img width="300" height="300" class="d-block w-100" src="{{property.frontImage}}"
+                          alt="First slide">
+                      </div>
+                      <div class="carousel-item" *ngFor="let imageCarasoule of property.images | slice:1;">
+                        <img width="300" height="300" class="d-block w-100"
+                          src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <!-- <div class="property-pic"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                  <img src="{{property.frontImage}}" alt=""><i class="fa fa-arrow-right" aria-hidden="true"></i>
+
+                </div> -->
+                </div>
+                <div class="col-md-12">
+                  <div class="property-text">
+                    <div class="s-text">For Sale</div>
+                    <h5 style="font-size: 14px;" class="r-title" (click)="showPropertyDetails(property.id)">
+                      {{property.name}} </h5><button class="btn btn-success" style="float: right;"
+                      (click)="showPropertyDetails(property.id)"> More details</button>
+                    <div class="room-price">
+                      <span style="font-size: 14px;">Monthly Rental</span>
+                      <h5 style="font-size: 14px;">{{property.price}}/month</h5>
+                    </div>
+                    <div style="font-size: 14px;" class="properties-location"><i
+                        class="icon_pin"></i>{{property.address}}</div>
+                    <!-- <div class="properties-location">Owner: {{property.ownerName}}</div>
+                    <div>Phone: {{property.phoneNumber}}<a (click)="modelClick()" class="phoneNumberAnchor"> (View)</a>
+                    </div> -->
+                    <!-- <br> -->
+                    <div class="row">
+                    <div class="col-xs-4 col-md-3">
+                    <button style="font-size: 14px;"
+                      (click)="modelClick(property.phoneNumber,'phoneNumber')" class="btn btn-success">Contact For Rentals</button>
+                    </div>  <div class="col-xs-4 col-md-2">
+                      <button style="font-size: 14px;" (click)="shortList(property.id)"
+                      class="btn btn-success btnstyle">
+                      Shortlist
+                    </button>
+                    </div><div class="col-xs-4 col-md-3">
+                    <button style="font-size: 14px;" (click)="modelClick1(property.id)"
+                      class="btn btn-success btnstyle">
+                      Fix appointment
+                    </button>
+                  </div>
+                  <div class="col-md-4"></div>
+                  <div class="col-md-2">
+
+                    <p style="font-size: 14px;">{{property.description}}</p>
+                  </div>
+                </div>
+                    <div id="myModal1" class="{{modelClass1}}">
+
+                        <!-- Modal content -->
+                        <div class="modal-content1">
+                          <span class="close" (click)="closeModal1()">&times;</span>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-12 col-xs-12	col-sm-12">
+                                <p style="font-size: 10px;">User Details</p>
+                                <div class="row">
+                                  <div style="font-size: 10px;" class="col-md-6">
+                                    <select style="font-size: 10px;" (change)="empTypeSelected($event.target.value)" class="form-control"
+                                      id="employmentType">
+                                      <option value="" selected disabled>Employment type</option>
+                                      <option value="working">Working</option>
+                                      <option value="business">Business</option>
+                                    </select>
+                                  </div>
+                                  <div style="font-size: 10px;" class="col-md-6">
+                                    <select style="font-size: 10px;" (change)="docTypeSelected($event.target.value)" class="form-control"
+                                      id="docType">
+                                      <option value="" selected disabled>Document Type</option>
+                                      <option value="poi">POI</option>
+                                      <option value="emp">Employment Proof</option>
+                                    </select></div>
+                                  <div style="font-size: 10px;" class="col-md-6" style="padding-top: 2%;">
+                                    <input style="font-size: 10px;" type="file" (change)="fileuploaded($event)">
+                                  </div>
+                                </div>
+                                <p style="font-size: 10px;">Date</p>
+                                <div class="row">
+                                  <div class="col-xs-4  col-md-4" style="font-size: 10px;"><button (click)="dateSelected('today')"
+                                      style="font-size: 10px;" class="btn btn-info">Today</button></div>
+                                  <div class="col-xs-4 col-md-4" style="font-size: 10px;"><button (click)="dateSelected('tomorrow')"
+                                      style="font-size: 10px;" class="btn btn-info">Tomorrow</button></div>
+                                  <div class="col-xs-6 col-md-4" style="font-size: 10px;">
+                                    <!-- <input (focusout)="dateSelected('selectedDate')"
+                                      type="text" class="timetext" placeholder="Enter Date (yyyy-mm-dd)" style="font-size: 10px;"> -->
+                                      <angular2-date-picker [(ngModel)]="datefrom" (onDateSelect)="dateSelected($event)" [settings]="settings">
+                                        </angular2-date-picker>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <p style="font-size: 10px;">Time</p>
+                  
+                              <div class="col-md-12 innerBorder">
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid;">
+                                    <div class="row">
+                                      <div class="col-xs-4 col-sm-4 col-lg-4" style="font-size: 10px;padding-left: 11%;">Morning</div>
+                                      <div class="col-xs-4 col-sm-4 col-lg-4" style="font-size: 10px;padding-left: 10%;">Afternoon</div>
+                                      <div class="col-xs-4 col-sm-4 col-lg-4" style="font-size: 10px;padding-left: 7%;">Evening</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                  <div class="row">
+                                    <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('08AM-10AM')" style="font-size: 10px;    margin-top: 5px;
+                                      margin-bottom: 5px;" class="btn btn-info">08AM-10AM</button></div>
+                                    <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('12PM-02PM')" style="font-size: 10px;    margin-top: 5px;
+                                      margin-bottom: 5px;" class="btn btn-info">12PM-02PM</button></div>
+                                    <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('04PM-06PM')" style="font-size: 10px;    margin-top: 5px;
+                                      margin-bottom: 5px;" class="btn btn-success">04PM-06PM</button></div>
+                                    <br>
+                                    <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('10AM-12PM')" style="font-size: 10px;    margin-top: 5px;
+                                      margin-bottom: 5px;" class="btn btn-info">10AM-12PM</button></div>
+                                    <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('02PM-04PM')" style="font-size: 10px;    margin-top: 5px;
+                                      margin-bottom: 5px;" class="btn btn-info">02PM-04PM</button></div>
+                                    <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('06PM-08PM')" style="font-size: 10px;    margin-top: 5px;
+                                      margin-bottom: 5px;" class="btn btn-success">06PM-08PM</button></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-12 ">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <p *ngIf="appointmentSchedule" style="text-align: center; font-size: 13px;">{{appointmentSchedule}}
+                                    </p>
+                                    <button (click)="scheduleAppointment()" style="font-size: 10px;    width: 100%; margin-top: 5px;
+                                        margin-bottom: 25px;" class="btn btn-success">Schedule Visit</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <ul class="room-features">
+                      <li style="font-size: 14px;">
+                        <i class="fa fa-arrows"></i>
+                        <p>{{property.area}} sqft</p>
+                      </li>
+                      <li style="font-size: 14px;">
+                        <i class="fa fa-bed"></i>
+                        <p>{{property.bedroom}} Bed Room</p>
+                      </li>
+                      <li style="font-size: 14px;">
+                        <i class="fa fa-bath"></i>
+                        <p>{{property.washroom}} Washroom</p>
+                      </li>
+                      <li style="font-size: 14px;" *ngIf="property.parking">
+                        <i class="fa fa-car"></i>
+                        <p>{{property.parking}} Parking</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <!-- <div class="property-pagination">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+
+    <div id="myModal" class="{{modelClass}}">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h3 style="text-align: center;margin-top: 8%;">Thanks for choosing us</h3>
+        <p style="text-align: center;"> {{messageModal}}</p>
+      </div>
+
+    </div>
+
+    
+
+
+
+  </section>
+  <div id="myModal3" class="{{modelClass3}}">
+    <!-- Modal content -->
+    <div class="modal-content3">
+      <div class="col-lg-12 formStyle">
+        <span class="close" (click)="closeModal3()">&times;</span>
+        <div class="property-sidebar">
+          <h4 style="color:white;">User Login</h4>
+          <div class="form-row" style="margin-bottom: 10%;">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend3">@</span>
+              </div>
+              <input type="text" [(ngModel)]="userName" class="form-control" id="validationServerUsername"
+                placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+            </div>
+          </div>
+          <div class="form-row" style="margin-bottom: 10%;">
+            <input type="password" (click)="passwordUser($event.target.value)" [(ngModel)]="password"
+              class="form-control" id="exampleInputPassword1" placeholder="Password">
+            {{messageLogin}}
+          </div>
+
+          <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+        </div>
+      </div>
+      <p style="text-align: center;">OR</p>
+      <p style="text-align: center;">Regiter to make an appointment </p>
+      <p style="text-align: center;    cursor: pointer;" (click)="register()">Click Here</p>
+    </div>
+  </div>
+</div>
+<div id="myModal5" class="{{modelClass5}}">
+  <!-- Modal content -->
+  <div class="modal-content5">
+      <span class="close" style="padding: 3%;" (click)="closeModal5()">&times;</span>
+    <div *ngIf="isvalidSearch" class="spinner-border"></div>
+    <div style="padding: 12%;
+    background: white;
+    color: black;" *ngIf="!isvalidSearch">No property Matching your requirements</div>
+  </div>
+</div>
+<!-- How It Works Section End -->
+
+<!-- Feature Section Begin -->
+
+<!-- Feature Section End -->
+<footer></footer>

@@ -1,0 +1,343 @@
+.menuItems {
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+
+.top-nav {
+  background: darkred;
+}
+
+.top-nav .main-menu ul li a {
+  font-size: 12px;
+  font-family: unset;
+}
+
+.menuItems:hover {
+  font-size: 13px;
+}
+
+.canvas-open {
+  z-index: 10000 !important;
+}
+
+.showMenuBar {
+  width: 50%;
+  position: absolute;
+  margin-left: 50%;
+  display: block !important;
+  z-index: 1000;
+  height: 88%;
+}
+
+.menuItems1 {
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+
+.menuItems1:hover {
+  font-size: 13px;
+}
+
+.menuItems2 {
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+
+.menuItems2:hover {
+  font-size: 13px;
+}
+
+.menuItems3 {
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+
+.menuItems3:hover {
+  font-size: 13px;
+}
+
+.menu {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+
+.home:hover+.menu {
+  display: block;
+}
+
+.menu:hover {
+  display: block;
+}
+
+.menu1 {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+
+.owner:hover+.menu1 {
+  display: block;
+}
+
+.menu1:hover {
+  display: block;
+}
+
+.menu2 {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+
+.plan:hover+.menu2 {
+  display: block;
+}
+
+.menu2:hover {
+  display: block;
+}
+
+.menu3 {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 100px;
+}
+
+.signupLogin:hover+.menu3 {
+  display: block;
+}
+
+.menu3:hover {
+  display: block;
+}
+
+.modal4 {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content4 {
+  background-color: #fefefe;
+  margin: 8% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 65% !important;
+  /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalDisplay4 {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  top: 0%;
+  width: 100%;
+  height: 1500px;
+  background-color: rgba(0, 0, 0, 0.6)
+}
+
+.panel {
+  text-align: center;
+}
+
+.panel:hover {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35);
+}
+
+.panel-body {
+  padding: 0px;
+  text-align: center;
+}
+
+.the-price {
+  background-color: rgba(220, 220, 220, .17);
+  box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
+  padding: 20px;
+  margin: 0;
+}
+
+.the-price h1 {
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.subscript {
+  font-size: 25px;
+}
+
+/* CSS-only ribbon styles    */
+.cnrflash {
+  /*Position correctly within container*/
+  position: absolute;
+  top: -9px;
+  right: 4px;
+  z-index: 1;
+  /*Set overflow to hidden, to mask inner square*/
+  overflow: hidden;
+  /*Set size and add subtle rounding  		to soften edges*/
+  width: 100px;
+  height: 100px;
+  border-radius: 3px 5px 3px 0;
+}
+
+.cnrflash-inner {
+  /*Set position, make larger then 			container and rotate 45 degrees*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 145px;
+  height: 145px;
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -o-transform: rotate(45deg);
+  /* Opera */
+  -moz-transform: rotate(45deg);
+  /* Firefox */
+  -webkit-transform: rotate(45deg);
+  /* Safari and Chrome */
+  -webkit-transform-origin: 100% 100%;
+  /*Purely decorative effects to add texture and stuff*/
+  /* Safari and Chrome */
+  -ms-transform-origin: 100% 100%;
+  /* IE 9 */
+  -o-transform-origin: 100% 100%;
+  /* Opera */
+  -moz-transform-origin: 100% 100%;
+  /* Firefox */
+  background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, .1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, .2) 50%);
+  background-size: 4px, auto, auto, auto;
+  background-color: #aa0101;
+  box-shadow: 0 3px 3px 0 rgba(1, 1, 1, .5), 0 1px 0 0 rgba(1, 1, 1, .5), inset 0 -1px 8px 0 rgba(255, 255, 255, .3), inset 0 -1px 0 0 rgba(255, 255, 255, .2);
+}
+
+.cnrflash-inner:before,
+.cnrflash-inner:after {
+  /*Use the border triangle trick to make  				it look like the ribbon wraps round it's 				container*/
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: -16px;
+  width: 0;
+  height: 0;
+  border: 8px solid #800000;
+}
+
+.cnrflash-inner:before {
+  left: 1px;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+.cnrflash-inner:after {
+  right: 0;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+
+.cnrflash-label {
+  /*Make the label look nice*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  padding-bottom: 5px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(1, 1, 1, .8);
+  font-size: 0.95em;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media only screen and (max-width: 991px) {
+  .popularPlan {
+    margin-bottom: 21%;
+  }
+  .menu {
+    display: none;
+    background-color: #1C1C1C;
+    z-index: 1;
+    padding: 6%;
+    position: absolute;
+    width: 77%;
+  }
+  .menu1 {
+    display: none;
+    background-color: #1C1C1C;
+    z-index: 1;
+    padding: 6%;
+    position: absolute;
+    width: 77%;
+  }
+  .menu2 {
+    display: none;
+    background-color: #1C1C1C;
+    z-index: 1;
+    padding: 6%;
+    position: absolute;
+    width: 77%;
+  }
+  .menu3 {
+    display: none;
+    background-color: #1C1C1C;
+    z-index: 1;
+    padding: 6%;
+    position: absolute;
+    width: 77%;
+  }
+}

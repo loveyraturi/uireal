@@ -1,0 +1,29 @@
+
+<section class="property-section spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 formStyle">
+        <div class="property-sidebar">
+          <h4 style="color:white;">User Login</h4>
+          <div class="form-row">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend3">@</span>
+              </div>
+              <input type="text" [(ngModel)]="userName" class="form-control" id="validationServerUsername"
+                placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <input type="password" [(ngModel)]="password" class="form-control" id="exampleInputPassword1"
+              placeholder="Password">
+          </div>
+          <button style="margin-bottom: 4%;" type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+          <br>
+        <br>
+          <alert></alert>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

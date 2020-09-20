@@ -24,18 +24,36 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/elegant-icons.css",
+              "src/assets/css/themify-icons.css",
+              "src/assets/css/nice-select.css",
+              "src/assets/css/jquery-ui.min.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/slicknav.min.css",
+              "src/assets/css/style.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/jquery-3.3.1.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/jquery.nice-select.min.js",
+              "src/assets/js/jquery.slicknav.js",
+              "src/assets/js/jquery-ui.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -45,8 +63,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -120,6 +137,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "realestateui"
 }

@@ -1,0 +1,274 @@
+<div id="wrapper">
+  <div class="col-md-4 container testt">
+    <div class="row" style="    background-color: darkgoldenrod;
+    margin-top: 30%;">
+      <div>
+        <div class="row1">
+          <div>
+            <input [(ngModel)]="number" type="tel" name="name" id="telNumber" class="form-control tel" value="" />
+            <div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('1')">
+                  <div class="txt">
+                    1
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('2')">
+                  <div class="txt">
+                    2
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('3')">
+                  <div class="txt">
+                    3
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('4')">
+                  <div class="txt">
+                    4
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('5')">
+                  <div class="txt">
+                    5
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('6')">
+                  <div class="txt">
+                    6
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('7')">
+                  <div class="txt">
+                    7
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('8')">
+                  <div class="txt">
+                    8
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('9')">
+                  <div class="txt">
+                    9
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('*')">
+                  <div class="txt">
+                    *
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('0')">
+                  <div class="txt">
+                    0
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 span4">
+                <div class="num" (click)="entered('#')">
+                  <div class="txt">
+                    #
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <a (click)="submit()" class="btn btn-success btn-block flatbtn">{{callStatus}}</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 10%;">
+            <div>
+              <div class="col-md-4">
+                <span class="glyphicon glyphicon-play"></span>
+              </div>
+              <div class="col-md-4">
+                <span class="glyphicon glyphicon-pause"></span>
+              </div>
+              <div class="col-md-4">
+                <span class="glyphicon glyphicon-cog"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="col-md-6 container">
+
+    <div class="row">
+      <div style="left: 20%;"
+        class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-4 col-lg-4 col-lg-offset-4 createuser">
+
+        <div class="panel panel-default box-shadow">
+          <div class="panel-heading">
+            <span class="text-primary">Feedback</span>
+            <span class="text-muted pull-right today" title="Today"></span>
+          </div>
+          <!--.panel-heading-->
+
+          <div class="panel-body">
+            <form [formGroup]="registerform" (submit)="submitFeedBack(registerform)" method="POST">
+
+              <div class="form-group col-md-3">
+                <label for="title">Title</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-book"></i></div>
+                  <input autofocus required type="text" formControlName="title" name="title" id="title"
+                    class="form-control" placeholder="Your title" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="fname">First Name</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-book"></i></div>
+                  <input autofocus required type="text" formControlName="fname" name="fname" id="fname"
+                    class="form-control" placeholder="Your First Name" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="email">middle Name</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-book"></i></div>
+                  <input autofocus required type="text" formControlName="mname" name="mname" id="mname"
+                    class="form-control" placeholder="Your  Middle Name" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="lname">Last Name</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-book"></i></div>
+                  <input autofocus required type="text" formControlName="lname" name="lname" id="lname"
+                    class="form-control" placeholder="Your Last Name" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="hno">House Number</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                  <input autofocus required type="text" formControlName="hno" name="hno" id="hno" class="form-control"
+                    placeholder="Your House Number" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="group">Address</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                  <input autofocus required type="text" formControlName="address" name="address" id="address"
+                    class="form-control" placeholder="Your address" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="city">City</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                  <input autofocus required type="text" formControlName="city" name="city" id="city"
+                    class="form-control" placeholder="Your City" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="state">State</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                  <input autofocus required type="text" formControlName="state" name="state" id="state"
+                    class="form-control" placeholder="Your State" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="vid">Vendor ID</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                  <input autofocus required type="text" formControlName="vid" name="vid" id="vid" class="form-control"
+                    placeholder="Your Vender Id" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Number"> Alt. Phone Number</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></div>
+                  <input autofocus required type="text" formControlName="phonenumber" name="phonenumber"
+                    id="phonenumber" class="form-control" placeholder="Your phone number" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></div>
+                  <input autofocus required type="email" formControlName="email" name="email" id="email"
+                    class="form-control" placeholder="Your email" tabindex="1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Comment</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                  <textarea required type="text" formControlName="comment" class="form-control"
+                    placeholder="Enter Comment" tabindex="2"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-block btn-success" tabindex="5">Submit</button>
+            </form>
+          </div>
+        </div>
+        <!--.panel-->
+
+      </div>
+    </div>
+    <div id="myModal" class="{{modelClass}}">
+      <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <form>
+          <div class="form-group">
+            <label for="level">CALL DISPOSITION</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="glyphicon glyphicon-level-up"></i></div>
+              <select class="mdb-select md-form form-control" formControlName="level">
+                <option value="" disabled selected>Choose DISPOSITION</option>
+                <option value="A">ANSWER MACHINE</option>
+                <option value="B">BUSY</option>
+                <option value="CALLBK">Call Back</option>
+                <option value="DAIR">Dead Air</option>
+                <option value="DC">Disconnected Number</option>
+                <option value="DEC">Declined State</option>
+                <option value="DNC">Do Not Call</option>
+                <option value="N">No Answer</option>
+                <option value="NI">Not Interested</option>
+                <option value="NP">No Pitch No Price</option>
+                <option value="SALE">Sale made</option>
+                <option value="XFER">Call Transfered</option>
+
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-block btn-success" tabindex="5">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
