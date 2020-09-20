@@ -15,7 +15,7 @@ export class PropertiesService {
   constructor(private http: HttpClient) { }
   addProperties(ruleConf): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/addProperties', ruleConf).pipe(
+      .post('https://ownertenants.com/realestate/realestate/addProperties', ruleConf).pipe(
         map(
           res => {
             return res;
@@ -27,7 +27,7 @@ export class PropertiesService {
   }
   updatePropertyAvailability(request): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/updatePropertyAvailability', request).pipe(
+      .post('https://ownertenants.com/realestate/realestate/updatePropertyAvailability', request).pipe(
         map(
           res => {
             return res;
@@ -39,7 +39,7 @@ export class PropertiesService {
   }
   matchRequirements(ruleConf): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/matchRequirements', ruleConf).pipe(
+      .post('https://ownertenants.com/realestate/realestate/matchRequirements', ruleConf).pipe(
         map(
           res => {
             return res;
@@ -51,7 +51,7 @@ export class PropertiesService {
   }
   updateImages(ruleConf): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/updateImages', ruleConf).pipe(
+      .post('https://ownertenants.com/realestate/realestate/updateImages', ruleConf).pipe(
         map(
           res => {
             return res;
@@ -63,7 +63,7 @@ export class PropertiesService {
   }
   updateProperty(ruleConf): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/updateProperty', ruleConf).pipe(
+      .post('https://ownertenants.com/realestate/realestate/updateProperty', ruleConf).pipe(
         map(
           res => {
             return res;
@@ -75,7 +75,7 @@ export class PropertiesService {
   }
   scheduleAppointment(ruleConf): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/scheduleAppointment', ruleConf).pipe(
+      .post('https://ownertenants.com/realestate/realestate/scheduleAppointment', ruleConf).pipe(
         map(
           res => {
             return res;
@@ -87,7 +87,7 @@ export class PropertiesService {
   }
   fetchPropertiesById(id): Observable<any> {
     return this.http
-      .get('https://ownertenants/realestate/realestate/fetchPropertiesById/' + id).pipe(
+      .get('https://ownertenants.com/realestate/realestate/fetchPropertiesById/' + id).pipe(
         map(
           res => {
             return res;
@@ -99,7 +99,7 @@ export class PropertiesService {
   }
   sortlistedProperties(username): Observable<any> {
     return this.http
-      .get('https://ownertenants/realestate/realestate/sortlistedProperties/' + username).pipe(
+      .get('https://ownertenants.com/realestate/realestate/sortlistedProperties/' + username).pipe(
         map(
           res => {
             return res;
@@ -111,7 +111,7 @@ export class PropertiesService {
   }
   deleteInterestedProperties(propertyId,username): Observable<any> {
     return this.http
-      .get('https://ownertenants/realestate/realestate/deleteInterestedProperties/'+propertyId+'/' + username).pipe(
+      .get('https://ownertenants.com/realestate/realestate/deleteInterestedProperties/'+propertyId+'/' + username).pipe(
         map(
           res => {
             return res;
@@ -123,7 +123,7 @@ export class PropertiesService {
   }
   manageProperties(request): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/manageProperties', request).pipe(
+      .post('https://ownertenants.com/realestate/realestate/manageProperties', request).pipe(
         map(
           res => {
             return res;
@@ -135,7 +135,7 @@ export class PropertiesService {
   }
   findPropertiesNearMe(request): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/findPropertiesNearMe', request).pipe(
+      .post('https://ownertenants.com/realestate/realestate/findPropertiesNearMe', request).pipe(
         map(
           res => {
             return res;
@@ -147,7 +147,7 @@ export class PropertiesService {
   }
   updatePropertyStatus(propertyId, status): Observable<any> {
     return this.http
-      .get('https://ownertenants/realestate/realestate/updatePropertyStatus/' + propertyId + '/' + status).pipe(
+      .get('https://ownertenants.com/realestate/realestate/updatePropertyStatus/' + propertyId + '/' + status).pipe(
         map(
           res => {
             return res;
@@ -159,7 +159,7 @@ export class PropertiesService {
   }
   fetchProperties(): Observable<any> {
     return this.http
-      .get('https://ownertenants/realestate/realestate/fetchProperties/').pipe(
+      .get('https://ownertenants.com/realestate/realestate/fetchProperties/').pipe(
         map(
           res => {
             return res;
@@ -171,7 +171,7 @@ export class PropertiesService {
   }
   fetchUnapprovedProperties(): Observable<any> {
     return this.http
-      .get('https://ownertenants/realestate/realestate/fetchUnapprovedProperties/').pipe(
+      .get('https://ownertenants.com/realestate/realestate/fetchUnapprovedProperties/').pipe(
         map(
           res => {
             return res;
@@ -183,7 +183,7 @@ export class PropertiesService {
   }
   mainSearch(request): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/mainProperties', request).pipe(
+      .post('https://ownertenants.com/realestate/realestate/mainProperties', request).pipe(
         map(
           res => {
             return res;
@@ -195,7 +195,7 @@ export class PropertiesService {
   }
   fetchreportdatabetweenpropertyadded(request): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/fetchreportdatabetweenpropertyadded', request).pipe(
+      .post('https://ownertenants.com/realestate/realestate/fetchreportdatabetweenpropertyadded', request).pipe(
         map(
           res => {
             return res;
@@ -207,7 +207,7 @@ export class PropertiesService {
   }
   searchProperties(request): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/searchProperties', request).pipe(
+      .post('https://ownertenants.com/realestate/realestate/searchProperties', request).pipe(
         map(
           res => {
             return res;
@@ -219,7 +219,7 @@ export class PropertiesService {
   }
   searchAddress(address): Observable<any> {
     return this.http
-      .get('https://ownertenants/realestate/realestate/searchAddress/' + address).pipe(
+      .get('https://ownertenants.com/realestate/realestate/searchAddress/' + address).pipe(
         map(
           res => {
             return res;

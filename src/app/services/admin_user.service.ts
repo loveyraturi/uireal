@@ -18,7 +18,7 @@ export class AdminUserService {
 
   validate(request): Observable<any> {
     return this.http
-      .post('https://ownertenants/realestate/realestate/validateadminuser', request).pipe(
+      .post('https://ownertenants.com/realestate/realestate/validateadminuser', request).pipe(
         map(
           res => {
             return res;

@@ -32,9 +32,9 @@ export class PaymentComponent implements OnInit {
     private lastname = "raturi";
     private email = "loveyraturi@gmail.com";
     private phone = "8193971153";
-    private surl = "https://ownertenants/realestate/realestate/afterPayment"
-    private furl = "https://ownertenants/realestate/realestate/afterPayment"
-    private curl = "https://ownertenants/realestate/realestate/afterPayment"
+    private surl = "https://ownertenants.com/realestate/realestate/afterPayment"
+    private furl = "https://ownertenants.com/realestate/realestate/afterPayment"
+    private curl = "https://ownertenants.com/realestate/realestate/afterPayment"
     // private salt = "eCwWELxi"
     // private key = "gtKFFx"
     private salt = "jT93ctkGoH"
