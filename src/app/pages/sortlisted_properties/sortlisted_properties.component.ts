@@ -7,7 +7,6 @@ import { UserService } from "src/app/services/user.service";
 import { PropertiesService } from "src/app/services/properties.service";
 import { ActivatedRoute } from "@angular/router";
 import { DomSanitizer } from "@angular/platform-browser";
-import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
     selector: 'sortlisted_properties',
@@ -43,7 +42,7 @@ export class SortlistedPropertiesComponent implements OnInit {
     private modelClass3 = "modal3"
     private numberMessage;
 
-    constructor(private spinner: NgxSpinnerService,private sanitization: DomSanitizer, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
+    constructor(private sanitization: DomSanitizer, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
         // this.fetchPropertyDetailsById()
         // this.modelClick()
         
@@ -265,12 +264,10 @@ export class SortlistedPropertiesComponent implements OnInit {
         })
     }
     getSortlistedProperties() {
-        this.spinner.show();
         console.log(this.username)
         this.propertiesService.sortlistedProperties(this.username).subscribe(response => {
             console.log(response, "#@#@$#@$#@$#@#@$#")
             this.properties = response
-            this.spinner.hide();
         })
     }
     // getGeoLocation() {
