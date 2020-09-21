@@ -219,13 +219,19 @@ export class PropertiesRegistrationComponent implements OnInit {
             this.message = "Please login to add property"
         }
     }
-    modelClickRegister(message) {
+    modelClickRegister(message,type) {
         console.log(this.username, "model id is ", this.type)
         this.modelClass = "modalDisplay"
         if (this.username != undefined) {
             if (this.type == "owner") {
                 // this.closeModal()
-                this.message = message
+                if(type=="success"){
+                    this.message = message
+                    this.router.navigateByUrl("main")
+                }else{
+                    this.message = message
+                }
+                
 
             } else {
                 this.message = "You are not allowed to add property please login as owner"
@@ -350,10 +356,10 @@ export class PropertiesRegistrationComponent implements OnInit {
                 console.log("groupdata#######", data)
                 if (data.status == "true") {
                     console.log(data.message)
-                    this.modelClickRegister(data.message)
+                    this.modelClickRegister(data.message,"success")
                 } else {
                     console.log(data.message)
-                    this.modelClickRegister(data.message)
+                    this.modelClickRegister(data.message,"failure")
                 }
 
             })

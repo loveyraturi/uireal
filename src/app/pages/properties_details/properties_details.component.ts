@@ -7,7 +7,6 @@ import { UserService } from "src/app/services/user.service";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { PropertiesService } from "src/app/services/properties.service";
 import { ActivatedRoute } from "@angular/router";
-import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
 	selector: 'properties_details',
@@ -51,7 +50,7 @@ export class PropertiesDetailsComponent implements OnInit {
 		closeOnSelect: true
 	}
 	fromDate: Date = new Date();
-	constructor(private spinner: NgxSpinnerService, private userService: UserService, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
+	constructor(private userService: UserService, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
 		this.modelClick5()
 		this.fetchPropertiesById(localStorage.getItem("propertyId"))
 		localStorage.getItem("username");
