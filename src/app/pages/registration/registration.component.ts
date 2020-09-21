@@ -38,8 +38,8 @@ export class RegistrationComponent implements OnInit {
 
     }
     success(message: string) { 
-        this.alertService.success(message);
-        this.router.navigateByUrl('/login');
+        this.alertService.success(message);                 
+        setTimeout(() =>  this.router.navigateByUrl('/login'),1500);
     }
 
     error(message: string) {
