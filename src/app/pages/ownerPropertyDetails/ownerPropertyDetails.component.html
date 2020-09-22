@@ -196,57 +196,55 @@
             </select>
           </div> -->
           <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Locality</th>
-                <th>City</th>
-                <th>OwnerName</th>
-                <th>View details</th>
-                <th>Status</th>
+            <tr>
+              <td>Name</td>
+              <td>{{property.name}}</td>
+            </tr>
+            <tr>
+              <td>Monthly rental</td>
+              <td>{{property.price}}</td>
+            </tr>
+            <tr>
+              <td>security Deposite</td>
+              <td>{{property.security}}</td>
+            </tr>
+            <tr>
+              <td>Maintainance</td>
+              <td>{{property.city}}</td>
+            </tr>
+            <tr>
+              <td>Bedrooms</td>
+              <td>{{property.bedroom}}</td>
+            </tr>
+            <tr>
+              <td>Washroom</td>
+              <td>{{property.washroom}}</td>
+            </tr>
+            <tr>
+              <td>Furnish Type</td>
+              <td>{{property.furnish}}</td>
+            </tr>
+            <tr>
+              <td>Allowed</td>
+              <td>{{property.allowed}}</td>
+            </tr>
+            <tr>
+              <td>Locality</td>
+              <td>{{property.washroom}}</td>
+            </tr>
+            <tr>
+              <td>City</td>
+              <td>{{property.city}}</td>
+            </tr>
+            <tr>
+              <td>State</td>
+              <td>{{property.state}}</td>
+            </tr>
+            <tr *ngFor="let image of  property.images; let i=index;">
+                <td>Image {{i+1}}</td>
+                <td><a target="_blank" href="./assets/properties/{{image.imageName}}">View</a></td>
               </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let property of  properties">
-                <td>{{property.name}}</td>
-                <td>{{property.locality}}</td>
-                <td>{{property.city}}</td>
-                <td>{{property.ownerName}}</td>
-                <td>
-                  <ui-switch size="small" [(ngModel)]="property.enable" (change)="onChange($event,property.id)">
-                  </ui-switch>
-                </td>
-              </tr>
-            </tbody>
           </table>
-          <div *ngIf="property.images" class="col-md-4">
-              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item" *ngFor="let imageCarasoule of property.images | slice:1;">
-                    <img width="300" height="300" class="d-block w-100"
-                      src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-              <!-- <div class="property-pic"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-
-              <img src="{{property.frontImage}}" alt=""><i class="fa fa-arrow-right" aria-hidden="true"></i>
-
-            </div> -->
-            </div>
         </div>
 
 

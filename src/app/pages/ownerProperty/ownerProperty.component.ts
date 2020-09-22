@@ -12,6 +12,7 @@ import { PropertiesService } from 'src/app/services/properties.service';
 export class OwnerPropertyComponent implements OnInit {
   private menuDiv = "hide";
   private properties;
+  private propertyId;
   constructor(private router: Router, private propertiesService: PropertiesService) { }
 
   ngOnInit() {
@@ -61,6 +62,19 @@ export class OwnerPropertyComponent implements OnInit {
         }
         return element;
       });
+    })
+  }
+  fetchPropertyById(){
+    this.properties=[]
+    this.propertiesService.fetchPropertiesById(this.propertyId).subscribe(item => {
+      console.log(item, "############");
+      
+      if (item.isApproved == 1) {
+        item.enable = true
+      } else {
+        item.enable = false
+      }
+      this.properties.push(item);
     })
   }
   fetchProperties() {

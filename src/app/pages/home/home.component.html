@@ -142,11 +142,7 @@
                       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img width="300" height="300" class="d-block w-100" src="{{property.frontImage}}"
-                          alt="First slide">
-                      </div>
-                      <div class="carousel-item" *ngFor="let imageCarasoule of property.images | slice:1;">
+                      <div class="carousel-item" *ngFor="let imageCarasoule of property.images; let i=index;" [ngClass]="{'active' : i==0}">
                         <img width="300" height="300" class="d-block w-100"
                           src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
                       </div>
@@ -336,7 +332,7 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
-        <h3 style="text-align: center;margin-top: 8%;">Thanks for choosing us</h3>
+        <h3 *ngIf="callModal" style="text-align: center;margin-top: 8%;">Thanks for choosing us</h3>
         <p style="text-align: center;"> {{messageModal}}</p>
       </div>
 
@@ -388,6 +384,12 @@
     color: black;" *ngIf="!isvalidSearch">No property Matching your requirements</div>
   </div>
 </div>
+<div id="myModal6" class="{{modelClass6}}">
+    <!-- Modal content -->
+    <div class="modal-content6">
+      <div class="spinner-border"></div>
+    </div>
+  </div>
 <!-- How It Works Section End -->
 
 <!-- Feature Section Begin -->

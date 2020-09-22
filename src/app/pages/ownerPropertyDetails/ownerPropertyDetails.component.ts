@@ -13,13 +13,14 @@ export class OwnerPropertyDetailsComponent implements OnInit {
   private menuDiv = "hide";
   private id;
   private property;
-  constructor(private _activatedRoute: ActivatedRoute,private router: Router, private propertiesService: PropertiesService) {     this.id = this._activatedRoute.snapshot.params.id
+  constructor(private _activatedRoute: ActivatedRoute, private router: Router, private propertiesService: PropertiesService) {
+  this.id = this._activatedRoute.snapshot.params.id
     this.id = this._activatedRoute.snapshot.params.id
     this.fetchPropertiesById(this.id);
   }
 
   ngOnInit() {
-    
+
   }
   showDiv(event) {
     console.log(event, "#####################")
@@ -44,8 +45,9 @@ export class OwnerPropertyDetailsComponent implements OnInit {
   }
   fetchPropertiesById(id) {
     this.propertiesService.fetchPropertiesById(id).subscribe(item => {
-      console.log(item,"############");
-      this.property=item;
+      console.log(item, "############");
+
+      this.property = item;
     })
   }
 }

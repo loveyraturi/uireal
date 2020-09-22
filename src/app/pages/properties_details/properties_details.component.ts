@@ -7,6 +7,7 @@ import { UserService } from "src/app/services/user.service";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { PropertiesService } from "src/app/services/properties.service";
 import { ActivatedRoute } from "@angular/router";
+import { DatePicker } from 'angular2-datetimepicker';
 
 @Component({
 	selector: 'properties_details',
@@ -32,6 +33,7 @@ export class PropertiesDetailsComponent implements OnInit {
 	private dateScheduled;
 	private timeScheduled;
 	private password;
+	private thanksFlag=false;
 	private fileToUpload
 	private numberMessage;
 	private maplocation;
@@ -55,7 +57,13 @@ export class PropertiesDetailsComponent implements OnInit {
 		this.fetchPropertiesById(localStorage.getItem("propertyId"))
 		localStorage.getItem("username");
 		localStorage.getItem("type");
-
+		DatePicker.prototype.ngOnInit = function() {
+			this.settings = Object.assign(this.defaultSettings, this.settings);
+			if (this.settings.defaultOpen) {
+			this.popover = true;
+			}
+			this.date = new Date();
+			};
 	}
 
 	ngOnInit() {
@@ -119,10 +127,12 @@ export class PropertiesDetailsComponent implements OnInit {
 		reader.readAsDataURL(event.target.files[0]);
 		console.log(this.fileToUpload)
 		if (this.empType == undefined) {
-			this.appointmentSchedule = "Employment Type not selected"
+			this.modelClick("appointment","Employment Type not selected")
+			// this.appointmentSchedule = "Employment Type not selected"
 		} else {
 			if (this.docType == undefined) {
-				this.appointmentSchedule = "Document Type not selected"
+				this.modelClick("appointment","Document Type not selected")
+				// this.appointmentSchedule = "Document Type not selected"
 			} else {
 
 			}
@@ -204,18 +214,19 @@ export class PropertiesDetailsComponent implements OnInit {
 						empType: this.empType
 					}
 					this.propertiesService.scheduleAppointment(request).subscribe(response => {
-
+						this.modelClick("appointment",response.message)
 					})
-					this.appointmentSchedule = "Appoinment scheduled "
+					// this.appointmentSchedule = "Appoinment scheduled "
 
 					console.log("#@@#@#@#@@@@@@@@@@@###", request)
 				} else {
-					this.appointmentSchedule = "Please select date"
+					this.modelClick("appointment","Please select date")
+					// this.appointmentSchedule = "Please select date"
 				}
 			} else {
 				console.log("#@@#@#@#@@@@undefined@@@@@@@###")
-
-				this.appointmentSchedule = "Please select time"
+				this.modelClick("appointment","Please select time")
+				// this.appointmentSchedule = "Please select time"
 
 			}
 		}
@@ -240,8 +251,9 @@ export class PropertiesDetailsComponent implements OnInit {
 	closeModal5() {
 		this.modelClass5 = "modal5"
 	}
-	modelClick(value) {
+	modelClick(value,message) {
 		if (value == 'sortlist') {
+			this.thanksFlag=true
 			if (this.username != undefined && this.username != "") {
 				var request = {
 					username: this.username,
@@ -260,9 +272,15 @@ export class PropertiesDetailsComponent implements OnInit {
 				this.modelClass = "modalDisplay"
 				this.message = "please login to submit your request"
 			}
-		} else {
+		} else if(value=="contact"){
+			this.thanksFlag=true
 			this.modelClass = "modalDisplay"
 			this.message = "You can contact us on (+91) 9109769242"
+			//  + this.properties.phoneNumber
+		}else if(value=="appointment"){
+			this.thanksFlag=false
+			this.modelClass = "modalDisplay"
+			this.message = message
 			//  + this.properties.phoneNumber
 		}
 		console.log("model id is ")

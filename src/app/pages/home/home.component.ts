@@ -32,11 +32,13 @@ export class HomeComponent implements OnInit {
 	private properties;
 	private dateScheduled;
 	private timeScheduled;
+	private callModal=false;
 	private username = localStorage.getItem("username");
 	private type = localStorage.getItem("type");
 	private appointmentSchedule;
 	private selectedPropertry;
 	private modelClass5 = "modal5"
+	private modelClass6 = "modal6"
 	private modelClass3 = "modal3"
 	private isvalidSearch = true;
 	private propertiesFinal;
@@ -65,7 +67,7 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.modelClick5()
+		this.modelClick6()
 		var propDetails = localStorage.getItem("propertyDetail");
 		if (propDetails != null) {
 			this.searchOptions = JSON.parse(propDetails)
@@ -161,7 +163,7 @@ export class HomeComponent implements OnInit {
 				if (data.length < 1) {
 					this.isvalidSearch = false
 				} else {
-					this.closeModal5()
+					this.closeModal6()
 				}
 				this.numberOfProperties = data.length
 				console.log("###############!@!@@#########@!@@!", this.numberOfProperties)
@@ -267,17 +269,20 @@ export class HomeComponent implements OnInit {
 						empType: this.empType
 					}
 					this.propertiesService.scheduleAppointment(request).subscribe(response => {
-						this.closeModal1()
-						this.modelClick("Request Reqistered will notify you soon","")
-						this.appointmentSchedule = "Request Reqistered will notify you soon"
+						if(response.staus=="true"){
+							this.closeModal1()
+						}
+						this.modelClick(response.message,"")
+						// this.appointmentSchedule = "Request Reqistered will notify you soon"
 					})
 					console.log("#@@#@#@#@@@@@@@@@@@###", request)
 				} else {
+					this.modelClick("Please select date","")
 					this.appointmentSchedule = "Please select date"
 				}
 			} else {
 				console.log("#@@#@#@#@@@@undefined@@@@@@@###")
-
+				this.modelClick("Please select time","")
 				this.appointmentSchedule = "Please select time"
 
 			}
@@ -294,9 +299,11 @@ export class HomeComponent implements OnInit {
 	}
 	modelClick(value, type) {
 		if (type == "phoneNumber") {
+			this.callModal=true
 			this.numberMessage = value
 			this.messageModal = "You can contact us on (+91) 9109769242"
 		} else {
+			this.callModal=false
 			this.messageModal = value
 		}
 		// +value
@@ -306,8 +313,15 @@ export class HomeComponent implements OnInit {
 	modelClick5() {
 		this.modelClass5 = "modalDisplay5"
 	}
+	modelClick6() {
+		this.modelClass6 = "modalDisplay6"
+	}
 	closeModal5() {
 		this.modelClass5 = "modal5"
+		// this.router.navigateByUrl("/main")
+	}
+	closeModal6() {
+		this.modelClass6 = "modal6"
 		// this.router.navigateByUrl("/main")
 	}
 	closeModal1() {
