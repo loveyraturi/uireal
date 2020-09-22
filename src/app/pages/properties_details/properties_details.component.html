@@ -4,26 +4,29 @@
   <div class="hero-items owl-carousel owl-loaded owl-drag">
     <div class="owl-stage-outer">
       <div class="owl-stage">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" style="height: 470px;">
-            <div class="carousel-item active">
-              <img *ngIf="properties" class="d-block w-100" src="{{properties.frontImage}}" alt="First slide">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                </div>
+                <div class="carousel-item" *ngFor="let imageCarasoule of properties.images | slice:1;">
+                  <img width="300" height="300" class="d-block w-100"
+                    src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -87,7 +90,7 @@
                           <td style="word-break: break-all;" *ngIf="properties" class="p-value">{{properties.allowed}}</td>
                         </tr>
                         <tr>
-                          <td class="pt-name">Bathrooms</td>
+                          <td class="pt-name">Washroom</td>
                           <td *ngIf="properties" class="p-value">{{properties.washroom}}</td>
                         </tr>
                         <tr>
@@ -192,15 +195,11 @@
                       <table class="left-table">
                         <tbody>
                           <tr>
-                            <td style="font-size: 15px;" class="pt-name">Purposed</td>
-                            <td style="font-size: 15px;" class="p-value">Estimate Price</td>
-                          </tr>
-                          <tr>
                             <td style="font-size: 15px;" class="pt-name">Monthly Rental:</td>
                             <td *ngIf="properties" style="font-size: 15px;" class="p-value">{{properties.price}}</td>
                           </tr>
                           <tr>
-                            <td style="font-size: 15px;" class="pt-name">Maintainance:&nbsp; </td>
+                            <td style="font-size: 15px;" class="pt-name">Maintenance:&nbsp; </td>
                             <td *ngIf="properties" style="font-size: 15px;" class="p-value">{{properties.maintainance}}</td>
                           </tr>
                           <tr>

@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-12 form-style">
               <select class="form-control" (change)="bathroomFilter($event.target.value)" id="bedrooms">
-                <option value="default" selected disabled>Number of bathrooms</option>
+                <option value="default" selected disabled>Number of washrooom</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -134,7 +134,7 @@
           <div class="property-list">
             <div class="single-property-item" *ngFor="let property of properties;  let i = index">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -166,13 +166,15 @@
 
                 </div> -->
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <div class="property-text">
-                    <div class="s-text">For Sale</div>
+                    <div class="s-text">Available</div>
+                    
                     <h5 style="font-size: 14px;" class="r-title" (click)="showPropertyDetails(property.id)">
-                      {{property.name}} </h5><button class="btn btn-success" style="float: right;"
-                      (click)="showPropertyDetails(property.id)"> More details</button>
-                    <div class="room-price">
+                      {{property.name}} </h5>
+                      <div class="room-price">
+                      <span style="font-size: 14px;">Property Id: {{property.id}}</span>
+                    <br>
                       <span style="font-size: 14px;">Monthly Rental</span>
                       <h5 style="font-size: 14px;">{{property.price}}/month</h5>
                     </div>
@@ -182,25 +184,28 @@
                     <div>Phone: {{property.phoneNumber}}<a (click)="modelClick()" class="phoneNumberAnchor"> (View)</a>
                     </div> -->
                     <!-- <br> -->
-                    <div class="row">
-                    <div class="col-xs-4 col-md-3">
+                    <div class="col-md-12">
+                        <p style="font-size: 14px;">{{property.description}}</p>
+                      </div>
+                    <div class="row" style="padding-bottom: 5%;">
+                    <div class="col-xs-3 col-md-3">
                     <button style="font-size: 14px;"
-                      (click)="modelClick(property.phoneNumber,'phoneNumber')" class="btn btn-success">Contact For Rentals</button>
-                    </div>  <div class="col-xs-4 col-md-2">
+                      (click)="modelClick(property.phoneNumber,'phoneNumber')" class="btn btn-success btnstyle">Contact Us</button>
+                    </div> 
+                     <div class="col-xs-3 col-md-3">
                       <button style="font-size: 14px;" (click)="shortList(property.id)"
                       class="btn btn-success btnstyle">
                       Shortlist
                     </button>
-                    </div><div class="col-xs-4 col-md-3">
+                    </div><div class="col-xs-3 col-md-3">
                     <button style="font-size: 14px;" (click)="modelClick1(property.id)"
                       class="btn btn-success btnstyle">
-                      Fix appointment
+                      Appointment
                     </button>
                   </div>
-                  <div class="col-md-4"></div>
-                  <div class="col-md-2">
-
-                    <p style="font-size: 14px;">{{property.description}}</p>
+                  <div class="col-xs-3 col-md-3">
+                    <button class="btn btn-success btnstyle" style="font-size: 14px;float: right;"
+                    (click)="showPropertyDetails(property.id)"> More details</button>
                   </div>
                 </div>
                     <div id="myModal1" class="{{modelClass1}}">

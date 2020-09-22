@@ -46,6 +46,10 @@ export class OwnerPropertyComponent implements OnInit {
         this.fetchUnapprovedProperties();
     }
   }
+  showOwnerDetails(id) {
+    console.log(id, "$$$$$$$$$$$$$$$")
+    this.router.navigateByUrl("/ownerPropertyDetailsComponent/" + id)
+  }
   fetchUnapprovedProperties() {
     this.propertiesService.fetchUnapprovedProperties().subscribe(item => {
       console.log(item);

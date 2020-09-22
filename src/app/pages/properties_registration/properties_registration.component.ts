@@ -227,7 +227,7 @@ export class PropertiesRegistrationComponent implements OnInit {
                 // this.closeModal()
                 if(type=="success"){
                     this.message = message
-                    this.router.navigateByUrl("main")
+                    setTimeout(() =>  this.router.navigateByUrl('/main'),1500);
                 }else{
                     this.message = message
                 }

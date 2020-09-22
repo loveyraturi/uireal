@@ -45,6 +45,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { AdminUserService } from './services/admin_user.service';
 import { AdminLoginComponent } from './pages/admin_login/admin_login.component';
 import { TenantDetailsComponent } from './pages/tenantDetails/tenantDetails.component';
+import { OwnerPropertyDetailsComponent } from './pages/ownerPropertyDetails/ownerPropertyDetails.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { TenantDetailsComponent } from './pages/tenantDetails/tenantDetails.comp
     ForgotPasswordComponent,
     ResetPasswordComponent,
     HomeComponent,
+    OwnerPropertyDetailsComponent,
     AlertComponent,
     OwnerComponent,
     LoginComponent,

@@ -24,6 +24,7 @@ import { MatchRequirementsComponent } from './pages/match_requirements/match_req
 import { FailureComponent } from './pages/failure/failure.component';
 import { AdminLoginComponent } from './pages/admin_login/admin_login.component';
 import { TenantDetailsComponent } from './pages/tenantDetails/tenantDetails.component';
+import { OwnerPropertyDetailsComponent } from './pages/ownerPropertyDetails/ownerPropertyDetails.component';
 
 export const appRoutes = [
     {
@@ -110,6 +111,10 @@ export const appRoutes = [
     {
         path: 'tenantsDetails/:id',
         component: TenantDetailsComponent
+    },
+    {
+        path: 'ownerPropertyDetailsComponent/:id',
+        component: OwnerPropertyDetailsComponent
     },
     {
         path: 'properties_registration',

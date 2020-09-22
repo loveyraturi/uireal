@@ -170,8 +170,11 @@ export class HomeComponent implements OnInit {
 				this.properties = data.map(items => {
 
 					// var str = items.frontImage.split("\\");
-					items.frontImage = "./assets/properties/" + items.images[0].imageName;
+					// items.frontImage = "./assets/properties/" + items.images[0].imageName;
 					items.description = items.description.replace(/↵/g, '\\n')
+					if (items.parking=="both"){
+						items.parking="Car and Bike"						
+						}
 					return items
 				});
 				this.imageBanner = this.sanitization.bypassSecurityTrustStyle(`url(${this.properties[0].images[0].imageName})`);

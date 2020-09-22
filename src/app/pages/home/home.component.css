@@ -256,6 +256,7 @@
 
   .btnstyle {
     height: 100%;
+    font-size: 11px !important;
   }
 
   .modal-content3 {
@@ -266,5 +267,9 @@
     border: 1px solid #888;
     width: 73% !important;
     margin-bottom: 4%;
+  }
+  .col-xs-3{
+    flex: 0 0 25%;
+    max-width: 25%;
   }
 }

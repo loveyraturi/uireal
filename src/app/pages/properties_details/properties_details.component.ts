@@ -273,6 +273,12 @@ export class PropertiesDetailsComponent implements OnInit {
 		console.log(id, "#########")
 		this.propertiesService.fetchPropertiesById(id).subscribe(
 			data => {
+				if(data.parking=="both"){
+					data.parking="Car and bike"
+				}
+				if(data.furnish=="un_furnished"){
+					data.furnish="Unfurnished"
+				}
 				data.frontImage = "./assets/properties/" + data.images[0].imageName;
 				data.description = data.description.replace(/↵/g, '\\n')
 				this.properties = data
