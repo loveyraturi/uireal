@@ -20,19 +20,30 @@
                     <div class="single-property-item" *ngFor="let property of properties;  let i = index">
                       <div class="row">
                         <div class="col-md-3">
-                          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img class="d-block w-100" src="./assets/properties/{{property.frontImage}}"
-                                  alt="First slide">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                  <div class="carousel-item" *ngFor="let imageCarasoule of property.images; let j=index;"
+                                    [ngClass]="{'active' : j==0}">
+                                    <img width="300" height="200" class="d-block w-100"
+                                      src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
+                                  </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                  data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                  data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </a>
                               </div>
-                            </div>
-                          </div>
                           <!-- <div class="property-pic"><i class="fa fa-arrow-left" aria-hidden="true"></i>
             
                               <img src="{{property.frontImage}}" alt=""><i class="fa fa-arrow-right" aria-hidden="true"></i>
