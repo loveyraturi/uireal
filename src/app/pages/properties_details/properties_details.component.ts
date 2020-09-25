@@ -33,10 +33,11 @@ export class PropertiesDetailsComponent implements OnInit {
 	private dateScheduled;
 	private timeScheduled;
 	private password;
-	private thanksFlag=false;
+	private thanksFlag = false;
 	private fileToUpload
 	private numberMessage;
 	private maplocation;
+	private similarProperties
 	private message;
 	private type = localStorage.getItem("type");
 	private username = localStorage.getItem("username");
@@ -57,13 +58,13 @@ export class PropertiesDetailsComponent implements OnInit {
 		this.fetchPropertiesById(localStorage.getItem("propertyId"))
 		localStorage.getItem("username");
 		localStorage.getItem("type");
-		DatePicker.prototype.ngOnInit = function() {
+		DatePicker.prototype.ngOnInit = function () {
 			this.settings = Object.assign(this.defaultSettings, this.settings);
 			if (this.settings.defaultOpen) {
-			this.popover = true;
+				this.popover = true;
 			}
 			this.date = new Date();
-			};
+		};
 	}
 
 	ngOnInit() {
@@ -127,11 +128,11 @@ export class PropertiesDetailsComponent implements OnInit {
 		reader.readAsDataURL(event.target.files[0]);
 		console.log(this.fileToUpload)
 		if (this.empType == undefined) {
-			this.modelClick("appointment","Employment Type not selected")
+			this.modelClick("appointment", "Employment Type not selected")
 			// this.appointmentSchedule = "Employment Type not selected"
 		} else {
 			if (this.docType == undefined) {
-				this.modelClick("appointment","Document Type not selected")
+				this.modelClick("appointment", "Document Type not selected")
 				// this.appointmentSchedule = "Document Type not selected"
 			} else {
 
@@ -214,18 +215,18 @@ export class PropertiesDetailsComponent implements OnInit {
 						empType: this.empType
 					}
 					this.propertiesService.scheduleAppointment(request).subscribe(response => {
-						this.modelClick("appointment",response.message)
+						this.modelClick("appointment", response.message)
 					})
 					// this.appointmentSchedule = "Appoinment scheduled "
 
 					console.log("#@@#@#@#@@@@@@@@@@@###", request)
 				} else {
-					this.modelClick("appointment","Please select date")
+					this.modelClick("appointment", "Please select date")
 					// this.appointmentSchedule = "Please select date"
 				}
 			} else {
 				console.log("#@@#@#@#@@@@undefined@@@@@@@###")
-				this.modelClick("appointment","Please select time")
+				this.modelClick("appointment", "Please select time")
 				// this.appointmentSchedule = "Please select time"
 
 			}
@@ -251,9 +252,9 @@ export class PropertiesDetailsComponent implements OnInit {
 	closeModal5() {
 		this.modelClass5 = "modal5"
 	}
-	modelClick(value,message) {
+	modelClick(value, message) {
 		if (value == 'sortlist') {
-			this.thanksFlag=true
+			this.thanksFlag = true
 			if (this.username != undefined && this.username != "") {
 				var request = {
 					username: this.username,
@@ -272,13 +273,13 @@ export class PropertiesDetailsComponent implements OnInit {
 				this.modelClass = "modalDisplay"
 				this.message = "please login to submit your request"
 			}
-		} else if(value=="contact"){
-			this.thanksFlag=true
+		} else if (value == "contact") {
+			this.thanksFlag = true
 			this.modelClass = "modalDisplay"
 			this.message = "You can contact us on (+91) 9109769242"
 			//  + this.properties.phoneNumber
-		}else if(value=="appointment"){
-			this.thanksFlag=false
+		} else if (value == "appointment") {
+			this.thanksFlag = false
 			this.modelClass = "modalDisplay"
 			this.message = message
 			//  + this.properties.phoneNumber
@@ -291,21 +292,37 @@ export class PropertiesDetailsComponent implements OnInit {
 		console.log(id, "#########")
 		this.propertiesService.fetchPropertiesById(id).subscribe(
 			data => {
-				if(data.parking=="both"){
-					data.parking="Car and bike"
+				if (data.parking == "both") {
+					data.parking = "Car and bike"
 				}
-				if(data.furnish=="un_furnished"){
-					data.furnish="Unfurnished"
+				if (data.furnish == "un_furnished") {
+					data.furnish = "Unfurnished"
 				}
+				// if(data.allowed.indexOf("family") !=-1){
+				// 	data.allowed= family
+				// }
+				// if(data.allowed.indexOf("bachelor") !=-1){
+
+				// }
 				data.frontImage = "./assets/properties/" + data.images[0].imageName;
 				data.description = data.description.replace(/↵/g, '\\n')
 				this.properties = data
-				this.propertyAmenities=data.amenities.split(",")
+				this.propertyAmenities = data.amenities.split(",")
+				console.log(this.propertyAmenities, "$######")
 				this.maplocation = "https://www.google.co.in/maps/place/" + this.properties.latitude + "," + this.properties.longitude + ",17z/data=!3m1!4b1!4m5!3m4!1s0x39092a3748779733:0x36c8161d96164085!8m2!3d30.3057554!4d78.0017076&output=embed"
 				console.log(this.maplocation, "data#######", this.properties)
 				// this.spinner.hide()
 				this.closeModal5()
+				var searchRequest = {
+					address: this.properties.locality,
+					type: this.properties.property_type
+				}
+				this.propertiesService.mainSearch(searchRequest).subscribe(response => {
+					console.log("#################RESPONSEEE", response)
+					this.similarProperties=response
+				})
 			})
+
 	}
 }
 

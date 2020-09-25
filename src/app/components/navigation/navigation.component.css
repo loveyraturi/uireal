@@ -49,6 +49,15 @@
 .menuItems2:hover {
   font-size: 13px;
 }
+.menuItems4 {
+  color: white;
+  font-size: 11px;
+  cursor: pointer
+}
+
+.menuItems4:hover {
+  font-size: 13px;
+}
 
 .menuItems3 {
   color: white;
@@ -104,6 +113,23 @@
   position: absolute;
   width: 30%;
   height: 100px;
+}
+.contactus:hover+.menu4 {
+  display: block;
+}
+
+.menu4:hover {
+  display: block;
+}
+
+.menu4 {
+  display: none;
+  background-color: #1C1C1C;
+  z-index: 1;
+  padding: 2%;
+  position: absolute;
+  width: 30%;
+  height: 140px;
 }
 
 .plan:hover+.menu2 {

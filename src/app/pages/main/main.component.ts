@@ -31,12 +31,13 @@ export class MainComponent implements OnInit {
     private addressSelected;
     private addressList;
     private propertyTypes;
+    private modelClass5;
     private propertyBhk
     private properties;
-    private dropdownMenu="drop"
+    private dropdownMenu = "drop"
     private username = localStorage.getItem("username");
-    constructor(private router: Router,private propertiesService: PropertiesService, private userService: UserService) {
-        localStorage.setItem("pageName","mainPage")
+    constructor(private router: Router, private propertiesService: PropertiesService, private userService: UserService) {
+        localStorage.setItem("pageName", "mainPage")
         //  this.openNewDialog();
         // this.phonenumber=localStorage.getItem("phone_number")
         this.getGeoLocation()
@@ -45,25 +46,33 @@ export class MainComponent implements OnInit {
     ngOnInit() {
     }
     getGeoLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				const longitude = position.coords.longitude;
-				const latitude = position.coords.latitude;
-				this.currentLat = latitude
-				this.currentLong = longitude
-			});
-		} else {
-			console.log("No support for geolocation")
-		}
-	}
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const longitude = position.coords.longitude;
+                const latitude = position.coords.latitude;
+                this.currentLat = latitude
+                this.currentLong = longitude
+            });
+        } else {
+            console.log("No support for geolocation")
+        }
+    }
     public handleAddressChange(address: Address) {
         console.log(address)
     }
-    showDiv(){
+    modelClick5() {
+        this.modelClass5 = "modalDisplay5"
+        console.log("clickedd$$$")
+    }
+    closeModal5() {
+        this.modelClass5 = "modal5"
+
+    }
+    showDiv() {
         this.dropdownMenu = "drop";
 
     }
-    hideDiv(){
+    hideDiv() {
         this.dropdownMenu = "elementDrop";
     }
     propertyType(type, size) {
@@ -72,15 +81,24 @@ export class MainComponent implements OnInit {
         this.dropdownMenu = "elementDrop";
     }
     submit() {
+        if (this.addressSelected == undefined || this.addressSelected == "") {
+            if (this.propertyTypes == undefined || this.propertyTypes == "") {
+                if (this.price == undefined || this.price == "") {
+                    this.modelClick5()
+                    return;
+                }
+            }
+        }
+        console.log("STILL EXECUTING")
         var search = {
             address: this.addressSelected,
             type: this.propertyTypes,
             propertyBhk: this.propertyBhk,
             priceRange: this.price,
             latitude: this.currentLat,
-			longitude: this.currentLong
+            longitude: this.currentLong
         }
-        localStorage.setItem("propertyDetail",JSON.stringify(search));
+        localStorage.setItem("propertyDetail", JSON.stringify(search));
         console.log(search);
         this.router.navigateByUrl('/home');
     }
@@ -105,8 +123,8 @@ export class MainComponent implements OnInit {
         this.bathroomFilterValue = event
 
     }
-    propertyTypeFilter(event){
-        this.propertyTypes=event
+    propertyTypeFilter(event) {
+        this.propertyTypes = event
     }
     furnishingFilter(event) {
         console.log(event)
@@ -120,8 +138,8 @@ export class MainComponent implements OnInit {
         console.log(event)
         this.price = event
     }
-    navigateTo(url){
-        this.router.navigateByUrl('/'+url);
+    navigateTo(url) {
+        this.router.navigateByUrl('/' + url);
     }
     sizeFilter(event) {
         console.log(event)

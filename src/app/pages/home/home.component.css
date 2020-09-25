@@ -68,13 +68,20 @@
   margin: 8% auto;
   /* 15% from the top and centered */
   padding: 20px;
-  margin-right: 50%;
+  margin-right: 30%;
   border: 1px solid #888;
   /* height: 200px; */
   width: 30% !important;
   /* Could be more or less, depending on screen size */
 }
-
+.search-form{
+  padding-top: 2%;
+  margin-top: 0%;
+}
+.propertyList{
+  padding: 2%;
+  box-shadow: 5px 10px 20px 10px #888888;
+}
 .modal-content1 {
   background-color: #fefefe;
   margin: 1% auto;
@@ -117,9 +124,10 @@
   z-index: 100;
   /* left: 25%; */
   top: 0;
+  left: 0;
   bottom: 0;
   width: 100%;
-  background: rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, .6);
 }
 
 .modalDisplay1 {
@@ -201,6 +209,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6)
 }
+
 .modalDisplay6 {
   display: block;
   position: fixed;
@@ -210,6 +219,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6)
 }
+
 .howit-works {
   padding-top: 1%;
 }
@@ -226,6 +236,7 @@
   width: 31%;
   /* Could be more or less, depending on screen size */
 }
+
 .modal-content6 {
   margin-left: 50%;
   margin-top: 11%;
@@ -255,6 +266,7 @@
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
 }
+
 .modal6 {
   display: none;
   /* Hidden by default */
@@ -286,6 +298,11 @@
     max-width: 29.333333%;
   }
 
+  .modal-content {
+    margin-right: 15%;
+    width: 70% !important;
+  }
+
   .timetext {
     font-size: 9px !important;
   }
@@ -304,7 +321,8 @@
     width: 73% !important;
     margin-bottom: 4%;
   }
-  .col-xs-3{
+
+  .col-xs-3 {
     flex: 0 0 25%;
     max-width: 25%;
   }

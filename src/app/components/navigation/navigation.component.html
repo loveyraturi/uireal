@@ -10,14 +10,14 @@
   <div class="top-nav {{showMenuBar}}" >
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-2">
           <div *ngIf="!showMain" class="col-lg-3">
             <div class="logo">
               <a href="./index.html"><img src="./assets/img/ownertanenlogo.jpg" alt="" style="max-width: 121%;"></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-10">
           <nav class="main-menu">
             <ul>
               <li (click)="navigateTo('main')" style="cursor: pointer;font-size: 12px;"><a>Home</a></li>
@@ -53,6 +53,13 @@
                 <div *ngIf="isLogin==true" class="menu3">
                   <p (click)="navigateTo('profile')" style="cursor: pointer;" class="menuItems3"><i class="fa fa-user-plus"></i> Profile</p>
                   <p (click)="logout()" style="cursor: pointer;" class="menuItems3"><i class="fa fa-sign-out"></i> Logout</p>
+                </div>
+              </li>
+              <li><a class="contactus" style="cursor: pointer;font-size: 12px;">Contact US</a>
+                <div class="menu4">
+                  <p style="cursor: pointer;" class="menuItems4"><i class="fa fa-list"></i>  +91 9109769242</p>
+                  <p style="cursor: pointer; font-size: 14px" class="menuItems4"><i class="fa fa-search-plus"></i>
+                    support@ownertenants.com</p>
                 </div>
               </li>
             </ul>

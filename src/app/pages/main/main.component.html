@@ -7,11 +7,11 @@
         <div class="col-md-3 align" style="z-index: 100;">
           <select class="alignSelect" (change)="priceFilter($event.target.value)" id="bedrooms">
             <option selected disabled value="">Rent Range</option>
-            <option value="&lt;10000">&lt; 10K</option>
-            <option value="10000,30000">10-30k
-            </option>
-            <option value="20000,30000">20-30k</option>
-            <option value="&gt;30000">&gt; 30k</option>
+            <option value="1001,5000">1001-5000</option>
+            <option value="5001,10000">5001-10000</option>
+            <option value="10001,15000">10001-15000</option>
+            <option value="15001,20000">15001-20000</option>
+            <option value="&gt;20000">&gt; 20000</option>
           </select>
         </div>
         <div class="col-md-3 align">
@@ -163,7 +163,7 @@
     </div>
   </div>
   <div class="tagline">
-    Exclusive Rental Search Site.
+   Zero Brokerage Rental Site.
     </div>
 </div>
 
@@ -205,4 +205,13 @@
     </div>
   </div>
 </section>
+<div id="myModal5" class="{{modelClass5}}">
+    <!-- Modal content -->
+    <div class="modal-content5">
+        <span class="close" style="padding: 3%;" (click)="closeModal5()">&times;</span>
+      <div style="padding: 12%;
+      background: white;
+      color: black;" >Please select at least one filter in search</div>
+    </div>
+  </div>
 <footer></footer>
