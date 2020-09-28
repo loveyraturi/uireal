@@ -11,7 +11,9 @@ import { Router } from "@angular/router";
 	styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+	private addressSearch;
 	private size;
+	private loggedUserName
 	private price;
 	private myMinVar = 0;
 	private furnishFilterValue;
@@ -26,15 +28,14 @@ export class HomeComponent implements OnInit {
 	public modelClass1 = "modal1"
 	private currentLong;
 	private addressSelected;
-	private imageBanner;
 	private addressList;
 	private searchOptions;
 	private properties;
 	private dateScheduled;
 	private timeScheduled;
-	private callModal=false;
-	private username = localStorage.getItem("username");
-	private type = localStorage.getItem("type");
+	private callModal = false;
+	private email = localStorage.getItem("email");
+	private name = localStorage.getItem("name");
 	private appointmentSchedule;
 	private selectedPropertry;
 	private modelClass5 = "modal5"
@@ -44,7 +45,7 @@ export class HomeComponent implements OnInit {
 	private propertiesFinal;
 	private password;
 	private messageModal;
-	private userName;
+	// private userName;
 	private messageLogin;
 	private isValid;
 	private userNameIsValid;
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit {
 	private docType
 	private fileToUpload
 	private numberMessage;
+	showMenuFilter = false;
 	settings = {
 		bigBanner: false,
 		timePicker: true,
@@ -71,9 +73,25 @@ export class HomeComponent implements OnInit {
 		var propDetails = localStorage.getItem("propertyDetail");
 		if (propDetails != null) {
 			this.searchOptions = JSON.parse(propDetails)
+			this.addressSearch=this.searchOptions.address
+			console.log(this.searchOptions,"@@@@@@@@@this.addressSearch@@@@@@@@@@@@@@",this.addressSearch)
 			this.searchProperty(this.searchOptions);
 		} else {
 			this.getGeoLocation()
+		}
+	}
+	loginDetailsReceived(data){
+			console.log(data)
+			this.loggedUserName=data.name
+			this.email=data.email
+			console.log(this.loggedUserName)
+			this.closeModal3()
+	}
+	filterShowHide() {
+		if(this.showMenuFilter==false){
+			this.showMenuFilter=true
+		}else{
+			this.showMenuFilter=false
 		}
 	}
 	formatDate(date) {
@@ -97,16 +115,39 @@ export class HomeComponent implements OnInit {
 		console.log(event)
 		this.fromDate = event
 	}
-	passwordUser() {
-		console.log(this.userName)
+	
+	propertiesReceived(properties) {
+		console.log("########properties@@@@@@@@@@@@@", properties)
+		if (properties.length < 1) {
+			this.isvalidSearch = false
+		} else {
+			this.closeModal6()
+		}
+		this.numberOfProperties = properties.length
+		console.log("###############!@!@@#########@!@@!", this.numberOfProperties)
+
+		console.log("data#@@@@@@@@@@@@@@@searchOptionProp######", properties.length)
+		this.properties = properties.map(items => {
+
+			// var str = items.frontImage.split("\\");
+			// items.frontImage = "./assets/properties/" + items.images[0].imageName;
+			items.description = items.description.replace(/↵/g, '\\n')
+			if (items.parking == "both") {
+				items.parking = "Car and Bike"
+			}
+			return items
+		});
+		// this.spinner.hide()
+		this.propertiesFinal = JSON.parse(JSON.stringify(this.properties))
+
 	}
 	shortList(propertyId) {
 		console.log("model id is ")
-		if (this.username == undefined || this.username == "") {
+		if (this.email == undefined || this.email == "") {
 			this.modelClick3()
 		} else {
 			var request = {
-				username: this.username,
+				email: this.email,
 				property_id: propertyId,
 				status: "Interested"
 			}
@@ -122,33 +163,33 @@ export class HomeComponent implements OnInit {
 			})
 		}
 	}
-	login() {
-		var request = {
-			username: this.userName,
-			password: this.password,
-		}
-		this.userService.validate(request).subscribe(
-			data => {
-				console.log(data.status == "true", "status#######", data)
-				this.isValid = data.status == "true" ? "valid" : "invalid"
-				if (data.status == "true") {
-					this.username = request.username
-					this.type = data.type
-					localStorage.setItem("username", request.username);
-					localStorage.setItem("type", data.type);
-					this.closeModal3()
-					this.messageLogin = data.message
-					this.isValid = true
-					this.userNameIsValid = "valid"
-				} else {
-					this.isValid = false
-					this.messageLogin = data.message
-					this.userNameIsValid = "invalid"
-				}
-				console.log(localStorage.getItem("username"), "###########")
+	// login() {
+	// 	var request = {
+	// 		username: this.userName,
+	// 		password: this.password,
+	// 	}
+	// 	this.userService.validate(request).subscribe(
+	// 		data => {
+	// 			console.log(data.status == "true", "status#######", data)
+	// 			this.isValid = data.status == "true" ? "valid" : "invalid"
+	// 			if (data.status == "true") {
+	// 				this.username = request.username
+	// 				this.type = data.type
+	// 				localStorage.setItem("username", request.username);
+	// 				localStorage.setItem("type", data.type);
+	// 				this.closeModal3()
+	// 				this.messageLogin = data.message
+	// 				this.isValid = true
+	// 				this.userNameIsValid = "valid"
+	// 			} else {
+	// 				this.isValid = false
+	// 				this.messageLogin = data.message
+	// 				this.userNameIsValid = "invalid"
+	// 			}
+	// 			console.log(localStorage.getItem("username"), "###########")
 
-			})
-	}
+	// 		})
+	// }
 	searchAddress() {
 		this.propertiesService.searchAddress(this.addressSelected).subscribe(
 			response => {
@@ -174,12 +215,11 @@ export class HomeComponent implements OnInit {
 					// var str = items.frontImage.split("\\");
 					// items.frontImage = "./assets/properties/" + items.images[0].imageName;
 					items.description = items.description.replace(/↵/g, '\\n')
-					if (items.parking=="both"){
-						items.parking="Car and Bike"						
-						}
+					if (items.parking == "both") {
+						items.parking = "Car and Bike"
+					}
 					return items
 				});
-				this.imageBanner = this.sanitization.bypassSecurityTrustStyle(`url(${this.properties[0].images[0].imageName})`);
 				// this.spinner.hide()
 				this.propertiesFinal = JSON.parse(JSON.stringify(this.properties))
 
@@ -251,7 +291,7 @@ export class HomeComponent implements OnInit {
 		}
 	}
 	scheduleAppointment() {
-		if (this.username == undefined || this.username == "") {
+		if (this.email == undefined || this.email == "") {
 			this.modelClick3()
 		} else {
 			console.log(this.timeScheduled)
@@ -262,27 +302,27 @@ export class HomeComponent implements OnInit {
 					var request = {
 						scheduleTime: this.timeScheduled,
 						scheduledDate: this.dateScheduled,
-						username: this.username,
+						email: this.email,
 						propertyId: this.selectedPropertry,
 						images: this.fileToUpload,
 						docType: this.docType,
 						empType: this.empType
 					}
 					this.propertiesService.scheduleAppointment(request).subscribe(response => {
-						if(response.staus=="true"){
+						if (response.staus == "true") {
 							this.closeModal1()
 						}
-						this.modelClick(response.message,"")
+						this.modelClick(response.message, "")
 						// this.appointmentSchedule = "Request Reqistered will notify you soon"
 					})
 					console.log("#@@#@#@#@@@@@@@@@@@###", request)
 				} else {
-					this.modelClick("Please select date","")
+					this.modelClick("Please select date", "")
 					this.appointmentSchedule = "Please select date"
 				}
 			} else {
 				console.log("#@@#@#@#@@@@undefined@@@@@@@###")
-				this.modelClick("Please select time","")
+				this.modelClick("Please select time", "")
 				this.appointmentSchedule = "Please select time"
 
 			}
@@ -299,11 +339,11 @@ export class HomeComponent implements OnInit {
 	}
 	modelClick(value, type) {
 		if (type == "phoneNumber") {
-			this.callModal=true
+			this.callModal = true
 			this.numberMessage = value
 			this.messageModal = "You can contact us on (+91) 9109769242"
 		} else {
-			this.callModal=false
+			this.callModal = false
 			this.messageModal = value
 		}
 		// +value
@@ -406,7 +446,6 @@ export class HomeComponent implements OnInit {
 					items.description = items.description.replace(/↵/g, '\\n')
 					return items
 				});
-				this.imageBanner = this.sanitization.bypassSecurityTrustStyle(`url(${this.properties[0].images[0].imageName})`);
 				console.log("properties#######", this.properties)
 				// this.spinner.hide()
 				this.closeModal5()

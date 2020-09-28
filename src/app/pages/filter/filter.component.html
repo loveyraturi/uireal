@@ -1,0 +1,245 @@
+<section class="property-section">
+  <div style="margin-bottom:2%;width: 230px; overflow-x:auto; white-space: nowrap;">
+    <p>Sort By</p>
+    <div (click)="selectedSortPricel2h()" class="horizontalAlignment {{isSelectedSortPricel2h}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/h2l.png">
+      <br>
+      <i>Price </i>
+      <br>
+      <i>Low To High</i>
+    </div>
+    <div (click)="selectedSortPriceh2l()" class="horizontalAlignment {{isSelectedSortPriceh2l}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/l2h.png">
+      <br>
+      <i>Price </i>
+      <br>
+      <i>High To Low</i>
+    </div>
+    <div (click)="selectedSortPriceAreal2h()" class="horizontalAlignment {{isSelectedSortPriceAreal2h}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/h2l.png">
+      <br>
+      <i>Buildup area </i>
+      <br>
+      <i>Low To High</i>
+    </div>
+    <div (click)="selectedSortPriceAreah2l()" class="horizontalAlignment {{isSelectedSortPriceAreah2l}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/l2h.png">
+      <br>
+      <i>Buildup area </i>
+      <br>
+      <i>High To Low</i>
+    </div>
+  </div>
+  <div style="margin-bottom:2%; width: 230px; overflow-x:auto; white-space: nowrap;">
+    <p>Property Type</p>
+    <div (click)="selectedFlat()" class="horizontalAlignment {{isSelectedFlat}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/property.png">
+      <br>
+      <i>Flat</i>
+    </div>
+    <div (click)="selectedRowHouse()" class="horizontalAlignment {{isSelectedRowHouse}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/rowhouse.jpg">
+      <br>
+      <i>Row House</i>
+    </div>
+    <div (click)="selectedPG()" class="horizontalAlignment {{isSelectedPG}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/pg.png">
+      <br>
+      <i>PG</i>
+    </div>
+    <div (click)="selectedRowHostel()" class="horizontalAlignment {{isSelectedRowHostel}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/hostel.png">
+      <br>
+      <i>Hostel</i>
+    </div>
+  </div>
+  <div style="margin-bottom:2%; width: 230px; overflow-x:auto; white-space: nowrap;">
+    <p>Property Type</p>
+    <div (click)="selected1()" class="horizontalAlignment {{isSelected1}}">
+      <i>1BHK</i>
+    </div>
+    <div (click)="selected2()" class="horizontalAlignment {{isSelected2}}">
+      <i>2BHK</i>
+    </div>
+    <div (click)="selected3()" class="horizontalAlignment {{isSelected3}}">
+      <i>3BHK</i>
+    </div>
+    <div (click)="selected4()" class="horizontalAlignment {{isSelected4}}">
+      <i>4BHK</i>
+    </div>
+    <div (click)="selected5more()" class="horizontalAlignment {{isSelected5more}}">
+      <i>5BHK +</i>
+    </div>
+  </div>
+  <div style="margin-bottom:2%;width: 340px; white-space: nowrap;">
+    <p>Budget</p>
+    <div class="row">
+      <div class="col-xs-4 col-md-4 filterRange">
+        <select class="form-control" (change)="selectMinPrice($event.target.value)">
+          <option value="" selected disabled>Min</option>
+          <option value="5000">5000</option>
+          <option value="10000">10000</option>
+          <option value="15000">15000</option>
+          <option value="20000">20000</option>
+          <option value="25000">25000</option>
+          <option value="30000">30000</option>
+          <option value="35000">35000</option>
+          <option value="40000">40000</option>
+          <option value="45000">45000</option>
+          <option value="50000">50000</option>
+          <option value="55000">55000</option>
+          <option value="60000">60000</option>
+          <option value="65000">65000</option>
+          <option value="70000">70000</option>
+          <option value="75000">75000</option>
+          <option value="80000">80000</option>
+          <option value="100000">1 lac</option>
+          <option value="150000">1.5 lac</option>
+          <option value="200000">2 lac</option>
+          <option value="250000">2.5 lac</option>
+
+        </select>
+      </div>
+      <div class="col-xs-4 col-md-4 filterRange">
+        <select class="form-control" (change)="selectMaxPrice($event.target.value)">
+          <option value="" selected disabled>Max</option>
+          <option value="5000">5000</option>
+          <option value="10000">10000</option>
+          <option value="15000">15000</option>
+          <option value="20000">20000</option>
+          <option value="25000">25000</option>
+          <option value="30000">30000</option>
+          <option value="35000">35000</option>
+          <option value="40000">40000</option>
+          <option value="45000">45000</option>
+          <option value="50000">50000</option>
+          <option value="55000">55000</option>
+          <option value="60000">60000</option>
+          <option value="65000">65000</option>
+          <option value="70000">70000</option>
+          <option value="75000">75000</option>
+          <option value="80000">80000</option>
+          <option value="100000">1 lac</option>
+          <option value="150000">1.5 lac</option>
+          <option value="200000">2 lac</option>
+          <option value="250000">2.5 lac</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div style="margin-bottom:2%;width: 340px; white-space: nowrap;">
+    <p>Covered Area</p>
+    <div class="row">
+      <div class="col-xs-4 col-md-4 filterRange">
+        <input type="text" class="form-control" placeholder="Min" [(ngModel)]="minArea">
+      </div>
+      <div class="col-xs-4 col-md-4 filterRange">
+        <input type="text" class="form-control" placeholder="Max" [(ngModel)]="maxArea">
+      </div>
+    </div>
+  </div>
+  <div style="margin-bottom:2%;width: 230px; white-space: nowrap;">
+    <p>Tenant Preferred</p>
+    <div class="row">
+      <div class="col-md-10">
+        <select class="form-control" (change)="selectPreference($event.target.value)">
+          <option value="" selected disabled>Select Preference</option>
+          <option value="family">Family</option>
+          <option value="bachelor">Bachelor</option>
+          <option value="student">Student</option>
+          <option value="unmarried_couple">Unmarried couple</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div style="margin-bottom:2%; width: 230px; overflow-x:auto; white-space: nowrap;">
+    <p>Property Type</p>
+    <div (click)="selectedFullyFurnished()" style="width: 49%;"
+      class="horizontalAlignment {{isSelectedFullyFurnished}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/furnished.png">
+      <br>
+      <i>Fully furnished</i>
+    </div>
+    <div (click)="selectedSemiFurnished()" style="width: 49%;" class="horizontalAlignment {{isSelectedSemiFurnished}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/semi-furnished.jpg">
+      <br>
+      <i>Semi furnished</i>
+    </div>
+    <div (click)="selectedUnFurnished()" style="width: 49%;" class="horizontalAlignment {{isSelectedUnFurnished}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/house.png">
+      <br>
+      <i>Unfurshished</i>
+    </div>
+  </div>
+  <div style="margin-bottom:2%;width: 340px; white-space: nowrap;">
+    <button style="width: 67%" (click)="search()" class="btn btn-success">Search</button>
+  </div>
+
+  <!-- <div class="container userDisplay shadow">
+    <div class="row">
+      <div class="col-lg-3 formStyle">
+        <div class="property-sidebar">
+          <div class="form-row">
+            <div class="col-md-12">
+              <p>Sort By</p>
+              <div class="row">
+                <div class="col-md-3 sortStyle">
+                  <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/h2l.png">
+                  <br>
+                  <i>Price </i>
+                  <i>Low To High</i>
+                </div>
+                <div class="col-md-3 sortStyle">
+                    <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/l2h.png">
+                    <br>
+                  <i>Price </i>
+                  <i>High To Low</i>
+                </div>
+                <div class="col-md-3 sortStyle">
+                    <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/h2l.png">
+                    <br>
+                  <i>Buildup area </i>
+                  <i>Low To High</i>
+                </div>
+                <div class="col-md-3 sortStyle">
+                    <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/l2h.png">
+                    <br>
+                  <i>Buildup area </i>
+                  <i>High To Low</i>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <p>Property Type</p>
+                <div class="row">
+                  <div class="col-md-3 sortStyle">
+                    <p>Price </p>
+                    <i>Flat</i>
+                  </div>
+                  <div class="col-md-3 sortStyle">
+                    <p>Price </p>
+                    <i>House</i>
+                  </div>
+                  <div class="col-md-3 sortStyle">
+                    <p>Buildup area </p>
+                    <i>PG</i>
+                  </div>
+                  <div class="col-md-3 sortStyle">
+                    <p>Buildup area </p>
+                    <i>Hostel</i>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-12 mb-3 ">
+            <button type="submit" class="form-control btn btn-primary btnsubmit" (click)="submit()">Submit</button>
+            <p style="font-size: 10px;">By signing up, I agree to ownertenants.com <a href="#">Terms of Service &
+                Privacy Policy</a>.</p>
+          </div>
+          <alert></alert>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</section>

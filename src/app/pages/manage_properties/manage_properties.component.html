@@ -18,72 +18,83 @@
                 <div class="col-lg-12">
                   <div class="property-list">
                     <div class="single-property-item" *ngFor="let property of properties;  let i = index">
-                      <div class="row">
-                        <div class="col-md-3">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                </ol>
-                                <div class="carousel-inner">
-                                  <div class="carousel-item" *ngFor="let imageCarasoule of property.images; let j=index;"
-                                    [ngClass]="{'active' : j==0}">
-                                    <img width="300" height="200" class="d-block w-100"
-                                      src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
-                                  </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                  data-slide="prev">
-                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                  <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                  data-slide="next">
-                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                  <span class="sr-only">Next</span>
-                                </a>
+                      <div class="row propertyList">
+                        <div class="col-md-12">
+                          <div style="font-size: 18px;
+                                  padding-bottom: 2%;
+                                  font-weight: bold;
+                                  border-bottom: 1px solid;
+                                  margin-bottom: 2%;" class="properties-location"><i class="icon_pin"></i>
+                            {{property.name}} For Rent In {{property.locality}}
+                            <a style="font-size: 14px;float: right;color: #218838;;
+                                    cursor: pointer;" (click)="showPropertyDetails(property.id)"> More details</a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div id="{{'carouselExampleIndicators'+property.id}}" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item" *ngFor="let imageCarasoule of property.images; let j=index;"
+                                [ngClass]="{'active' : j==0}">
+                                <img width="300" height="200" class="d-block w-100"
+                                  src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
                               </div>
+                            </div>
+                            <a class="carousel-control-prev" href="{{'#carouselExampleIndicators'+property.id}}" role="button"
+                              data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="{{'#carouselExampleIndicators'+property.id}}" role="button"
+                              data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </div>
                           <!-- <div class="property-pic"><i class="fa fa-arrow-left" aria-hidden="true"></i>
             
                               <img src="{{property.frontImage}}" alt=""><i class="fa fa-arrow-right" aria-hidden="true"></i>
             
                             </div> -->
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                           <div class="property-text">
-                            <div class="s-text">For Sale</div>
-                            <p>{{property.description}} <a (click)="editProperty(property.id)"
-                                style="float: right; cursor: pointer;">Edit</a></p>
-                            <button (click)="propertyStatus(property,1)"
-                              [ngClass]="(property.isavailable==1)?'btn btn-success':'btn btn-secondary'">Available</button>
-                            <button (click)="propertyStatus(property,0)"
-                              [ngClass]="(property.isavailable==1)?'btn btn-secondary':'btn btn-success'">Occupied</button>
-                            <br>
-                            <br>
+                            <div style="background: #218838;" class="s-text">Available</div>
+                            <p><a (click)="editProperty(property.id)" style="float: right; cursor: pointer;">Edit</a>
+                            </p>
+                            <div class="room-price">
+                              <span style="font-size: 14px;">Property Id: {{property.id}}</span>
+                              <br>
+                              <span style="font-size: 14px;">Monthly Rental</span>
+                              <h5 style="font-size: 14px;color: #218838;">{{property.price}}/month</h5>
+                            </div>
                             <ul class="room-features">
                               <li>
-                                <i class="fa fa-arrows"></i>
+                                <i style="color: purple;"nclass="fa fa-arrows"></i>
                                 <p>{{property.area}} sqft</p>
                               </li>
                               <li>
-                                <i class="fa fa-bed"></i>
+                                <i style="color: purple;" class="fa fa-bed"></i>
                                 <p>{{property.bedroom}} Bed Room</p>
                               </li>
                               <li>
-                                <i class="fa fa-bath"></i>
+                                <i style="color: purple;" class="fa fa-bath"></i>
                                 <p>{{property.washroom}} Washroom</p>
                               </li>
                               <li>
-                                <i class="fa fa-inr"></i>
+                                <i style="color: purple;" class="fa fa-inr"></i>
                                 <p>{{property.price}}/month</p>
                               </li>
 
                               <li>
-                                <i class="fa fa-car"></i>
+                                <i style="color: purple;" class="fa fa-car"></i>
                                 <p>{{property.parking}} Parking</p>
                               </li>
                             </ul>
+
+                            <button style="margin: 1%;" (click)="propertyStatus(property,1)"
+                              [ngClass]="(property.isavailable==1)?'btn btn-success':'btn btn-secondary'">Available</button>
+                            <button (click)="propertyStatus(property,0)"
+                              [ngClass]="(property.isavailable==1)?'btn btn-secondary':'btn btn-success'">Occupied</button>
                           </div>
                         </div>
                       </div>

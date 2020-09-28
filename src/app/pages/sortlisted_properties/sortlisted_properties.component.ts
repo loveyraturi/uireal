@@ -5,7 +5,7 @@ import { OnInit, Component, Input, ViewContainerRef } from "@angular/core";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { UserService } from "src/app/services/user.service";
 import { PropertiesService } from "src/app/services/properties.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
@@ -20,8 +20,7 @@ export class SortlistedPropertiesComponent implements OnInit {
     public modelClass = "modal";
     private images = [];
     private latlng = [-25.363882, 131.044922]
-    private type = localStorage.getItem("type");
-    private username = localStorage.getItem("username");
+    private email = localStorage.getItem("email");
     private message;
     private properties;
     private dateScheduled;
@@ -31,7 +30,8 @@ export class SortlistedPropertiesComponent implements OnInit {
     private fileToUpload
     private messageLogin;
     private isValid;
-    private password;
+	private password;
+	private callModal = false;
 	private messageModal;
     private userName;
     private userNameIsValid;
@@ -42,7 +42,7 @@ export class SortlistedPropertiesComponent implements OnInit {
     private modelClass3 = "modal3"
     private numberMessage;
 
-    constructor(private sanitization: DomSanitizer, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
+    constructor(private router: Router,private sanitization: DomSanitizer, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
         // this.fetchPropertyDetailsById()
         // this.modelClick()
         
@@ -56,33 +56,33 @@ export class SortlistedPropertiesComponent implements OnInit {
         this.getSortlistedProperties()
         
     }
-    login() {
-		var request = {
-			username: this.userName,
-			password: this.password,
-		}
-		this.userService.validate(request).subscribe(
-			data => {
-				console.log(data.status == "true", "status#######", data)
-				this.isValid = data.status == "true" ? "valid" : "invalid"
-				if (data.status == "true") {
-					this.username = request.username
-					this.type = data.type
-					localStorage.setItem("username", request.username);
-					localStorage.setItem("type", data.type);
-					this.closeModal3()
-					this.messageLogin = data.message
-					this.isValid = true
-					this.userNameIsValid = "valid"
-				} else {
-					this.isValid = false
-					this.messageLogin = data.message
-					this.userNameIsValid = "invalid"
-				}
-				console.log(localStorage.getItem("username"), "###########")
+    // login() {
+	// 	var request = {
+	// 		username: this.userName,
+	// 		password: this.password,
+	// 	}
+	// 	this.userService.validate(request).subscribe(
+	// 		data => {
+	// 			console.log(data.status == "true", "status#######", data)
+	// 			this.isValid = data.status == "true" ? "valid" : "invalid"
+	// 			if (data.status == "true") {
+	// 				this.username = request.username
+	// 				this.type = data.type
+	// 				localStorage.setItem("username", request.username);
+	// 				localStorage.setItem("type", data.type);
+	// 				this.closeModal3()
+	// 				this.messageLogin = data.message
+	// 				this.isValid = true
+	// 				this.userNameIsValid = "valid"
+	// 			} else {
+	// 				this.isValid = false
+	// 				this.messageLogin = data.message
+	// 				this.userNameIsValid = "invalid"
+	// 			}
+	// 			console.log(localStorage.getItem("username"), "###########")
 
-			})
-	}
+	// 		})
+	// }
     dateSelected(value) {
 		var today = new Date().toJSON().slice(0, 10)
 		//     var tomorrowValue = today.split("-")
@@ -166,7 +166,7 @@ export class SortlistedPropertiesComponent implements OnInit {
 		this.empType = event
 	}
     scheduleAppointment() {
-		if (this.username == undefined || this.username == "") {
+		if (this.email == undefined || this.email == "") {
 			this.modelClick3()
 		} else {
 			console.log(this.timeScheduled)
@@ -177,24 +177,27 @@ export class SortlistedPropertiesComponent implements OnInit {
 					var request = {
 						scheduleTime: this.timeScheduled,
 						scheduledDate: this.dateScheduled,
-						username: this.username,
+						email: this.email,
 						propertyId: this.selectedPropertry,
 						images: this.fileToUpload,
 						docType: this.docType,
 						empType: this.empType
 					}
 					this.propertiesService.scheduleAppointment(request).subscribe(response => {
-
+						if (response.staus == "true") {
+							this.closeModal1()
+						}
+						this.modelClick(response.message, "")
+						// this.appointmentSchedule = "Request Reqistered will notify you soon"
 					})
-					this.appointmentSchedule = "Appoinment scheduled "
-
 					console.log("#@@#@#@#@@@@@@@@@@@###", request)
 				} else {
+					this.modelClick("Please select date", "")
 					this.appointmentSchedule = "Please select date"
 				}
 			} else {
 				console.log("#@@#@#@#@@@@undefined@@@@@@@###")
-
+				this.modelClick("Please select time", "")
 				this.appointmentSchedule = "Please select time"
 
 			}
@@ -208,11 +211,11 @@ export class SortlistedPropertiesComponent implements OnInit {
 	}
     shortList(propertyId){
 		console.log("model id is ")
-		if (this.username == undefined || this.username == "") {
+		if (this.email == undefined || this.email == "") {
 			this.modelClick3()
 		} else {
 		 var request = {
-			 username: this.username,
+			email: this.email,
 			 property_id: propertyId,
 			 status: "Interested"
 		 }
@@ -227,10 +230,21 @@ export class SortlistedPropertiesComponent implements OnInit {
  
 		 })
 	 }
-    }
-    modelClick(value) {
-		this.numberMessage=value
-		this.message= "You can contact us on (+91) 9109769242"
+	}
+	showPropertyDetails(propertyId) {
+		console.log("#####################@@@@@@@@@@", propertyId);
+		localStorage.setItem("propertyId", propertyId);
+		this.router.navigateByUrl('/properties_details');
+	}
+	modelClick(value, type) {
+		if (type == "phoneNumber") {
+			this.callModal = true
+			this.numberMessage = value
+			this.messageModal = "You can contact us on (+91) 9109769242"
+		} else {
+			this.callModal = false
+			this.messageModal = value
+		}
 		// +value
 		console.log("model id is ")
 		this.modelClass = "modalDisplay"
@@ -257,15 +271,22 @@ export class SortlistedPropertiesComponent implements OnInit {
 		console.log(this.selectedPropertry, "#@@#$@#$@$@")
 	}
     removePropertyInterest(id) {
-        console.log(id)
-        this.propertiesService.deleteInterestedProperties(id, this.username).subscribe(response => {
+		console.log(id)
+		var request={
+			propertyId:id,
+			email: this.email
+		}
+        this.propertiesService.deleteInterestedProperties(request).subscribe(response => {
             console.log(response, "###########")
             this.getSortlistedProperties()
         })
     }
     getSortlistedProperties() {
-        console.log(this.username)
-        this.propertiesService.sortlistedProperties(this.username).subscribe(response => {
+		console.log(this.email)
+		var request={
+			email: this.email
+		}
+        this.propertiesService.sortlistedProperties(request).subscribe(response => {
             console.log(response, "#@#@$#@$#@$#@#@$#")
             this.properties = response
         })

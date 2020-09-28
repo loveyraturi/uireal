@@ -46,6 +46,9 @@ import { AdminUserService } from './services/admin_user.service';
 import { AdminLoginComponent } from './pages/admin_login/admin_login.component';
 import { TenantDetailsComponent } from './pages/tenantDetails/tenantDetails.component';
 import { OwnerPropertyDetailsComponent } from './pages/ownerPropertyDetails/ownerPropertyDetails.component';
+import { UserRegistrationComponent } from './pages/userRegistration/userRegistration.component';
+import { UserLoginComponent } from './pages/userLogin/userLogin.component';
+import { FilterComponent } from './pages/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -70,8 +73,11 @@ import { OwnerPropertyDetailsComponent } from './pages/ownerPropertyDetails/owne
     DashboardComponent,
     SuccessComponent,
     AboutUsComponent,
+    FilterComponent,
     OwnerPropertyComponent,
     TenantPropertyComponent,
+    UserRegistrationComponent,
+    UserLoginComponent,
     FailureComponent,
     PaymentComponent,
     SidebarComponent,

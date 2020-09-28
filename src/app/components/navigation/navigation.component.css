@@ -5,14 +5,32 @@
 }
 
 .top-nav {
-  background: darkred;
+  background: white;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+
+.slideMenu {
+  padding-bottom: 8%;
+  padding-top: 8%;
+  padding-left: 10%;
+  font-size: 16px;
+  font-style: italic;
+  color: white;
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+.slideMenu:hover{
+  font-size: 18px
 }
 
 .top-nav .main-menu ul li a {
   font-size: 12px;
   font-family: unset;
 }
-
+.main-menu{
+  float: right;
+}
 .menuItems:hover {
   font-size: 13px;
 }
@@ -39,7 +57,17 @@
 .menuItems1:hover {
   font-size: 13px;
 }
-
+.showMenu{
+  display: none;
+  width: 184%;
+  margin-left: -52%;
+}
+.icon_menu:hover+.showMenu {
+  display: block;
+} 
+.showMenu:hover {
+  display: block;
+} 
 .menuItems2 {
   color: white;
   font-size: 11px;
@@ -49,6 +77,7 @@
 .menuItems2:hover {
   font-size: 13px;
 }
+
 .menuItems4 {
   color: white;
   font-size: 11px;
@@ -114,12 +143,17 @@
   width: 30%;
   height: 100px;
 }
+
 .contactus:hover+.menu4 {
   display: block;
 }
 
 .menu4:hover {
   display: block;
+}
+
+.logo {
+  margin-top: 1%;
 }
 
 .menu4 {
@@ -330,11 +364,29 @@
   font-weight: bold;
   text-align: center;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 @media only screen and (max-width: 991px) {
   .popularPlan {
     margin-bottom: 21%;
   }
+
   .menu {
     display: none;
     background-color: #1C1C1C;
@@ -343,6 +395,7 @@
     position: absolute;
     width: 77%;
   }
+
   .menu1 {
     display: none;
     background-color: #1C1C1C;
@@ -351,6 +404,7 @@
     position: absolute;
     width: 77%;
   }
+
   .menu2 {
     display: none;
     background-color: #1C1C1C;
@@ -359,6 +413,7 @@
     position: absolute;
     width: 77%;
   }
+
   .menu3 {
     display: none;
     background-color: #1C1C1C;
@@ -366,5 +421,19 @@
     padding: 6%;
     position: absolute;
     width: 77%;
+  }
+}
+@media only screen and (max-width: 991px){
+  .top-nav{
+    display: block;
+  }
+  .main-menu{
+    display: none;
+  }
+  .showMenu{
+    margin-right: 0;
+    margin-left: 53%;
+    width: auto;
+    height: auto;
   }
 }

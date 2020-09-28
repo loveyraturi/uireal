@@ -249,4 +249,10 @@
     width: 73% !important;
     margin-bottom: 4%;
   }
+  .alignmentDiv{
+    margin-left: 3%;
+  }
+  .alignButton{
+    margin-left: 7%;
+  }
 }

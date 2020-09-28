@@ -163,33 +163,33 @@ export class PropertiesDetailsComponent implements OnInit {
 			this.dateScheduled = value;
 		}
 	}
-	login() {
-		var request = {
-			username: this.userName,
-			password: this.password,
-		}
-		this.userService.validate(request).subscribe(
-			data => {
-				console.log(data.status == "true", "status#######", data)
-				this.isValid = data.status == "true" ? "valid" : "invalid"
-				if (data.status == "true") {
-					this.username = request.username
-					this.type = data.type
-					localStorage.setItem("username", request.username);
-					localStorage.setItem("type", data.type);
-					this.closeModal3()
-					this.messageLogin = data.message
-					this.isValid = true
-					this.userNameIsValid = "valid"
-				} else {
-					this.isValid = false
-					this.messageLogin = data.message
-					this.userNameIsValid = "invalid"
-				}
-				console.log(localStorage.getItem("username"), "###########")
+	// login() {
+	// 	var request = {
+	// 		username: this.userName,
+	// 		password: this.password,
+	// 	}
+	// 	this.userService.validate(request).subscribe(
+	// 		data => {
+	// 			console.log(data.status == "true", "status#######", data)
+	// 			this.isValid = data.status == "true" ? "valid" : "invalid"
+	// 			if (data.status == "true") {
+	// 				this.username = request.username
+	// 				this.type = data.type
+	// 				localStorage.setItem("username", request.username);
+	// 				localStorage.setItem("type", data.type);
+	// 				this.closeModal3()
+	// 				this.messageLogin = data.message
+	// 				this.isValid = true
+	// 				this.userNameIsValid = "valid"
+	// 			} else {
+	// 				this.isValid = false
+	// 				this.messageLogin = data.message
+	// 				this.userNameIsValid = "invalid"
+	// 			}
+	// 			console.log(localStorage.getItem("username"), "###########")
 
-			})
-	}
+	// 		})
+	// }
 	modelClick3() {
 		this.modelClass3 = "modalDisplay3"
 	}
@@ -307,7 +307,10 @@ export class PropertiesDetailsComponent implements OnInit {
 				data.frontImage = "./assets/properties/" + data.images[0].imageName;
 				data.description = data.description.replace(/↵/g, '\\n')
 				this.properties = data
+				console.log(data.amenities)
+				if(data.amenities!=null){
 				this.propertyAmenities = data.amenities.split(",")
+				}
 				console.log(this.propertyAmenities, "$######")
 				this.maplocation = "https://www.google.co.in/maps/place/" + this.properties.latitude + "," + this.properties.longitude + ",17z/data=!3m1!4b1!4m5!3m4!1s0x39092a3748779733:0x36c8161d96164085!8m2!3d30.3057554!4d78.0017076&output=embed"
 				console.log(this.maplocation, "data#######", this.properties)

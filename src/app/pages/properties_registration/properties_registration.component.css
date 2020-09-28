@@ -224,7 +224,10 @@
 }
 
 .reg1 {
-  width: 90%;
+  width: 100%;
+  text-align: center;
+  padding-top: 3%;
+
 }
 
 @media only screen and (max-width: 991px) {
@@ -241,5 +244,9 @@
   }
   .modal-content{
     width: auto!important;
+  }
+  .reg1 {
+    padding-top: 5%;
+    text-align: center;
   }
 }

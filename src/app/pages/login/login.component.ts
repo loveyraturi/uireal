@@ -61,31 +61,31 @@ export class LoginComponent implements OnInit {
     clear() {
         this.alertService.clear();
     }
-    submit() {
-        var request = {
-            username: this.userName,
-            password: this.password,
-        }
-        this.userService.validate(request).subscribe(
-            data => {
-                this.isValid = data.status == "true" ? "valid" : "invalid"
-                console.log("status#######", data)
-                // this.message = data.message
+    // submit() {
+    //     var request = {
+    //         username: this.userName,
+    //         password: this.password,
+    //     }
+    //     this.userService.validate(request).subscribe(
+    //         data => {
+    //             this.isValid = data.status == "true" ? "valid" : "invalid"
+    //             console.log("status#######", data)
+    //             // this.message = data.message
                 
-                localStorage.setItem("username", request.username);
-                localStorage.setItem("type", data.type);
-                if (this.isValid == "valid") {
-                    this.success(data.message)
-                    localStorage.setItem("username", this.userName);
-                    if (data.type == "owner") {
-                        setTimeout(() =>  this.router.navigateByUrl('/main'),1500);                       
-                    } else {
-                        setTimeout(() =>  this.router.navigateByUrl('/main'),1500);
-                    }
-                }else{
-                    this.error(data.message)
-                }
-            })
-    }
+    //             localStorage.setItem("username", request.username);
+    //             localStorage.setItem("type", data.type);
+    //             if (this.isValid == "valid") {
+    //                 this.success(data.message)
+    //                 localStorage.setItem("username", this.userName);
+    //                 if (data.type == "owner") {
+    //                     setTimeout(() =>  this.router.navigateByUrl('/main'),1500);                       
+    //                 } else {
+    //                     setTimeout(() =>  this.router.navigateByUrl('/main'),1500);
+    //                 }
+    //             }else{
+    //                 this.error(data.message)
+    //             }
+    //         })
+    // }
 }
 

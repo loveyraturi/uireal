@@ -99,6 +99,18 @@ export class UserService {
         }
       ))
   }
+  validateEmail(request): Observable<any> {
+    return this.http
+      .post('https://ownertenants.com/realestate/realestate/validateEmail', request).pipe(
+      map(
+        res => {
+          return res;
+        },
+        err => {
+          return err;
+        }
+      ))
+  }
   validateUserName(request): Observable<any> {
     return this.http
       .post('https://ownertenants.com/realestate/realestate/validateUserName', request).pipe(

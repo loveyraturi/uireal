@@ -20,8 +20,7 @@ export class ManagePropertiesComponent implements OnInit {
     public modelClass = "modal";
     private images = [];
     private latlng = [-25.363882, 131.044922]
-    private type = localStorage.getItem("type");
-    private username = localStorage.getItem("username");
+    private email = localStorage.getItem("email");
     private message;
     private properties;
     private occupiedStyle = "btn btn-secondary";
@@ -29,7 +28,7 @@ export class ManagePropertiesComponent implements OnInit {
     constructor(private router: Router, private sanitization: DomSanitizer, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
         // this.fetchPropertyDetailsById()
         // this.modelClick()
-        console.log(this.username)
+        console.log(this.email)
         localStorage.setItem("pageName","manage")
     }
 
@@ -63,9 +62,9 @@ export class ManagePropertiesComponent implements OnInit {
         })
     }
     getPropertyByOwnerName() {
-        console.log("#################",this.username)
+        console.log("#################",this.email)
         var request={
-            username:this.username
+            email:this.email
         }
         this.propertiesService.manageProperties(request).subscribe(resp=>{
             console.log(resp,"###################@@@@@@@@@@@@@@@@@@@@@")

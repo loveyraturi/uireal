@@ -97,9 +97,9 @@ export class PropertiesService {
           }
         ))
   }
-  sortlistedProperties(username): Observable<any> {
+  sortlistedProperties(request): Observable<any> {
     return this.http
-      .get('https://ownertenants.com/realestate/realestate/sortlistedProperties/' + username).pipe(
+      .post('https://ownertenants.com/realestate/realestate/sortlistedProperties/', request).pipe(
         map(
           res => {
             return res;
@@ -109,9 +109,9 @@ export class PropertiesService {
           }
         ))
   }
-  deleteInterestedProperties(propertyId,username): Observable<any> {
+  deleteInterestedProperties(request): Observable<any> {
     return this.http
-      .get('https://ownertenants.com/realestate/realestate/deleteInterestedProperties/'+propertyId+'/' + username).pipe(
+      .post('https://ownertenants.com/realestate/realestate/deleteInterestedProperties/',request).pipe(
         map(
           res => {
             return res;
@@ -184,6 +184,18 @@ export class PropertiesService {
   mainSearch(request): Observable<any> {
     return this.http
       .post('https://ownertenants.com/realestate/realestate/mainProperties', request).pipe(
+        map(
+          res => {
+            return res;
+          },
+          err => {
+            return err;
+          }
+        ))
+  }
+  filter(request): Observable<any> {
+    return this.http
+      .post('https://ownertenants.com/realestate/realestate/filter', request).pipe(
         map(
           res => {
             return res;

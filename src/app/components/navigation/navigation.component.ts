@@ -12,6 +12,8 @@ import { Login } from "../../models/login";
 })
 export class Navigation implements OnInit {
     @Input() loginInfo: Login;
+    @Input() username: string;
+    
     private pageName=localStorage.getItem("pageName")
     private modelType;
     private registerMessage = "Login"
@@ -20,16 +22,20 @@ export class Navigation implements OnInit {
     public isLogin = false
     public showMain=true;
     public showMenuBar=""
-    public username = localStorage.getItem("username")==undefined?"":localStorage.getItem("username");
+    private screenHeight=screen.height
+    // public username = localStorage.getItem("username")==undefined?"":localStorage.getItem("username");
     public type = localStorage.getItem("type")==undefined?"":localStorage.getItem("type");
     constructor(private router: Router) {
         console.log("PAGAAGUIGAUIGA#############",this.pageName);
         this.showMain=this.pageName=="main"?false:true
+        this.username=localStorage.getItem("name")==undefined?"":localStorage.getItem("name");
+        console.log(this.username != undefined,this.username , "###########EEhhhhEEEEEEEELOGININININI#####@@@###", this.isLogin)
+
      }
 
     ngOnInit() {
-        console.log(this.username != undefined,this.username , "###############@@@###", this.isLogin)
-        
+        this.username=localStorage.getItem("name")==undefined?"":localStorage.getItem("name");
+        console.log(this.username != undefined,this.username , "###########EEEEEEEEEELOGININININI#####@@@###", this.isLogin)
         if (this.username == "") {
             console.log("EEEEETRUE#EEEEEEEEEEEEEEEEE$#$#$")
             this.registerMessage = "Login"
@@ -73,8 +79,8 @@ export class Navigation implements OnInit {
     }
     logout() {
         console.log("############@@@@@@@@@@")
-        localStorage.setItem("username", "");
-        localStorage.setItem("type", "");
+        localStorage.setItem("name", "");
+        localStorage.setItem("email", "");
         this.router.navigateByUrl('/login');
     }
     navigateTo(url) {

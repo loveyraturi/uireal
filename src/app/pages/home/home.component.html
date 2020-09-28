@@ -1,4 +1,4 @@
-<navigation></navigation>
+<navigation [username]="loggedUserName"></navigation>
 
 <!-- Search Form Section Begin -->
 <div class="col-lg-12">
@@ -8,13 +8,17 @@
   </div>
 </div>
 <div class="row" style="margin-right: 0;">
-  <section class="col-md-3 search-form">
+  <div style="position:absolute;z-index: 1000;"> <button style="    margin-left: 12%;
+    width: 100%;
+    border-radius: 31% 2%;
+    background: purple;
+    color: white;" (click)="filterShowHide()">{{showMenuFilter ? 'Hide Filter' : 'Show Filter'}} </button>
+  </div>
+  <section class="search-form" [ngClass]="showMenuFilter ? 'col-md-3 show' : 'col-md-1 hide'">
     <div class="container">
-      <div class="col-sm-12">
-        <div class="row">
-          <!-- <form action="#" class="filter-form"> -->
-          <!-- <div class="first-row"> -->
-
+      <div class="col-sm-12" >
+        <filter [address]="addressSearch" (responseProperties)="propertiesReceived($event)"></filter>
+        <!-- <div class="row">
           <div class="row">
             <div class="col-md-12 form-style">
               <select class="form-control" (change)="furnishingFilter($event.target.value)">
@@ -54,8 +58,6 @@
                 <option value="5">5</option>
               </select>
             </div>
-            <!-- </div>
-        <div class="second-row"> -->
             <div class="col-md-12 form-style">
               <select class="form-control" (change)="garageFilter($event.target.value)" id="parkling">
                 <option selected disabled value="">Parking</option>
@@ -86,41 +88,13 @@
           <div class="col-md-12  form-style">
             <button style="width: 100%;" type="button" class="search-btn" (click)="filter()">Search</button>
           </div>
-          <!-- <div class="price-range-wrap">
-            <div class="price-text">
-              <label for="priceRange">Price:</label>
-              <input type="text" id="priceRange" readonly="">
-            </div>
-            <div id="price-range"
-              class="slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-              <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 62.5%;"></div><span
-                tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span
-                tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 62.5%;"></span>
-            </div>
-          </div> -->
-          <!-- <div class="room-size-range">
-            <div class="price-text">
-              <label for="roomsizeRange">Size:</label>
-              <input type="text" id="roomsizeRange" readonly="">
-            </div>
-            <div id="roomsize-range"
-              class="slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-              <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 11.1111%; width: 55.5556%;">
-              </div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
-                style="left: 11.1111%;"></span><span tabindex="0"
-                class="ui-slider-handle ui-corner-all ui-state-default" style="left: 66.6667%;"></span>
-            </div>
-          </div> -->
-
-          <!-- </div> -->
-          <!-- </form> -->
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
   <!-- Search Form Section End -->
   <!-- How It Works Section Begin -->
-  <section class="col-md-8 howit-works">
+  <section class="howit-works" [ngClass]="showMenuFilter ? 'col-md-8' : 'col-md-11 ml-7'">
     <div class="container" style="padding-left: 3%;">
       <div class="row">
         <div *ngIf="numberOfProperties==0" class="col-lg-12">
@@ -145,12 +119,7 @@
                     cursor: pointer;" (click)="showPropertyDetails(property.id)"> More details</a></div>
                 </div>
                 <div class="col-md-4">
-                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
+                  <div id="{{'carouselExampleIndicators'+property.id}}" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item" *ngFor="let imageCarasoule of property.images; let i=index;"
                         [ngClass]="{'active' : i==0}">
@@ -158,11 +127,11 @@
                           src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
                       </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="{{'#carouselExampleIndicators'+property.id}}" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="{{'#carouselExampleIndicators'+property.id}}" role="button" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
                     </a>
@@ -228,7 +197,7 @@
 
                       <!-- Modal content -->
                       <div class="modal-content1">
-                        <span class="close" (click)="closeModal1()">&times;</span>
+                        <span class="close1" (click)="closeModal1()">&times;</span>
                         <div class="container">
                           <div class="row">
                             <div class="col-md-12 col-xs-12	col-sm-12">
@@ -346,7 +315,7 @@
 
       <!-- Modal content -->
       <div class="modal-content">
-        <span class="close" (click)="closeModal()">&times;</span>
+        <span class="close1" (click)="closeModal()">&times;</span>
         <h3 *ngIf="callModal" style="text-align: center;margin-top: 8%;">Thanks for choosing us</h3>
         <p style="text-align: center;font-size: 20px;"> {{messageModal}}</p>
       </div>
@@ -361,31 +330,10 @@
   <div id="myModal3" class="{{modelClass3}}">
     <!-- Modal content -->
     <div class="modal-content3">
-      <div class="col-lg-12 formStyle">
+      <div>
         <span class="close" (click)="closeModal3()">&times;</span>
-        <div class="property-sidebar">
-          <h4 style="color:white;">User Login</h4>
-          <div class="form-row" style="margin-bottom: 10%;">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupPrepend3">@</span>
-              </div>
-              <input type="text" [(ngModel)]="userName" class="form-control" id="validationServerUsername"
-                placeholder="Username" aria-describedby="inputGroupPrepend3" required>
-            </div>
-          </div>
-          <div class="form-row" style="margin-bottom: 10%;">
-            <input type="password" (click)="passwordUser($event.target.value)" [(ngModel)]="password"
-              class="form-control" id="exampleInputPassword1" placeholder="Password">
-            {{messageLogin}}
-          </div>
-
-          <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-        </div>
+        <userLogin style="padding-bottom: 2%"  [redirect]="false" (loginDetails)="loginDetailsReceived($event)"></userLogin>
       </div>
-      <p style="text-align: center;">OR</p>
-      <p style="text-align: center;">Regiter to make an appointment </p>
-      <p style="text-align: center;    cursor: pointer;" (click)="register()">Click Here</p>
     </div>
   </div>
 </div>

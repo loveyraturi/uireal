@@ -1,65 +1,39 @@
 <!-- Offcanvas Menu Section Begin -->
-<div class="offcanvas-menu-overlay"></div>
+<!-- <div class="offcanvas-menu-overlay"></div>
 <div class="canvas-open" (click)="showMenu(showMenuBar)">
   <i class="icon_menu"></i>
-</div>
+</div> -->
 <!-- Offcanvas Menu Section End -->
 
 <!-- Header Section Begin -->
 <header class="header-section">
-  <div class="top-nav {{showMenuBar}}" >
+  <div class="top-nav {{showMenuBar}}">
     <div class="container">
       <div class="row">
-        <div class="col-lg-2">
-          <div *ngIf="!showMain" class="col-lg-3">
-            <div class="logo">
-              <a href="./index.html"><img src="./assets/img/ownertanenlogo.jpg" alt="" style="max-width: 121%;"></a>
-            </div>
-          </div>
+        <div class="col-lg-2 logo">
+          <img width="500" height="30" src="./assets/img/logo.jpg" alt="">
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-9">
           <nav class="main-menu">
             <ul>
-              <li (click)="navigateTo('main')" style="cursor: pointer;font-size: 12px;"><a>Home</a></li>
-              <li><a class="plan" style="cursor: pointer;font-size: 12px;">{{page}} Choose your plan</a>
-                <div class="menu2">
-                  <p (click)="modelClick4('owner')" style="cursor: pointer;" class="menuItems2"><i class="fa fa-user-circle-o"></i> For Owner</p>
-                  <p (click)="modelClick4('tenant')" style="cursor: pointer;" class="menuItems2"><i class="fa fa-user-circle"></i> For Tenants
-                  </p>
-                </div>
-              </li>
-              <li><a class="home" style="cursor: pointer;font-size: 12px;">Tenant</a>
-                <div class="menu">
-                  <p (click)="navigateTo('sortlisted')" style="cursor: pointer;" class="menuItems"><i class="fa fa-list"></i> Sortlisted
-                    properties</p>
-                  <p (click)="navigateTo('match_requirements')" style="cursor: pointer;" class="menuItems"><i class="fa fa-search-plus"></i>
-                    Match requirements</p>
-                </div>
-              </li>
-              <li><a class="owner" style="cursor: pointer;font-size: 12px;">Owner</a>
-                <div class="menu1">
-                  <p (click)="navigateTo('manage')" style="cursor: pointer;" class="menuItems1"><i class="fa fa-files-o"></i> Manage properties
-                  </p>
-                  <p (click)="navigateTo('properties_registration')" style="cursor: pointer;" class="menuItems1"><i class="fa fa-list"></i> List
-                    your property</p>
-                </div>
-              </li>
-              <li (click)="navigateTo('properties_registration')" style="cursor: pointer;font-size: 12px;"><a>Free property Listing</a></li>
-              <li><a style="cursor: pointer;font-size: 12px;" class="signupLogin"> {{loginMessage}}</a>
+              <li (click)="navigateTo('main')" style="color:black; cursor: pointer;font-size: 12px;"><a
+                  style="color: black;">Home</a></li>
+              <li (click)="navigateTo('properties_registration')" style="color:black; cursor: pointer;font-size: 12px;">
+                <a style="padding: 8%;
+                  width: 117%;color: white; background: purple">Free property
+                  Listing</a></li>
+              <li><a style="color:black;cursor: pointer;font-size: 12px;" class="signupLogin"> {{loginMessage}}</a>
                 <div *ngIf="isLogin==false" class="menu3">
-                  <p (click)="navigateTo('login')" style="cursor: pointer;" class="menuItems3"><i class="fa fa-sign-in"></i> Login</p>
-                  <p (click)="navigateTo('registration')" style="cursor: pointer;" class="menuItems3"><i class="fa fa-user-plus"></i> SignUp</p>
+                  <p (click)="navigateTo('login')" style="cursor: pointer;" class="menuItems3"><i
+                      class="fa fa-sign-in"></i> Login</p>
+                  <p (click)="navigateTo('registration')" style="cursor: pointer;" class="menuItems3"><i
+                      class="fa fa-user-plus"></i> SignUp</p>
                 </div>
                 <div *ngIf="isLogin==true" class="menu3">
-                  <p (click)="navigateTo('profile')" style="cursor: pointer;" class="menuItems3"><i class="fa fa-user-plus"></i> Profile</p>
-                  <p (click)="logout()" style="cursor: pointer;" class="menuItems3"><i class="fa fa-sign-out"></i> Logout</p>
-                </div>
-              </li>
-              <li><a class="contactus" style="cursor: pointer;font-size: 12px;">Contact US</a>
-                <div class="menu4">
-                  <p style="cursor: pointer;" class="menuItems4"><i class="fa fa-list"></i>  +91 9109769242</p>
-                  <p style="cursor: pointer; font-size: 14px" class="menuItems4"><i class="fa fa-search-plus"></i>
-                    support@ownertenants.com</p>
+                  <p (click)="navigateTo('profile')" style="cursor: pointer;" class="menuItems3"><i
+                      class="fa fa-user-plus"></i> Profile</p>
+                  <p (click)="logout()" style="cursor: pointer;" class="menuItems3"><i class="fa fa-sign-out"></i>
+                    Logout</p>
                 </div>
               </li>
             </ul>
@@ -85,15 +59,46 @@
                 <a href="#" class="property-sub">Submit Property</a>
               </div> -->
         </div>
+        <div class="col-lg-1">
+          <i style="font-size: 50px;float: right;    margin-left: 77%;
+            margin-top: 4%;
+            position: absolute;
+            z-index: 10000;" class="icon_menu"></i>
+
+          <div class="showMenu" style="    height: 500px;
+          overflow-y: scroll;background: darkred;    position: absolute;
+          z-index: 1000;">
+            <br>
+            <br>
+            <div (click)="navigateTo('main')" class="slideMenu">Home</div>
+            <div (click)="navigateTo('properties_registration')" class="slideMenu">Free property Listing</div>
+            <div (click)="modelClick4('owner')" class="slideMenu">Owner Plan</div>
+            <div (click)="modelClick4('owner')" class="slideMenu">Tenants Plan</div>
+            <div (click)="navigateTo('sortlisted')" class="slideMenu">Shortlisted Properties</div>
+            <div (click)="navigateTo('match_requirements')" class="slideMenu">Match requirements</div>
+            <div (click)="navigateTo('manage')" class="slideMenu">Manage Properties</div>
+            <div (click)="navigateTo('properties_registration')" class="slideMenu">List properties</div>
+            <div *ngIf="isLogin==false" (click)="navigateTo('login')" class="slideMenu">Login</div>
+            <div *ngIf="isLogin==true" class="slideMenu ">Profile </div>
+            <div *ngIf="isLogin==true" (click)="logout()" class="slideMenu ">Logout</div>
+            <div (click)="navigateTo('properties_registration')" class="slideMenu">Contact us
+                <div >
+                    <p style="cursor: pointer;" class="menuItems4">+91 9109769242</p>
+                    <p style="cursor: pointer;" class="menuItems4">
+                      support@ownertenants.com</p>
+                  </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div *ngIf="showMain" class="nav-logo">
+  <!-- <div *ngIf="showMain" class="nav-logo">
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
           <div class="logo" style="padding: 10px 0;">
-            <a href="./index.html"><img src="./assets/img/ownertanenlogo.jpg" alt="" style="max-width: 45%;"></a>
+            <a href="./index.html"><img src="./assets/img/logo.jpg" alt="" style="max-width: 45%;"></a>
           </div>
         </div>
         <div class="col-lg-9">
@@ -125,7 +130,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </header>
 <!-- Header End -->
 

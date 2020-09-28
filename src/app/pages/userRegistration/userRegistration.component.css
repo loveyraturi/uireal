@@ -1,0 +1,93 @@
+.formStyle{
+    flex: 1 0 0;
+    width: 100%;
+    max-width: 100%;
+}
+.userDisplay{
+  padding: 5%;
+}
+.property-section{
+  padding: 2%;
+}
+.spinnerAngular{
+  background: rgba(0,0,0,.6);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+.spinnerStyle{
+  color: white;
+    margin-left: 50%;
+    margin-top: 22%;
+}
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+.modal1 {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 100;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+  }
+  .modal-content1 {
+    background-color: #fefefe;
+    margin: 8% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    height: 200px;
+    width: 500px !important;
+    /* Could be more or less, depending on screen size */
+  }
+  .modalDisplay1 {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    margin-left: 24%;
+    top: 0%;
+  }
+  .modal3 {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+  }
+  @media only screen and (max-width: 991px) {
+    .btnsubmit{
+      margin-left: 0% !important;
+    }
+  }
