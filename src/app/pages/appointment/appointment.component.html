@@ -1,128 +1,108 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-xs-12	col-sm-12">
-        <p style="font-size: 10px;">Date</p>
-        <div class="row">
-          <div class="col-xs-4 col-md-2" style="font-size: 10px; padding-bottom: 2%;"><button
-              (click)="dateSelected('today')" style="font-size: 10px;" class="btn btn-info">Today</button></div>
-          <div class="col-xs-4 col-md-2" style="font-size: 10px;"><button (click)="dateSelected('tomorrow')"
-              style="font-size: 10px;" class="btn btn-info">Tomorrow</button></div>
-          <div class="col-xs-4 col-md-2"></div>
-          <div class="col-xs-6 col-md-6" style="z-index: 1000;font-size: 10px;">
-            <ng-datepicker style="z-index: 1000;" [options]="options" (onChange)="dateHandler($event)"
-              [(ngModel)]="date"></ng-datepicker>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <p style="font-size: 10px;">Time</p>
-
-      <div class="col-md-12 innerBorder">
-        <div class="row">
-          <div class="col-md-12" style="border-bottom: 1px solid;">
-            <div class="row">
-              <div class="col-xs-4 col-md-4" style="font-size: 10px;padding-left: 11%;">Morning</div>
-              <div class="col-xs-4 col-md-4" style="font-size: 10px;padding-left: 10%;">Afternoon</div>
-              <div class="col-xs-4 col-md-4" style="font-size: 10px;padding-left: 7%;">Evening</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 ">
-          <div class="row">
-            <div class="col-xs-4 col-md-4"><button (click)="selectTime('08AM-10AM')" style="font-size: 10px;    margin-top: 5px;
-                margin-bottom: 5px;" class="btn btn-info">08AM-10AM</button></div>
-            <div class="col-xs-4 col-md-4"><button (click)="selectTime('12PM-02PM')" style="font-size: 10px;    margin-top: 5px;
-                margin-bottom: 5px;" class="btn btn-info">12PM-02PM</button></div>
-            <div class="col-xs-4 col-md-4"><button (click)="selectTime('04PM-06PM')" style="font-size: 10px;    margin-top: 5px;
-                margin-bottom: 5px;" class="btn btn-success">04PM-06PM</button></div>
-            <br>
-            <div class="col-xs-4 col-md-4"><button (click)="selectTime('10AM-12PM')" style="font-size: 10px;    margin-top: 5px;
-                margin-bottom: 5px;" class="btn btn-info">10AM-12PM</button></div>
-            <div class="col-xs-4 col-md-4"><button (click)="selectTime('02PM-04PM')" style="font-size: 10px;    margin-top: 5px;
-                margin-bottom: 5px;" class="btn btn-info">02PM-04PM</button></div>
-            <div class="col-xs-4 col-md-4"><button (click)="selectTime('06PM-08PM')" style="font-size: 10px;    margin-top: 5px;
-                margin-bottom: 5px;" class="btn btn-success">06PM-08PM</button></div>
-          </div>
-        </div>
-      </div>
-      <p style="font-size: 10px;">User Details</p>
-      <div class="row" style="margin-bottom: 2%;">
-        <div style="font-size: 10px;" class="col-md-6">
-          <select style="font-size: 10px;" (change)="empTypeSelected($event.target.value)" class="form-control"
-            id="employmentType">
-            <option value="" selected disabled>Employment type</option>
-            <option value="working">Working</option>
-            <option value="business">Business</option>
-          </select>
-        </div>
-        <div style="font-size: 10px;" class="col-md-6">
-          <select style="font-size: 10px;" (change)="docTypeSelected($event.target.value)" class="form-control"
-            id="docType">
-            <option value="" selected disabled>Document Type</option>
-            <option value="poi">POI</option>
-            <option value="emp">Employment Proof</option>
-          </select></div>
-        <div style="font-size: 10px;" class="col-md-6" style="padding-top: 2%;">
-          <input style="font-size: 10px;" type="file" (change)="fileuploaded($event)">
-        </div>
-      </div>
-      <div class="col-md-12 ">
-        <div class="row">
-          <div class="col-md-12">
-            <p *ngIf="appointmentSchedule" style="text-align: center; font-size: 13px;">{{appointmentSchedule}}
-            </p>
-            <button (click)="scheduleAppointment()" style="font-size: 10px;    width: 100%; margin-top: 5px;
-                  margin-bottom: 25px;" class="btn btn-success">Schedule Visit</button>
-          </div>
+  <div class="row">
+    <div class="col-md-12 col-xs-12	col-sm-12">
+      <p style="font-size: 10px;">Date</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-2" style="font-size: 10px; padding-bottom: 2%;"><button
+            (click)="dateSelected('today')" style="font-size: 10px;" class="btn btn-info">Today</button></div>
+        <div class="col-xs-4 col-md-2" style="font-size: 10px;"><button (click)="dateSelected('tomorrow')"
+            style="font-size: 10px;" class="btn btn-info">Tomorrow</button></div>
+        <div class="col-xs-4 col-md-2"></div>
+        <div class="col-xs-6 col-md-6" style="z-index: 1000;font-size: 10px;">
+          <ng-datepicker style="z-index: 1000;" [options]="options" (onChange)="dateHandler($event)" [(ngModel)]="date">
+          </ng-datepicker>
         </div>
       </div>
     </div>
   </div>
-  <div id="myModal" class="{{modelClass}}">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close" (click)="closeModal()">&times;</span>
-        <h3 *ngIf="thanksFlag" style="text-align: center;">Thanks for choosing us</h3>
-        <hr *ngIf="thanksFlag">
-        <p style="    text-align: center;
-        font-size: 25px;">{{message}}</p>
-      </div>
-    </div>
+  <div class="row">
+    <p style="font-size: 10px;">Time</p>
 
-    <div id="myModal5" class="{{modelClass5}}">
-      <!-- Modal content -->
-      <div class="modal-content5">
-        <div class="spinner-border"></div>
-      </div>
-    </div>
-    <div id="myModal3" class="{{modelClass3}}">
-      <!-- Modal content -->
-      <div class="modal-content3">
-        <div class="col-lg-12 formStyle">
-          <span class="close" (click)="closeModal3()">&times;</span>
-          <div class="property-sidebar">
-            <h4 style="color:white;">User Login</h4>
-            <div class="form-row" style="margin-bottom: 10%;">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                </div>
-                <input type="text" [(ngModel)]="userName" class="form-control" id="validationServerUsername"
-                  placeholder="Username" aria-describedby="inputGroupPrepend3" required>
-              </div>
-            </div>
-            <div class="form-row" style="margin-bottom: 10%;">
-              <input type="password" (click)="passwordUser($event.target.value)" [(ngModel)]="password"
-                class="form-control" id="exampleInputPassword1" placeholder="Password">
-              {{messageLogin}}
-            </div>
-
-            <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+    <div class="col-md-12 innerBorder">
+      <div class="row">
+        <div class="col-md-12" style="border-bottom: 1px solid;">
+          <div class="row">
+            <div class="col-xs-4 col-md-4" style="font-size: 10px;padding-left: 11%;">Morning</div>
+            <div class="col-xs-4 col-md-4" style="font-size: 10px;padding-left: 10%;">Afternoon</div>
+            <div class="col-xs-4 col-md-4" style="font-size: 10px;padding-left: 7%;">Evening</div>
           </div>
         </div>
-        <p style="text-align: center;">OR</p>
-        <p style="text-align: center;">Regiter to make an appointment </p>
-        <p style="text-align: center;    cursor: pointer;" (click)="register()">Click Here</p>
+      </div>
+      <div class="col-md-12 ">
+        <div class="row">
+          <div class="col-xs-4 col-md-4"><button (click)="selectTime('08AM-10AM')" style="font-size: 10px;    margin-top: 5px;
+                margin-bottom: 5px;" class="btn btn-info">08AM-10AM</button></div>
+          <div class="col-xs-4 col-md-4"><button (click)="selectTime('12PM-02PM')" style="font-size: 10px;    margin-top: 5px;
+                margin-bottom: 5px;" class="btn btn-info">12PM-02PM</button></div>
+          <div class="col-xs-4 col-md-4"><button (click)="selectTime('04PM-06PM')" style="font-size: 10px;    margin-top: 5px;
+                margin-bottom: 5px;" class="btn btn-success">04PM-06PM</button></div>
+          <br>
+          <div class="col-xs-4 col-md-4"><button (click)="selectTime('10AM-12PM')" style="font-size: 10px;    margin-top: 5px;
+                margin-bottom: 5px;" class="btn btn-info">10AM-12PM</button></div>
+          <div class="col-xs-4 col-md-4"><button (click)="selectTime('02PM-04PM')" style="font-size: 10px;    margin-top: 5px;
+                margin-bottom: 5px;" class="btn btn-info">02PM-04PM</button></div>
+          <div class="col-xs-4 col-md-4"><button (click)="selectTime('06PM-08PM')" style="font-size: 10px;    margin-top: 5px;
+                margin-bottom: 5px;" class="btn btn-success">06PM-08PM</button></div>
+        </div>
       </div>
     </div>
+    <p style="font-size: 10px;">User Details</p>
+    <div class="row" style="margin-bottom: 2%;">
+      <div style="font-size: 10px;" class="col-md-6">
+        <select style="font-size: 10px;" (change)="empTypeSelected($event.target.value)" class="form-control"
+          id="employmentType">
+          <option value="" selected disabled>Employment type</option>
+          <option value="working">Working</option>
+          <option value="business">Business</option>
+        </select>
+      </div>
+      <div style="font-size: 10px;" class="col-md-6">
+        <select style="font-size: 10px;" (change)="docTypeSelected($event.target.value)" class="form-control"
+          id="docType">
+          <option value="" selected disabled>Document Type</option>
+          <option value="poi">POI</option>
+          <option value="emp">Employment Proof</option>
+        </select></div>
+      <div style="font-size: 10px;" class="col-md-6" style="padding-top: 2%;">
+        <input style="font-size: 10px;" type="file" (change)="fileuploaded($event)">
+      </div>
+    </div>
+    <div class="col-md-12 ">
+      <div class="row">
+        <div class="col-md-12">
+          <p *ngIf="appointmentSchedule" style="text-align: center; font-size: 13px;">{{appointmentSchedule}}
+          </p>
+          <button (click)="scheduleAppointment()" style="font-size: 10px;    width: 100%; margin-top: 5px;
+                  margin-bottom: 25px;" class="btn btn-success">Schedule Visit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModal" class="{{modelClass}}">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h3 *ngIf="thanksFlag" style="text-align: center;">Thanks for choosing us</h3>
+    <hr *ngIf="thanksFlag">
+    <p style="    text-align: center;
+        font-size: 25px;">{{message}}</p>
+  </div>
+</div>
+
+<div id="myModal5" class="{{modelClass5}}">
+  <!-- Modal content -->
+  <div class="modal-content5">
+    <div class="spinner-border"></div>
+  </div>
+</div>
+<div id="myModal3" class="{{modelClass3}}">
+  <!-- Modal content -->
+  <div class="modal-content3">
+    <div>
+      <span class="close1" (click)="closeModal3()">&times;</span>
+      <userLogin style="padding-bottom: 2%" [redirect]="false" (loginDetails)="loginDetailsReceived($event)">
+      </userLogin>
+    </div>
+  </div>
+</div>

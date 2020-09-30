@@ -54,7 +54,8 @@ export class AppointmentComponent implements OnInit {
 	private numberMessage;
 	private maplocation;
 	private similarProperties
-	private message;
+    private message;
+    private loggedUserName;
 	private name = localStorage.getItem("name");
 	private email = localStorage.getItem("email");
 	private tab1Style = "active show"
@@ -90,7 +91,14 @@ export class AppointmentComponent implements OnInit {
 
 	ngOnInit() {
 
-	}
+    }
+    loginDetailsReceived(data){
+		console.log(data)
+		this.loggedUserName=data.name
+		this.email=data.email
+		console.log(this.loggedUserName)
+		this.closeModal3()
+}
 	dateHandler(date){
 console.log("$#%$#$%#DATE#@$#@$#",date)
 	}
