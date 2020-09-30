@@ -137,7 +137,9 @@
 <div id="myModal4" class="{{modelClass4}}">
   <!-- Modal content -->
   <div class="modal-content4">
-    <span class="close" (click)="closeModal4()">&times;</span>
+    <span class="close" (click)="closeModal4()">
+      <input type="image" height="30" width="30" (click)="closeModal4()" src="./assets/img/icons/close.png">
+    </span>
     <div *ngIf="modelType=='owner'" class="container">
       <div class="row">
         <div class="col-xs-12 col-md-6">
