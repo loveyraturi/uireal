@@ -110,7 +110,9 @@
 
                           <!-- Modal content -->
                           <div class="modal-content1">
-                            <span class="close" (click)="closeModal1()">&times;</span>
+                            <span class="close" (click)="closeModal1()">
+                                <input type="image" height="30" width="30" (click)="closeModal1()" src="./assets/img/icons/close.png">
+                            </span>
                             <appointment style="padding-bottom: 2%" [propertyId]="property.id" (loginDetails)="loginDetailsReceived($event)">
                               </appointment>
                           </div>
@@ -137,7 +139,10 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" (click)="closeModal()">&times;</span>
+    <span class="close" (click)="closeModal()">
+        <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
+
+    </span>
     <h3 *ngIf="callModal" style="text-align: center;margin-top: 8%;">Thanks for choosing us</h3>
     <p style="text-align: center;font-size: 20px;"> {{messageModal}}</p>
   </div>
@@ -158,7 +163,10 @@
   <!-- Modal content -->
   <div class="modal-content3">
     <div>
-      <span class="close1" (click)="closeModal3()">&times;</span>
+      <span class="close1" (click)="closeModal3()">
+          <input type="image" height="30" width="30" (click)="closeModal3()" src="./assets/img/icons/close.png">
+
+      </span>
       <userLogin style="padding-bottom: 2%" [redirect]="false" (loginDetails)="loginDetailsReceived($event)">
       </userLogin>
     </div>

@@ -49,7 +49,10 @@
 <div id="myModal" class="{{modelClass}}">
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" (click)="closeModal()">&times;</span>
+    <span class="close" (click)="closeModal()">
+        <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
+
+    </span>
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
         <div class="panel panel-default">
@@ -88,7 +91,10 @@
     <!-- Modal content -->
     <div class="modal-content3">
       <div>
-        <span class="close" (click)="closeModal3()">&times;</span>
+        <span class="close" (click)="closeModal3()">
+            <input type="image" height="30" width="30" (click)="closeModal3()" src="./assets/img/icons/close.png">
+
+        </span>
         <userRegistration style="padding-bottom: 2%"></userRegistration>
       </div>
     </div>

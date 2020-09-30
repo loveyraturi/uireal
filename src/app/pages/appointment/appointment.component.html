@@ -82,7 +82,10 @@
 <div id="myModal" class="{{modelClass}}">
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" (click)="closeModal()">&times;</span>
+    <span class="close" (click)="closeModal()">
+        <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
+
+    </span>
     <h3 *ngIf="thanksFlag" style="text-align: center;">Thanks for choosing us</h3>
     <hr *ngIf="thanksFlag">
     <p style="    text-align: center;
@@ -100,7 +103,10 @@
   <!-- Modal content -->
   <div class="modal-content3">
     <div>
-      <span class="close1" (click)="closeModal3()">&times;</span>
+      <span class="close1" (click)="closeModal3()">
+          <input type="image" height="30" width="30" (click)="closeModal3()" src="./assets/img/icons/close.png">
+
+      </span>
       <userLogin style="padding-bottom: 2%" [redirect]="false" (loginDetails)="loginDetailsReceived($event)">
       </userLogin>
     </div>
