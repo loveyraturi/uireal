@@ -393,4 +393,7 @@
     margin-top: -9%;
     z-index: 1000;
   }
+  .close {
+    margin-left: 64%
+    }
 }

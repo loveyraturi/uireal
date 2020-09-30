@@ -66,6 +66,7 @@
   font-weight: bold;
   position: absolute;
   margin-left: 33%;
+  z-index: 1000;
 }
 .close1:hover,
 .close1:focus {
@@ -274,5 +275,8 @@
   }
   .sectionAddress{
     margin-top: 17%;
+  }
+  .close1{
+    margin-left: 64%;
   }
 }
