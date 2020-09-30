@@ -303,6 +303,7 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  z-index: 10000;
 }
 
 .close:hover,

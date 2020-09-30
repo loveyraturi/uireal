@@ -240,6 +240,20 @@
   text-decoration: none;
   cursor: pointer;
 }
+.close1 {
+  color: #aaa;
+  float: right;
+  z-index: 1000000;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close1:hover,
+.close1:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .modalDisplay4 {
   display: block;
@@ -436,4 +450,14 @@
     width: auto;
     height: auto;
   }
+    .close1 {
+      color: #aaa;
+      float: right;
+      z-index: 1000000;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      margin-top: -6%;
+      margin-left: 52%;
+    }
 }
