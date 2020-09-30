@@ -20,8 +20,8 @@ export class PropertiesRegistrationComponent implements OnInit {
     public modelClass = "modal";
     private images = [];
     private latlng = [-25.363882, 131.044922]
-    private type = localStorage.getItem("type");
-    private username = localStorage.getItem("username");
+    private name = localStorage.getItem("name");
+    private email = localStorage.getItem("email");
     private message;
     private sliderPosition = "slide1";
     private spinner=false;
@@ -84,7 +84,7 @@ export class PropertiesRegistrationComponent implements OnInit {
         textField: 'item_text',
         selectAllText: 'Select All',
         unSelectAllText: 'UnSelect All',
-        itemsShowLimit: 2
+        itemsShowLimit: 1
     }
     public dropdownSettingsAmenities = {
         singleSelection: false,
@@ -92,7 +92,7 @@ export class PropertiesRegistrationComponent implements OnInit {
         textField: 'item_text',
         selectAllText: 'Select All',
         unSelectAllText: 'UnSelect All',
-        itemsShowLimit: 2
+        itemsShowLimit: 1
     }
     constructor(private alertService: AlertService, private router: Router, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
         // this.fetchPropertyDetailsById()
@@ -112,7 +112,7 @@ export class PropertiesRegistrationComponent implements OnInit {
             garage: new FormControl('', [Validators.required]),
             address: new FormControl('', [Validators.required]),
             area: new FormControl('', [Validators.required]),
-            ownerName: new FormControl('', [Validators.required]),
+            ownerEmail: new FormControl('', [Validators.required]),
             latitude: new FormControl('', [Validators.required]),
             longitude: new FormControl('', [Validators.required]),
             file: new FormControl('', [Validators.required]),
@@ -204,26 +204,26 @@ export class PropertiesRegistrationComponent implements OnInit {
         this.alertService.clear();
     }
     modelClick() {
-        console.log(this.username, "model id is ", this.type)
+        console.log(this.email, "model id is ")
 
-        if (this.username != undefined) {
-            if (this.type == "owner") {
+        if (this.email != undefined) {
+            // if (this.type == "owner") {
 
-            } else {
-                this.modelClass = "modalDisplay"
-                this.message = "You are not allowed to add property please login as owner"
-                // this.closeModal()
-            }
+            // } else {
+            //     this.modelClass = "modalDisplay"
+            //     this.message = "You are not allowed to add property please login as owner"
+            //     // this.closeModal()
+            // }
 
         } else {
             this.message = "Please login to add property"
         }
     }
     modelClickRegister(message,type) {
-        console.log(this.username, "model id is ", this.type)
+        console.log(this.email, "model id is ")
         this.modelClass = "modalDisplay"
-        if (this.username != undefined) {
-            if (this.type == "owner") {
+        if (this.email != undefined) {
+            // if (this.type == "owner") {
                 // this.closeModal()
                 if(type=="success"){
                     this.message = message
@@ -233,9 +233,9 @@ export class PropertiesRegistrationComponent implements OnInit {
                 }
                 
 
-            } else {
-                this.message = "You are not allowed to add property please login as owner"
-            }
+            // } else {
+            //     this.message = "You are not allowed to add property please login as owner"
+            // }
 
         } else {
             this.message = "Please login to add property"

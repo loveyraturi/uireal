@@ -37,6 +37,7 @@ export class SortlistedPropertiesComponent implements OnInit {
     private userNameIsValid;
     public modelClass1 = "modal1"
 	private selectedPropertry;
+	private loggedUserName;
 	private appointmentSchedule;
 	private modelClass5 = "modal5"
     private modelClass3 = "modal3"
@@ -83,6 +84,13 @@ export class SortlistedPropertiesComponent implements OnInit {
 
 	// 		})
 	// }
+	loginDetailsReceived(data){
+		console.log(data)
+		this.loggedUserName=data.name
+		this.email=data.email
+		console.log(this.loggedUserName)
+		this.closeModal3()
+}
     dateSelected(value) {
 		var today = new Date().toJSON().slice(0, 10)
 		//     var tomorrowValue = today.split("-")

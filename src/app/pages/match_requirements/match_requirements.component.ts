@@ -19,8 +19,7 @@ export class MatchRequirementsComponent implements OnInit {
     public modelClass = "modal";
     private images = [];
     private latlng = [-25.363882, 131.044922]
-    private type = localStorage.getItem("type");
-    private username = localStorage.getItem("username");
+    private email = localStorage.getItem("email");
     private message;
     private sliderPosition = "slide1";
     private spinner=false;
@@ -62,7 +61,7 @@ export class MatchRequirementsComponent implements OnInit {
         this.sliderPosition = event
     }
     modelClick() {
-        console.log(this.username, "model id is ", this.type)
+        console.log(this.email, "model id is ")
 
         // if (this.username != undefined) {
         //     if (this.type == "owner") {
@@ -78,7 +77,7 @@ export class MatchRequirementsComponent implements OnInit {
         // }
     }
     modelClickRegister(message) {
-        console.log(this.username, "model id is ", this.type)
+        console.log(this.email, "model id is ")
         this.modelClass = "modalDisplay"
         // if (this.username != undefined) {
         //     if (this.type == "owner") {

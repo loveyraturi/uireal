@@ -229,7 +229,7 @@
 .close {
   color: #aaa;
   float: right;
-  z-index: 10000;
+  z-index: 1000000;
   font-size: 28px;
   font-weight: bold;
 }

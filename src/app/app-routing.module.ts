@@ -28,6 +28,8 @@ import { OwnerPropertyDetailsComponent } from './pages/ownerPropertyDetails/owne
 import { UserRegistrationComponent } from './pages/userRegistration/userRegistration.component';
 import { UserLoginComponent } from './pages/userLogin/userLogin.component';
 import { FilterComponent } from './pages/filter/filter.component';
+import { TenantsRequirementsComponent } from './pages/tenantsRequirements/tenantsRequirements.component';
+import { AppointmentComponent } from './pages/appointment/appointment.component';
 
 export const appRoutes = [
     {
@@ -48,6 +50,10 @@ export const appRoutes = [
         component: MainComponent
     },
     {
+        path: 'appointment',
+        component: AppointmentComponent
+    },
+    {
         path: 'editProperty/:propertyId',
         component: EditPropertyComponent
     },
@@ -58,6 +64,10 @@ export const appRoutes = [
     {
         path: 'manage',
         component: ManagePropertiesComponent
+    },
+    {
+        path: 'tenantRequirements',
+        component: TenantsRequirementsComponent
     },
     {
         path: 'filter',

@@ -49,6 +49,9 @@ import { OwnerPropertyDetailsComponent } from './pages/ownerPropertyDetails/owne
 import { UserRegistrationComponent } from './pages/userRegistration/userRegistration.component';
 import { UserLoginComponent } from './pages/userLogin/userLogin.component';
 import { FilterComponent } from './pages/filter/filter.component';
+import { TenantsRequirementsComponent } from './pages/tenantsRequirements/tenantsRequirements.component';
+import { NgDatepickerModule } from 'ng2-datepicker';
+import { AppointmentComponent } from './pages/appointment/appointment.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +76,7 @@ import { FilterComponent } from './pages/filter/filter.component';
     DashboardComponent,
     SuccessComponent,
     AboutUsComponent,
+    TenantsRequirementsComponent,
     FilterComponent,
     OwnerPropertyComponent,
     TenantPropertyComponent,
@@ -80,6 +84,7 @@ import { FilterComponent } from './pages/filter/filter.component';
     UserLoginComponent,
     FailureComponent,
     PaymentComponent,
+    AppointmentComponent,
     SidebarComponent,
     NavigationAdminComponent,
     AdminLoginComponent,
@@ -89,7 +94,6 @@ import { FilterComponent } from './pages/filter/filter.component';
   ],
   imports: [
     BrowserModule,
-    BrowserModule,
     AngularDateTimePickerModule,
     FormsModule,
     HttpModule,
@@ -97,6 +101,7 @@ import { FilterComponent } from './pages/filter/filter.component';
     NgxSpinnerModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgDatepickerModule,
     NgMultiSelectDropDownModule.forRoot(),
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],

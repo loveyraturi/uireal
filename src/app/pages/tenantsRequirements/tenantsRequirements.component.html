@@ -1,0 +1,179 @@
+<navigation></navigation>
+<section class="property-section">
+  <div class="mainSection">
+    <h4 style="    font-size: 30px;
+    padding-bottom: 5%;
+    text-align: center;">Matching Requirements</h4>
+  <div class="requirementMain">
+    <p>Property Type</p>
+    <div (click)="selectedFlat()" class="horizontalAlignment {{isSelectedFlat}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/property.png">
+      <br>
+      <i>Flat</i>
+    </div>
+    <div (click)="selectedRowHouse()" class="horizontalAlignment {{isSelectedRowHouse}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/rowhouse.jpg">
+      <br>
+      <i>Row House</i>
+    </div>
+    <div (click)="selectedPG()" class="horizontalAlignment {{isSelectedPG}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/pg.png">
+      <br>
+      <i>PG</i>
+    </div>
+    <div (click)="selectedRowHostel()" class="horizontalAlignment {{isSelectedRowHostel}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/hostel.png">
+      <br>
+      <i>Hostel</i>
+    </div>
+  </div>
+  <div class="requirementMain">
+    <p>Property Type</p>
+    <div (click)="selected1()" class="horizontalAlignment {{isSelected1}}">
+      <i>1BHK</i>
+    </div>
+    <div (click)="selected2()" class="horizontalAlignment {{isSelected2}}">
+      <i>2BHK</i>
+    </div>
+    <div (click)="selected3()" class="horizontalAlignment {{isSelected3}}">
+      <i>3BHK</i>
+    </div>
+    <div (click)="selected4()" class="horizontalAlignment {{isSelected4}}">
+      <i>4BHK</i>
+    </div>
+    <div (click)="selected5more()" class="horizontalAlignment {{isSelected5more}}">
+      <i>5BHK +</i>
+    </div>
+  </div>
+  <div class="requirementMain selectBox">
+    <p>Budget</p>
+    <div class="row">
+      <div class="col-xs-4 col-md-6 filterRange">
+        <select class="form-control" (change)="selectMinPrice($event.target.value)">
+          <option value="" selected disabled>Min</option>
+          <option value="5000">5000</option>
+          <option value="10000">10000</option>
+          <option value="15000">15000</option>
+          <option value="20000">20000</option>
+          <option value="25000">25000</option>
+          <option value="30000">30000</option>
+          <option value="35000">35000</option>
+          <option value="40000">40000</option>
+          <option value="45000">45000</option>
+          <option value="50000">50000</option>
+          <option value="55000">55000</option>
+          <option value="60000">60000</option>
+          <option value="65000">65000</option>
+          <option value="70000">70000</option>
+          <option value="75000">75000</option>
+          <option value="80000">80000</option>
+          <option value="100000">1 lac</option>
+          <option value="150000">1.5 lac</option>
+          <option value="200000">2 lac</option>
+          <option value="250000">2.5 lac</option>
+
+        </select>
+      </div>
+      <div class="col-xs-4 col-md-6 filterRange">
+        <select class="form-control" (change)="selectMaxPrice($event.target.value)">
+          <option value="" selected disabled>Max</option>
+          <option value="5000">5000</option>
+          <option value="10000">10000</option>
+          <option value="15000">15000</option>
+          <option value="20000">20000</option>
+          <option value="25000">25000</option>
+          <option value="30000">30000</option>
+          <option value="35000">35000</option>
+          <option value="40000">40000</option>
+          <option value="45000">45000</option>
+          <option value="50000">50000</option>
+          <option value="55000">55000</option>
+          <option value="60000">60000</option>
+          <option value="65000">65000</option>
+          <option value="70000">70000</option>
+          <option value="75000">75000</option>
+          <option value="80000">80000</option>
+          <option value="100000">1 lac</option>
+          <option value="150000">1.5 lac</option>
+          <option value="200000">2 lac</option>
+          <option value="250000">2.5 lac</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="requirementMain selectBox">
+    <p>Covered Area</p>
+    <div class="row">
+      <div class="col-xs-4 col-md-6 filterRange">
+        <input type="text" class="form-control" placeholder="Min" [(ngModel)]="minArea">
+      </div>
+      <div class="col-xs-4 col-md-6 filterRange">
+        <input type="text" class="form-control" placeholder="Max" [(ngModel)]="maxArea">
+      </div>
+    </div>
+  </div>
+  <div class="requirementMain selectBox">
+    <p>Tenant Preferred</p>
+    <div class="row">
+      <div class="col-md-10">
+        <select class="form-control" (change)="selectPreference($event.target.value)">
+          <option value="" selected disabled>Select Preference</option>
+          <option value="family">Family</option>
+          <option value="bachelor">Bachelor</option>
+          <option value="student">Student</option>
+          <option value="unmarried_couple">Unmarried couple</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="requirementMain propertyType" style="width: 65%;white-space: nowrap;">
+    <p>Property Type</p>
+    <div (click)="selectedFullyFurnished()" style="width: 49%;"
+      class="horizontalAlignment {{isSelectedFullyFurnished}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/furnished.png">
+      <br>
+      <i>Fully furnished</i>
+    </div>
+    <div (click)="selectedSemiFurnished()" style="width: 49%;" class="horizontalAlignment {{isSelectedSemiFurnished}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/semi-furnished.jpg">
+      <br>
+      <i>Semi furnished</i>
+    </div>
+    <div (click)="selectedUnFurnished()" style="width: 49%;" class="horizontalAlignment {{isSelectedUnFurnished}}">
+      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/house.png">
+      <br>
+      <i>Unfurshished</i>
+    </div>
+  </div>
+  <div class="requirementMain selectBox">
+      <p>Address</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-6 mb-2 filterRange">
+          <input type="text" class="form-control" placeholder="locality" [(ngModel)]="locality">
+        </div>
+        <div class="col-xs-4 col-md-6  mb-2 filterRange">
+          <input type="text" class="form-control" placeholder="City" [(ngModel)]="city">
+        </div>
+        <div class="col-xs-4 col-md-6 mb-2 filterRange">
+            <input type="text" class="form-control" placeholder="State" [(ngModel)]="state">
+          </div>
+      </div>
+    </div>
+  <div class="requirementMain">
+    <button style="width:100%;" (click)="submit()" class="btn btn-success">Submit</button>
+  </div>
+</div>
+</section>
+<div id="myModal" class="{{modelClass}}">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <div class="modalContent">{{message}}</div>
+    </div>
+  </div>
+<footer></footer>
+<div *ngIf="spinner" class="spinnerAngular">
+    <div class="spinner-border spinnerStyle" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>

@@ -202,19 +202,14 @@ export class HomeComponent implements OnInit {
 		this.propertiesService.mainSearch(searchOption).subscribe(
 			data => {
 				if (data.length < 1) {
+					this.closeModal6()
 					this.isvalidSearch = false
 				} else {
 					this.closeModal6()
 				}
 				this.numberOfProperties = data.length
-				console.log("###############!@!@@#########@!@@!", this.numberOfProperties)
-
-				console.log("data#@@@@@@@@@@@@@@@searchOptionProp######", data.length)
 				this.properties = data.map(items => {
-
-					// var str = items.frontImage.split("\\");
-					// items.frontImage = "./assets/properties/" + items.images[0].imageName;
-					items.description = items.description.replace(/↵/g, '\\n')
+				items.description = items.description.replace(/↵/g, '\\n')
 					if (items.parking == "both") {
 						items.parking = "Car and Bike"
 					}
@@ -458,14 +453,6 @@ export class HomeComponent implements OnInit {
 		this.router.navigateByUrl('/properties_details');
 	}
 	filter() {
-		// var bathroom= this.bathroomFilterValue
-		// var garage= this.garageFilterValue
-		// var bedroom= this.bedroomFilterValue
-		// var price= this.price
-		// var size= this.size
-		// var furnish= this.furnishFilterValue
-		// var address= this.addressSelected
-
 		var bathroom = this.bathroomFilterValue == undefined ? undefined : "item.washroom=='" + this.bathroomFilterValue + "'";
 		var bedroom = this.bedroomFilterValue == undefined ? undefined : "item.bedroom=='" + this.bedroomFilterValue + "'";
 		var garage = this.garageFilterValue == undefined ? undefined : "item.parking=='" + this.garageFilterValue + "'";
@@ -749,9 +736,5 @@ export class HomeComponent implements OnInit {
 			return eval(condition)
 		})
 		console.log("#####@@@@@@@@@@#@@#@@@", this.properties)
-		// this.propertiesService.searchProperties(request).subscribe(
-		//     data => {
-		//         console.log("data#######", data)
-		//     })
 	}
 }

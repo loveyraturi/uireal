@@ -10,11 +10,12 @@ import { ActivatedRoute } from "@angular/router";
 import { DatepickerOptions} from 'ng2-datepicker';
 
 @Component({
-	selector: 'properties_details',
-	templateUrl: './properties_details.component.html',
-	styleUrls: ['./properties_details.component.css']
+	selector: 'appointment',
+	templateUrl: './appointment.component.html',
+	styleUrls: ['./appointment.component.css']
 })
-export class PropertiesDetailsComponent implements OnInit {
+export class AppointmentComponent implements OnInit {
+    @Input() propertyId: boolean;
 	options: DatepickerOptions = {
 		minYear: 1970,
 		maxYear: 2030,
@@ -38,7 +39,6 @@ export class PropertiesDetailsComponent implements OnInit {
 	public selectedPropertry;
 	private modelClass3 = "modal3"
 	private userName;
-	private loggedUserName
 	private messageLogin;
 	private isValid;
 	private appointmentSchedule;
@@ -91,13 +91,6 @@ export class PropertiesDetailsComponent implements OnInit {
 	ngOnInit() {
 
 	}
-	loginDetailsReceived(data){
-		console.log(data)
-		this.loggedUserName=data.name
-		this.email=data.email
-		console.log(this.loggedUserName)
-		this.closeModal3()
-}
 	dateHandler(date){
 console.log("$#%$#$%#DATE#@$#@$#",date)
 	}
@@ -239,7 +232,7 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 						scheduleTime: this.timeScheduled,
 						scheduledDate: this.dateScheduled,
 						email: this.email,
-						propertyId: this.selectedPropertry,
+						propertyId: this.propertyId,
 						images: this.fileToUpload,
 						docType: this.docType,
 						empType: this.empType
@@ -301,7 +294,8 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 
 				})
 			} else {
-				this.modelClick3()
+				this.modelClass = "modalDisplay"
+				this.message = "please login to submit your request"
 			}
 		} else if (value == "contact") {
 			this.thanksFlag = true
@@ -358,4 +352,3 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 
 	}
 }
-

@@ -1,7 +1,7 @@
 <navigation [username]="loggedUserName"></navigation>
 
 <!-- Search Form Section Begin -->
-<div class="col-lg-12">
+<div class="col-lg-12 tagline">
   <div class="section-title">
     <span>Find Your Dream House</span>
     <h2>Properties</h2>
@@ -194,105 +194,10 @@
                       </div>
                     </div>
                     <div id="myModal1" class="{{modelClass1}}">
-
-                      <!-- Modal content -->
-                      <div class="modal-content1">
+                     <div class="modal-content1">
                         <span class="close1" (click)="closeModal1()">&times;</span>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-12 col-xs-12	col-sm-12">
-                              <p style="font-size: 10px;">User Details</p>
-                              <div class="row">
-                                <div style="font-size: 10px;" class="col-md-6">
-                                  <select style="font-size: 10px;" (change)="empTypeSelected($event.target.value)"
-                                    class="form-control" id="employmentType">
-                                    <option value="" selected disabled>Employment type</option>
-                                    <option value="working">Working</option>
-                                    <option value="business">Business</option>
-                                  </select>
-                                </div>
-                                <div style="font-size: 10px;" class="col-md-6">
-                                  <select style="font-size: 10px;" (change)="docTypeSelected($event.target.value)"
-                                    class="form-control" id="docType">
-                                    <option value="" selected disabled>Document Type</option>
-                                    <option value="poi">POI</option>
-                                    <option value="emp">Employment Proof</option>
-                                  </select></div>
-                                <div style="font-size: 10px;" class="col-md-6" style="padding-top: 2%;">
-                                  <input style="font-size: 10px;" type="file" (change)="fileuploaded($event)">
-                                </div>
-                              </div>
-                              <p style="font-size: 10px;">Date</p>
-                              <div class="row">
-                                <div class="col-xs-4  col-md-4" style="font-size: 10px;"><button
-                                    (click)="dateSelected('today')" style="font-size: 10px;"
-                                    class="btn btn-info">Today</button></div>
-                                <div class="col-xs-4 col-md-4" style="font-size: 10px;"><button
-                                    (click)="dateSelected('tomorrow')" style="font-size: 10px;"
-                                    class="btn btn-info">Tomorrow</button></div>
-                                <div class="col-xs-6 col-md-4" style="font-size: 10px;">
-                                  <!-- <input (focusout)="dateSelected('selectedDate')"
-                                      type="text" class="timetext" placeholder="Enter Date (yyyy-mm-dd)" style="font-size: 10px;"> -->
-                                  <angular2-date-picker [(ngModel)]="datefrom" (onDateSelect)="dateSelected($event)"
-                                    [settings]="settings">
-                                  </angular2-date-picker>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <p style="font-size: 10px;">Time</p>
-
-                            <div class="col-md-12 innerBorder">
-                              <div class="row">
-                                <div class="col-md-12" style="border-bottom: 1px solid;">
-                                  <div class="row">
-                                    <div class="col-xs-4 col-sm-4 col-lg-4" style="font-size: 10px;padding-left: 11%;">
-                                      Morning</div>
-                                    <div class="col-xs-4 col-sm-4 col-lg-4" style="font-size: 10px;padding-left: 10%;">
-                                      Afternoon</div>
-                                    <div class="col-xs-4 col-sm-4 col-lg-4" style="font-size: 10px;padding-left: 7%;">
-                                      Evening</div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-12 ">
-                                <div class="row">
-                                  <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('08AM-10AM')"
-                                      style="font-size: 10px;    margin-top: 5px;
-                                      margin-bottom: 5px;" class="btn btn-info">08AM-10AM</button></div>
-                                  <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('12PM-02PM')"
-                                      style="font-size: 10px;    margin-top: 5px;
-                                      margin-bottom: 5px;" class="btn btn-info">12PM-02PM</button></div>
-                                  <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('04PM-06PM')"
-                                      style="font-size: 10px;    margin-top: 5px;
-                                      margin-bottom: 5px;" class="btn btn-success">04PM-06PM</button></div>
-                                  <br>
-                                  <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('10AM-12PM')"
-                                      style="font-size: 10px;    margin-top: 5px;
-                                      margin-bottom: 5px;" class="btn btn-info">10AM-12PM</button></div>
-                                  <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('02PM-04PM')"
-                                      style="font-size: 10px;    margin-top: 5px;
-                                      margin-bottom: 5px;" class="btn btn-info">02PM-04PM</button></div>
-                                  <div class="col-xs-4 col-sm-4 col-lg-4"><button (click)="selectTime('06PM-08PM')"
-                                      style="font-size: 10px;    margin-top: 5px;
-                                      margin-bottom: 5px;" class="btn btn-success">06PM-08PM</button></div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-12 ">
-                              <div class="row">
-                                <div class="col-md-12">
-                                  <p *ngIf="appointmentSchedule" style="text-align: center; font-size: 13px;">
-                                    {{appointmentSchedule}}
-                                  </p>
-                                  <button (click)="scheduleAppointment()" style="font-size: 10px;    width: 100%; margin-top: 5px;
-                                        margin-bottom: 25px;" class="btn btn-success">Schedule Visit</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <appointment style="padding-bottom: 2%" [propertyId]="property.id" (loginDetails)="loginDetailsReceived($event)">
+                          </appointment>
                       </div>
                     </div>
                   </div>
@@ -317,7 +222,9 @@
       <div class="modal-content">
         <span class="close1" (click)="closeModal()">&times;</span>
         <h3 *ngIf="callModal" style="text-align: center;margin-top: 8%;">Thanks for choosing us</h3>
-        <p style="text-align: center;font-size: 20px;"> {{messageModal}}</p>
+        <p style="
+        margin-top: 10%;
+    text-align: center;font-size: 20px;"> {{messageModal}}</p>
       </div>
 
     </div>

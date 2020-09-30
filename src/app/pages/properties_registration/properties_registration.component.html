@@ -267,7 +267,7 @@
       <div *ngIf="sliderPosition=='slide4'" class="reg1 shadow">
         <h4 style="padding: 2%;">Upload Images</h4>
         <div class="form-group" style="padding-left: 3%;padding-right: 3%;">
-          <input formControlName="ownerName" id="ownerName" [(ngModel)]="username" type="hidden" class="form-control">
+          <input formControlName="ownerEmail" id="ownerEmail" [(ngModel)]="email" type="hidden" class="form-control">
           <div class="form-group">
             <div class="row">
               <div class="col-md-3" *ngFor='let url of images; let i = index'>
@@ -281,7 +281,7 @@
             </div>
           </div>
         </div>
-      <br />
+      <br/>
       <div class="form-group" style="padding-left: 3%;padding-right: 3%;padding-bottom: 3%;">
           <h4 style="padding: 2%;">Address Proof</h4>
         <input formControlName="file" id="addressProof" type="file" class="btnupload form-control" multiple=""

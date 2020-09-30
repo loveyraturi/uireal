@@ -35,6 +35,11 @@ export class MainComponent implements OnInit {
     private propertyBhk
     private properties;
     private dropdownMenu = "drop"
+    private showSecondarySearch = false;
+    private city;
+    private type;
+    private range;
+    private address;
     private username = localStorage.getItem("username");
     constructor(private router: Router, private propertiesService: PropertiesService, private userService: UserService) {
         localStorage.setItem("pageName", "mainPage")
@@ -68,6 +73,7 @@ export class MainComponent implements OnInit {
         this.modelClass5 = "modal5"
 
     }
+
     showDiv() {
         this.dropdownMenu = "drop";
 
@@ -136,7 +142,10 @@ export class MainComponent implements OnInit {
     }
     priceFilter(event) {
         console.log(event)
-        this.price = event
+        this.range = event
+    }
+    showMore() {
+        this.showSecondarySearch = true
     }
     navigateTo(url) {
         this.router.navigateByUrl('/' + url);
@@ -172,5 +181,29 @@ export class MainComponent implements OnInit {
             data => {
                 console.log("data#######", data)
             })
+    }
+    selectCity(value) {
+        console.log(value)
+        this.city=value
+    }
+    searchFilter() {
+
+ 
+        if(this.address==undefined || this.address==""){
+            this.address=this.city
+        }
+
+        var search = {
+            address: this.address,
+            type: this.type,
+            propertyBhk: this.propertyBhk,
+            priceRange: this.range,
+            latitude: this.currentLat,
+            longitude: this.currentLong
+        }
+        localStorage.setItem("propertyDetail", JSON.stringify(search));
+        console.log(search);
+        this.router.navigateByUrl('/home');
+        // console.log(request)
     }
 }

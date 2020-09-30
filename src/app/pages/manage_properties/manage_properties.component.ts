@@ -61,6 +61,11 @@ export class ManagePropertiesComponent implements OnInit {
             }
         })
     }
+    showPropertyDetails(propertyId) {
+		console.log("#####################@@@@@@@@@@", propertyId);
+		localStorage.setItem("propertyId", propertyId);
+		this.router.navigateByUrl('/properties_details');
+	}
     getPropertyByOwnerName() {
         console.log("#################",this.email)
         var request={

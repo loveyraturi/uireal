@@ -1,3 +1,14 @@
+.searchBar {
+  padding-top: 12%;
+  margin-left: 25%;
+}
+.searchBarSecondary{
+  margin-left: 26.2%;
+}
+.input-group-prepend-custom {
+  padding-top: 3%;
+    padding-right: 4%;
+}
 .modal5 {
   display: none;
   /* Hidden by default */
@@ -59,7 +70,7 @@
 .tagline{
   padding-top: 4%;
   position: absolute;
-  padding-left: 27%;
+  padding-left: 30%;
   color: white;
   font-size: 40px;
 }
@@ -282,5 +293,23 @@ ul {
   .alignSelect{
     width: 107%;
     height: 42%;
+}
+.searchBarSecondary{
+  margin-left: 4.2%;
+}
+.searchBar {
+  padding-top: 50%;
+  margin-left: 0%;
+}
+.postTagline{
+  padding-left: 19% !important;
+    padding-top: 2% !important;
+}
+.tagline {
+  padding-top: 32%;
+  position: absolute;
+  padding-left: 11%;
+  color: white;
+  font-size: 24px;
 }
 }

@@ -3,7 +3,66 @@
 <div class="backgroundBody">
     <div class="tagline">
         Zero Brokerage Rental Site.
-         </div>
+      </div>
+  <div class="col-md-6 searchBar">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <select (change)="selectCity($event.target.value)" style="background: gainsboro;border: none;
+              border-radius: 1px;border-radius: 8px 0px 0px 8px;" class="form-control">
+          <option value="" selected disabled>Select City</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="delhi">Delhi</option>
+        </select>
+      </div>
+      <input type="text" [(ngModel)]="address" (click)="showMore()" style="background: #FFFFFF;
+          border: none;
+          border-left: 1px solid;" class="form-control " id="Country" placeholder="Country">
+      <div class="input-group-prepend">
+        <button (click)="searchFilter()" style="border-radius: 1px;background: green;color: white;border-radius: 0px 8px 8px 0px;" class="form-control"><i
+            class="fa fa-search"></i> &nbsp; Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showSecondarySearch" class="col-md-6 searchBarSecondary">
+    <div class="row" style="background: gainsboro;
+    border-top: 1px solid cornflowerblue;
+    border-radius: 0px 0px 10px 10px; width:100%;">
+      <div class="col-md-6" style="padding:2%">
+        <input type="radio" [(ngModel)]="type" id="flat" name="type" value="flat">
+        <label for="flat">Flat</label>&nbsp;
+        <input type="radio" [(ngModel)]="type"  id="row_house" name="row_house" value="row_house">
+        <label for="row_house">Row House</label>&nbsp;
+        <input type="radio" [(ngModel)]="type"  id="pg" name="type" value="pg">
+        <label for="pg">PG</label>&nbsp;
+        <input type="radio" [(ngModel)]="type"  id="hostel" name="type" value="hostel">
+        <label for="hostel">Hostel</label>&nbsp;
+      </div>
+      <div class="col-md-6" style="padding:2%">
+        <div class="input-group">
+          <div class="input-group-prepend input-group-prepend-custom">
+            <i class="fa fa-sliders"></i>
+          </div>
+          <select class="form-control" (change)="priceFilter($event.target.value)" id="bedrooms">
+            <option selected disabled value="">Rent Range</option>
+            <option value="1001,5000">1001-5000</option>
+            <option value="5001,10000">5001-10000</option>
+            <option value="10001,15000">10001-15000</option>
+            <option value="15001,20000">15001-20000</option>
+            <option value="&gt;20000">&gt; 20000</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding-left: 40%; padding-top:2%;" class="tagline postTagline">
+      <p style="color:white">- - - - For Property Owners - - - -</p>
+      <button (click)="navigateTo('properties_registration')" style="margin-left: 12%" class="btn btn-success"> Post
+        Your Property</button>
+    </div>
+  <!-- <div class="tagline">
+    Zero Brokerage Rental Site.
+  </div>
   <div class="mainsearch">
     <div class="outer-search">
       <div class="row inner-search">
@@ -18,7 +77,6 @@
           </select>
         </div>
         <div class="col-md-3 align">
-          <!-- <input class="alignSelect" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/> -->
           <input list="hosting-plan" class="alignSelect" (input)="searchAddress($event.target.value)"
             [(ngModel)]="addressSelected" placeholder="Enter City/Locality" type="text" />
           <datalist id="hosting-plan" *ngFor="let add of  addressList">
@@ -33,142 +91,18 @@
             <option value="pg">PG</option>
             <option value="hostel">Hostel</option>
           </select>
-          <!-- <ul>
-          <li (mouseenter)="showDiv()" class="drops">
-            <a style="position: absolute; top: 10px; left: 10%;"><span *ngIf="propertyTypes"
-                class="nav-label">{{propertyTypes}}, {{propertyBhk}}</span><span *ngIf="!propertyTypes"
-                class="nav-label">Property Type</span>
-              <div class="{{dropdownMenu}}">
-                <ul class="nav metismenu" style="    width: 160%;" id="side-menu">
-                  <li class="outerdrop">
-                    <a><i class="fa fa-book"></i> <span class="nav-label">Appartment</span>
-                      <div class="innerdrop">
-                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu">
-                          <li class="elementItem" (click)="propertyType('appartment','1BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">1
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('appartment','2BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">2
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('appartment','3BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">3
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('appartment','4BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">4
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('appartment','5BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">5
-                                BHK</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="outerdrop">
-                    <a><i class="fa fa-book"></i> <span class="nav-label">Independent House</span>
-                      <div class="innerdrop" style="bottom: 70%;">
-                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu1">
-                          <li class="elementItem" (click)="propertyType('independent','1BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">1
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('independent','2BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">2
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('independent','3BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">3
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('independent','4BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">4
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('independent','5BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">5
-                                BHK</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="outerdrop">
-                    <a><i class="fa fa-book"></i> <span class="nav-label">PG</span>
-                      <div class="innerdrop" style="bottom: 50%;">
-                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu">
-                          <li class="elementItem" (click)="propertyType('PG','1BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">1
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('PG','2BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">2
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('PG','3BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">3
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('PG','4BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">4
-                                BHK</span></a>
-                          </li>
-                          <li class="elementItem" (click)="propertyType('PG','5BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">5
-                                BHK</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="outerdrop">
-                    <a><i class="fa fa-book"></i> <span class="nav-label">Hostel</span>
-                      <div class="innerdrop" style="bottom: 30%;">
-                        <ul class="nav metismenu" style="padding: 0 0 0 0;" id="side-menu">
-                          <li (click)="propertyType('hostel','1BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">1
-                                BHK</span></a>
-                          </li>
-                          <li (click)="propertyType('hostel','2BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">2
-                                BHK</span></a>
-                          </li>
-                          <li (click)="propertyType('hostel','3BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">3
-                                BHK</span></a>
-                          </li>
-                          <li (click)="propertyType('hostel','4BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">4
-                                BHK</span></a>
-                          </li>
-                          <li (click)="propertyType('hostel','5BHK')">
-                            <a><i class="fa fa-book"></i> <span class="nav-label">5
-                                BHK</span></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </a>
-          </li>
-
-        </ul> -->
         </div>
         <div class="col-md-3 align">
           <button class="searchButton" (click)="submit()"> SEARCH</button>
         </div>
       </div>
       <div style="padding-left: 20%" class="tagline">
-          <p style="color:white">- - - - For Property Owners - - - -</p>
-          <button style="margin-left: 12%" class="btn btn-success"> Post Your Property</button>
-           </div>
+        <p style="color:white">- - - - For Property Owners - - - -</p>
+        <button (click)="navigateTo('properties_registration')" style="margin-left: 12%" class="btn btn-success"> Post
+          Your Property</button>
+      </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <section class="howit-works spad">
@@ -190,19 +124,19 @@
       </div>
       <div class="col-lg-3">
         <div class="single-howit-works">
-            <i class="fa fa-home" style="color: purple;font-size: 300%"></i>
+          <i class="fa fa-home" style="color: purple;font-size: 300%"></i>
           <h4>Add property for free</h4>
         </div>
       </div>
       <div class="col-lg-3">
         <div class="single-howit-works">
-            <i class="fa fa-handshake-o" style="color: purple;font-size: 300%"></i>
+          <i class="fa fa-handshake-o" style="color: purple;font-size: 300%"></i>
           <h4>Dedicated Relationship Manager</h4>
         </div>
       </div>
       <div class="col-lg-3">
         <div class="single-howit-works">
-            <i class="fa fa-check" style="color: #2CA955;font-size: 300%"></i>
+          <i class="fa fa-check" style="color: #2CA955;font-size: 300%"></i>
           <h4>Verified Owner/Tenants</h4>
         </div>
       </div>
@@ -210,55 +144,55 @@
   </div>
   <hr>
   <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-title">
-            <h2>Why OwnerTenants ?</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <div class="single-howit-works">
-            <img width="200" height="200" src="./assets/img/icons/nb.jpg">
-            <h4>Broker Free</h4>
-            <p>No mediator or broker involved direct 
-              integraction with owner with schedule appointment facility</p>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="single-howit-works">
-              <img width="200" height="200" src="./assets/img/icons/callassistance.png">
-              <h4>Call Assistant</h4>
-              <p>We are here to help you we provide call support as every customer is important for us</p>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="single-howit-works">
-              <img width="200" height="200" src="./assets/img/icons/manageProperties.png">
-                          <h4>Manage Properties Free</h4>
-              <p>Now you can directly manage all your property on a single click. It's easy to use and easy to manage </p>
-
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="single-howit-works">
-              <img width="200" height="200" src="./assets/img/icons/SECURITY.png">
-                          <h4>Data Security</h4>
-              <p>Your details remain safe with us we dont share user data with other third party brokers</p>
-
-          </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2>Why OwnerTenants ?</h2>
         </div>
       </div>
     </div>
-</section>
-<div id="myModal5" class="{{modelClass5}}">
-    <!-- Modal content -->
-    <div class="modal-content5">
-        <span class="close" style="padding: 3%;" (click)="closeModal5()">&times;</span>
-      <div style="padding: 12%;
-      background: white;
-      color: black;" >Please select at least one filter in search</div>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+          <img width="200" height="200" src="./assets/img/icons/nb.jpg">
+          <h4>Broker Free</h4>
+          <p>No mediator or broker involved direct
+            integraction with owner with schedule appointment facility</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+          <img width="200" height="200" src="./assets/img/icons/callassistance.png">
+          <h4>Call Assistant</h4>
+          <p>We are here to help you we provide call support as every customer is important for us</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+          <img width="200" height="200" src="./assets/img/icons/manageProperties.png">
+          <h4>Manage Properties Free</h4>
+          <p>Now you can directly manage all your property on a single click. It's easy to use and easy to manage </p>
+
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="single-howit-works">
+          <img width="200" height="200" src="./assets/img/icons/SECURITY.png">
+          <h4>Data Security</h4>
+          <p>Your details remain safe with us we dont share user data with other third party brokers</p>
+
+        </div>
+      </div>
     </div>
   </div>
+</section>
+<div id="myModal5" class="{{modelClass5}}">
+  <!-- Modal content -->
+  <div class="modal-content5">
+    <span class="close" style="padding: 3%;" (click)="closeModal5()">&times;</span>
+    <div style="padding: 12%;
+      background: white;
+      color: black;">Please select at least one filter in search</div>
+  </div>
+</div>
 <footer></footer>

@@ -367,4 +367,27 @@
     flex: 0 0 25%;
     max-width: 25%;
   }
+  .howit-works{
+    margin-left: 7% !important;
+    margin-top: 12%;
+  }
+  .search-form{
+    margin-left: 10%;
+  }
+  .properties-location{
+    font-size: 14px !important;
+  }
+  .tagline {
+    padding-top: 19%
+  }
+  .close1{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 77%;
+    margin-top: -9%;
+    z-index: 1000;
+  }
 }
