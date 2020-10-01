@@ -44,7 +44,7 @@ export class PaymentComponent implements OnInit {
     paymentType = localStorage.getItem("paymentType");
     paymentPlan = localStorage.getItem("paymentPlan");
     paymentPrice = localStorage.getItem("paymentPrice");
-    private type = localStorage.getItem("type");
+    // private type = localStorage.getItem("type");
     private username = localStorage.getItem("username");
     private currentDate = new Date();
     constructor(private router: Router,private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
@@ -52,9 +52,6 @@ export class PaymentComponent implements OnInit {
         var hashString = this.key + "|" + this.trxnId + "|" + this.paymentPrice + "|" + this.productinfo + "|" + this.firstname + "|" + this.email + "|||||||||||" + this.salt
         // this.hash = sha512.create().update(hashString).hex()
         this.hash = sha512(hashString)
-        if (this.type != this.paymentType) {
-        this.modelClick1("You are not logged as " + this.type + " but your plan is of " + this.paymentType)
-        }
     }
 
     ngOnInit() {
@@ -68,10 +65,6 @@ export class PaymentComponent implements OnInit {
         this.messageResponse=value
     }
     payNow() {
-        if (this.type != this.paymentType) {
-            this.modelClick1("You are not logged as " + this.type + " but your plan is of " + this.paymentType)
-            console.log("You are not logged as " + this.type + " but your plan is of " + this.paymentType)
-        } else {
             var request = {
                 key: this.key,
                 txnid: this.trxnId,
@@ -101,7 +94,7 @@ export class PaymentComponent implements OnInit {
             });
             document.body.appendChild(mapForm);
             mapForm.submit();
-        }
+        
     }
 
 }
