@@ -54,7 +54,7 @@
   <section class="property-details-section col-md-4" style="box-shadow: 1px 12px 19px 1px;margin-left: 2%; ">
     <div class="container">
       <div class="row">
-        <div class="col-12" style="padding-bottom: 5%;margin-left: 4%;">
+        <div class="col-12" style="padding-bottom: 5%;">
           <table class="propertyInfo">
             <tr class="propertyInfo">
               <td class="propertyInfo">
@@ -80,9 +80,19 @@
               </td>
               <td class="propertyInfo">
                 <p><img height="50" width="50"
-                    src="./assets/img/icons/property.png">{{properties.property_type | uppercase}}</p>
+                    src="./assets/img/icons/money.png"> &nbsp; {{properties.price}}</p>
               </td>
             </tr>
+            <tr class="propertyInfo">
+                <td class="propertyInfo">
+                  <p><img height="50" width="50" src="./assets/img/icons/maintainance.jpg"> &nbsp; {{properties.maintainance | uppercase}}
+                    Parking</p>
+                </td>
+                <td class="propertyInfo">
+                  <p><img height="50" width="50"
+                      src="./assets/img/icons/SECURITY.png"> &nbsp; {{properties.security | uppercase}}</p>
+                </td>
+              </tr>
           </table>
         </div>
         <div class="col-xs-4 col-md-4 alignButton">

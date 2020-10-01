@@ -1,3 +1,7 @@
+.property-details-section {
+  padding-top: 50px;
+  padding-bottom: 13px;
+}
 /* The Modal (background) */
 .modal {
   display: none;
@@ -271,7 +275,7 @@
     margin-left: 3%;
   }
   .alignButton{
-    margin-left: 7%;
+    margin-left: 3%;
   }
   .sectionAddress{
     margin-top: 17%;
