@@ -41,14 +41,14 @@ export class PaymentComponent implements OnInit {
     public modelClass1 = "modal1"
     private key = "twcFzBIH"
     private hash
-    // paymentType = localStorage.getItem("paymentType");
+    paymentType = localStorage.getItem("paymentType");
     paymentPlan = localStorage.getItem("paymentPlan");
     paymentPrice = localStorage.getItem("paymentPrice");
     // private type = localStorage.getItem("type");
     private emailuser = localStorage.getItem("email");
     private currentDate = new Date();
     constructor(private router: Router,private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
-        this.trxnId = this.emailuser + "_" + this.paymentPlan;
+        this.trxnId = this.emailuser + "_" + this.paymentPlan+"_"+this.paymentType;
         var hashString = this.key + "|" + this.trxnId + "|" + this.paymentPrice + "|" + this.productinfo + "|" + this.firstname + "|" + this.email + "|||||||||||" + this.salt
         // this.hash = sha512.create().update(hashString).hex()
         this.hash = sha512(hashString)

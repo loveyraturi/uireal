@@ -86,9 +86,9 @@ export class Navigation implements OnInit {
     navigateTo(url) {
         this.router.navigateByUrl('/' + url);
     }
-    subscribe(plan,price){
+    subscribe(type,plan,price){
         console.log("############@@@@@@@@@@",plan)
-        // localStorage.setItem("paymentType", type);
+        localStorage.setItem("paymentType", type);
         localStorage.setItem("paymentPlan", plan);
         localStorage.setItem("paymentPrice", price);
         this.router.navigateByUrl('/payment');
