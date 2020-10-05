@@ -18,7 +18,7 @@
 
           Ownertenants.com is a hybrid marketplace(online & offline) which bridge the gap between both the parties
           owners & tenants for a satisfying rental experience without any broker involved.
-          <a (click)="navigateTo('aboutus')" style="cursor: pointer;">see more</a>
+          <a (click)="navigateTo('aboutus')" style="cursor: pointer;color:blue;text-decoration:underline">See More</a>
           .</p>
 
       </div>
@@ -31,8 +31,8 @@
         <div>
           <ul style="color: #ccc; font-size: 14px;list-style-type:none;">
             <li>About us</li>
-            <li>Terms & Condition</li>
-            <li>Privacy Policy</li>
+            <li><a (click)="navigateTo('terms_conditions')" style="cursor: pointer;text-decoration: decoration;">Terms & Condition</a></li>
+            <li><a (click)="navigateTo('privacy')" style="cursor: pointer;text-decoration: decoration;">Privacy Policy</a></li>
             <li>Testimonials</li>
             <li>SiteMap</li>
             <li>FAQ</li>
