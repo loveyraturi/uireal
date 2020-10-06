@@ -52,6 +52,8 @@ import { FilterComponent } from './pages/filter/filter.component';
 import { TenantsRequirementsComponent } from './pages/tenantsRequirements/tenantsRequirements.component';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { TermsConditionComponent } from './pages/terms-condition/terms-condition.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,8 @@ import { AppointmentComponent } from './pages/appointment/appointment.component'
     Footer,
     RegistrationComponent,
     PropertiesDetailsComponent,
+    PrivacyPolicyComponent,
+    TermsConditionComponent,
   ],
   imports: [
     BrowserModule,

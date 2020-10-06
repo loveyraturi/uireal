@@ -30,6 +30,8 @@ import { UserLoginComponent } from './pages/userLogin/userLogin.component';
 import { FilterComponent } from './pages/filter/filter.component';
 import { TenantsRequirementsComponent } from './pages/tenantsRequirements/tenantsRequirements.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { TermsConditionComponent } from './pages/terms-condition/terms-condition.component';
 
 export const appRoutes = [
     {
@@ -158,7 +160,24 @@ export const appRoutes = [
         component: FailureComponent
     },
     {
+        path: 'privacy',
+        component: PrivacyPolicyComponent
+    },
+    {
+        path: 'terms_conditions',
+        component: TermsConditionComponent
+    },
+    {
         path: 'others',
         loadChildren: './pages/others/others.module#OthersModule',
     }
 ];
+
+
+@NgModule({
+	imports: [RouterModule.forRoot(appRoutes, {
+        scrollPositionRestoration: 'enabled'
+	})],
+	exports: [RouterModule]
+})
+export class AppRoutingModule { }
