@@ -70,7 +70,10 @@ export class UserLoginComponent implements OnInit {
 	}
 	closeModal3() {
 		this.modelClass3 = "modal3"
-	}
+    }
+    registrationDetailsReceived(data){
+        this.loginDetails.emit(data);
+    }
     submit() {
         this.clear()
         var request = {

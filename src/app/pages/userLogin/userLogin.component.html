@@ -95,7 +95,7 @@
             <input type="image" height="30" width="30" (click)="closeModal3()" src="./assets/img/icons/close.png">
 
         </span>
-        <userRegistration style="padding-bottom: 2%"></userRegistration>
+        <userRegistration (registrationDetails)="registrationDetailsReceived($event)" style="padding-bottom: 2%"></userRegistration>
       </div>
     </div>
   </div>

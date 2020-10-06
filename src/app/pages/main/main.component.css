@@ -2,13 +2,16 @@
   padding-top: 12%;
   margin-left: 25%;
 }
-.searchBarSecondary{
+
+.searchBarSecondary {
   margin-left: 26.2%;
 }
+
 .input-group-prepend-custom {
   padding-top: 3%;
-    padding-right: 4%;
+  padding-right: 4%;
 }
+
 .modal5 {
   display: none;
   /* Hidden by default */
@@ -29,6 +32,7 @@
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
 }
+
 .modal-content5 {
   margin-left: 35%;
   margin-top: 11%;
@@ -37,6 +41,7 @@
   width: 31%;
   /* Could be more or less, depending on screen size */
 }
+
 .modalDisplay5 {
   display: block;
   position: fixed;
@@ -46,6 +51,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6)
 }
+
 .close {
   color: #aaa;
   float: right;
@@ -59,46 +65,56 @@
   text-decoration: none;
   cursor: pointer;
 }
-.menuItems{
+
+.menuItems {
   color: white;
   font-size: 11px;
   cursor: pointer
 }
-.menuItems:hover{
+
+.menuItems:hover {
   font-size: 13px;
 }
-.tagline{
+
+.tagline {
   padding-top: 4%;
   position: absolute;
   padding-left: 30%;
   color: white;
   font-size: 40px;
 }
-.menuItems1{
+
+.menuItems1 {
   color: white;
   font-size: 11px;
   cursor: pointer
 }
-.menuItems1:hover{
+
+.menuItems1:hover {
   font-size: 13px;
 }
-.menuItems2{
+
+.menuItems2 {
   color: white;
   font-size: 11px;
   cursor: pointer
 }
-.menuItems2:hover{
+
+.menuItems2:hover {
   font-size: 13px;
 }
-.menuItems3{
+
+.menuItems3 {
   color: white;
   font-size: 11px;
   cursor: pointer
 }
-.menuItems3:hover{
+
+.menuItems3:hover {
   font-size: 13px;
 }
-.menu{
+
+.menu {
   display: none;
   background-color: #1C1C1C;
   z-index: 1;
@@ -107,9 +123,11 @@
   width: 30%;
   height: 100px;
 }
-.home:hover + .menu{
+
+.home:hover+.menu {
   display: block;
 }
+
 .menu:hover {
   display: block;
 }
@@ -123,9 +141,11 @@
   width: 30%;
   height: 100px;
 }
-.owner:hover + .menu1{
+
+.owner:hover+.menu1 {
   display: block;
 }
+
 .menu1:hover {
   display: block;
 }
@@ -139,9 +159,11 @@
   width: 30%;
   height: 100px;
 }
-.plan:hover + .menu2{
+
+.plan:hover+.menu2 {
   display: block;
 }
+
 .menu2:hover {
   display: block;
 }
@@ -155,9 +177,11 @@
   width: 30%;
   height: 100px;
 }
-.signupLogin:hover + .menu3{
+
+.signupLogin:hover+.menu3 {
   display: block;
 }
+
 .menu3:hover {
   display: block;
 }
@@ -168,7 +192,8 @@
   height: 400px;
   background-size: 100% 100%;
 }
-.mainsearch{
+
+.mainsearch {
   padding-top: 10%;
 }
 
@@ -250,7 +275,8 @@ ul {
   height: 161%;
   margin-left: 27%;
 }
-.elementDrop{
+
+.elementDrop {
   display: none;
 }
 
@@ -289,27 +315,36 @@ ul {
     margin-left: 15px;
   }
 }
+
 @media only screen and (max-width: 991px) {
-  .alignSelect{
+  .alignSelect {
     width: 107%;
     height: 42%;
-}
-.searchBarSecondary{
-  margin-left: 4.2%;
-}
-.searchBar {
-  padding-top: 50%;
-  margin-left: 0%;
-}
-.postTagline{
-  padding-left: 19% !important;
+  }
+
+  .searchBarSecondary {
+    margin-left: 4.2%;
+  }
+
+  .searchBar {
+    padding-top: 50%;
+    margin-left: 0%;
+  }
+
+  .postTagline {
+    padding-left: 19% !important;
     padding-top: 2% !important;
-}
-.tagline {
-  padding-top: 32%;
-  position: absolute;
-  padding-left: 11%;
-  color: white;
-  font-size: 24px;
-}
+  }
+
+  .tagline {
+    padding-top: 32%;
+    position: absolute;
+    padding-left: 11%;
+    color: white;
+    font-size: 24px;
+  }
+
+  .input-group-prepend-search {
+    margin-right: -126px !important;
+  }
 }

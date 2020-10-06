@@ -6,9 +6,10 @@
       </div>
   <div class="col-md-6 searchBar">
     <div class="input-group">
-      <div class="input-group-prepend">
-        <select (change)="selectCity($event.target.value)" style="background: gainsboro;border: none;
-              border-radius: 1px;border-radius: 8px 0px 0px 8px;" class="form-control">
+      <div class="input-group-prepend input-group-prepend-search" style="margin-right: -66px;">
+        <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="background: gainsboro;border: none;
+              border-radius: 1px;border-radius: 8px 0px 0px 8px;width: 70%;" class="form-control" placeholder="Select city">
+          <datalist id="cityList">
           <option value="" selected disabled>Select City</option>
           <option value="delhi">Delhi</option>
           <option value="NCR">NCR</option>
@@ -81,11 +82,15 @@
           <option value="daman">Daman</option>
           <option value="diu">Diu</option>
           <option value="ujjain">Ujjain</option>
-        </select>
+        </datalist>
       </div>
-      <input type="text" [(ngModel)]="address" (click)="showMore()" style="background: #FFFFFF;
+      <input list="localityList" type="text" [(ngModel)]="address" (click)="showMore()" style="background: #FFFFFF;
           border: none;
-          border-left: 1px solid;" class="form-control " id="Country" placeholder="Locality">
+          border-left: 1px solid;width: 120%;" class="form-control " id="Country" placeholder="Locality">
+      <datalist id="localityList">
+        <option value="" selected disabled>Select BHK</option>
+        <option *ngFor="let localityData of  localityDropdown" [value]="localityData">{{localityData}}</option>
+      </datalist>
       <div class="input-group-prepend">
         <button (click)="searchFilter()" style="border-radius: 1px;background: green;color: white;border-radius: 0px 8px 8px 0px;" class="form-control"><i
             class="fa fa-search"></i> &nbsp; Search

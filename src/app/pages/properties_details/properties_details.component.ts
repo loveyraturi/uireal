@@ -339,8 +339,9 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 				this.properties = data
 				console.log(data.amenities)
 				if(data.amenities!=null){
-				this.propertyAmenities = data.amenities.split(",")
+				var amenities = data.amenities.split(",")
 				}
+				this.propertyAmenities = [...new Set(amenities)];
 				console.log(this.propertyAmenities, "$######")
 				this.maplocation = "https://www.google.co.in/maps/place/" + this.properties.latitude + "," + this.properties.longitude + ",17z/data=!3m1!4b1!4m5!3m4!1s0x39092a3748779733:0x36c8161d96164085!8m2!3d30.3057554!4d78.0017076&output=embed"
 				console.log(this.maplocation, "data#######", this.properties)

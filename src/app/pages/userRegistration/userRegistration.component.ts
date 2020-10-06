@@ -1,7 +1,7 @@
 /**
  * Created by andrew.yang on 5/18/2017.
  */
-import { OnInit, Component, Input, ViewContainerRef } from "@angular/core";
+import { OnInit, Component, Input, ViewContainerRef, Output,EventEmitter } from "@angular/core";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { UserService } from "src/app/services/user.service";
 import { Router } from "@angular/router";
@@ -13,6 +13,8 @@ import { AlertService } from "src/app/_services";
     styleUrls: ['./userRegistration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
+    @Output() registrationDetails: EventEmitter<any> = new EventEmitter<any>();
+
     private name
     private email
     private phoneNumber
@@ -109,11 +111,31 @@ export class UserRegistrationComponent implements OnInit {
                 console.log("groupdata#######", data)
                 if (data.status == "true") {
                     this.message = "Successfully registered"
+                    var requestLogin = {
+                        email: this.email,
+                        password: this.password,
+                    }
+                    this.userService.validate(requestLogin).subscribe(
+                        data => {
+                            console.log("status#######", data)
+                            if (data.status == "true") {
+                                localStorage.setItem("email", request.email);
+                                localStorage.setItem("name", data.name);
+                                data["email"] = request.email
+                                this.registrationDetails.emit(data);
+            
+                            }
+                            else {
+                                this.error(data.message)
+                            }
+                        })
                     this.success(data.message)
                 } else {
                     this.message = "Unable to register User"
                     this.error(data.message)
                 }
+
+
             })
     }
 }
