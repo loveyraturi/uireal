@@ -59,7 +59,7 @@ export class AdminLoginComponent implements OnInit {
                 if (data.status == "true") {
                     localStorage.setItem("admin_username", request.username);
                     this.success("Sucessfully logged in")
-                    setTimeout(() => this.router.navigateByUrl('/admin'), 1500);
+                    setTimeout(() => this.router.navigateByUrl('/report'), 1500);
                 } else {
                     this.warn("Incorrect username and password")
                 }

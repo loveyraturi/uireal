@@ -205,6 +205,18 @@ export class PropertiesService {
           }
         ))
   }
+  fetchreportdatabetweenmatchingProperties(request): Observable<any> {
+    return this.http
+      .post('https://ownertenants.com/realestate/realestate/fetchreportdatabetweenmatchingProperties', request).pipe(
+        map(
+          res => {
+            return res;
+          },
+          err => {
+            return err;
+          }
+        ))
+  }
   fetchreportdatabetweenpropertyadded(request): Observable<any> {
     return this.http
       .post('https://ownertenants.com/realestate/realestate/fetchreportdatabetweenpropertyadded', request).pipe(

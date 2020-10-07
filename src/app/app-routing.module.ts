@@ -92,7 +92,7 @@ export const appRoutes = [
         component: ResetPasswordComponent
     },
     {
-        path: 'ownerReport',
+        path: 'report',
         component: OwnerReportComponent
     },
     {
@@ -116,7 +116,7 @@ export const appRoutes = [
         component: OwnerComponent
     },
     {
-        path: 'admin',
+        path: 'adminRealestate',
         component: DashboardComponent
     },
     {

@@ -33,18 +33,18 @@
       </div>
   
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" (mouseenter) ="showDiv('show') "  (mouseleave) ="showDiv('hide')" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <li (click)="redirectTo('/report')" class="nav-item">
+        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Report</span>
         </a>
-        <div id="collapseTwo" (mouseenter) ="showDiv('show') "  (mouseleave) ="showDiv('hide')" class="collapse {{menuDiv}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
+        <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div (click)="redirect('/report')" class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Report Components:</h6>
-            <a class="collapse-item" (click)="redirectTo('/ownerReport')">Owner Report</a>
+             <a class="collapse-item" (click)="redirectTo('/ownerReport')">Owner Report</a>
             <a class="collapse-item" (click)="redirectTo('/tenantReport')">Tenant Report</a>
           </div>
-        </div>
+        </div> -->
       </li>
       <li (click)="redirectTo('ownerProperty')" class="nav-item">
           <a class="nav-link collapsed"
@@ -188,7 +188,7 @@
       <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-          <h1>Owner Report</h1>
+          <h1>Report</h1>
         </div>
         <div class="col-sm-4"></div>
       </div>
@@ -213,23 +213,45 @@
       </div>
       <div class="row"><br><br></div>
       <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"><button style="    background: #4E73DF;
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3"><button class="btn btn-success" style="    background: #4E73DF;
           border: none;
           width: 100%;
-          border-radius: 6px;color: white;" (click)="submit()">Export</button></div>
-        <div class="col-sm-4"></div>
-
+          border-radius: 6px;color: white;" (click)="interestedExport()">Interested Properties</button></div>
+        <div class="col-sm-3"><button class="btn btn-success"  style="    background: #4E73DF;
+          border: none;
+          width: 100%;
+          border-radius: 6px;color: white;" (click)="submit()">Property Added</button></div>
+        <div class="col-sm-3"><button class="btn btn-success"  style="    background: #4E73DF;
+          border: none;
+          width: 100%;
+          border-radius: 6px;color: white;" (click)="matchingRequirements()">Matching requirements</button></div>
+<div class="col-sm-1"></div>
       </div>
       <br><br>
-      <!-- End of Content Wrapper -->
-      <div class="progress" style="width: 90%;
+      <div style="width: 100%;
+      overflow: scroll;">
+        <table style="table-layout: auto;" class="table table-striped">
+          <thead>
+            <tr>
+              <th *ngFor="let item of headers | keyvalue">{{item.key}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let interested of interestedData">
+              <td *ngFor="let interestedObj of interested | keyvalue">{{interestedObj.value}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+            <!-- End of Content Wrapper -->
+      <!-- <div class="progress" style="width: 90%;
       margin: 40px;">
         <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
           style="width:70%">
           <span class="sr-only">70% Complete</span>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- End of Page Wrapper -->
 

@@ -18,11 +18,13 @@ export class OwnerReportComponent implements OnInit {
     defaultOpen: false,
     closeOnSelect: true
   }
+  private interestedData;
+  private headers;
 
   fromDate: Date = new Date();
   toDate: Date = new Date();
   private menuDiv = "hide";
-  constructor(private router: Router,private propertiesService: PropertiesService) { }
+  constructor(private userService:UserService,private router: Router,private propertiesService: PropertiesService) { }
 
   ngOnInit() {
   }
@@ -41,6 +43,43 @@ export class OwnerReportComponent implements OnInit {
     console.log(event)
     this.toDate = event
   }
+  interestedExport(){
+    var request = {
+      datefrom: this.formatDate(this.fromDate),
+      dateto: this.formatDate(this.toDate),
+      phone_number: ""
+    }
+    this.userService.fetchreportdatabetween(request).subscribe(
+      data => {
+        this.headers=[]
+        console.log(data, "##########success")
+        window.open("./assets/properties/InterestedReport.xlsx");
+        if(data.length>0){
+          this.headers=data[0]
+          console.log(this.headers,"HEADERERAR#")
+          this.interestedData=data
+        }
+      })
+  }
+  matchingRequirements(){
+    var request = {
+      datefrom: this.formatDate(this.fromDate),
+      dateto: this.formatDate(this.toDate),
+      phone_number: ""
+    }
+    this.headers=[]
+    this.propertiesService.fetchreportdatabetweenmatchingProperties(request).subscribe(
+      data => {
+        window.open("./assets/properties/MatchingRequirements.xlsx");
+        if(data.length>0){
+          this.headers=data[0]
+          console.log(this.headers,"HEADERERAR#")
+          this.interestedData=data
+        }
+       
+      })
+    console.log(request)
+  }
   submit() {
     var request = {
       datefrom: this.formatDate(this.fromDate),
@@ -50,9 +89,15 @@ export class OwnerReportComponent implements OnInit {
     this.propertiesService.fetchreportdatabetweenpropertyadded(request).subscribe(
       data => {
         
-        if (data.status = "true") {
+        // if (data.status = "true") {
           console.log("success##############")
           window.open("./assets/properties/PropertiesReport.xlsx");
+
+        // }
+        if(data.length>0){
+          this.headers=data[0]
+          console.log(this.headers,"HEADERERAR#")
+          this.interestedData=data
         }
       })
     console.log(request)

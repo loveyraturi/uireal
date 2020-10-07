@@ -33,20 +33,20 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" (mouseenter)="showDiv('show') " (mouseleave)="showDiv('hide')"
+      <li (click)="redirectTo('/report')"  class="nav-item">
+        <a class="nav-link collapsed"
           data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Report</span>
         </a>
-        <div id="collapseTwo" (mouseenter)="showDiv('show') " (mouseleave)="showDiv('hide')"
+        <!-- <div id="collapseTwo" (mouseenter)="showDiv('show') " (mouseleave)="showDiv('hide')"
           class="collapse {{menuDiv}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Report Components:</h6>
             <a class="collapse-item" (click)="redirectTo('ownerReport')">Owner Report</a>
             <a class="collapse-item" (click)="redirectTo('tenantReport')">Tenant Report</a>
           </div>
-        </div>
+        </div> -->
       </li>
       <li (click)="redirectTo('ownerProperty')" class="nav-item">
         <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"

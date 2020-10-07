@@ -10,7 +10,14 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   private menuDiv = "hide";
-  constructor(private router: Router) { }
+  adminUser=localStorage.getItem("admin_username");
+
+  constructor(private router: Router) { 
+if(this.adminUser==undefined || this.adminUser==""){
+  this.router.navigateByUrl("adminLogin");
+}
+    
+  }
 
   ngOnInit() {
   }
