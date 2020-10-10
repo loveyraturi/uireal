@@ -20,8 +20,7 @@ export class EditPropertyComponent implements OnInit {
     public modelClass1="modal1";
     private maplocation;
     private message;
-    private type = localStorage.getItem("type");
-    private username = localStorage.getItem("username");
+    private email = localStorage.getItem("email");
     private propertyId;
     private file = {};
     private imagesBanner = [];
@@ -167,7 +166,7 @@ export class EditPropertyComponent implements OnInit {
         var request = {
             propertyId: this.propertyId,
             images: this.imagesBanner,
-            ownerName: this.username
+            email: this.email
         }
         console.log(request)
         this.propertiesService.updateImages(request).subscribe(

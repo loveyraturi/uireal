@@ -17,7 +17,7 @@ export class UserService {
 
   createUser(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/registerUser', request).pipe(
+      .post('http://localhost:6001/realestate/registerUser', request).pipe(
       map(
         res => {
           return res;
@@ -29,7 +29,7 @@ export class UserService {
   }
   fetchTenantsDetailsById(id): Observable<any> {
     return this.http
-      .get('https://ownertenants.com/realestate/realestate/fetchTenantsDetailsById/'+id).pipe(
+      .get('http://localhost:6001/realestate/fetchTenantsDetailsById/'+id).pipe(
       map(
         res => {
           return res;
@@ -41,7 +41,7 @@ export class UserService {
   }
   fetchAllTenants(): Observable<any> {
     return this.http
-      .get('https://ownertenants.com/realestate/realestate/fetchAllTenants').pipe(
+      .get('http://localhost:6001/realestate/fetchAllTenants').pipe(
       map(
         res => {
           return res;
@@ -53,7 +53,7 @@ export class UserService {
   }
   searchUser(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/searchUser', request).pipe(
+      .post('http://localhost:6001/realestate/searchUser', request).pipe(
       map(
         res => {
           return res;
@@ -65,7 +65,7 @@ export class UserService {
   }
   fetchreportdatabetween(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/fetchreportdatabetween', request).pipe(
+      .post('http://localhost:6001/realestate/fetchreportdatabetween', request).pipe(
       map(
         res => {
           return res;
@@ -77,7 +77,7 @@ export class UserService {
   }
   sendEmail(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/sendemail', request).pipe(
+      .post('http://localhost:6001/realestate/sendemail', request).pipe(
       map(
         res => {
           return res;
@@ -89,7 +89,7 @@ export class UserService {
   }
   resetPassword(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/resetPassword', request).pipe(
+      .post('http://localhost:6001/realestate/resetPassword', request).pipe(
       map(
         res => {
           return res;
@@ -101,7 +101,7 @@ export class UserService {
   }
   validateEmail(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/validateEmail', request).pipe(
+      .post('http://localhost:6001/realestate/validateEmail', request).pipe(
       map(
         res => {
           return res;
@@ -113,7 +113,7 @@ export class UserService {
   }
   validateUserName(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/validateUserName', request).pipe(
+      .post('http://localhost:6001/realestate/validateUserName', request).pipe(
       map(
         res => {
           return res;
@@ -125,7 +125,7 @@ export class UserService {
   }
   interested(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/interested', request).pipe(
+      .post('http://localhost:6001/realestate/interested', request).pipe(
       map(
         res => {
           return res;
@@ -137,7 +137,7 @@ export class UserService {
   }
   validate(request): Observable<any> {
     return this.http
-      .post('https://ownertenants.com/realestate/realestate/validateuser', request).pipe(
+      .post('http://localhost:6001/realestate/validateuser', request).pipe(
       map(
         res => {
           return res;
