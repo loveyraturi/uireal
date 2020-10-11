@@ -5,8 +5,16 @@
 
 .searchBarSecondary {
   margin-left: 26.2%;
+  width: 47.99%;
+  margin-left: 26.01%;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-radius: 0px 0px 10px 10px;
 }
-
+input::-webkit-calendar-picker-indicator {
+  opacity: 100;
+}
 .input-group-prepend-custom {
   padding-top: 3%;
   padding-right: 4%;
@@ -80,7 +88,7 @@
   padding-top: 4%;
   position: absolute;
   padding-left: 30%;
-  color: white;
+  color: black;
   font-size: 40px;
 }
 
@@ -187,7 +195,7 @@
 }
 
 .backgroundBody {
-  background-image: url('https://ownertenants.com/realestateui/assets/images/Searchs_002.png');
+  /* background-image: url('https://ownertenants.com/realestateui/assets/images/Searchs_002.png'); */
   width: 100%;
   height: 400px;
   background-size: 100% 100%;
@@ -241,9 +249,20 @@
 .outerdrop:hover .innerdrop {
   display: block
 }
+.smalltab{
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
 
 .innerdrop:hover .drop {
   display: block
+}
+.uppersearch{
+  margin-left: 22%;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  width: 60%;
 }
 
 .img-custom {
@@ -325,9 +344,17 @@ ul {
     width: 107%;
     height: 42%;
   }
+  .uppersearch{
+    margin-left: 3%;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    width: 96%;
+  }
 
   .searchBarSecondary {
-    margin-left: 4.2%;
+    margin-left: 3.7%;
+    width: 93%;
   }
 
   .searchBar {
@@ -344,7 +371,7 @@ ul {
     padding-top: 32%;
     position: absolute;
     padding-left: 11%;
-    color: white;
+    color: black;
     font-size: 24px;
   }
 
@@ -353,18 +380,19 @@ ul {
   }
   .smalltab{
     font-size: 13px !important;
-    width: 20% !important;
+    width: 33% !important;
   }
 }
 .tablink {
-  background-color: #dcdcdc;
+  background-color: whitesmoke;
   color: black;
   border: 1px solid white;
   outline: none;
   cursor: pointer;
   padding: 6px 10px;
   font-size: 15px;
-  width: 16%;
+  height:43px;
+  width: 33.33%;
   border-radius: 2px;
 }
 .defaultRentClass {

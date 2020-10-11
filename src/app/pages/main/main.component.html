@@ -5,15 +5,15 @@
         Zero Brokerage Rental Site.
       </div>
   <div class="col-md-6 searchBar">
-    <div class="row" style="display:block;text-align: center;margin-top:5px;margin-bottom:1px">
-      <button class="tablink smalltab" [ngClass]="defaultBuyClass ? 'defaultBuyClass' : ''" id="Buy" (click)="openTab('Buy')">Buy</button>
-    <button class="tablink smalltab" #buttontest id="buttontest" [ngClass]="defaultRentClass ? 'defaultRentClass' : ''" (click)="openTab('Rent')">Rent</button>
+    <div class="row uppersearch" >
+      <button style="border-right: 1px solid;" class="tablink smalltab" [ngClass]="defaultBuyClass ? 'defaultBuyClass' : ''" id="Buy" (click)="openTab('Buy')">Buy</button>
+    <button style="border-right: 1px solid;" class="tablink smalltab" #buttontest id="buttontest" [ngClass]="defaultRentClass ? 'defaultRentClass' : ''" (click)="openTab('Rent')">Rent</button>
       <button class="tablink smalltab" [ngClass]="defaultCommercialClass ? 'defaultCommercialClass' : ''" (click)="openTab('Commercial')">Commercial</button>
     </div>
     <div class="input-group">
-      <div class="input-group-prepend input-group-prepend-search" style="margin-right: -66px;">
-        <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="background: gainsboro;border: none;
-              border-radius: 1px;border-radius: 8px 0px 0px 8px;width: 70%;" class="form-control" placeholder="Select city">
+      <div class="input-group-prepend input-group-prepend-search" style="    border-radius: 8px 0px 0px 0px;margin-right: -66px;    border: 1px solid;">
+        <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="background: whitesmoke;border: none;
+              border-radius: 1px;height:50px;border-radius: 8px 0px 0px 0px;width: 70%;" class="form-control" placeholder="Select city">
           <datalist id="cityList">
           <option value="" selected disabled>Select City</option>
           <option value="Delhi">Delhi</option>
@@ -90,23 +90,23 @@
         </datalist>
       </div>
       <input list="localityList" type="text" [(ngModel)]="address" (click)="showMore()" style="background: #FFFFFF;
-          border: none;
-          border-left: 1px solid;width: 120%;" class="form-control " id="Country" placeholder="Locality">
+          border: none;    border: 1px solid;
+          border-left: 1px solid;height:52px;width: 120%;" class="form-control " id="Country" placeholder="Locality">
       <datalist id="localityList">
         <option value="" selected disabled>Select BHK</option>
         <option *ngFor="let localityData of  localityDropdown" [value]="localityData">{{localityData}}</option>
       </datalist>
-      <div class="input-group-prepend">
-        <button (click)="searchFilter()" style="border-radius: 1px;background: green;color: white;border-radius: 0px 8px 8px 0px;" class="form-control"><i
+      <div class="input-group-prepend" style="border: 1px solid;border-radius: 0px 8px 0px 0px;">
+        <button (click)="searchFilter()" style="border-radius: 1px;height:50px;background: green;color: white;border-radius: 0px 8px 0px 0px;" class="form-control"><i
             class="fa fa-search"></i> &nbsp; Search
         </button>
       </div>
     </div>
   </div>
   <div *ngIf="showSecondarySearch && defaultRentClass" class="col-md-6 searchBarSecondary">
-    <div class="row" style="background: gainsboro;
+    <div class="row" style="background: whitesmoke;
     border-top: 1px solid cornflowerblue;
-    border-radius: 0px 0px 10px 10px; width:100%;">
+    border-radius: 0px 0px 10px 10px;">
       <div class="col-md-6" style="padding:2%">
         <input type="radio" [(ngModel)]="type" id="flat" name="type" value="flat">
         <label for="flat">Flat</label>&nbsp;
@@ -135,9 +135,9 @@
     </div>
   </div>
   <div *ngIf="showSecondarySearch && defaultBuyClass" class="col-md-6 searchBarSecondary">
-    <div class="row" style="background: gainsboro;
+    <div class="row" style="background: whitesmoke;
     border-top: 1px solid cornflowerblue;
-    border-radius: 0px 0px 10px 10px; width:100%;">
+    border-radius: 0px 0px 10px 10px;">
      
       <div class="col-md-4" style="padding:2%">
         <div class="input-group">
@@ -167,9 +167,9 @@
   </div>
 
   <div *ngIf="showSecondarySearch && defaultCommercialClass" class="col-md-6 searchBarSecondary">
-    <div class="row" style="background: gainsboro;
+    <div class="row" style="background: whitesmoke;
     border-top: 1px solid cornflowerblue;
-    border-radius: 0px 0px 10px 10px; width:100%;">
+    border-radius: 0px 0px 10px 10px;">
      <div class="col-md-3" style="padding:2%">
       <input type="radio" [(ngModel)]="type" id="rent" name="type" value="rent">
       <label for="rent">Rent</label>&nbsp;&nbsp;&nbsp;
@@ -189,8 +189,8 @@
      
     </div>
   </div>
-  <div style="padding-left: 40%; padding-top:2%;" class="tagline postTagline">
-      <p style="color:white">- - - - For Property Owners - - - -</p>
+  <div style="padding-left: 43%; padding-top:2%;" class="tagline postTagline">
+      <p style="color:black">- - - - For Property Owners - - - -</p>
       <button (click)="navigateTo('properties_registration')" style="margin-left: 12%" class="btn btn-success"> Post
         Your Property</button>
     </div>
@@ -252,25 +252,25 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="single-howit-works">
-          <i class="fa fa-money" style="color: #2CA955;font-size: 300%"></i>
+          <i class="fa fa-money" style="color: #2CA955;font-size: 100px"></i>
           <h4>Zero Brokerage</h4>
         </div>
       </div>
       <div class="col-lg-3">
         <div class="single-howit-works">
-          <i class="fa fa-home" style="color: purple;font-size: 300%"></i>
+          <i class="fa fa-home" style="color: purple;font-size: 100px"></i>
           <h4>Add property for free</h4>
         </div>
       </div>
       <div class="col-lg-3">
         <div class="single-howit-works">
-          <i class="fa fa-handshake-o" style="color: purple;font-size: 300%"></i>
+          <i class="fa fa-handshake-o" style="color: purple;font-size: 100px"></i>
           <h4>Dedicated Relationship Manager</h4>
         </div>
       </div>
       <div class="col-lg-3">
         <div class="single-howit-works">
-          <i class="fa fa-check" style="color: #2CA955;font-size: 300%"></i>
+          <i class="fa fa-check" style="color: #2CA955;font-size: 100px"></i>
           <h4>Verified Owner/Tenants</h4>
         </div>
       </div>
