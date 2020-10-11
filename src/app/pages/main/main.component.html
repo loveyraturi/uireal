@@ -5,6 +5,11 @@
         Zero Brokerage Rental Site.
       </div>
   <div class="col-md-6 searchBar">
+    <div class="row" style="display:block;text-align: center;margin-top:5px;margin-bottom:1px">
+      <button class="tablink smalltab" [ngClass]="defaultBuyClass ? 'defaultBuyClass' : ''" id="Buy" (click)="openTab('Buy')">Buy</button>
+    <button class="tablink smalltab" #buttontest id="buttontest" [ngClass]="defaultRentClass ? 'defaultRentClass' : ''" (click)="openTab('Rent')">Rent</button>
+      <button class="tablink smalltab" [ngClass]="defaultCommercialClass ? 'defaultCommercialClass' : ''" (click)="openTab('Commercial')">Commercial</button>
+    </div>
     <div class="input-group">
       <div class="input-group-prepend input-group-prepend-search" style="margin-right: -66px;">
         <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="background: gainsboro;border: none;
@@ -98,7 +103,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="showSecondarySearch" class="col-md-6 searchBarSecondary">
+  <div *ngIf="showSecondarySearch && defaultRentClass" class="col-md-6 searchBarSecondary">
     <div class="row" style="background: gainsboro;
     border-top: 1px solid cornflowerblue;
     border-radius: 0px 0px 10px 10px; width:100%;">
@@ -127,6 +132,61 @@
           </select>
         </div>
       </div>
+    </div>
+  </div>
+  <div *ngIf="showSecondarySearch && defaultBuyClass" class="col-md-6 searchBarSecondary">
+    <div class="row" style="background: gainsboro;
+    border-top: 1px solid cornflowerblue;
+    border-radius: 0px 0px 10px 10px; width:100%;">
+     
+      <div class="col-md-4" style="padding:2%">
+        <div class="input-group">
+          <div class="input-group-prepend input-group-prepend-custom">
+          </div>
+          <select class="form-control" (change)="BHKFilter($event.target.value)" id="bedrooms">
+            <option selected disabled value="">BHK Type</option>
+            <option value="1 BHK">1+ BHK</option>
+            <option value="2 BHK">2+ BHK</option>
+            <option value="3 BHK">3+ BHK</option>
+            <option value="4 BHK">4+ BHK</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4" style="padding:2%">
+        <div class="input-group">
+          <div class="input-group-prepend input-group-prepend-custom">
+          </div>
+          <select class="form-control" (change)="propertyStatusFilter($event.target.value)" id="bedrooms">
+            <option selected disabled value="">Property Status</option>
+            <option value="Under Construction">Under Construction</option>
+            <option value="Ready To Move">Ready To Move</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showSecondarySearch && defaultCommercialClass" class="col-md-6 searchBarSecondary">
+    <div class="row" style="background: gainsboro;
+    border-top: 1px solid cornflowerblue;
+    border-radius: 0px 0px 10px 10px; width:100%;">
+     <div class="col-md-3" style="padding:2%">
+      <input type="radio" [(ngModel)]="type" id="rent" name="type" value="rent">
+      <label for="rent">Rent</label>&nbsp;&nbsp;&nbsp;
+      <input type="radio" [(ngModel)]="buy"  id="buy" name="buy" value="buy">
+      <label for="buy">Buy</label>&nbsp;
+    </div>
+
+      <div class="col-md-5" style="padding:2%;">
+         
+        <ng-multiselect-dropdown [placeholder]="'Property Type'" [data]="dropdownListPropertyType"
+         [(ngModel)]="selectedPropertyType"
+        (onSelect)="onSelectProperType($event)" (onDeSelect)="OnDeSelectPropertyType($event)"
+        [settings]="dropdownSettingsPropertyType" (onSelectAll)="onSelectAllPropertyType($event)" (onDeSelectAll)="onDeSelectAllPropertyType($event)"
+        >
+      </ng-multiselect-dropdown>
+    </div>
+     
     </div>
   </div>
   <div style="padding-left: 40%; padding-top:2%;" class="tagline postTagline">
