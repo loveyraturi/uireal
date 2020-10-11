@@ -279,7 +279,81 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-google-wallet"></i></span>
               </div>
-              <input type="text" formControlName="city" class="form-control " id="City" placeholder="City">
+              <input list="cityList" type="text" formControlName="city" class="form-control " id="City" placeholder="City">
+              <datalist id="cityList">
+                <option value="" selected disabled>Select City</option>
+                <option value="Delhi">Delhi</option>
+                <option value="NCR">NCR</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Pune">Pune</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Bhubaneswar">Bhubaneswar</option>
+                <option value="Coimbatore">Coimbatore</option>
+                <option value="Goa">Goa</option>
+                <option value="Indore">Indore</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Surat">Surat</option>
+                <option value="Vadodara">Vadodara</option>
+                <option value="Dehradun">Dehradun</option>
+                <option value="Patna">Patna</option>
+                <option value="Nasik">Nasik</option>
+                <option value="Bhopal">Bhopal</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+                <option value="Kanpur">Kanpur</option>
+                <option value="Varanasi">Varanasi</option>
+                <option value="Vijayawada">Vijayawada</option>
+                <option value="Mysore">Mysore</option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Raipur">Raipur</option>
+                <option value="Mangalore">Mangalore</option>
+                <option value="Vapi">Vapi</option>
+                <option value="Rajkot">Rajkot</option>
+                <option value="Trichy">Trichy</option>
+                <option value="Madurai">Madurai</option>
+                <option value="Hubli">Hubli</option>
+                <option value="Allahabad">Allahabad</option>
+                <option value="Pondicherry">Pondicherry</option>
+                <option value="Agra">Agra</option>
+                <option value="Ludhiana">Ludhiana</option>
+                <option value="Amritsar">Amritsar</option>
+                <option value="Jalandhar">Jalandhar</option>
+                <option value="Udaipur">Udaipur</option>
+                <option value="Jodhpur">Jodhpur</option>
+                <option value="Gwalior">Gwalior</option>
+                <option value="Jabalpur">Jabalpur</option>
+                <option value="Aurangabad">Aurangabad</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Kolhapur">Kolhapur</option>
+                <option value="Dharwad">Dharwad</option>
+                <option value="Belgaum">Belgaum</option>
+                <option value="Ratnagiri">Ratnagiri</option>
+                <option value="Jamshedpur">Jamshedpur</option>
+                <option value="Guwahati">Guwahati</option>
+                <option value="Karnal">Karnal</option>
+                <option value="Panipat">Panipat</option>
+                <option value="Sonipat">Sonipat</option>
+                <option value="Meerut">Meerut</option>
+                <option value="Haridwar">Haridwar</option>
+                <option value="Mathura">Mathura</option>
+                <option value="Durgapur">Durgapur</option>
+                <option value="Guntur">Guntur</option>
+                <option value="Salem">Salem</option>
+                <option value="Anand">Anand</option>
+                <option value="Nadiad">Nadiad</option>
+                <option value="Bharuch">Bharuch</option>
+                <option value="Valsad">Valsad</option>
+                <option value="Daman">Daman</option>
+                <option value="Diu">Diu</option>
+                <option value="Ujjain">Ujjain</option>
+              </datalist>
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -295,7 +369,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-globe"></i></span>
               </div>
-              <input type="text" formControlName="country" class="form-control " id="Country" placeholder="Country">
+              <input type="text" value="India" formControlName="country" class="form-control " id="Country" placeholder="Country">
             </div>
           </div>
           <div class="col-md-12 mb-2">
