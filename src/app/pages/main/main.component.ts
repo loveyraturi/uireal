@@ -1,7 +1,7 @@
 /**
  * Created by andrew.yang on 5/18/2017.
  */
-import { OnInit, Component, Input, ViewContainerRef, ViewChild } from "@angular/core";
+import { OnInit, Component, Input, ViewContainerRef, ViewChild, AfterViewInit, ElementRef } from "@angular/core";
 import { Login } from "src/app/models/login";
 import { UserService } from "src/app/services/user.service";
 import { PropertiesService } from "src/app/services/properties.service";
@@ -14,7 +14,7 @@ import { Address } from "ngx-google-places-autocomplete/objects/address";
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit ,AfterViewInit{
     // @ViewChild("placesRef") placesRef : GooglePlaceDirective;
     private size;
     private price;
@@ -59,12 +59,40 @@ export class MainComponent implements OnInit {
     Kolkata: ["New Town","Rajarhat","Tollygunge","Kestopur","E M Bypass","Mukundapur","Action Area II","Chinar Park","Action Area III","Garia","Prince Anwar Shah Rd.","Jadavpur","Bansdroni","Salt Lake","New Alipore","Kasba","Action Area I","Thakurpukur","Dum Dum","Behala","Madhyamgram","Baguihati","Naktala","Maheshtala","Action Area IID","Kalikapur","Sodepur","E M Bypass","City Centre 2","Ballygunge","Narendrapur","Action area 1A","Sector II - Salt Lake","Park Circus","Patuli","Tangra","Topsia","Barasat","Sonarpur","Madurdaha","Howrah","New Garia","Lake Town","Bablatala","Birati","Picnic Garden","Kaikhali","Sector I - Salt Lake","Belgharia","Behala Chowrasta","Lake Gardens","Nager Bazar","Jessore Road","Teghoria","Dash Drone","Alipore","Gariahat","Bagha Jatin","Action Area 1B","Kamalgazi","Haridebpur","Bhawanipore","Kudgat","Dum Dum Cantt.","Bijoygarh","Jodhpur Park","Uniworld City","Rajpur","Dunlop","Airport","Barrackpore","Golf Green","Garia Station","Sector V - Salt Lake","Chak Garia","Natunpara","Action Area 1D","Hiland Park","Entally","Southern Avenue","Netaji Nagar","Jyangra","Bangur","Tagore Park","Sakher Bazar","Park Street","Sealdah","Dhakuria","Haltu","Konnagar","Ajoy Nagar","VIP Haldiram","Nayabad","Ariadaha","Survey Park","Action Area 1C","Bara Nagar","Santoshpur","Santragachi"],
     Coimbatore: ["Saravanampatti","Peelamedu","Ganapathy","Vadavalli","Singanallur","Saibaba Colony","Cheran Ma Nagar","Ramanathapuram","Vilankurichi","Kavundampalayam","R.S.Puram","Kovaipudur","Thudiyalur","Ondiputhur","Kalapatti","Sundarapuram","Chinnavedampatti","Sulur","Keeranatham","Selvapuram","Fathima Nagar","Edayarpalayam","Periyanaickenpalayam","Vinayagapuram","Race Course","Vellakinar","Rathinapuri","Uppilipalayam","TVS nagar","Narasimhanaickenpalayam","GN Mills","Eachanari","Masakalipalayam","Gandhipuram","Podanur","Othakalmandapam","Koundampalayam","Kuniyamuthur","Tatabad","Kurumbapalayam","Nehru Nagar West","Vadamadurai","Kovilpalayam","Nanjundapuram","Athipalayam","Thoppampatti Pirivu","PN Pudur","GV Residency","BK Pudur","Anna Nagar","Velandipalayam","vellalore","NGGO Colony","P.N.Palayam","K K Pudur","Neelambur","Thaneerpandal","Puliakulam","Trichy Road","Malumichampatti","Nallampalayam","Madukkarai","Bharathi Colony","Gandhimaa Nagar","Periyar Nagar","New Siddhapudur","Varadharajapuram","Pappanaickenpalayam","Telungupalayam","Veerakeralam","Goldwins","Ponnaiah Raja Puram","Krishna Colony","Sungam","Mullai Nagar","Peelamedu Pudur","Ramnagar","Sowripalayam","Mettupalayam Road","Annur","Idigarai","Red Fields","Avarampalayam","Chinniampalayam","Town Hall","Teachers Colony","Ganapathy Maanagar","Poochiyur","Navavoor Pirivu","Ramanuja Nagar","Chettipalayam","Maniyakarampalayam","Kallimadai","Sundakkamuthur","New Thillai Nagar","Maheshwari Nagar","Sidco Industrial Estate","Murugan Nagar","Avinashi Road"]
     }
+    @ViewChild('buttontest',{static:true}) buttontest: ElementRef;
+    defaultBuyClass: boolean;
+    defaultRentClass: boolean ;
+    defaultCommercialClass: boolean;
+    public selectedPropertyType = [];
+
+    private dropdownListPropertyType = [{
+        item_id: "office_space",
+        item_text: "Office Space"
+    }, {
+        item_id: "co_working",
+        item_text: "Co-Working"
+    }, {
+        item_id: "retail",
+        item_text: "Retail"
+    }, {
+        item_id: "restaurant_cafe",
+        item_text: "Restaurant/Cafe"
+    }, {
+        item_id: "industrial",
+        item_text: "Industrial"
+    }, {
+        item_id: "other_business",
+        item_text: "Other Business"
+    }]
     
-    
-    
-    
-    
-    
+    public dropdownSettingsPropertyType = {
+        singleSelection: false,
+        idField: 'item_id',
+        textField: 'item_text',
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        itemsShowLimit: 1
+    }
     
     constructor(private router: Router, private propertiesService: PropertiesService, private userService: UserService) {
         localStorage.setItem("pageName", "mainPage")
@@ -74,6 +102,11 @@ export class MainComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.buttontest.nativeElement.click();
+
+    }
+    ngAfterViewInit(){
+
     }
     getGeoLocation() {
         if (navigator.geolocation) {
@@ -233,5 +266,45 @@ export class MainComponent implements OnInit {
         console.log(search);
         this.router.navigateByUrl('/home');
         // console.log(request)
+    }
+
+    openTab(event){
+        if(event == 'Rent'){
+            this.defaultRentClass= true;
+            this.defaultBuyClass= false;
+            this.defaultCommercialClass=false;
+        }
+        if(event == 'Buy'){
+            this.defaultRentClass= false;
+            this.defaultBuyClass= true;
+            this.defaultCommercialClass=false;
+
+        }
+        if(event == 'Commercial'){
+            this.defaultRentClass= false;
+            this.defaultBuyClass= false;
+            this.defaultCommercialClass=true;
+        }
+        console.log(event,"value of event tab")
+    }
+
+    onSelectProperType(item: any) {
+        this.selectedPropertyType.push(item)
+        console.log(item, "################Selected##################", this.selectedPropertyType)
+    }
+    OnDeSelectPropertyType(item: any) {
+        this.selectedPropertyType = this.selectedPropertyType.filter(event => {
+            return event.item_id != item.item_id
+        })
+        console.log(item, "################DeSelected##################", this.selectedPropertyType)
+    }
+    onSelectAllPropertyType(item: any) {
+        this.selectedPropertyType = []
+        this.selectedPropertyType.push(item)
+        console.log(item, "################DeSelected##################", this.selectedPropertyType)
+    }
+    onDeSelectAllPropertyType(items: any) {
+        this.selectedPropertyType = []
+        console.log(items, "################DeSelected1##################", this.selectedPropertyType)
     }
 }

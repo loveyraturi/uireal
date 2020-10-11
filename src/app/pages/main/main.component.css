@@ -314,6 +314,10 @@ ul {
     height: 30%;
     margin-left: 15px;
   }
+  .smalltab{
+    font-size: 13px !important;
+    width: 20% !important;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -347,4 +351,30 @@ ul {
   .input-group-prepend-search {
     margin-right: -126px !important;
   }
+  .smalltab{
+    font-size: 13px !important;
+    width: 20% !important;
+  }
 }
+.tablink {
+  background-color: #dcdcdc;
+  color: black;
+  border: 1px solid white;
+  outline: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 15px;
+  width: 16%;
+  border-radius: 2px;
+}
+.defaultRentClass {
+  background-color: #777;
+}
+
+  .defaultBuyClass{
+    background-color: #777;
+  }
+  .defaultCommercialClass{
+    background-color: #777;
+
+  }
