@@ -1,12 +1,41 @@
 <navigation></navigation>
 <section class="property-section">
 
-  <div class="container">
-    <form [formGroup]="myForm" (ngSubmit)="submit()">
-      <div *ngIf="sliderPosition=='slide1'" class="reg1 shadow">
+
+  <form [formGroup]="myForm" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-md-6" style="padding: 5%;">
+        <h4 style="padding: 2%;">Rent Your Property</h4>
+        <div class="form-row" style="padding: 3%;">
+          <div class="col-md-12 mb-2">
+            <label for=name>Name</label>
+            <div class="input-group">
+              <input type="text" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
+                class="form-control " id="name" required>
+            </div>
+          </div>
+          <div class="col-md-12 mb-2">
+            <label for=name>Phone Number</label>
+            <div class="input-group">
+              <input type="text" style="margin-right: 2%;border-bottom: 1px solid;
+              border-color: #CED4DA;border-radius: inherit; border-top:none;border-left:none;border-right:none;"
+                id="countryCode" placeholder="IND +91" disabled required>
+
+              <input type="text" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
+                formControlName="phoneNumber" class="form-control " id="phoneNumber" required>
+            </div>
+          </div>
+          <div class="col-md-12 mb-2">
+            <label for=name>Email</label>
+            <div class="input-group">
+              <input type="text" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
+                 class="form-control " id="email" required>
+            </div>
+          </div>
+        </div>
         <h4 style="padding: 2%;">Property Details</h4>
         <div class="form-row" style="padding: 3%;">
-          <div class="col-md-4 mb-5">
+          <div class="col-md-12 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-home"></i></span>
@@ -23,16 +52,7 @@
               </datalist>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-mobile"></i></span>
-              </div>
-              <input type="text" formControlName="phoneNumber" class="form-control " id="phoneNumber"
-                placeholder="Phone number" value="Mark" required>
-            </div>
-          </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-12 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-bed"></i></span>
@@ -49,7 +69,7 @@
               </datalist>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-12 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-bath"></i></span>
@@ -64,8 +84,8 @@
               </select>
             </div>
           </div>
-        
-          <div class="col-md-4 mb-5">
+
+          <div class="col-md-12 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-arrows"></i></span>
@@ -74,34 +94,23 @@
                 value="Mark" required>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend3"><i
-                      class="fa fa-american-sign-language-interpreting"></i></span>
-                </div>
-                <ng-multiselect-dropdown [placeholder]="'Select Amenities'" [data]="dropdownListamenities"
-                  formControlName="selectedItemsAmenities" [(ngModel)]="selectedItemsAmenities"
-                  (onSelect)="onItemSelectAmenities($event)" (onDeSelect)="OnItemDeSelectAmenities($event)"
-                  (onSelectAll)="onSelectAllAmenities($event)" (onDeSelectAll)="onDeSelectAllAmenities($event)"
-                  [settings]="dropdownSettingsAmenities">
-                </ng-multiselect-dropdown>
+          <div class="col-md-12 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend3"><i
+                    class="fa fa-american-sign-language-interpreting"></i></span>
               </div>
+              <ng-multiselect-dropdown style="width: 91%;" [placeholder]="'Select Amenities'"
+                [data]="dropdownListamenities" formControlName="selectedItemsAmenities"
+                [(ngModel)]="selectedItemsAmenities" (onSelect)="onItemSelectAmenities($event)"
+                (onDeSelect)="OnItemDeSelectAmenities($event)" (onSelectAll)="onSelectAllAmenities($event)"
+                (onDeSelectAll)="onDeSelectAllAmenities($event)" [settings]="dropdownSettingsAmenities">
+              </ng-multiselect-dropdown>
             </div>
-          <div class="col-md-12 mb-5">
-            <textarea formControlName="description" class="form-control " id="description"
-              placeholder="Property Description" required></textarea>
-          </div>
-          <div class="col-md-12" style="padding: 3%;">
-            <button style="float: left;" disabled="slidePrevious('slide1')" class="btn btn-success">previous</button>
-            <button style="float: right;" (click)="slideNext('slide2')" class="btn btn-success">next</button>
           </div>
         </div>
-      </div>
-      <div *ngIf="sliderPosition=='slide2'" class="reg1 shadow">
-        <h4 style="padding: 2%;">Property type</h4>
         <div class="form-row" style="padding: 3%;">
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-bed"></i></span>
@@ -114,7 +123,7 @@
               </select>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-building"></i></span>
@@ -128,7 +137,7 @@
               </select>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-truck"></i></span>
@@ -141,7 +150,7 @@
               </select>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-free-code-camp"></i></span>
@@ -153,7 +162,7 @@
               </select>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-money"></i></span>
@@ -162,7 +171,7 @@
                 required>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card"></i></span>
@@ -171,7 +180,7 @@
                 placeholder="Maintainance" required>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card-alt"></i></span>
@@ -180,12 +189,12 @@
                 placeholder="Security deposit" required>
             </div>
           </div>
-          <div class="col-md-4 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-users"></i></span>
               </div>
-              <ng-multiselect-dropdown [placeholder]="'Select Allowed'" [data]="dropdownList"
+              <ng-multiselect-dropdown style="width: 84%;" [placeholder]="'Select Allowed'" [data]="dropdownList"
                 [(ngModel)]="selectedItems" formControlName="selectedItems" (onSelect)="onItemSelect($event)"
                 (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
                 (onDeSelectAll)="onDeSelectAll($event)" [settings]="dropdownSettings">
@@ -193,22 +202,53 @@
             </div>
           </div>
           <div class="col-md-12 mb-2">
-            <textarea formControlName="address" class="form-control " id="address" placeholder="Address"
-              required></textarea>
-          </div>
-          <div class="col-md-12" style="padding: 2%;">
-            <button style="float: left;" (click)="slidePrevious('slide1')" class="btn btn-success">previous</button>
-            <button style="float: right;" (click)="slideNext('slide3')" class="btn btn-success">next</button>
+            <textarea formControlName="description" class="form-control " id="description"
+              placeholder="Property Description" required></textarea>
           </div>
         </div>
       </div>
-      <div *ngIf="sliderPosition=='slide3'" class="shadowbig">
-        <h4 style="padding: 2%;">Address Details</h4>
-        <div class="form-row" style="padding: 3%;">
-          <div class="col-md-1 mb-5">
-            <input type="image" (click)="getGeoLocation()" style="width: 50%;" src="./assets/img/location.png" />
+      <div class="col-md-6" style=" padding: 5%;">
+        <div style="background: purple;
+        margin-bottom: 1%;">
+          <h4 style="padding: 2%;
+        color: white;
+        font-size: 29px;
+        padding-top: 3%;
+        padding-left: 3%;
+        padding-bottom: 8%;">Upload Images</h4>
+        </div>
+        <div class="form-group" style="    border: 1px solid;
+        padding: 2%;
+        height: 400px;padding-left: 3%;padding-right: 3%;">
+          <input formControlName="ownerEmail" id="ownerEmail" [(ngModel)]="email" type="hidden" class="form-control">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-3" *ngFor='let url of images; let i = index'>
+                <i (click)="removeImage(i)" style="position: absolute;left: 1%;"
+                  class="glyphicon glyphicon-remove">X</i>
+                <img [src]="url" height="150" width="200px" style="margin: 3px;">
+              </div>
+              <div class="col-md-3" style="height: 150px;">
+                <!-- <input formControlName="file" id="file" type="file" style=" margin-top: 31%!important; "
+                  class="btnupload form-control" multiple="" (change)="onFileChange($event)"> -->
+                <div class="box">
+                  <div class="upload-options">
+                    <label>
+                      <input formControlName="file" type="file" class="image-upload" (change)="onFileChange($event)"
+                        accept="image/*" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-5 mb-5">
+        </div>
+        <div class="form-row" style="padding: 3%;">
+          <div class="col-md-12 mb-2">
+            <input type="image" (click)="getGeoLocation()" style="width: 8%;
+            margin-left: 45%;" src="./assets/img/location.png" />
+          </div>
+          <div class="col-md-12 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-map-marker"></i></span>
@@ -217,7 +257,7 @@
                 placeholder="Latitude" disabled>
             </div>
           </div>
-          <div class="col-md-5 mb-5">
+          <div class="col-md-12 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-map-marker"></i></span>
@@ -226,7 +266,7 @@
                 id="Longitude" placeholder="Longitude" disabled>
             </div>
           </div>
-          <div class="col-md-3 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-street-view"></i></span>
@@ -234,7 +274,7 @@
               <input type="text" formControlName="locality" class="form-control " id="Locality" placeholder="Locality">
             </div>
           </div>
-          <div class="col-md-3 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-google-wallet"></i></span>
@@ -242,7 +282,7 @@
               <input type="text" formControlName="city" class="form-control " id="City" placeholder="City">
             </div>
           </div>
-          <div class="col-md-3 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-map-marker"></i></span>
@@ -250,7 +290,7 @@
               <input type="text" formControlName="state" class="form-control " id="State" placeholder="State">
             </div>
           </div>
-          <div class="col-md-3 mb-5">
+          <div class="col-md-6 mb-2">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-globe"></i></span>
@@ -258,45 +298,29 @@
               <input type="text" formControlName="country" class="form-control " id="Country" placeholder="Country">
             </div>
           </div>
-          <div class="col-md-12" style="padding: 3%;">
-            <button style="float: left;" (click)="slidePrevious('slide2')" class="btn btn-success">previous</button>
-            <button style="float: right;" (click)="slideNext('slide4')" class="btn btn-success">next</button>
+          <div class="col-md-12 mb-2">
+            <textarea formControlName="address" class="form-control " id="address" placeholder="Address"
+              required></textarea>
           </div>
         </div>
-      </div>
-      <div *ngIf="sliderPosition=='slide4'" class="reg1 shadow">
-        <h4 style="padding: 2%;">Upload Images</h4>
-        <div class="form-group" style="padding-left: 3%;padding-right: 3%;">
-          <input formControlName="ownerEmail" id="ownerEmail" [(ngModel)]="email" type="hidden" class="form-control">
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-3" *ngFor='let url of images; let i = index'>
-                <i (click)="removeImage(i)" style="position: absolute;" class="glyphicon glyphicon-remove">X</i>
-                <img [src]="url" height="150" width="200px" style="margin: 3px;">
-              </div>
-              <div class="col-md-3" style="height: 150px;border: 2px dotted greenyellow;">
-                <input formControlName="file" id="file" type="file" style=" margin-top: 31%!important; "
-                  class="btnupload form-control" multiple="" (change)="onFileChange($event)">
-              </div>
-            </div>
-          </div>
-        </div>
-      <br/>
-      <div class="form-group" style="padding-left: 3%;padding-right: 3%;padding-bottom: 3%;">
+        <br />
+        <div class="form-group" style="padding-left: 3%;padding-right: 3%;padding-bottom: 3%;">
           <h4 style="padding: 2%;">Address Proof</h4>
-        <input formControlName="file" id="addressProof" type="file" class="btnupload form-control" multiple=""
-          (change)="onFileChangeAddressProof($event)">
-      </div>
+          <input formControlName="file" id="addressProof" type="file" class="btnupload form-control" multiple=""
+            (change)="onFileChangeAddressProof($event)">
+        </div>
 
-      <!-- <button style="margin-left: 45%;" type="submit" class="btn btn-primary submitbtn">Submit</button> -->
-      <div class="col-md-12 slidernext" style="padding-bottom: 7%;">
-        <button style="float: left;" (click)="slidePrevious('slide3')" class="btn btn-success">previous</button>
-        <button style="float: right;"   type="submit" class="btn btn-primary btnlastnext">Submit</button>
+        <!-- <button style="margin-left: 45%;" type="submit" class="btn btn-primary submitbtn">Submit</button> -->
+
       </div>
-      <alert></alert>
-      </div>
-    </form>
+    </div>
+  </form>
+  <div class="col-md-12 slidernext" style="padding-bottom: 3%;
+  margin-left: 22%;">
+    <button style="width: 50%;" type="submit" class="btn btn-success btnlastnext">Submit</button>
   </div>
+  <alert></alert>
+
 
 </section>
 <!-- <section class="property-section">
