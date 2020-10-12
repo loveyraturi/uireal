@@ -86,9 +86,10 @@ export class UserLoginComponent implements OnInit {
                 console.log("status#######", data)
                 // this.message = data.message
                 if (data.status == "true") {
-                    localStorage.setItem("email", request.email);
+                    localStorage.setItem("email", data.email);
                     localStorage.setItem("name", data.name);
-                    data["email"]=request.email
+                    localStorage.setItem("phoneNumber",data.phone_number);
+                    // data["email"]=data.email
                     this.loginDetails.emit(data);
 
 

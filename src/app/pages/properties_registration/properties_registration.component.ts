@@ -22,6 +22,7 @@ export class PropertiesRegistrationComponent implements OnInit {
     private latlng = [-25.363882, 131.044922]
     private name = localStorage.getItem("name");
     private email = localStorage.getItem("email");
+    private phone_number = localStorage.getItem("phoneNumber");
     private message;
     private sliderPosition = "slide1";
     private spinner=false;
@@ -116,6 +117,10 @@ export class PropertiesRegistrationComponent implements OnInit {
         this.modelClick()
 
         localStorage.setItem("pageName", "properties_registration")
+        console.log(this.email,"#$#@$#@$#@$#EMAIL",this.phone_number)
+        if(this.email==undefined || this.email=="" ){
+            this.modelClickRegister("Please login to list your property","login") 
+        }
     }
 
 
@@ -149,6 +154,9 @@ export class PropertiesRegistrationComponent implements OnInit {
             security: new FormControl('', [Validators.required]),
             price: new FormControl('', [Validators.required])
         });
+        this.myForm.patchValue({
+            phoneNumber: this.phone_number
+        })
         this.getGeoLocation()
     }
     onItemSelect(item: any) {
@@ -243,6 +251,9 @@ export class PropertiesRegistrationComponent implements OnInit {
             // if (this.type == "owner") {
                 // this.closeModal()
                 if(type=="success"){
+                    this.message = message
+                    setTimeout(() =>  this.router.navigateByUrl('/main'),1500);
+                }else if(type=="login"){
                     this.message = message
                     setTimeout(() =>  this.router.navigateByUrl('/main'),1500);
                 }else{

@@ -10,7 +10,7 @@
           <div class="col-md-12 mb-2">
             <label for=name>Name</label>
             <div class="input-group">
-              <input type="text" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
+              <input type="text" [value]="name" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
                 class="form-control " id="name" required>
             </div>
           </div>
@@ -22,13 +22,13 @@
                 id="countryCode" placeholder="IND +91" disabled required>
 
               <input type="text" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
-                formControlName="phoneNumber" class="form-control " id="phoneNumber" required>
+                formControlName="phoneNumber" [value]="phone_number" class="form-control " id="phoneNumber" required>
             </div>
           </div>
           <div class="col-md-12 mb-2">
             <label for=name>Email</label>
             <div class="input-group">
-              <input type="text" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
+              <input type="text" [value]="email" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
                  class="form-control " id="email" required>
             </div>
           </div>
@@ -388,12 +388,13 @@
 
       </div>
     </div>
-  </form>
-  <div class="col-md-12 slidernext" style="padding-bottom: 3%;
+    <div class="col-md-12 slidernext" style="padding-bottom: 3%;
   margin-left: 22%;">
     <button style="width: 50%;" type="submit" class="btn btn-success btnlastnext">Submit</button>
   </div>
   <alert></alert>
+  </form>
+  
 
 
 </section>
