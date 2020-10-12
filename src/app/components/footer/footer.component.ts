@@ -7,7 +7,9 @@ import {Login} from "../../models/login";
 
 @Component({
     selector: 'footer',
-    templateUrl: './footer.component.html'
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.css']
+
 })
 export class Footer implements OnInit {
     constructor( private router: Router) { }
