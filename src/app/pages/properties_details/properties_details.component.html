@@ -32,7 +32,7 @@
             <div *ngIf="properties.images!=undefined" class="carousel-inner">
               <div class="carousel-item" *ngFor="let imageCarasoule of properties.images; let i=index;"
                 [ngClass]="{'active' : i==0}">
-                <img class="d-block w-100" height=400 width=590
+                <img class="d-block w-100" height=400 width=750
                   src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
               </div>
             </div>
