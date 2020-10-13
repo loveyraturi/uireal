@@ -424,6 +424,13 @@
     <div class="modalContent"> {{message}}</div>
   </div>
 </div>
+<div id="myModal1" class="{{modelClass1}}">
+  <!-- Modal content -->
+  <div class="modal-content1">
+    <div class="modalContent1">  <userLogin style="padding-bottom: 2%" (loginDetails)="loginDetailsReceived($event)" [redirect]="false" >
+    </userLogin></div>
+  </div>
+</div>
 <footer></footer>
 <div *ngIf="spinner" class="spinnerAngular">
   <div class="spinner-border spinnerStyle" role="status">

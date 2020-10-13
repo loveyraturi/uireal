@@ -52,6 +52,15 @@
   width: 30% !important;
   /* Could be more or less, depending on screen size */
 }
+.modal-content1{    background-color: #fefefe;
+    margin: 8% auto;
+    /* padding: 20px; */
+    border: 1px solid #888;
+    height: auto;
+    width: 33% !important;
+    /* width: 30% !important; */
+}
+
 
 /* The Close Button */
 .close {
@@ -60,14 +69,27 @@
   font-size: 28px;
   font-weight: bold;
 }
-
+.close1 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  float: right;
+  margin-left: 30%;
+}
 .close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
-
+.close1:hover,
+.close1:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 .modalDisplay {
   display: block;
   position: fixed;
@@ -84,12 +106,22 @@
   margin-top: 0%;
   font-size: 138%;
 }
+.modalContent1{
+  text-align: center;
+  margin-top: 0%;
+  font-size: 138%;
+}
 .modalDisplay1 {
   display: block;
-  position: absolute;
-  z-index: 1;
-  left: 30%;
-  top: 0%;
+  position: fixed;
+  z-index: 100000;
+  /* left: 30%; */
+  /* top: 0%; */
+  background: rgba(0,0,0,0.6);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .formStyle {
@@ -420,5 +452,17 @@ i.material-icons {
     opacity: 0;
     -webkit-transform: scale(2.5);
             transform: scale(2.5);
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .modal-content1 {
+    background-color: #fefefe;
+    margin-left: 10%;
+    margin-top: 20%;
+    border: 1px solid #888;
+    width: 63% !important;
+    margin-bottom: 4%;
+    box-shadow: none !important;
   }
 }
