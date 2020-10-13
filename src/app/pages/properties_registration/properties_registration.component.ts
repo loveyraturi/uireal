@@ -1,7 +1,7 @@
 /**
  * Created by andrew.yang on 5/18/2017.
  */
-import { OnInit, Component, Input, ViewContainerRef } from "@angular/core";
+import { OnInit, Component, Input, ViewContainerRef, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { UserService } from "src/app/services/user.service";
 import { PropertiesService } from "src/app/services/properties.service";
@@ -19,6 +19,7 @@ export class PropertiesRegistrationComponent implements OnInit {
     private ownerName = "praveen";
     public modelClass = "modal";
     public modelClass1 = "modal1";
+    @Output() loginDetails: EventEmitter<any> = new EventEmitter<any>();
 
     private images = [];
     private latlng = [-25.363882, 131.044922]
@@ -407,7 +408,9 @@ export class PropertiesRegistrationComponent implements OnInit {
 		this.loggedUserName=data.name
 		this.email=data.email
 		console.log(this.loggedUserName)
-		this.closeModal1()
+        this.closeModal1();
+        this.userService.loginDetails.next(data.name);
+
 }
 }
 

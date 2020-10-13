@@ -3,6 +3,7 @@
  */
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from "@angular/router";
+import { UserService } from 'src/app/services/user.service';
 import { Login } from "../../models/login";
 
 @Component({
@@ -13,7 +14,7 @@ import { Login } from "../../models/login";
 export class Navigation implements OnInit {
     @Input() loginInfo: Login;
     @Input() username: string;
-    
+    debugger;
     private pageName=localStorage.getItem("pageName")
     private modelType;
     private registerMessage = "Login"
@@ -25,7 +26,12 @@ export class Navigation implements OnInit {
     private screenHeight=screen.height
     // public username = localStorage.getItem("username")==undefined?"":localStorage.getItem("username");
     public type = localStorage.getItem("type")==undefined?"":localStorage.getItem("type");
-    constructor(private router: Router) {
+    constructor(private router: Router,private userservice:UserService) {
+        this.userservice.loginDetails.subscribe((userName)=>{
+            console.log("inside naifgation component")
+            this.loginMessage=userName;
+            this.isLogin=true;
+        })
         console.log("PAGAAGUIGAUIGA#############",this.pageName);
         this.showMain=this.pageName=="main"?false:true
         this.username=localStorage.getItem("name")==undefined?"":localStorage.getItem("name");
