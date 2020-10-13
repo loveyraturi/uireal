@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,6 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class UserService {
+  loginDetails = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 
