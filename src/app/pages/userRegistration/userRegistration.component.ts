@@ -122,13 +122,11 @@ export class UserRegistrationComponent implements OnInit {
                                 localStorage.setItem("email", request.email);
                                 localStorage.setItem("name", data.name);
                                 data["email"] = request.email
-                                this.registrationDetails.emit(data);
-            
+                                
                             }
-                            else {
-                                this.error(data.message)
-                            }
+                            this.registrationDetails.emit(data);
                         })
+                    
                     this.success(data.message)
                 } else {
                     this.message = "Unable to register User"

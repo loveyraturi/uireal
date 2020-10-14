@@ -355,6 +355,7 @@
   .btnstyle {
     height: 100%;
     font-size: 11px !important;
+    width: 140%;
   }
 
   .modal-content3 {
@@ -367,8 +368,8 @@
   }
 
   .col-xs-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 40%;
+    max-width: 31%;
   }
   .howit-works{
     margin-left: 7% !important;

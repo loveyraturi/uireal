@@ -263,6 +263,7 @@ input::-webkit-calendar-picker-indicator {
   border-top: 1px solid;
   border-right: 1px solid;
   width: 60%;
+  border-color: #E2E2E2;
 }
 
 .img-custom {
@@ -350,6 +351,7 @@ ul {
     border-top: 1px solid;
     border-right: 1px solid;
     width: 96%;
+    border-color: #E2E2E2;
   }
 
   .searchBarSecondary {
