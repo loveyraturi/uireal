@@ -29,7 +29,7 @@
       <div class="owl-stage-outer">
         <div class="owl-stage row">
           <div class="col-md-3" style="height: 100%;width: 100%;" *ngFor="let imageCarasoule of images; let i=index;">
-            <a target="_blank" href="./assets/properties/{{imageCarasoule.imageName}}"><div *ngIf="imageCarasoule.imageName" class="imgBanner" style="background: #9796a1; margin: 1%;"><img height=200  src="./assets/properties/{{imageCarasoule.imageName}}"></div></a>
+            <a target="_blank" href="./assets/properties/{{imageCarasoule.imageName}}"><div *ngIf="imageCarasoule.imageName" class="imgBanner" style="background: #9796a1; margin: 1%;"><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div></a>
             <div *ngIf="!imageCarasoule.imageName" class="imgBanner"  style="text-align: center;
             padding-top: 45%;
             color: white;
