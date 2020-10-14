@@ -136,5 +136,9 @@ export class UserRegistrationComponent implements OnInit {
 
             })
     }
+
+    navigateTo(url) {
+        this.router.navigateByUrl('/' + url);
+    }
 }
 

@@ -10,7 +10,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-user-circle-o"></i></span>
                 </div>
-                <input class="form-control" type="text" [(ngModel)]="name" id="validationServer01" placeholder="Name" value="Mark" required>
+                <input class="form-control" type="text" [(ngModel)]="name" id="validationServer01" placeholder="Name"
+                  value="Mark" required>
               </div>
 
             </div>
@@ -38,15 +39,16 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-key"></i></span>
                 </div>
-                <input class="form-control" type="password" [(ngModel)]="password" (click)="validateEmail()" id="exampleInputPassword1"
-                  placeholder="Password">
+                <input class="form-control" type="password" [(ngModel)]="password" (click)="validateEmail()"
+                  id="exampleInputPassword1" placeholder="Password">
               </div>
             </div>
           </div>
           <div class="col-md-12 mb-3 ">
-            <button type="submit" class="form-control btn btn-primary btnsubmit"
-              (click)="submit()">Submit</button>
-              <p style="font-size: 10px;">By signing up, I agree to ownertenants.com <a href="#">Terms of Service & Privacy Policy</a>.</p>
+            <button type="submit" class="form-control btn btn-primary btnsubmit" (click)="submit()">Submit</button>
+            <p style="font-size: 10px;">By signing up, I agree to ownertenants.com <a
+                style="color: blue;  cursor: pointer;" (click)="navigateTo('terms_conditions')">Terms of Service </a> &
+              <a style="color: blue;  cursor: pointer;" (click)="navigateTo('privacy')"> Privacy Policy </a>.</p>
           </div>
           <alert></alert>
         </div>
@@ -57,7 +59,7 @@
     <!-- Modal content -->
     <div class="modal-content1">
       <span class="close" (click)="closeModal1()">
-          <input type="image" height="30" width="30" (click)="closeModal1()" src="./assets/img/icons/close.png">
+        <input type="image" height="30" width="30" (click)="closeModal1()" src="./assets/img/icons/close.png">
 
       </span>
       {{messageResponse}}
