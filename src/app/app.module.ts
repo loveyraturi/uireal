@@ -54,6 +54,7 @@ import { NgDatepickerModule } from 'ng2-datepicker';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './pages/terms-condition/terms-condition.component';
+import { ProfileComponent } from './pages/profile/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { TermsConditionComponent } from './pages/terms-condition/terms-condition
     PropertiesDetailsComponent,
     PrivacyPolicyComponent,
     TermsConditionComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
