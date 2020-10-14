@@ -1,7 +1,7 @@
 /**
  * Created by andrew.yang on 5/18/2017.
  */
-import { OnInit, Component, Input, ViewContainerRef } from "@angular/core";
+import { OnInit, Component, Input, ViewContainerRef, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { UserService } from "src/app/services/user.service";
 import { PropertiesService } from "src/app/services/properties.service";
@@ -18,6 +18,9 @@ export class PropertiesRegistrationComponent implements OnInit {
     private currentLong
     private ownerName = "praveen";
     public modelClass = "modal";
+    public modelClass1 = "modal1";
+    @Output() loginDetails: EventEmitter<any> = new EventEmitter<any>();
+
     private images = [];
     private latlng = [-25.363882, 131.044922]
     private name = localStorage.getItem("name");
@@ -112,14 +115,14 @@ export class PropertiesRegistrationComponent implements OnInit {
         Kolkata: ["New Town","Rajarhat","Tollygunge","Kestopur","E M Bypass","Mukundapur","Action Area II","Chinar Park","Action Area III","Garia","Prince Anwar Shah Rd.","Jadavpur","Bansdroni","Salt Lake","New Alipore","Kasba","Action Area I","Thakurpukur","Dum Dum","Behala","Madhyamgram","Baguihati","Naktala","Maheshtala","Action Area IID","Kalikapur","Sodepur","E M Bypass","City Centre 2","Ballygunge","Narendrapur","Action area 1A","Sector II - Salt Lake","Park Circus","Patuli","Tangra","Topsia","Barasat","Sonarpur","Madurdaha","Howrah","New Garia","Lake Town","Bablatala","Birati","Picnic Garden","Kaikhali","Sector I - Salt Lake","Belgharia","Behala Chowrasta","Lake Gardens","Nager Bazar","Jessore Road","Teghoria","Dash Drone","Alipore","Gariahat","Bagha Jatin","Action Area 1B","Kamalgazi","Haridebpur","Bhawanipore","Kudgat","Dum Dum Cantt.","Bijoygarh","Jodhpur Park","Uniworld City","Rajpur","Dunlop","Airport","Barrackpore","Golf Green","Garia Station","Sector V - Salt Lake","Chak Garia","Natunpara","Action Area 1D","Hiland Park","Entally","Southern Avenue","Netaji Nagar","Jyangra","Bangur","Tagore Park","Sakher Bazar","Park Street","Sealdah","Dhakuria","Haltu","Konnagar","Ajoy Nagar","VIP Haldiram","Nayabad","Ariadaha","Survey Park","Action Area 1C","Bara Nagar","Santoshpur","Santragachi"],
         Coimbatore: ["Saravanampatti","Peelamedu","Ganapathy","Vadavalli","Singanallur","Saibaba Colony","Cheran Ma Nagar","Ramanathapuram","Vilankurichi","Kavundampalayam","R.S.Puram","Kovaipudur","Thudiyalur","Ondiputhur","Kalapatti","Sundarapuram","Chinnavedampatti","Sulur","Keeranatham","Selvapuram","Fathima Nagar","Edayarpalayam","Periyanaickenpalayam","Vinayagapuram","Race Course","Vellakinar","Rathinapuri","Uppilipalayam","TVS nagar","Narasimhanaickenpalayam","GN Mills","Eachanari","Masakalipalayam","Gandhipuram","Podanur","Othakalmandapam","Koundampalayam","Kuniyamuthur","Tatabad","Kurumbapalayam","Nehru Nagar West","Vadamadurai","Kovilpalayam","Nanjundapuram","Athipalayam","Thoppampatti Pirivu","PN Pudur","GV Residency","BK Pudur","Anna Nagar","Velandipalayam","vellalore","NGGO Colony","P.N.Palayam","K K Pudur","Neelambur","Thaneerpandal","Puliakulam","Trichy Road","Malumichampatti","Nallampalayam","Madukkarai","Bharathi Colony","Gandhimaa Nagar","Periyar Nagar","New Siddhapudur","Varadharajapuram","Pappanaickenpalayam","Telungupalayam","Veerakeralam","Goldwins","Ponnaiah Raja Puram","Krishna Colony","Sungam","Mullai Nagar","Peelamedu Pudur","Ramnagar","Sowripalayam","Mettupalayam Road","Annur","Idigarai","Red Fields","Avarampalayam","Chinniampalayam","Town Hall","Teachers Colony","Ganapathy Maanagar","Poochiyur","Navavoor Pirivu","Ramanuja Nagar","Chettipalayam","Maniyakarampalayam","Kallimadai","Sundakkamuthur","New Thillai Nagar","Maheshwari Nagar","Sidco Industrial Estate","Murugan Nagar","Avinashi Road"]
         }
+    loggedUserName: any;
     constructor(private alertService: AlertService, private router: Router, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
         // this.fetchPropertyDetailsById()
-        this.modelClick()
 
         localStorage.setItem("pageName", "properties_registration")
         console.log(this.email,"#$#@$#@$#@$#EMAIL",this.phone_number)
         if(this.email==undefined || this.email=="" ){
-            this.modelClickRegister("Please login to list your property","login") 
+            this.modelClick1()
         }
     }
 
@@ -202,6 +205,11 @@ export class PropertiesRegistrationComponent implements OnInit {
         // this.router.navigateByUrl('/manage');
 
     }
+    closeModal1() {
+        this.modelClass1 = "modal1"
+        // this.router.navigateByUrl('/manage');
+
+    }
     slidePrevious(event) {
         this.sliderPosition = event
     }
@@ -243,6 +251,9 @@ export class PropertiesRegistrationComponent implements OnInit {
         } else {
             this.message = "Please login to add property"
         }
+    }
+    modelClick1() {
+        this.modelClass1 = "modalDisplay1"
     }
     modelClickRegister(message,type) {
         console.log(this.email, "model id is ")
@@ -392,5 +403,14 @@ export class PropertiesRegistrationComponent implements OnInit {
 
             })
     }
+    loginDetailsReceived(data){
+		console.log(data)
+		this.loggedUserName=data.name
+		this.email=data.email
+		console.log(this.loggedUserName)
+        this.closeModal1();
+        this.userService.loginDetails.next(data.name);
+
+}
 }
 
