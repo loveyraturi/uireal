@@ -93,6 +93,9 @@
   width: 50%;
   word-break: break-all;
 }
+.imgBanner:hover {
+  opacity: 0.5;
+}
 
 .carousel {
   position: relative;

@@ -38,6 +38,7 @@ export class PropertiesDetailsComponent implements OnInit {
 	public selectedPropertry;
 	private modelClass3 = "modal3"
 	private userName;
+	private images=[];
 	private loggedUserName
 	private messageLogin;
 	private isValid;
@@ -337,7 +338,18 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 				data.frontImage = "./assets/properties/" + data.images[0].imageName;
 				data.description = data.description.replace(/↵/g, '\\n')
 				this.properties = data
-				console.log(data.amenities)
+				for(var i=0;i<this.properties.images.length;i++){
+					this.images.push({
+						imageName: this.properties.images[i].imageName
+					})
+
+				}
+				for(var j=this.properties.images.length;j<=11;j++){
+					this.images.push({
+						imageName: ""
+					})
+				}
+				console.log(this.images,"###########IMAGES################")
 				if(data.amenities!=null){
 				var amenities = data.amenities.split(",")
 				}

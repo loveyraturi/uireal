@@ -27,8 +27,27 @@
   padding-bottom: 1%;">
     <div class="hero-items owl-carousel owl-loaded owl-drag">
       <div class="owl-stage-outer">
-        <div class="owl-stage">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="owl-stage row">
+          <div class="col-md-3" style="height: 100%;width: 100%;" *ngFor="let imageCarasoule of images; let i=index;">
+            <a target="_blank" href="./assets/properties/{{imageCarasoule.imageName}}"><div *ngIf="imageCarasoule.imageName" class="imgBanner" style="background: #9796a1; margin: 1%;"><img height=200  src="./assets/properties/{{imageCarasoule.imageName}}"></div></a>
+            <div *ngIf="!imageCarasoule.imageName" class="imgBanner"  style="text-align: center;
+            padding-top: 45%;
+            color: white;
+            font-size: 23px;
+            font-family: cursive;background: #9796a1; margin: 1%;height:200px;">No preview</div>
+            <!-- <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div>
+            <div *ngIf="imageCarasoule.imageName" ><img height=200 width=200 src="./assets/properties/{{imageCarasoule.imageName}}"></div> -->
+          </div>
+          <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div *ngIf="properties.images!=undefined" class="carousel-inner">
               <div class="carousel-item" *ngFor="let imageCarasoule of properties.images; let i=index;"
                 [ngClass]="{'active' : i==0}">
@@ -44,7 +63,7 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -79,20 +98,21 @@
                   Parking</p>
               </td>
               <td class="propertyInfo">
-                <p><img height="50" width="50"
-                    src="./assets/img/icons/money.png"> &nbsp; {{properties.price}} &nbsp; Monthly Rental</p>
+                <p><img height="50" width="50" src="./assets/img/icons/money.png"> &nbsp; {{properties.price}} &nbsp;
+                  Monthly Rental</p>
               </td>
             </tr>
             <tr class="propertyInfo">
-                <td class="propertyInfo">
-                  <p><img height="50" width="50" src="./assets/img/icons/maintainance.jpg"> &nbsp; {{properties.maintainance | uppercase}}
-                   &nbsp; Maintainance</p>
-                </td>
-                <td class="propertyInfo">
-                  <p><img height="50" width="50"
-                      src="./assets/img/icons/SECURITY.png"> &nbsp; {{properties.security | uppercase}} &nbsp; Security</p>
-                </td>
-              </tr>
+              <td class="propertyInfo">
+                <p><img height="50" width="50" src="./assets/img/icons/maintainance.jpg"> &nbsp;
+                  {{properties.maintainance | uppercase}}
+                  &nbsp; Maintainance</p>
+              </td>
+              <td class="propertyInfo">
+                <p><img height="50" width="50" src="./assets/img/icons/SECURITY.png"> &nbsp;
+                  {{properties.security | uppercase}} &nbsp; Security</p>
+              </td>
+            </tr>
           </table>
         </div>
         <div class="col-xs-4 col-md-4 alignButton">
@@ -266,7 +286,7 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close" (click)="closeModal()">
-            <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
+          <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
 
         </span>
         <h3 *ngIf="thanksFlag" style="text-align: center;">Thanks for choosing us</h3>
@@ -286,7 +306,7 @@
       <div class="modal-content3">
         <div>
           <span class="close1" (click)="closeModal3()">
-              <input type="image" height="30" width="30" (click)="closeModal3()" src="./assets/img/icons/close.png">
+            <input type="image" height="30" width="30" (click)="closeModal3()" src="./assets/img/icons/close.png">
 
           </span>
           <userLogin style="padding-bottom: 2%" [redirect]="false" (loginDetails)="loginDetailsReceived($event)">
@@ -295,12 +315,12 @@
       </div>
     </div>
 
-<div id="myModal1" class="{{modelClass1}}">
-  <div class="modal-content1">
-    <span class="close" (click)="closeModal1()">
-        <input type="image" height="30" width="30" (click)="closeModal1()" src="./assets/img/icons/close.png">
-    </span>
-    <!-- <div class="container">
+    <div id="myModal1" class="{{modelClass1}}">
+      <div class="modal-content1">
+        <span class="close" (click)="closeModal1()">
+          <input type="image" height="30" width="30" (click)="closeModal1()" src="./assets/img/icons/close.png">
+        </span>
+        <!-- <div class="container">
       <div class="row">
         <div class="col-md-12 col-xs-12	col-sm-12">
           <p style="font-size: 10px;">Date</p>
@@ -381,11 +401,12 @@
         </div>
       </div>
     </div> -->
-    <appointment style="padding-bottom: 2%" [propertyId]="properties.id" (loginDetails)="loginDetailsReceived($event)">
-      </appointment>
-  </div>
-</div>
-</section>
+        <appointment style="padding-bottom: 2%" [propertyId]="properties.id"
+          (loginDetails)="loginDetailsReceived($event)">
+        </appointment>
+      </div>
+    </div>
+  </section>
 </div>
 <!--details properties end-->
 <footer></footer>
