@@ -79,7 +79,7 @@
             <div (click)="navigateTo('manage')" class="slideMenu">Manage Properties</div>
             <div (click)="navigateTo('properties_registration')" class="slideMenu">List properties</div>
             <div *ngIf="isLogin==false" (click)="navigateTo('login')" class="slideMenu">Login</div>
-            <div *ngIf="isLogin==true" class="slideMenu ">Profile </div>
+            <div *ngIf="isLogin==true" (click)="navigateTo('profile')" class="slideMenu ">Profile </div>
             <div *ngIf="isLogin==true" (click)="logout()" class="slideMenu ">Logout</div>
             <div  class="slideMenu">Contact us
                 <div >

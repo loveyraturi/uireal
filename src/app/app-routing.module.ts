@@ -32,6 +32,7 @@ import { TenantsRequirementsComponent } from './pages/tenantsRequirements/tenant
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './pages/terms-condition/terms-condition.component';
+import { ProfileComponent } from './pages/profile/profile/profile.component';
 
 export const appRoutes = [
     {
@@ -166,6 +167,10 @@ export const appRoutes = [
     {
         path: 'terms_conditions',
         component: TermsConditionComponent
+    },
+    {
+        path: 'profile',
+        component: ProfileComponent
     },
     {
         path: 'others',
