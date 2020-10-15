@@ -438,7 +438,9 @@ i.material-icons {
   -webkit-animation: ripple 0.4s linear;
           animation: ripple 0.4s linear;
 }
-
+.mobileamenities{
+  width:87%;
+}
 @-webkit-keyframes ripple {
   100% {
     opacity: 0;
@@ -464,5 +466,8 @@ i.material-icons {
     width: 63% !important;
     margin-bottom: 4%;
     box-shadow: none !important;
+  }
+  .mobileamenities{
+    width:82% !important;
   }
 }

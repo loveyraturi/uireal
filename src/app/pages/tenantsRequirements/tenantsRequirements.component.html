@@ -156,12 +156,12 @@
   <div class="requirementMain selectBox">
       <p>Address</p>
       <div class="row">
-        <div class="col-xs-4 col-md-6 mb-2 ">
+        <div class="col-md-10" style="margin: 3% 0;">
           <label *ngIf="messageErrorLocality" style="color: red;">*{{messageLocality}}</label>
 
           <input type="text" class="form-control" placeholder="locality" [(ngModel)]="locality">
         </div>
-        <div class="col-xs-4 col-md-7  mb-2 ">
+        <div class="col-md-10" style="margin: 3% 0;">
           <label *ngIf="messageErrorCity" style="color: red;">*{{messageCity}}</label>
 
           <!-- <input type="text" class="form-control" placeholder="City" [(ngModel)]="city"> -->
@@ -241,13 +241,13 @@
       <option value="Ujjain">Ujjain</option>
     </datalist>
         </div>
-        <div class="col-xs-4 col-md-6 mb-2 ">
+        <div class="col-md-10" style="margin: 3% 0;">
             <input type="text" class="form-control" placeholder="State" [(ngModel)]="state">
           </div>
       </div>
     </div>
   <div class="requirementMain">
-    <button style="width:100%;" (click)="submit()" class="btn btn-success">Submit</button>
+    <button style="width:100%;" style="margin-top:5px;"(click)="submit()" class="btn btn-success">Submit</button>
   </div>
 </div>
 </section>
