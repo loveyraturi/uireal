@@ -90,7 +90,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-arrows"></i></span>
               </div>
-              <input type="text" formControlName="area" class="form-control " id="area" placeholder="Builtup area"
+              <input type="text" formControlName="area" class="form-control " id="area" placeholder="Built up area(Sq.ft)"
                 value="Mark" required>
             </div>
           </div>
@@ -100,8 +100,8 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i
                     class="fa fa-american-sign-language-interpreting"></i></span>
               </div>
-              <ng-multiselect-dropdown style="width: 91%;" [placeholder]="'Select Amenities'"
-                [data]="dropdownListamenities" formControlName="selectedItemsAmenities"
+              <ng-multiselect-dropdown [placeholder]="'Select Amenities'"
+                [data]="dropdownListamenities" formControlName="selectedItemsAmenities" class="mobileamenities"
                 [(ngModel)]="selectedItemsAmenities" (onSelect)="onItemSelectAmenities($event)"
                 (onDeSelect)="OnItemDeSelectAmenities($event)" (onSelectAll)="onSelectAllAmenities($event)"
                 (onDeSelectAll)="onDeSelectAllAmenities($event)" [settings]="dropdownSettingsAmenities">
@@ -167,7 +167,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-money"></i></span>
               </div>
-              <input type="text" formControlName="price" class="form-control " id="price" placeholder="Monthly rentals"
+              <input type="text" formControlName="price" class="form-control " id="price" placeholder="Monthly rentals(INR)"
                 required>
             </div>
           </div>
@@ -177,7 +177,7 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card"></i></span>
               </div>
               <input type="text" formControlName="maintainance" class="form-control " id="maintainance"
-                placeholder="Maintainance" required>
+                placeholder="Maintainance(INR)" required>
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -186,7 +186,7 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card-alt"></i></span>
               </div>
               <input type="text" formControlName="security" class="form-control " id="security"
-                placeholder="Security deposit" required>
+                placeholder="Security deposit(INR)" required>
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -194,7 +194,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-users"></i></span>
               </div>
-              <ng-multiselect-dropdown style="width: 84%;" [placeholder]="'Select Allowed'" [data]="dropdownList"
+              <ng-multiselect-dropdown style="width: 82%;" [placeholder]="'Select Allowed'" [data]="dropdownList"
                 [(ngModel)]="selectedItems" formControlName="selectedItems" (onSelect)="onItemSelect($event)"
                 (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
                 (onDeSelectAll)="onDeSelectAll($event)" [settings]="dropdownSettings">
