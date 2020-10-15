@@ -7,6 +7,7 @@ import { UserService } from "src/app/services/user.service";
 import { Router } from "@angular/router";
 import { AlertService } from "src/app/_services";
 import { PropertiesService } from 'src/app/services/properties.service';
+import { timeStamp } from 'console';
 
 @Component({
     selector: 'tenantsRequirements',
@@ -67,6 +68,21 @@ export class TenantsRequirementsComponent implements OnInit {
     fullyFurnished = ""
     semiFurnished = ""
     unFurnished = ""
+    localityDropdown: any[];
+    cityLocalityData: any;
+    messageBHK: string;
+    messageProperty: string;
+    messageMinimimPrice: string;
+    messageMaximumPrice: string;
+    messageError: boolean=false;
+    messageLocality: string;
+    messageCity: string;
+    messageErrorBHK: boolean=false;
+    messageErrorProperty: boolean =false;
+    messageErrorLocality: boolean =false;
+    messageErrorMinimumPrice: boolean =false;
+    messageErrorMaxPrice: boolean =false;
+    messageErrorCity: boolean =false;
 
     constructor(private alertService: AlertService, private router: Router, private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
         localStorage.setItem("pageName", "registration")
@@ -333,77 +349,113 @@ console.log(this.email,"##################");
         this.message = "Successfully submitted requirements.Our team will contact you soon"
     }
     submit() {
+        this.messageError=false;
+        this.messageErrorBHK=false;
+        this.messageErrorProperty=false;
+        this.messageErrorLocality=false;
+        this.messageErrorMinimumPrice=false
+        this.messageErrorMaxPrice=false;
+        this.messageErrorCity=false;
         this.response["minArea"] = this.minArea
         this.response["maxArea"] = this.maxArea
         this.response["city"] = this.city
         this.response["locality"] = this.locality
         this.response["state"] = this.state
         this.response["email"] = this.email
+        this.response["propertyBHK"] = this.response["propertyBHK"] 
+        this.response["propertyType"]= this.response["propertyType"]
+        this.response["minPrice"]= this.response["minPrice"]
+        this.response["maxPrice"]= this.response["maxPrice"]
+
 
         if(this.response["minPrice"]==undefined){
-            this.modelClass = "modalDisplay"
-            this.message=" Please Enter Minimum Price"
-            return 
+           // this.modelClass = "modalDisplay"
+           this.messageErrorMinimumPrice=true;
+            this.messageMinimimPrice=" Enter Min Price"
+             
         }
         if(this.response["maxPrice"]==undefined){
-            this.modelClass = "modalDisplay"
-            this.message=" Please Enter Maximum Price"
-            return
+            this.messageErrorMaxPrice=true;
+          //  this.modelClass = "modalDisplay"
+            this.messageMaximumPrice="Enter Max Price"
+            
         }
         if(this.response["minArea"]==undefined){
-            this.modelClass = "modalDisplay"
+           // this.modelClass = "modalDisplay"
             this.message=" Please Enter Maximum Area"
-            return
+            
         }
         if(this.response["maxArea"]==undefined){
-            this.modelClass = "modalDisplay"
+           // this.modelClass = "modalDisplay"
             this.message=" Please Enter Maximum Area"
-            return
+            
         }
         if(this.city==undefined){
-            this.modelClass = "modalDisplay"
-            this.message=" Please Enter City"
-            return
+           // this.modelClass = "modalDisplay"
+           this.messageErrorCity=true;
+            this.messageCity=" Please Enter City"
+            
         }
         if(this.locality==undefined){
-            this.modelClass = "modalDisplay"
-            this.message=" Please Enter Locality"
-            return
+          //  this.modelClass = "modalDisplay"
+          this.messageErrorLocality=true;
+            this.messageLocality=" Please Enter Locality"
+            
         }
         if(this.state==undefined){
-            this.modelClass = "modalDisplay"
+         //   this.modelClass = "modalDisplay"
             this.message=" Please Enter state"
-            return
+            
         }
         if(this.response["propertyType"]==undefined){
-            this.modelClass = "modalDisplay"
-            this.message=" Please Select Property Type"
-            return
+         //   this.modelClass = "modalDisplay"
+         this.messageErrorProperty=true;
+            this.messageProperty=" Please Select Property Type"
+            
         }
         if(  this.response["propertyBHK"]==undefined){
-            this.modelClass = "modalDisplay"
-            this.message=" Please Select Property BHK"
-            return
+         //   this.modelClass = "modalDisplay"
+         this.messageErrorBHK=true;
+            this.messageBHK=" Please Select Property BHK"
+            
         }
 
-        this.spinner=true
-
+if(this.messageErrorBHK ||
+    this.messageErrorProperty ||
+    this.messageErrorLocality ||
+    this.messageErrorMinimumPrice ||
+    this.messageErrorMaxPrice || this.messageErrorCity){
+        this.messageError=true;
+    }
         console.log(this.response,"#@#@#@@#@@#@",this.address)
         // this.propertiesService.filter(this.response).subscribe(items => {
         //     console.log(items)
         //     this.responseProperties.emit(items);
         // })
-        this.propertiesService.matchRequirements(this.response).subscribe(
-            data => {
-                this.spinner=false
-                console.log("groupdata#######", data)
-                if (data.status == "true") {
-                    this.modelClickRegister("Successfully added Property")
-                } else {
-                    this.modelClickRegister("Unable to added Property")
-                }
+        if(!this.messageError){
+            this.spinner=true
 
-            })
+            this.propertiesService.matchRequirements(this.response).subscribe(
+                data => {
+                    this.spinner=false
+                    console.log("groupdata#######", data)
+                    if (data.status == "true") {
+                        this.modelClickRegister("Successfully added Property")
+                    } else {
+                        this.modelClickRegister("Unable to added Property")
+                    }
+    
+                })
+        }
+     
+    }
+
+    selectCity(value) {
+        this.localityDropdown=[]
+        console.log(value)
+        this.city=value
+      //  this.localityDropdown=this.cityLocalityData[value]
+
     }
 }
 

@@ -6,6 +6,8 @@
     text-align: center;">Matching Requirements</h4>
   <div class="requirementMain">
     <p>Property Type</p>
+    <p *ngIf="messageErrorProperty" style="color: red;">*{{messageProperty}}</p>
+
     <div (click)="selectedFlat()" class="horizontalAlignment {{isSelectedFlat}}">
       <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/property.png">
       <br>
@@ -26,9 +28,12 @@
       <br>
       <i>Hostel</i>
     </div>
+
   </div>
   <div class="requirementMain">
-    <p>Property Type</p>
+    <p *ngIf="messageErrorBHK" style="color: red;">*{{messageBHK}}</p>
+
+    <p>BHK Type</p>
     <div (click)="selected1()" class="horizontalAlignment {{isSelected1}}">
       <i>1BHK</i>
     </div>
@@ -49,6 +54,7 @@
     <p>Budget</p>
     <div class="row">
       <div class="col-xs-4 col-md-6 filterRange">
+        <label *ngIf="messageErrorMinimumPrice" style="color: red;">*{{messageMinimimPrice}}</label>
         <select class="form-control" (change)="selectMinPrice($event.target.value)">
           <option value="" selected disabled>Min</option>
           <option value="5000">5000</option>
@@ -75,6 +81,8 @@
         </select>
       </div>
       <div class="col-xs-4 col-md-6 filterRange">
+        <label *ngIf="messageErrorMaxPrice" style="color: red;">*{{messageMaximumPrice}}</label>
+
         <select class="form-control" (change)="selectMaxPrice($event.target.value)">
           <option value="" selected disabled>Max</option>
           <option value="5000">5000</option>
@@ -127,7 +135,7 @@
     </div>
   </div>
   <div class="requirementMain propertyType" style="width: 65%;white-space: nowrap;">
-    <p>Property Type</p>
+    <p>Furnished Type</p>
     <div (click)="selectedFullyFurnished()" style="width: 49%;"
       class="horizontalAlignment {{isSelectedFullyFurnished}}">
       <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/furnished.png">
@@ -148,13 +156,92 @@
   <div class="requirementMain selectBox">
       <p>Address</p>
       <div class="row">
-        <div class="col-xs-4 col-md-6 mb-2 filterRange">
+        <div class="col-xs-4 col-md-6 mb-2 ">
+          <label *ngIf="messageErrorLocality" style="color: red;">*{{messageLocality}}</label>
+
           <input type="text" class="form-control" placeholder="locality" [(ngModel)]="locality">
         </div>
-        <div class="col-xs-4 col-md-6  mb-2 filterRange">
-          <input type="text" class="form-control" placeholder="City" [(ngModel)]="city">
+        <div class="col-xs-4 col-md-7  mb-2 ">
+          <label *ngIf="messageErrorCity" style="color: red;">*{{messageCity}}</label>
+
+          <!-- <input type="text" class="form-control" placeholder="City" [(ngModel)]="city"> -->
+          <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="" class="form-control" placeholder="Select city">
+      <datalist id="cityList">
+      <option value="" selected disabled>Select City</option>
+      <option value="Delhi">Delhi</option>
+      <option value="NCR">NCR</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Pune">Pune</option>
+      <option value="Kolkata">Kolkata</option>
+      <option value="Ahmedabad">Ahmedabad</option>
+      <option value="Chandigarh">Chandigarh</option>
+      <option value="Jaipur">Jaipur</option>
+      <option value="Nagpur">Nagpur</option>
+      <option value="Bhubaneswar">Bhubaneswar</option>
+      <option value="Coimbatore">Coimbatore</option>
+      <option value="Goa">Goa</option>
+      <option value="Indore">Indore</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Lucknow">Lucknow</option>
+      <option value="Surat">Surat</option>
+      <option value="Vadodara">Vadodara</option>
+      <option value="Dehradun">Dehradun</option>
+      <option value="Patna">Patna</option>
+      <option value="Nasik">Nasik</option>
+      <option value="Bhopal">Bhopal</option>
+      <option value="Visakhapatnam">Visakhapatnam</option>
+      <option value="Kanpur">Kanpur</option>
+      <option value="Varanasi">Varanasi</option>
+      <option value="Vijayawada">Vijayawada</option>
+      <option value="Mysore">Mysore</option>
+      <option value="Ranchi">Ranchi</option>
+      <option value="Raipur">Raipur</option>
+      <option value="Mangalore">Mangalore</option>
+      <option value="Vapi">Vapi</option>
+      <option value="Rajkot">Rajkot</option>
+      <option value="Trichy">Trichy</option>
+      <option value="Madurai">Madurai</option>
+      <option value="Hubli">Hubli</option>
+      <option value="Allahabad">Allahabad</option>
+      <option value="Pondicherry">Pondicherry</option>
+      <option value="Agra">Agra</option>
+      <option value="Ludhiana">Ludhiana</option>
+      <option value="Amritsar">Amritsar</option>
+      <option value="Jalandhar">Jalandhar</option>
+      <option value="Udaipur">Udaipur</option>
+      <option value="Jodhpur">Jodhpur</option>
+      <option value="Gwalior">Gwalior</option>
+      <option value="Jabalpur">Jabalpur</option>
+      <option value="Aurangabad">Aurangabad</option>
+      <option value="Dubai">Dubai</option>
+      <option value="Kolhapur">Kolhapur</option>
+      <option value="Dharwad">Dharwad</option>
+      <option value="Belgaum">Belgaum</option>
+      <option value="Ratnagiri">Ratnagiri</option>
+      <option value="Jamshedpur">Jamshedpur</option>
+      <option value="Guwahati">Guwahati</option>
+      <option value="Karnal">Karnal</option>
+      <option value="Panipat">Panipat</option>
+      <option value="Sonipat">Sonipat</option>
+      <option value="Meerut">Meerut</option>
+      <option value="Haridwar">Haridwar</option>
+      <option value="Mathura">Mathura</option>
+      <option value="Durgapur">Durgapur</option>
+      <option value="Guntur">Guntur</option>
+      <option value="Salem">Salem</option>
+      <option value="Anand">Anand</option>
+      <option value="Nadiad">Nadiad</option>
+      <option value="Bharuch">Bharuch</option>
+      <option value="Valsad">Valsad</option>
+      <option value="Daman">Daman</option>
+      <option value="Diu">Diu</option>
+      <option value="Ujjain">Ujjain</option>
+    </datalist>
         </div>
-        <div class="col-xs-4 col-md-6 mb-2 filterRange">
+        <div class="col-xs-4 col-md-6 mb-2 ">
             <input type="text" class="form-control" placeholder="State" [(ngModel)]="state">
           </div>
       </div>
