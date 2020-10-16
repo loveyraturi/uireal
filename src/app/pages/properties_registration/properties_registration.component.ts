@@ -116,6 +116,7 @@ export class PropertiesRegistrationComponent implements OnInit {
         Coimbatore: ["Saravanampatti","Peelamedu","Ganapathy","Vadavalli","Singanallur","Saibaba Colony","Cheran Ma Nagar","Ramanathapuram","Vilankurichi","Kavundampalayam","R.S.Puram","Kovaipudur","Thudiyalur","Ondiputhur","Kalapatti","Sundarapuram","Chinnavedampatti","Sulur","Keeranatham","Selvapuram","Fathima Nagar","Edayarpalayam","Periyanaickenpalayam","Vinayagapuram","Race Course","Vellakinar","Rathinapuri","Uppilipalayam","TVS nagar","Narasimhanaickenpalayam","GN Mills","Eachanari","Masakalipalayam","Gandhipuram","Podanur","Othakalmandapam","Koundampalayam","Kuniyamuthur","Tatabad","Kurumbapalayam","Nehru Nagar West","Vadamadurai","Kovilpalayam","Nanjundapuram","Athipalayam","Thoppampatti Pirivu","PN Pudur","GV Residency","BK Pudur","Anna Nagar","Velandipalayam","vellalore","NGGO Colony","P.N.Palayam","K K Pudur","Neelambur","Thaneerpandal","Puliakulam","Trichy Road","Malumichampatti","Nallampalayam","Madukkarai","Bharathi Colony","Gandhimaa Nagar","Periyar Nagar","New Siddhapudur","Varadharajapuram","Pappanaickenpalayam","Telungupalayam","Veerakeralam","Goldwins","Ponnaiah Raja Puram","Krishna Colony","Sungam","Mullai Nagar","Peelamedu Pudur","Ramnagar","Sowripalayam","Mettupalayam Road","Annur","Idigarai","Red Fields","Avarampalayam","Chinniampalayam","Town Hall","Teachers Colony","Ganapathy Maanagar","Poochiyur","Navavoor Pirivu","Ramanuja Nagar","Chettipalayam","Maniyakarampalayam","Kallimadai","Sundakkamuthur","New Thillai Nagar","Maheshwari Nagar","Sidco Industrial Estate","Murugan Nagar","Avinashi Road"]
         }
     loggedUserName: any;
+    submitted: boolean =false;
     constructor(private alertService: AlertService, private router: Router, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
         // this.fetchPropertyDetailsById()
 
@@ -130,31 +131,31 @@ export class PropertiesRegistrationComponent implements OnInit {
     ngOnInit() {
         this.myForm = new FormGroup({
             name: new FormControl('', [Validators.required]),
-            phoneNumber: new FormControl('', [Validators.required]),
-            description: new FormControl('', [Validators.required]),
-            bedroom: new FormControl('', [Validators.required]),
-            washrooms: new FormControl('', [Validators.required]),
-            garage: new FormControl('', [Validators.required]),
-            address: new FormControl('', [Validators.required]),
-            area: new FormControl('', [Validators.required]),
+            phoneNumber: new FormControl(''),
+            description: new FormControl(''),
+            bedroom: new FormControl(''),
+            washrooms: new FormControl(''),
+            garage: new FormControl(''),
+            address: new FormControl(''),
+            area: new FormControl(''),
             ownerEmail: new FormControl('', [Validators.required]),
-            latitude: new FormControl('', [Validators.required]),
-            longitude: new FormControl('', [Validators.required]),
-            file: new FormControl('', [Validators.required]),
-            fileSource: new FormControl('', [Validators.required]),
-            furnish: new FormControl('', [Validators.required]),
+            latitude: new FormControl(''),
+            longitude: new FormControl(''),
+            file: new FormControl(''),
+            fileSource: new FormControl(''),
+            furnish: new FormControl(''),
             city: new FormControl('', [Validators.required]),
             propertyType: new FormControl('', [Validators.required]),
-            selectedItems: new FormControl('', [Validators.required]),
-            selectedItemsAmenities: new FormControl('', [Validators.required]),
-            state: new FormControl('', [Validators.required]),
-            parking: new FormControl('', [Validators.required]),
-            modular: new FormControl('', [Validators.required]),
+            selectedItems: new FormControl(''),
+            selectedItemsAmenities: new FormControl(''),
+            state: new FormControl(''),
+            parking: new FormControl(''),
+            modular: new FormControl(''),
             locality: new FormControl('', [Validators.required]),
-            country: new FormControl('', [Validators.required]),
-            addressProof: new FormControl('', [Validators.required]),
-            maintainance: new FormControl('', [Validators.required]),
-            security: new FormControl('', [Validators.required]),
+            country: new FormControl(''),
+            addressProof: new FormControl(''),
+            maintainance: new FormControl(''),
+            security: new FormControl(''),
             price: new FormControl('', [Validators.required])
         });
         this.myForm.patchValue({
@@ -366,7 +367,9 @@ export class PropertiesRegistrationComponent implements OnInit {
         reader.readAsDataURL(event.target.files[0]);
     }
     submit() {
-        this.spinner=true
+      //  this.spinner=true
+        this.submitted = true;
+
         this.myForm.patchValue({
             addressProof: this.document
         });
@@ -388,6 +391,9 @@ export class PropertiesRegistrationComponent implements OnInit {
         //     washroom: this.myForm.value.washrooms,
         //     fileSource:  this.myForm.value.fileSource
         // }
+        if (this.myForm.invalid) {
+            return;
+        }
         console.log(this.myForm.value);
         this.propertiesService.addProperties(this.myForm.value).subscribe(
             data => {
@@ -398,7 +404,7 @@ export class PropertiesRegistrationComponent implements OnInit {
                     this.modelClickRegister(data.message,"success")
                 } else {
                     console.log(data.message)
-                    this.modelClickRegister(data.message,"failure")
+                   // this.modelClickRegister(data.message,"failure")
                 }
 
             })

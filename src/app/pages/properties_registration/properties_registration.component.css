@@ -424,6 +424,9 @@ i.material-icons {
   color: white;
   display: block;
 }
+.invalid{
+  color: red;
+}
 
 .drop {
   display: block;
