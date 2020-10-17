@@ -84,7 +84,7 @@ export class EditPropertyComponent implements OnInit {
         item_text: "Gated community/Covered Campus"
     }, {
         item_id: "water_supply",
-        item_text: "Water Supply (24 hrs)"
+        item_text: "Water Supply (24*7)"
     }, {
         item_id: "playing_ground",
         item_text: "Playing Ground"

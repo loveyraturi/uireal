@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'realestateui';
+  title = 'Ownertenantss';
   
   scrollTop(event) {
     window.scroll(0,0);

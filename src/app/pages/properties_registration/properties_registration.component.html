@@ -10,8 +10,8 @@
           <div class="col-md-12 mb-2">
             <label for=name>Name</label>
             <div class="input-group">
-              <input type="text" [value]="name" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
-                class="form-control " id="name" required>
+              <input type="text" [value]="name"  style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
+                class="form-control " id="name" >
             </div>
           </div>
           <div class="col-md-12 mb-2">
@@ -19,24 +19,28 @@
             <div class="input-group">
               <input type="text" style="margin-right: 2%;border-bottom: 1px solid;
               border-color: #CED4DA;border-radius: inherit; border-top:none;border-left:none;border-right:none;"
-                id="countryCode" placeholder="IND +91" disabled required>
+                id="countryCode" placeholder="IND +91" disabled >
 
               <input type="text" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
-                formControlName="phoneNumber" [value]="phone_number" class="form-control " id="phoneNumber" required>
+                formControlName="phoneNumber" [value]="phone_number" class="form-control " id="phoneNumber" >
             </div>
           </div>
           <div class="col-md-12 mb-2">
             <label for=name>Email</label>
             <div class="input-group">
               <input type="text" [value]="email" style="border-radius: inherit; border-top:none;border-left:none;border-right:none;"
-                 class="form-control " id="email" required>
+                 class="form-control " id="email" >
             </div>
           </div>
         </div>
         <h4 style="padding: 2%;">Property Details</h4>
         <div class="form-row" style="padding: 3%;">
           <div class="col-md-12 mb-2">
+            <div *ngIf="submitted && f.name.errors" class="invalid">
+              <div *ngIf="f.name.errors.required">BHK is required</div>
+          </div>
             <div class="input-group">
+             
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-home"></i></span>
               </div>
@@ -58,7 +62,7 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-bed"></i></span>
               </div>
               <input list="bedroomlist" type="text" formControlName="bedroom" class="form-control " id="name"
-                placeholder="Number of bedrooms" required>
+                placeholder="Number of bedrooms" >
               <datalist id="bedroomlist">
                 <option value="" selected disabled>Select Bedrooms</option>
                 <option value="1">1</option>
@@ -91,7 +95,7 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-arrows"></i></span>
               </div>
               <input type="text" formControlName="area" class="form-control " id="area" placeholder="Built up area(Sq.ft)"
-                value="Mark" required>
+                value="Mark" >
             </div>
           </div>
           <div class="col-md-12 mb-2">
@@ -124,6 +128,9 @@
             </div>
           </div>
           <div class="col-md-6 mb-2">
+            <div *ngIf="submitted && f.propertyType.errors" class="invalid">
+              <div *ngIf="f.propertyType.errors.required">PropType is required</div>
+          </div>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-building"></i></span>
@@ -163,6 +170,9 @@
             </div>
           </div>
           <div class="col-md-6 mb-2">
+            <div *ngIf="submitted && f.price.errors" class="invalid">
+              <div *ngIf="f.price.errors.required">Monthly Rent is required</div>
+          </div>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-money"></i></span>
@@ -177,7 +187,7 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card"></i></span>
               </div>
               <input type="text" formControlName="maintainance" class="form-control " id="maintainance"
-                placeholder="Maintainance(INR)" required>
+                placeholder="Maintainance(INR)" >
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -186,7 +196,7 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card-alt"></i></span>
               </div>
               <input type="text" formControlName="security" class="form-control " id="security"
-                placeholder="Security deposit(INR)" required>
+                placeholder="Security deposit(INR)" >
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -203,7 +213,7 @@
           </div>
           <div class="col-md-12 mb-2">
             <textarea formControlName="description" class="form-control " id="description"
-              placeholder="Property Description" required></textarea>
+              placeholder="Property Description" ></textarea>
           </div>
         </div>
       </div>
@@ -220,6 +230,9 @@
         <div class="form-group" style="    border: 1px solid;
         padding: 2%;
         height: 400px;padding-left: 3%;padding-right: 3%;">
+         <div *ngIf="submitted && f.ownerEmail.errors" class="invalid">
+          <div *ngIf="f.ownerEmail.errors.required">Title is required</div>
+      </div>
           <input formControlName="ownerEmail" id="ownerEmail" [(ngModel)]="email" type="hidden" class="form-control">
           <div class="form-group">
             <div class="row">
@@ -267,7 +280,11 @@
             </div>
           </div>
           <div class="col-md-6 mb-2">
+            <div *ngIf="submitted && f.locality.errors">
+              <div *ngIf="f.locality.errors.required" class="invalid">Locality is required</div>
+          </div>
             <div class="input-group">
+              
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-street-view"></i></span>
               </div>
@@ -275,6 +292,9 @@
             </div>
           </div>
           <div class="col-md-6 mb-2">
+            <div *ngIf="submitted && f.city.errors">
+              <div *ngIf="f.city.errors.required" class="invalid">City is required</div>
+          </div>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-google-wallet"></i></span>
@@ -374,7 +394,7 @@
           </div>
           <div class="col-md-12 mb-2">
             <textarea formControlName="address" class="form-control " id="address" placeholder="Address"
-              required></textarea>
+              ></textarea>
           </div>
         </div>
         <br />

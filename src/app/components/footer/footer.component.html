@@ -56,11 +56,11 @@
         <h5 style="color: white;" class="text-uppercase">Enquiry</h5>
         <div>
           <ul style="color: #ccc; font-size: 14px;list-style-type:none;">
-            <li style="margin: 10px 0px;">  Name <input type="text" style="margin-left: 11%;"/></li>
-            <li style="margin: 10px 0px;">Mobile <input type="text" style="margin-left: 10%;"/></li>
-            <li style="margin: 10px 0px;">Message <input type="text" style="margin-left: 6%;"/></li>
+            <li style="margin: 10px 0px;">  Name <input type="text" [(ngModel)]="name" style="margin-left: 11%;"/></li>
+            <li style="margin: 10px 0px;">Mobile <input type="text" [(ngModel)]="mobile" style="margin-left: 10%;"/></li>
+            <li style="margin: 10px 0px;">Message <input type="text" [(ngModel)]="message" style="margin-left: 6%;"/></li>
             <li style="margin: 10px 0px;">
-              <button class="btn btn-success" style="background-color: #2cbdb8;">Send</button>
+              <button class="btn btn-success" style="background-color: #2cbdb8;" (click)=submit()>Send</button>
             </li>
           </ul>
         </div>
