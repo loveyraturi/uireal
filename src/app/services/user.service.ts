@@ -417,5 +417,17 @@ export class UserService {
         }
       ))
   }
+  validateMessage(request): Observable<any> {
+    return this.http
+      .post('https://ownertenants.com/realestate/realestate/validateMessage', request).pipe(
+      map(
+        res => {
+          return res;
+        },
+        err => {
+          return err;
+        }
+      ))
+  }
 
 }
