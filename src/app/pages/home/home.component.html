@@ -123,8 +123,8 @@
                     <div class="carousel-inner">
                       <div class="carousel-item" *ngFor="let imageCarasoule of property.images; let i=index;"
                         [ngClass]="{'active' : i==0}">
-                        <img width="300" height="200" class="d-block w-100"
-                          src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide">
+                        <a target="_blank" href="./assets/properties/{{imageCarasoule.imageName}}"><img width="300" height="200" class="d-block w-100"
+                          src="./assets/properties/{{imageCarasoule.imageName}}" alt="Second slide"></a>
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="{{'#carouselExampleIndicators'+property.id}}" role="button" data-slide="prev">
@@ -149,7 +149,7 @@
                       <span style="font-size: 14px;">Property Id: {{property.id}}</span>
                       <br>
                       <span style="font-size: 14px;">Monthly Rental</span>
-                      <h5 style="font-size: 14px;color: #218838;">{{property.price}}/month</h5>
+                      <h5 style="font-size: 14px;color: #218838;">{{property.price}} INR/month</h5>
                     </div>
 
                     <!-- <div class="properties-location">Owner: {{property.ownerName}}</div>

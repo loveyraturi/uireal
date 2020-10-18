@@ -233,6 +233,7 @@
 }
 .innerBorder{
   border: 1px solid black;
+  margin-bottom: 3%;
 }
 
 @media only screen and (max-width: 991px) {

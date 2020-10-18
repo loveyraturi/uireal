@@ -28,10 +28,10 @@ export class PaymentComponent implements OnInit {
     private trxnId
     private messageResponse
     private productinfo = "subscription";
-    private firstname = "praveen";
-    private lastname = "raturi";
-    private email = "loveyraturi@gmail.com";
-    private phone = "8193971153";
+    // private firstname = "praveen";
+    // private lastname = "raturi";
+    // private email = "loveyraturi@gmail.com";
+    // private phone = "8193971153";
     private surl = "https://ownertenants.com/realestate/realestate/afterPayment"
     private furl = "https://ownertenants.com/realestate/realestate/afterPayment"
     private curl = "https://ownertenants.com/realestate/realestate/afterPayment"
@@ -41,6 +41,10 @@ export class PaymentComponent implements OnInit {
     public modelClass1 = "modal1"
     private key = "twcFzBIH"
     private hash
+    email = localStorage.getItem("email");
+    firstname=localStorage.getItem("name");
+    phone=localStorage.getItem("phoneNumber");
+    lastname=''         
     paymentType = localStorage.getItem("paymentType");
     paymentPlan = localStorage.getItem("paymentPlan");
     paymentPrice = localStorage.getItem("paymentPrice");

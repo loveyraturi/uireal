@@ -57,7 +57,7 @@
               </td>
               <td class="propertyInfo">
                 <p><img height="50" width="50"
-                    src="./assets/img/icons/money.png"> &nbsp; {{properties.price}} &nbsp; Monthly Rental</p>
+                    src="./assets/img/icons/money.png"> &nbsp; {{properties.price}} INR &nbsp; Monthly Rental</p>
               </td>
             </tr>
             <tr class="propertyInfo">
@@ -149,8 +149,19 @@
                       <tbody>
                         <tr>
                           <td class="pt-name">BHK</td>
-                          <td class="p-value"><input type="text" [(ngModel)]="properties.bhk"
-                              value="{{properties.name}}" class="form-control" /></td>
+                          <td class="p-value"><input list="bhk" type="text" [(ngModel)]="properties.bhk"
+                              value="{{properties.name}}" class="form-control" />
+                              <datalist id="bhk">
+                                <option value="" selected disabled>Select BHK</option>
+                                <option value="1RK">1RK</option>
+                                <option value="Studio">Studio</option>
+                                <option value="1BHK">1BHK</option>
+                                <option value="2BHK">2BHK</option>
+                                <option value="3BHK">3BHK</option>
+                                <option value="4BHK">4BHK</option>
+                                <option value="5BHK">5BHK</option>
+                              </datalist>
+                            </td>
                         </tr>
                         <tr>
                           <td class="pt-name">Monthly rentals</td>
@@ -159,13 +170,26 @@
                         </tr>
                         <tr>
                           <td class="pt-name">Property Type</td>
-                          <td class="p-value"><input type="text" [(ngModel)]="properties.property_type"
-                              value="{{properties.property_type}}" class="form-control" /></td>
+                          <td class="p-value">
+                              <select class="form-control" [(ngModel)]="properties.property_type">
+                                <option value="" selected disabled>Property Type</option>
+                                <option value="flat">Flat</option>
+                                <option value="row_house">Row House</option>
+                                <option value="pg">PG</option>
+                                <option value="hostel">Hostel</option>
+                              </select>
+                            </td>
                         </tr>
                         <tr>
                           <td class="pt-name">Furnish</td>
-                          <td class="p-value"><input type="text" [(ngModel)]="properties.furnish"
-                              value="{{properties.furnish}}" class="form-control" /></td>
+                          <td class="p-value">
+                            <select class="form-control" [(ngModel)]="properties.furnish" >
+                                <option value="" selected disabled>Furnished Type</option>
+                                <option value="fully_furnished">Fully Furnished</option>
+                                <option value="semi_furnished">Semi Furnished</option>
+                                <option value="un_furnished">Unfurnished Furnished </option>
+                              </select>
+                            </td>
                         </tr>
                         <tr>
                           <td class="pt-name">Allowed</td>
@@ -216,7 +240,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td class="pt-name">parking</td>
+                          <td class="pt-name">Modular Kitchen</td>
                           <td class="p-value">
                             <select class="form-control" [(ngModel)]="properties.modular">
                               <option value="" selected disabled>Modular Kitchen</option>

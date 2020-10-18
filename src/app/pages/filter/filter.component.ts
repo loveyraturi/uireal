@@ -41,6 +41,8 @@ export class FilterComponent implements OnInit {
     isSelectedRowHouse = ""
     isSelectedPG = ""
     isSelectedRowHostel = ""
+    isSelected1RK = ""
+    isSelectedStudio = ""
     isSelected1 = ""
     isSelected2 = ""
     isSelected3 = ""
@@ -183,8 +185,40 @@ export class FilterComponent implements OnInit {
             this.response["propertyType"] = ""
         }
     }
+    selected1RK() {
+        if (this.isSelected1RK == "") {
+            this.isSelected1RK = "selected1RK"
+            this.isSelectedStudio = ""
+            this.isSelected1 = ""
+            this.isSelected2 = ""
+            this.isSelected3 = ""
+            this.isSelected4 = ""
+            this.isSelected5more = ""
+            this.response["propertyBHK"] = "1RK"
+        } else {
+            this.isSelected1RK = ""
+            this.response["propertyBHK"] = ""
+        }
+    }
+    selectedStudio() {
+        if (this.isSelectedStudio == "") {
+            this.isSelected1RK = ""
+            this.isSelectedStudio = "selectedStudio"
+            this.isSelected1 = ""
+            this.isSelected2 = ""
+            this.isSelected3 = ""
+            this.isSelected4 = ""
+            this.isSelected5more = ""
+            this.response["propertyBHK"] = "Studio"
+        } else {
+            this.isSelectedStudio = ""
+            this.response["propertyBHK"] = ""
+        }
+    }
     selected1() {
         if (this.isSelected1 == "") {
+            this.isSelected1RK = ""
+            this.isSelectedStudio = ""
             this.isSelected1 = "selected1"
             this.isSelected2 = ""
             this.isSelected3 = ""
@@ -199,6 +233,8 @@ export class FilterComponent implements OnInit {
     }
     selected2() {
         if (this.isSelected2 == "") {
+            this.isSelected1RK = ""
+            this.isSelectedStudio = ""
             this.isSelected2 = "selected2"
             this.isSelected1 = ""
             this.isSelected3 = ""
@@ -212,6 +248,8 @@ export class FilterComponent implements OnInit {
     }
     selected3() {
         if (this.isSelected3 == "") {
+            this.isSelected1RK = ""
+            this.isSelectedStudio = ""
             this.isSelected3 = "selected3"
             this.isSelected1 = ""
             this.isSelected2 = ""
@@ -225,6 +263,8 @@ export class FilterComponent implements OnInit {
     }
     selected4() {
         if (this.isSelected4 == "") {
+            this.isSelected1RK = ""
+            this.isSelectedStudio = ""
             this.isSelected4 = "selected4"
             this.isSelected1 = ""
             this.isSelected2 = ""
@@ -238,6 +278,8 @@ export class FilterComponent implements OnInit {
     }
     selected5more() {
         if (this.isSelected5more == "") {
+            this.isSelected1RK = ""
+            this.isSelectedStudio = ""
             this.isSelected5more = "selected5more"
             this.isSelected1 = ""
             this.isSelected2 = ""

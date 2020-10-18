@@ -6,7 +6,7 @@ import { Login } from "src/app/models/login";
 import { UserService } from "src/app/services/user.service";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { PropertiesService } from "src/app/services/properties.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { DatepickerOptions} from 'ng2-datepicker';
 
 @Component({
@@ -73,7 +73,7 @@ export class PropertiesDetailsComponent implements OnInit {
 		closeOnSelect: true
 	}
 	fromDate: Date = new Date();
-	constructor(private userService: UserService, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
+	constructor(private router: Router,private userService: UserService, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
 		
 		this.date=new Date();
 		this.modelClick5()
@@ -318,11 +318,18 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 		console.log("model id is ")
 
 	}
+	showPropertyDetails(propertyId) {
+		console.log("#####################@@@@@@@@@@", propertyId);
+		localStorage.setItem("propertyId", propertyId);
+		// this.router.navigate(['/properties_details']);
+		this.fetchPropertiesById(propertyId);
+	}
 	fetchPropertiesById(id) {
 		// this.spinner.show()
 		console.log(id, "#########")
 		this.propertiesService.fetchPropertiesById(id).subscribe(
 			data => {
+				this.images=[]
 				if (data.parking == "both") {
 					data.parking = "Car and bike"
 				}
@@ -335,7 +342,9 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 				// if(data.allowed.indexOf("bachelor") !=-1){
 
 				// }
+				if(data.images.length>0){
 				data.frontImage = "./assets/properties/" + data.images[0].imageName;
+				}
 				data.description = data.description.replace(/↵/g, '\\n')
 				this.properties = data
 				for(var i=0;i<this.properties.images.length;i++){

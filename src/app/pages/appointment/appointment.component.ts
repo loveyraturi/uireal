@@ -336,7 +336,9 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 				// if(data.allowed.indexOf("bachelor") !=-1){
 
 				// }
+				if(data.images>0){
 				data.frontImage = "./assets/properties/" + data.images[0].imageName;
+				}
 				data.description = data.description.replace(/↵/g, '\\n')
 				this.properties = data
 				console.log(data.amenities)

@@ -48,6 +48,7 @@
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
+  font-size: 20px;
   /* height: 300px; */
   width: 50% !important;
   /* Could be more or less, depending on screen size */

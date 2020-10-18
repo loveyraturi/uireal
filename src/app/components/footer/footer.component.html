@@ -53,16 +53,61 @@
         </div>
       </div>
       <div class="col-md-3 mb-md-0 mb-3" style="text-align: center;">
-        <h5 style="color: white;" class="text-uppercase">Enquiry</h5>
+        <h5 style="color: white;" class="text-uppercase">Contact us</h5>
         <div>
-          <ul style="color: #ccc; font-size: 14px;list-style-type:none;">
-            <li style="margin: 10px 0px;">  Name <input type="text" [(ngModel)]="name" style="margin-left: 11%;"/></li>
-            <li style="margin: 10px 0px;">Mobile <input type="text" [(ngModel)]="mobile" style="margin-left: 10%;"/></li>
-            <li style="margin: 10px 0px;">Message <input type="text" [(ngModel)]="message" style="margin-left: 6%;"/></li>
-            <li style="margin: 10px 0px;">
-              <button class="btn btn-success" style="background-color: #2cbdb8;" (click)=submit()>Send</button>
+          <ul style="color: #ccc; font-size: 12px;list-style-type:none;">
+            <li style="margin-left: 5%;">
+              <i class="fa fa-3x fa-facebook-square"></i> <a href="javascript:void(0)"
+                onclick="window.open('#','share on facebook','width=500,height=250')"
+                rel="nofollow" class="headerSocial fb">
+                Share on Facebook
+              </a>
             </li>
+            <li>
+              <i class="fa fa-3x fa-twitter-square"></i><a href="javascript:void(0)"
+                onclick="window.open('#','share on twitter','width=500,height=250')"
+                rel="nofollow" class="headerSocial twitter">
+                Share on Twitter
+              </a>
+            </li>
+            <li style="margin-left: 5%;" class="mb-1">
+              <i class="fa fa-3x fa-whatsapp"></i><a href="javascript:void(0)"
+                onclick="window.open('#','share on instagram','width=500,height=250')"
+                rel="nofollow" class="headerSocial instagram">
+                Share on Whatsapp
+              </a>
+            </li>
+            <div>
+              <a class="logo-link" data-page="home" data-app="Android">
+                <img alt="Get it on Google Play"
+                  src="data:image/png;base64,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">
+              </a>
+            </div>
           </ul>
+        </div>
+      </div>
+      <div class="col-md-3 mb-md-0 mb-3" style="text-align: center;">
+        <h5 style="color: white;" class="text-uppercase mb-1">Enquiry</h5>
+        <div class="row">
+          <!-- <ul style="color: #ccc; font-size: 14px;list-style-type:none;"> -->
+          <div class="col-md-6 mb-1"> <input class="form-control" type="text" [(ngModel)]="name" placeholder="Name" s />
+          </div>
+          <div class="col-md-6 mb-1"> <input class="form-control" type="text" [(ngModel)]="mobile"
+              placeholder="Mobile" /></div>
+
+          <div class="col-md-12 mb-1"> <input class="form-control" type="text" [(ngModel)]="email"
+              placeholder="Email" /></div>
+
+          <!-- </ul>
+          <ul style="color: #ccc; font-size: 14px;list-style-type:none;"> -->
+          <div class="col-md-12 mb-1"> <textarea [(ngModel)]="message" class="form-control"
+              placeholder="message"></textarea>
+          </div>
+          <div class="col-md-12 mb-1">
+            <button class="form-control btn btn-success" style="background-color: #2cbdb8;"
+              (click)=submit()>Send</button>
+          </div>
+          <!-- </ul> -->
         </div>
       </div>
       <!-- <div class="col-md-6 mb-md-0 mb-3">
@@ -86,6 +131,17 @@
     </div>
     <!-- Grid row -->
 
+  </div>
+  <div id="myModal" class="{{modelClass}}">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" style="padding: 3%;" (click)="closeModal()">
+          <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
+        </span>
+      <div style="padding: 12%;
+      background: white;
+      color: black; font-size: 18px;">{{popupMessage}}</div>
+    </div>
   </div>
   <!-- Footer Links -->
   <!-- Copyright -->
