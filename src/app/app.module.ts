@@ -55,6 +55,7 @@ import { AppointmentComponent } from './pages/appointment/appointment.component'
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './pages/terms-condition/terms-condition.component';
 import { ProfileComponent } from './pages/profile/profile/profile.component';
+import { FAQComponent } from './pages/FAQ/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { ProfileComponent } from './pages/profile/profile/profile.component';
     PrivacyPolicyComponent,
     TermsConditionComponent,
     ProfileComponent,
+    FAQComponent,
   ],
   imports: [
     BrowserModule,
