@@ -13,7 +13,7 @@
     <div class="input-group">
       <div class="input-group-prepend input-group-prepend-search" style="    border-radius: 8px 0px 0px 0px;margin-right: -66px;    border: 1px solid;    border-color: #E2E2E2;">
         <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="background: whitesmoke;border: none;
-              border-radius: 1px;height:50px;border-radius: 8px 0px 0px 0px;width: 70%;" class="form-control" placeholder="Select city">
+              border-radius: 1px;height:40px;border-radius: 8px 0px 0px 0px;width: 70%;" class="form-control" placeholder="Select city">
           <datalist id="cityList">
           <option value="" selected disabled>Select City</option>
           <option value="Delhi">Delhi</option>
@@ -91,13 +91,13 @@
       </div>
       <input list="localityList" type="text" [(ngModel)]="address" (click)="showMore()" style="background: #FFFFFF;
           border: none;    border: 1px solid;
-          border-left: 1px solid;height:52px;width: 120%;    border-color: #E2E2E2;" class="form-control " id="Country" placeholder="Locality">
+          border-left: 1px solid;height:42px;width: 120%;    border-color: #E2E2E2;" class="form-control " id="Country" placeholder="Locality">
       <datalist id="localityList">
         <option value="" selected disabled>Select BHK</option>
         <option *ngFor="let localityData of  localityDropdown" [value]="localityData">{{localityData}}</option>
       </datalist>
       <div class="input-group-prepend" style="border: 1px solid;border-radius: 0px 8px 0px 0px;    border-color: #E2E2E2;">
-        <button (click)="searchFilter()" style="border-radius: 1px;height:50px;background: green;color: white;border-radius: 0px 8px 0px 0px;" class="form-control"><i
+        <button (click)="searchFilter()" style="border-radius: 1px;height:40px;background: green;color: white;border-radius: 0px 8px 0px 0px;" class="form-control"><i
             class="fa fa-search"></i> &nbsp; Search
         </button>
       </div>
