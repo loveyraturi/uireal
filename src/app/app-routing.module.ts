@@ -33,6 +33,7 @@ import { AppointmentComponent } from './pages/appointment/appointment.component'
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './pages/terms-condition/terms-condition.component';
 import { ProfileComponent } from './pages/profile/profile/profile.component';
+import { FAQComponent } from './pages/FAQ/faq/faq.component';
 
 export const appRoutes = [
     {
@@ -171,6 +172,9 @@ export const appRoutes = [
     {
         path: 'profile',
         component: ProfileComponent
+    },{
+    path:'faq',
+    component:FAQComponent
     },
     {
         path: 'others',

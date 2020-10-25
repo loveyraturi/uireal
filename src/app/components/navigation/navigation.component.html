@@ -19,8 +19,8 @@
               <li (click)="navigateTo('main')" style="color:black; cursor: pointer;font-size: 12px;"><a
                   style="color: black;">Home</a></li>
               <li (click)="navigateTo('properties_registration')" style="color:black; cursor: pointer;font-size: 12px;">
-                <a style="padding: 8%;
-                  width: 117%;color: white; background: purple">Free property
+                <a style="padding-top: 7px; padding-left: 8px; height: 30px;
+                  width: 106%;color: white; background: #f7022a;">Free property
                   Listing</a></li>
               <li><a style="color:black;cursor: pointer;font-size: 12px;" class="signupLogin"> {{loginMessage}}</a>
                 <div *ngIf="isLogin==false" class="menu3">
@@ -67,8 +67,8 @@
             z-index: 10000;" class="icon_menu"></i>
             <i style="margin-left: 120%;">menu</i>
           </div>
-          <div class="showMenu" style="    height: 500px;
-          overflow-y: scroll;background: darkred;    position: absolute;
+          <div class="showMenu" style="height: 500px;
+          overflow-y: scroll;background: #2cbdb8; font-family: Arial, tahoma;    position: absolute;
           z-index: 1000;">
             <br>
             <br>
@@ -146,13 +146,13 @@
       <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
+            <!-- <div class="panel-heading">
+              <h3 class="panel-title" style="background-color: #00a595; color:#fff">
                 Standard</h3>
-            </div>
+            </div> -->
             <div class="panel-body">
-              <div class="the-price">
-                <h1>₹ 999</h1>
+              <div class="the-price" style="background-color: #00a595; color:#fff">
+                <h4 style="color:#fff;"> STANDARD ₹ 999 <br> PLAN </h4>
               </div>
               <table class="table">
                 <tr>
@@ -208,7 +208,8 @@
               </table>
             </div>
             <div class="panel-footer">
-              <a class="btn btn-success" (click)="subscribe('owner','standard',999)" role="button">Subscribe</a>
+              <a class="btn btn-success" (click)="subscribe('owner','standard',999)" role="button"
+                style="background-color: #00a595; color:#fff">Subscribe</a>
             </div>
           </div>
         </div>
@@ -221,13 +222,13 @@
                   POPULR</span>
               </div>
             </div>
-            <div class="panel-heading">
-              <h3 class="panel-title">
+            <!-- <div class="panel-heading">
+              <h3 class="panel-title" style="background-color: #006498; color:#fff">
                 Exclusive</h3>
-            </div>
+            </div> -->
             <div class="panel-body">
-              <div class="the-price">
-                <h1>₹ 3999</h1>
+              <div class="the-price" style="background-color: #006498;">
+                <h4 style="color:#fff;">EXCLUSIVE ₹ 3999 <br>PLAN</h4>
               </div>
               <table class="table">
                 <tr>
@@ -283,7 +284,8 @@
               </table>
             </div>
             <div class="panel-footer">
-              <a class="btn btn-success" (click)="subscribe('owner','execlusive',3999)" role="button">Subscribe</a>
+              <a class="btn btn-success" (click)="subscribe('owner','execlusive',3999)" role="button"
+                style="background-color: #006498; color:#fff">Subscribe</a>
             </div>
           </div>
         </div>
@@ -293,13 +295,13 @@
       <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="panel panel-primary">
-            <div class="panel-heading">
+            <!-- <div class="panel-heading">
               <h3 class="panel-title">
                 Standard</h3>
-            </div>
+            </div> -->
             <div class="panel-body">
-              <div class="the-price">
-                <h1>₹ 999</h1>
+              <div class="the-price" style="background-color: #00a595; color:#fff">
+                <h4 style="color:#fff;">STANDARD ₹ 999 <br> PLAN</h4>
               </div>
               <table class="table">
                 <tr>
@@ -350,7 +352,8 @@
               </table>
             </div>
             <div class="panel-footer">
-              <a class="btn btn-success" (click)="subscribe('tenant','standard',999)" role="button">Subscribe</a>
+              <a class="btn btn-success" (click)="subscribe('tenant','standard',999)" role="button"
+                style="background-color: #00a595; color:#fff">Subscribe</a>
             </div>
           </div>
         </div>
@@ -363,13 +366,15 @@
                   POPULR</span>
               </div>
             </div>
-            <div class="panel-heading">
+            <!-- <div class="panel-heading">
               <h3 class="panel-title">
-                Execlusive</h3>
-            </div>
+                Exclusive</h3>
+            </div> -->
             <div class="panel-body">
-              <div class="the-price">
-                <h1>₹ 2999</h1>
+              <div class="the-price" style="background-color: #006498;">
+                <h4 style="color:#fff;">EXCLUSIVE ₹ 2999 <br>
+                  PLAN
+                </h4>
               </div>
               <table class="table">
                 <tr>
@@ -420,7 +425,7 @@
               </table>
             </div>
             <div class="panel-footer">
-              <a class="btn btn-success" (click)="subscribe('tenant','execlusive',2999)" role="button">Subscribe</a>
+              <a class="btn btn-success" (click)="subscribe('tenant','execlusive',2999)" role="button" style="background-color: #006498; color: #fff;">Subscribe</a>
             </div>
           </div>
         </div>

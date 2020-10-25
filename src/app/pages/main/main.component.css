@@ -386,14 +386,14 @@ ul {
   }
 }
 .tablink {
-  background-color: whitesmoke;
+  background-color: white;
   color: black;
   border: 1px solid white;
   outline: none;
   cursor: pointer;
   padding: 6px 10px;
   font-size: 15px;
-  height:43px;
+  height:35px;
   width: 33.33%;
   border-radius: 2px;
 }
