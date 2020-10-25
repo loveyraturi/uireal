@@ -1,7 +1,5 @@
 <navigation></navigation>
 <section class="property-section">
-
-
   <form [formGroup]="myForm" (ngSubmit)="submit()">
     <div class="row">
       <div class="col-md-6" style="padding: 5%;">
@@ -178,7 +176,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-money"></i></span>
               </div>
-              <input type="text" formControlName="price" class="form-control " id="price" placeholder="Monthly Rentals(INR)"
+              <input type="number" formControlName="price" class="form-control " id="price" placeholder="Monthly Rentals(INR)"
                 required>
             </div>
           </div>
@@ -187,7 +185,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card"></i></span>
               </div>
-              <input type="text" formControlName="maintainance" class="form-control " id="maintainance"
+              <input type="number" formControlName="maintainance" class="form-control " id="maintainance"
                 placeholder="Maintainance(INR)" >
             </div>
           </div>
@@ -196,7 +194,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card-alt"></i></span>
               </div>
-              <input type="text" formControlName="security" class="form-control " id="security"
+              <input type="number" formControlName="security" class="form-control " id="security"
                 placeholder="Security Deposit(INR)" >
             </div>
           </div>
@@ -396,7 +394,7 @@
               ></textarea>
           </div>
         </div>
-        <br />
+        <br/>
         <div class="form-group" style="padding-left: 3%;padding-right: 3%;padding-bottom: 3%;">
           <h4 style="padding: 2%;">Address Proof</h4>
           <input formControlName="file" id="addressProof" type="file" class="btnupload form-control" multiple=""
@@ -412,9 +410,6 @@
   </div>
   <alert></alert>
   </form>
-  
-
-
 </section>
 <!-- <section class="property-section">
   <div class="container">
