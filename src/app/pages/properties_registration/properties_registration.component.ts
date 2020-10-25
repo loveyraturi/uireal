@@ -401,6 +401,7 @@ export class PropertiesRegistrationComponent implements OnInit {
         //     fileSource:  this.myForm.value.fileSource
         // }
         if (this.myForm.invalid) {
+            this.closeModal6()
             return;
         }
         console.log(this.myForm.value);
