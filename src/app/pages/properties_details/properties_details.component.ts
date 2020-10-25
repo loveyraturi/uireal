@@ -7,7 +7,7 @@ import { UserService } from "src/app/services/user.service";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { PropertiesService } from "src/app/services/properties.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { DatepickerOptions} from 'ng2-datepicker';
+import { DatepickerOptions } from 'ng2-datepicker';
 
 @Component({
 	selector: 'properties_details',
@@ -30,7 +30,7 @@ export class PropertiesDetailsComponent implements OnInit {
 		addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
 		fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
 		useEmptyBarTitle: false, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown 
-	  };
+	};
 	private properties;
 	public modelClass = "modal";
 	public modelClass1 = "modal1"
@@ -38,7 +38,7 @@ export class PropertiesDetailsComponent implements OnInit {
 	public selectedPropertry;
 	private modelClass3 = "modal3"
 	private userName;
-	private images=[];
+	private images = [];
 	private loggedUserName
 	private messageLogin;
 	private isValid;
@@ -73,9 +73,9 @@ export class PropertiesDetailsComponent implements OnInit {
 		closeOnSelect: true
 	}
 	fromDate: Date = new Date();
-	constructor(private router: Router,private userService: UserService, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
-		
-		this.date=new Date();
+	constructor(private router: Router, private userService: UserService, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private propertiesService: PropertiesService) {
+
+		this.date = new Date();
 		this.modelClick5()
 		this.fetchPropertiesById(localStorage.getItem("propertyId"))
 		localStorage.getItem("username");
@@ -92,15 +92,15 @@ export class PropertiesDetailsComponent implements OnInit {
 	ngOnInit() {
 
 	}
-	loginDetailsReceived(data){
+	loginDetailsReceived(data) {
 		console.log(data)
-		this.loggedUserName=data.name
-		this.email=data.email
+		this.loggedUserName = data.name
+		this.email = data.email
 		console.log(this.loggedUserName)
 		this.closeModal3()
-}
-	dateHandler(date){
-console.log("$#%$#$%#DATE#@$#@$#",date)
+	}
+	dateHandler(date) {
+		console.log("$#%$#$%#DATE#@$#@$#", date)
 	}
 	showBlock(value) {
 		if (value == "tab1") {
@@ -229,8 +229,8 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 		this.modelClass3 = "modal3"
 	}
 	scheduleAppointment() {
-		this.dateScheduled=this.datefrom==undefined?this.formatDate(this.date):this.datefrom
-		console.log("###############V#########datefrom$$######",this.datefrom)
+		this.dateScheduled = this.datefrom == undefined ? this.formatDate(this.date) : this.datefrom
+		console.log("###############V#########datefrom$$######", this.datefrom)
 		if (this.email == undefined || this.email == "") {
 			this.modelClick3()
 		} else {
@@ -264,16 +264,20 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 		}
 	}
 	selectTime(value) {
-		console.log("#$#$#$DATE$#$#$",this.formatDate(this.date))
+		console.log("#$#$#$DATE$#$#$", this.formatDate(this.date))
 		this.timeScheduled = value
 	}
 	closeModal1() {
 		this.modelClass1 = "modal1"
 	}
 	modelClick1(propertyId) {
-		this.modelClass1 = "modalDisplay1"
-		this.selectedPropertry = propertyId
-		console.log(this.selectedPropertry, "#@@#$@#$@$@")
+		if (this.email != undefined && this.email != "") {
+			this.modelClass1 = "modalDisplay1"
+			this.selectedPropertry = propertyId
+			console.log(this.selectedPropertry, "#@@#$@#$@$@")
+		} else {
+			this.modelClick3()
+		}
 	}
 	closeModal() {
 		this.modelClass = "modal"
@@ -329,7 +333,7 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 		console.log(id, "#########")
 		this.propertiesService.fetchPropertiesById(id).subscribe(
 			data => {
-				this.images=[]
+				this.images = []
 				if (data.parking == "both") {
 					data.parking = "Car and bike"
 				}
@@ -342,25 +346,25 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 				// if(data.allowed.indexOf("bachelor") !=-1){
 
 				// }
-				if(data.images.length>0){
-				data.frontImage = "./assets/properties/" + data.images[0].imageName;
+				if (data.images.length > 0) {
+					data.frontImage = "./assets/properties/" + data.images[0].imageName;
 				}
 				data.description = data.description.replace(/↵/g, '\\n')
 				this.properties = data
-				for(var i=0;i<this.properties.images.length;i++){
+				for (var i = 0; i < this.properties.images.length; i++) {
 					this.images.push({
 						imageName: this.properties.images[i].imageName
 					})
 
 				}
-				for(var j=this.properties.images.length;j<=11;j++){
+				for (var j = this.properties.images.length; j <= 11; j++) {
 					this.images.push({
 						imageName: ""
 					})
 				}
-				console.log(this.images,"###########IMAGES################")
-				if(data.amenities!=null){
-				var amenities = data.amenities.split(",")
+				console.log(this.images, "###########IMAGES################")
+				if (data.amenities != null) {
+					var amenities = data.amenities.split(",")
 				}
 				this.propertyAmenities = [...new Set(amenities)];
 				console.log(this.propertyAmenities, "$######")
@@ -374,7 +378,7 @@ console.log("$#%$#$%#DATE#@$#@$#",date)
 				}
 				this.propertiesService.mainSearch(searchRequest).subscribe(response => {
 					console.log("#################RESPONSEEE", response)
-					this.similarProperties=response
+					this.similarProperties = response
 				})
 			})
 

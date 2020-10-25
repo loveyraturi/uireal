@@ -19,6 +19,7 @@ export class Footer implements OnInit {
     public message;
     public email;
 	public modelClass = "modal";
+    private modelClass6 = "modal6"
 
     popupMessage ="Message Successfully sent";
 
@@ -28,6 +29,13 @@ export class Footer implements OnInit {
     navigateTo(url) {
         this.router.navigateByUrl('/' + url);
     }
+    modelClick6() {
+		this.modelClass6 = "modalDisplay6"
+    }
+    closeModal6() {
+		this.modelClass6 = "modal6"
+		// this.router.navigateByUrl("/main")
+	}
     modelClick() {
 		this.modelClass = "modalDisplay"
 	}
@@ -36,6 +44,7 @@ export class Footer implements OnInit {
 		// this.router.navigateByUrl("/main")
 	}
     submit() {
+        this.modelClick6()
         if (this.email == undefined) {
             this.popupMessage = " please enter email"
         } else {
@@ -51,12 +60,16 @@ export class Footer implements OnInit {
                     type: "Enquiry"
                 }
                 this.userService.sendEmail(data).subscribe(resp => {
+                    this.closeModal6()
                     if (resp.status == "true") {
                         this.modelClick()
                     } else {
                         this.modelClick()
                         this.popupMessage=resp.message
                     }
+                },
+                err => {
+                    this.closeModal6()
                 })
             }
         }

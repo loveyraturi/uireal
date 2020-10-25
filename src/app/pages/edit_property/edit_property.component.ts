@@ -279,6 +279,12 @@ export class EditPropertyComponent implements OnInit {
         console.log(id, "#########")
         this.propertiesService.fetchPropertiesById(id).subscribe(
             data => {
+                if (data.parking == "both") {
+					data.parking = "Car and bike"
+				}
+				if (data.furnish == "un_furnished") {
+					data.furnish = "Unfurnished"
+				}
                 data.amenities.split(",").forEach(item=>{
                     this.selectedItemsAmenities.push({
                         item_id:item,
@@ -291,6 +297,7 @@ export class EditPropertyComponent implements OnInit {
                         item_text:item,
                     })
                 })
+                
                 console.log(this.selectedItems,"########################")
                 data.frontImage = "./assets/properties/" + data.images[0].imageName;
                 // var outside

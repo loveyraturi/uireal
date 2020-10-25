@@ -57,17 +57,17 @@
               </td>
               <td class="propertyInfo">
                 <p><img height="50" width="50"
-                    src="./assets/img/icons/money.png"> &nbsp; {{properties.price}} INR &nbsp; Monthly Rental</p>
+                    src="./assets/img/icons/money.png"> &nbsp; {{properties.price}}  &nbsp; Monthly Rental(INR)</p>
               </td>
             </tr>
             <tr class="propertyInfo">
                 <td class="propertyInfo">
                   <p><img height="50" width="50" src="./assets/img/icons/maintainance.jpg"> &nbsp; {{properties.maintainance | uppercase}}
-                   &nbsp; Maintainance</p>
+                   &nbsp; Maintainance (INR)</p>
                 </td>
                 <td class="propertyInfo">
                   <p><img height="50" width="50"
-                      src="./assets/img/icons/SECURITY.png"> &nbsp; {{properties.security | uppercase}} &nbsp; Security</p>
+                      src="./assets/img/icons/SECURITY.png"> &nbsp; {{properties.security | uppercase}} &nbsp; Security (INR)</p>
                 </td>
               </tr>
           </table>
@@ -187,7 +187,7 @@
                                 <option value="" selected disabled>Furnished Type</option>
                                 <option value="fully_furnished">Fully Furnished</option>
                                 <option value="semi_furnished">Semi Furnished</option>
-                                <option value="un_furnished">Unfurnished Furnished </option>
+                                <option value="un_furnished">Unfurnished</option>
                               </select>
                             </td>
                         </tr>
@@ -220,11 +220,6 @@
                           <td class="pt-name">Phone Number</td>
                           <td class="p-value"><input type="text" [(ngModel)]="properties.phoneNumber"
                               value="{{properties.phoneNumber}}" class="form-control" /></td>
-                        </tr>
-                        <tr>
-                          <td class="pt-name">Beds</td>
-                          <td class="p-value"><input type="text" [(ngModel)]="properties.bedroom"
-                              value="{{properties.bedroom}}" class="form-control" /></td>
                         </tr>
                         <tr>
                           <td class="pt-name">parking</td>

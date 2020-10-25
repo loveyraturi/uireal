@@ -60,11 +60,13 @@
               </div> -->
         </div>
         <div class="col-lg-1">
-          <i style="font-size: 50px;float: right;    margin-left: 77%;
-            margin-top: 4%;
+          <div class="icon_menu_main">
+            <i style="font-size: 50px;float: right;    margin-left: 77%;
+            margin-top: 10%;
             position: absolute;
             z-index: 10000;" class="icon_menu"></i>
-
+            <i style="margin-left: 120%;">menu</i>
+          </div>
           <div class="showMenu" style="    height: 500px;
           overflow-y: scroll;background: darkred;    position: absolute;
           z-index: 1000;">
@@ -81,12 +83,12 @@
             <div *ngIf="isLogin==false" (click)="navigateTo('login')" class="slideMenu">Login</div>
             <div *ngIf="isLogin==true" (click)="navigateTo('profile')" class="slideMenu ">Profile </div>
             <div *ngIf="isLogin==true" (click)="logout()" class="slideMenu ">Logout</div>
-            <div  class="slideMenu">Contact us
-                <div >
-                    <p style="cursor: pointer;" class="menuItems4">+91 9109769242</p>
-                    <p style="cursor: pointer;" class="menuItems4">
-                      support@ownertenants.com</p>
-                  </div>
+            <div class="slideMenu">Contact us
+              <div>
+                <p style="cursor: pointer;" class="menuItems4">+91 9109769242</p>
+                <p style="cursor: pointer;" class="menuItems4">
+                  support@ownertenants.com</p>
+              </div>
             </div>
           </div>
         </div>
@@ -424,5 +426,11 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div id="myModal6" class="{{modelClass6}}">
+  <!-- Modal content -->
+  <div class="modal-content6">
+    <div class="spinner-border"></div>
   </div>
 </div>

@@ -20,6 +20,7 @@ export class Navigation implements OnInit {
     private registerMessage = "Login"
     public modelClass4 = "modal4";
     public loginMessage = "Signup/Login"
+    private modelClass6 = "modal6"
     public isLogin = false
     public showMain=true;
     public showMenuBar=""
@@ -65,6 +66,13 @@ export class Navigation implements OnInit {
 
         }
     }
+    modelClick6() {
+		this.modelClass6 = "modalDisplay6"
+    }
+    closeModal6() {
+		this.modelClass6 = "modal6"
+		// this.router.navigateByUrl("/main")
+	}
     closeModal4() {
         this.modelClass4 = "modal4"
     }

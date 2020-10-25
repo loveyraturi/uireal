@@ -96,8 +96,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-arrows"></i></span>
               </div>
-              <input type="text" formControlName="area" class="form-control " id="area" placeholder="Built up area(Sq.ft)"
-                value="Mark" >
+              <input type="number" formControlName="area" class="form-control " id="area" placeholder="Built up area(Sq.ft)">
             </div>
           </div>
           <div class="col-md-12 mb-2">
@@ -198,7 +197,7 @@
                 <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-credit-card-alt"></i></span>
               </div>
               <input type="text" formControlName="security" class="form-control " id="security"
-                placeholder="Security deposit(INR)" >
+                placeholder="Security Deposit(INR)" >
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -229,9 +228,7 @@
         padding-left: 3%;
         padding-bottom: 8%;">Upload Images</h4>
         </div>
-        <div class="form-group" style="    border: 1px solid;
-        padding: 2%;
-        height: 400px;padding-left: 3%;padding-right: 3%;">
+        <div class="form-group mobileHeight">
          <div *ngIf="submitted && f.ownerEmail.errors" class="invalid">
           <div *ngIf="f.ownerEmail.errors.required">Title is required</div>
       </div>
@@ -457,5 +454,11 @@
 <div *ngIf="spinner" class="spinnerAngular">
   <div class="spinner-border spinnerStyle" role="status">
     <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div id="myModal6" class="{{modelClass6}}">
+  <!-- Modal content -->
+  <div class="modal-content6">
+    <div class="spinner-border"></div>
   </div>
 </div>

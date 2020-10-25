@@ -4,266 +4,318 @@
     <h4 style="    font-size: 30px;
     padding-bottom: 5%;
     text-align: center;">Matching Requirements</h4>
-  <div class="requirementMain">
-    <p>Property Type</p>
-    <p *ngIf="messageErrorProperty" style="color: red;">*{{messageProperty}}</p>
+    <div class="requirementMain">
+      <p>Property Type</p>
+      <p *ngIf="messageErrorProperty" style="color: red;">*{{messageProperty}}</p>
 
-    <div (click)="selectedFlat()" class="horizontalAlignment {{isSelectedFlat}}">
-      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/property.png">
-      <br>
-      <i>Flat</i>
-    </div>
-    <div (click)="selectedRowHouse()" class="horizontalAlignment {{isSelectedRowHouse}}">
-      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/rowhouse.jpg">
-      <br>
-      <i>Row House</i>
-    </div>
-    <div (click)="selectedPG()" class="horizontalAlignment {{isSelectedPG}}">
-      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/pg.png">
-      <br>
-      <i>PG</i>
-    </div>
-    <div (click)="selectedRowHostel()" class="horizontalAlignment {{isSelectedRowHostel}}">
-      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/hostel.png">
-      <br>
-      <i>Hostel</i>
-    </div>
-
-  </div>
-  <div class="requirementMain">
-    <p *ngIf="messageErrorBHK" style="color: red;">*{{messageBHK}}</p>
-
-    <p>BHK Type</p>
-    <div (click)="selected1()" class="horizontalAlignment {{isSelected1}}">
-      <i>1BHK</i>
-    </div>
-    <div (click)="selected2()" class="horizontalAlignment {{isSelected2}}">
-      <i>2BHK</i>
-    </div>
-    <div (click)="selected3()" class="horizontalAlignment {{isSelected3}}">
-      <i>3BHK</i>
-    </div>
-    <div (click)="selected4()" class="horizontalAlignment {{isSelected4}}">
-      <i>4BHK</i>
-    </div>
-    <div (click)="selected5more()" class="horizontalAlignment {{isSelected5more}}">
-      <i>5BHK +</i>
-    </div>
-  </div>
-  <div class="requirementMain selectBox">
-    <p>Monthly Rentals</p>
-    <div class="row">
-      <div class="col-xs-4 col-md-6 filterRange">
-        <label *ngIf="messageErrorMinimumPrice" style="color: red;">*{{messageMinimimPrice}}</label>
-        <select class="form-control" (change)="selectMinPrice($event.target.value)">
-          <option value="" selected disabled>Min</option>
-          <option value="5000">5000 INR</option>
-          <option value="10000">10000 INR</option>
-          <option value="15000">15000 INR</option>
-          <option value="20000">20000 INR</option>
-          <option value="25000">25000 INR</option>
-          <option value="30000">30000 INR</option>
-          <option value="35000">35000 INR</option>
-          <option value="40000">40000 INR</option>
-          <option value="45000">45000 INR</option>
-          <option value="50000">50000 INR</option>
-          <option value="55000">55000 INR</option>
-          <option value="60000">60000 INR</option>
-          <option value="65000">65000 INR</option>
-          <option value="70000">70000 INR</option>
-          <option value="75000">75000 INR</option>
-          <option value="80000">80000 INR</option>
-          <option value="100000">1 lac INR</option>
-          <option value="150000">1.5 lac INR</option>
-          <option value="200000">2 lac INR</option>
-          <option value="250000">2.5 lac INR</option>
-
-        </select>
+      <div (click)="selectedFlat()" class="horizontalAlignment {{isSelectedFlat}}">
+        <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/property.png">
+        <br>
+        <i>Flat</i>
       </div>
-      <div class="col-xs-4 col-md-6 filterRange">
-        <label *ngIf="messageErrorMaxPrice" style="color: red;">*{{messageMaximumPrice}}</label>
+      <div (click)="selectedRowHouse()" class="horizontalAlignment {{isSelectedRowHouse}}">
+        <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/rowhouse.jpg">
+        <br>
+        <i>Row House</i>
+      </div>
+      <div (click)="selectedPG()" class="horizontalAlignment {{isSelectedPG}}">
+        <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/pg.png">
+        <br>
+        <i>PG</i>
+      </div>
+      <div (click)="selectedRowHostel()" class="horizontalAlignment {{isSelectedRowHostel}}">
+        <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/hostel.png">
+        <br>
+        <i>Hostel</i>
+      </div>
 
-        <select class="form-control" (change)="selectMaxPrice($event.target.value)">
-          <option value="" selected disabled>Max</option>
-          <option value="5000">5000</option>
-          <option value="10000">10000</option>
-          <option value="15000">15000</option>
-          <option value="20000">20000</option>
-          <option value="25000">25000</option>
-          <option value="30000">30000</option>
-          <option value="35000">35000</option>
-          <option value="40000">40000</option>
-          <option value="45000">45000</option>
-          <option value="50000">50000</option>
-          <option value="55000">55000</option>
-          <option value="60000">60000</option>
-          <option value="65000">65000</option>
-          <option value="70000">70000</option>
-          <option value="75000">75000</option>
-          <option value="80000">80000</option>
-          <option value="100000">1 lac</option>
-          <option value="150000">1.5 lac</option>
-          <option value="200000">2 lac</option>
-          <option value="250000">2.5 lac</option>
-        </select>
+    </div>
+    <div class="requirementMain">
+      <p *ngIf="messageErrorBHK" style="color: red;">*{{messageBHK}}</p>
+
+      <p>BHK Type</p>
+      <div (click)="selected1RK()" class="horizontalAlignment {{isSelected1RK}}">
+        <i>1RK</i>
+      </div>
+      <div (click)="selectedStudio()" class="horizontalAlignment {{isSelectedStudio}}">
+        <i>Studio</i>
+      </div>
+      <div (click)="selected1()" class="horizontalAlignment {{isSelected1}}">
+        <i>1BHK</i>
+      </div>
+      <div (click)="selected2()" class="horizontalAlignment {{isSelected2}}">
+        <i>2BHK</i>
+      </div>
+      <div (click)="selected3()" class="horizontalAlignment {{isSelected3}}">
+        <i>3BHK</i>
+      </div>
+      <div (click)="selected4()" class="horizontalAlignment {{isSelected4}}">
+        <i>4BHK</i>
+      </div>
+      <div (click)="selected5more()" class="horizontalAlignment {{isSelected5more}}">
+        <i>5BHK +</i>
       </div>
     </div>
-  </div>
-  <div class="requirementMain selectBox">
-    <p>Built up Area(Sq.ft)</p>
-    <div class="row">
-      <div class="col-xs-4 col-md-6 filterRange">
-        <input type="text" class="form-control" placeholder="Min" [(ngModel)]="minArea">
+    <div class="requirementMain selectBox">
+      <p>Monthly Rentals</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-6 filterRange">
+          <label *ngIf="messageErrorMinimumPrice" style="color: red;">*{{messageMinimimPrice}}</label>
+          <select class="form-control" (change)="selectMinPrice($event.target.value)">
+            <option value="" selected disabled>Min</option>
+            <option value="5000">5000 INR</option>
+            <option value="10000">10000 INR</option>
+            <option value="15000">15000 INR</option>
+            <option value="20000">20000 INR</option>
+            <option value="25000">25000 INR</option>
+            <option value="30000">30000 INR</option>
+            <option value="35000">35000 INR</option>
+            <option value="40000">40000 INR</option>
+            <option value="45000">45000 INR</option>
+            <option value="50000">50000 INR</option>
+            <option value="55000">55000 INR</option>
+            <option value="60000">60000 INR</option>
+            <option value="65000">65000 INR</option>
+            <option value="70000">70000 INR</option>
+            <option value="75000">75000 INR</option>
+            <option value="80000">80000 INR</option>
+            <option value="100000">1 lac INR</option>
+            <option value="150000">1.5 lac INR</option>
+            <option value="200000">2 lac INR</option>
+            <option value="250000">2.5 lac INR</option>
+
+          </select>
+        </div>
+        <div class="col-xs-4 col-md-6 filterRange">
+          <label *ngIf="messageErrorMaxPrice" style="color: red;">*{{messageMaximumPrice}}</label>
+
+          <select class="form-control" (change)="selectMaxPrice($event.target.value)">
+            <option value="" selected disabled>Max</option>
+            <option value="5000">5000</option>
+            <option value="10000">10000</option>
+            <option value="15000">15000</option>
+            <option value="20000">20000</option>
+            <option value="25000">25000</option>
+            <option value="30000">30000</option>
+            <option value="35000">35000</option>
+            <option value="40000">40000</option>
+            <option value="45000">45000</option>
+            <option value="50000">50000</option>
+            <option value="55000">55000</option>
+            <option value="60000">60000</option>
+            <option value="65000">65000</option>
+            <option value="70000">70000</option>
+            <option value="75000">75000</option>
+            <option value="80000">80000</option>
+            <option value="100000">1 lac</option>
+            <option value="150000">1.5 lac</option>
+            <option value="200000">2 lac</option>
+            <option value="250000">2.5 lac</option>
+          </select>
+        </div>
       </div>
-      <div class="col-xs-4 col-md-6 filterRange">
-        <input type="text" class="form-control" placeholder="Max" [(ngModel)]="maxArea">
+    </div>
+    <div class="requirementMain selectBox">
+      <p>Built up Area(Sq.ft)</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-6 filterRange">
+          <input type="number" class="form-control" placeholder="Min" [(ngModel)]="minArea">
+        </div>
+        <div class="col-xs-4 col-md-6 filterRange">
+          <input type="number" class="form-control" placeholder="Max" [(ngModel)]="maxArea">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="requirementMain selectBox">
-    <p>Tenant Preferred</p>
-    <div class="row">
-      <div class="col-md-10">
-        <select class="form-control" (change)="selectPreference($event.target.value)">
-          <option value="" selected disabled>Select Preference</option>
-          <option value="family">Family</option>
-          <option value="bachelor">Bachelor</option>
-          <option value="student">Student</option>
-          <option value="unmarried_couple">Unmarried couple</option>
-        </select>
+    <div class="requirementMain selectBox">
+      <p>Tenant Preferred</p>
+      <div class="row">
+        <div class="col-md-10">
+          <select class="form-control" (change)="selectPreference($event.target.value)">
+            <option value="" selected disabled>Select Preference</option>
+            <option value="family">Family</option>
+            <option value="bachelor">Bachelor</option>
+            <option value="student">Student</option>
+            <option value="unmarried_couple">Unmarried couple</option>
+          </select>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="requirementMain propertyType" style="width: 65%;white-space: nowrap;">
-    <p>Furnished Type</p>
-    <div (click)="selectedFullyFurnished()" style="width: 49%;"
-      class="horizontalAlignment {{isSelectedFullyFurnished}}">
-      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/furnished.png">
-      <br>
-      <i>Fully furnished</i>
+    <div class="requirementMain propertyType" style="width: 65%;white-space: nowrap;">
+      <p>Furnished Type</p>
+      <div (click)="selectedFullyFurnished()" style="width: 49%;"
+        class="horizontalAlignment {{isSelectedFullyFurnished}}">
+        <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/furnished.png">
+        <br>
+        <i>Fully furnished</i>
+      </div>
+      <div (click)="selectedSemiFurnished()" style="width: 49%;"
+        class="horizontalAlignment {{isSelectedSemiFurnished}}">
+        <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/semi-furnished.jpg">
+        <br>
+        <i>Semi furnished</i>
+      </div>
+      <div (click)="selectedUnFurnished()" style="width: 49%;" class="horizontalAlignment {{isSelectedUnFurnished}}">
+        <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/house.png">
+        <br>
+        <i>Unfurshished</i>
+      </div>
     </div>
-    <div (click)="selectedSemiFurnished()" style="width: 49%;" class="horizontalAlignment {{isSelectedSemiFurnished}}">
-      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/semi-furnished.jpg">
-      <br>
-      <i>Semi furnished</i>
-    </div>
-    <div (click)="selectedUnFurnished()" style="width: 49%;" class="horizontalAlignment {{isSelectedUnFurnished}}">
-      <img style="margin-bottom: 12%;" height="30" width="30" src="./assets/img/icons/house.png">
-      <br>
-      <i>Unfurshished</i>
-    </div>
-  </div>
-  <div class="requirementMain selectBox">
+    <div class="requirementMain selectBox">
       <p>Address</p>
       <div class="row">
-        <div class="col-md-10" style="margin: 3% 0;">
-          <label *ngIf="messageErrorLocality" style="color: red;">*{{messageLocality}}</label>
-
-          <input type="text" class="form-control" placeholder="locality" [(ngModel)]="locality">
-        </div>
         <div class="col-md-10" style="margin: 3% 0;">
           <label *ngIf="messageErrorCity" style="color: red;">*{{messageCity}}</label>
 
           <!-- <input type="text" class="form-control" placeholder="City" [(ngModel)]="city"> -->
-          <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="" class="form-control" placeholder="Select city">
-      <datalist id="cityList">
-      <option value="" selected disabled>Select City</option>
-      <option value="Delhi">Delhi</option>
-      <option value="NCR">NCR</option>
-      <option value="Mumbai">Mumbai</option>
-      <option value="Bangalore">Bangalore</option>
-      <option value="Chennai">Chennai</option>
-      <option value="Hyderabad">Hyderabad</option>
-      <option value="Pune">Pune</option>
-      <option value="Kolkata">Kolkata</option>
-      <option value="Ahmedabad">Ahmedabad</option>
-      <option value="Chandigarh">Chandigarh</option>
-      <option value="Jaipur">Jaipur</option>
-      <option value="Nagpur">Nagpur</option>
-      <option value="Bhubaneswar">Bhubaneswar</option>
-      <option value="Coimbatore">Coimbatore</option>
-      <option value="Goa">Goa</option>
-      <option value="Indore">Indore</option>
-      <option value="Kerala">Kerala</option>
-      <option value="Lucknow">Lucknow</option>
-      <option value="Surat">Surat</option>
-      <option value="Vadodara">Vadodara</option>
-      <option value="Dehradun">Dehradun</option>
-      <option value="Patna">Patna</option>
-      <option value="Nasik">Nasik</option>
-      <option value="Bhopal">Bhopal</option>
-      <option value="Visakhapatnam">Visakhapatnam</option>
-      <option value="Kanpur">Kanpur</option>
-      <option value="Varanasi">Varanasi</option>
-      <option value="Vijayawada">Vijayawada</option>
-      <option value="Mysore">Mysore</option>
-      <option value="Ranchi">Ranchi</option>
-      <option value="Raipur">Raipur</option>
-      <option value="Mangalore">Mangalore</option>
-      <option value="Vapi">Vapi</option>
-      <option value="Rajkot">Rajkot</option>
-      <option value="Trichy">Trichy</option>
-      <option value="Madurai">Madurai</option>
-      <option value="Hubli">Hubli</option>
-      <option value="Allahabad">Allahabad</option>
-      <option value="Pondicherry">Pondicherry</option>
-      <option value="Agra">Agra</option>
-      <option value="Ludhiana">Ludhiana</option>
-      <option value="Amritsar">Amritsar</option>
-      <option value="Jalandhar">Jalandhar</option>
-      <option value="Udaipur">Udaipur</option>
-      <option value="Jodhpur">Jodhpur</option>
-      <option value="Gwalior">Gwalior</option>
-      <option value="Jabalpur">Jabalpur</option>
-      <option value="Aurangabad">Aurangabad</option>
-      <option value="Dubai">Dubai</option>
-      <option value="Kolhapur">Kolhapur</option>
-      <option value="Dharwad">Dharwad</option>
-      <option value="Belgaum">Belgaum</option>
-      <option value="Ratnagiri">Ratnagiri</option>
-      <option value="Jamshedpur">Jamshedpur</option>
-      <option value="Guwahati">Guwahati</option>
-      <option value="Karnal">Karnal</option>
-      <option value="Panipat">Panipat</option>
-      <option value="Sonipat">Sonipat</option>
-      <option value="Meerut">Meerut</option>
-      <option value="Haridwar">Haridwar</option>
-      <option value="Mathura">Mathura</option>
-      <option value="Durgapur">Durgapur</option>
-      <option value="Guntur">Guntur</option>
-      <option value="Salem">Salem</option>
-      <option value="Anand">Anand</option>
-      <option value="Nadiad">Nadiad</option>
-      <option value="Bharuch">Bharuch</option>
-      <option value="Valsad">Valsad</option>
-      <option value="Daman">Daman</option>
-      <option value="Diu">Diu</option>
-      <option value="Ujjain">Ujjain</option>
-    </datalist>
+          <input list="cityList" type="text" (change)="selectCity($event.target.value)" style="" class="form-control"
+            placeholder="Select city">
+          <datalist id="cityList">
+            <option value="" selected disabled>Select City</option>
+            <option value="Delhi">Delhi</option>
+            <option value="NCR">NCR</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Pune">Pune</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Bhubaneswar">Bhubaneswar</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Goa">Goa</option>
+            <option value="Indore">Indore</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Lucknow">Lucknow</option>
+            <option value="Surat">Surat</option>
+            <option value="Vadodara">Vadodara</option>
+            <option value="Dehradun">Dehradun</option>
+            <option value="Patna">Patna</option>
+            <option value="Nasik">Nasik</option>
+            <option value="Bhopal">Bhopal</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Varanasi">Varanasi</option>
+            <option value="Vijayawada">Vijayawada</option>
+            <option value="Mysore">Mysore</option>
+            <option value="Ranchi">Ranchi</option>
+            <option value="Raipur">Raipur</option>
+            <option value="Mangalore">Mangalore</option>
+            <option value="Vapi">Vapi</option>
+            <option value="Rajkot">Rajkot</option>
+            <option value="Trichy">Trichy</option>
+            <option value="Madurai">Madurai</option>
+            <option value="Hubli">Hubli</option>
+            <option value="Allahabad">Allahabad</option>
+            <option value="Pondicherry">Pondicherry</option>
+            <option value="Agra">Agra</option>
+            <option value="Ludhiana">Ludhiana</option>
+            <option value="Amritsar">Amritsar</option>
+            <option value="Jalandhar">Jalandhar</option>
+            <option value="Udaipur">Udaipur</option>
+            <option value="Jodhpur">Jodhpur</option>
+            <option value="Gwalior">Gwalior</option>
+            <option value="Jabalpur">Jabalpur</option>
+            <option value="Aurangabad">Aurangabad</option>
+            <option value="Dubai">Dubai</option>
+            <option value="Kolhapur">Kolhapur</option>
+            <option value="Dharwad">Dharwad</option>
+            <option value="Belgaum">Belgaum</option>
+            <option value="Ratnagiri">Ratnagiri</option>
+            <option value="Jamshedpur">Jamshedpur</option>
+            <option value="Guwahati">Guwahati</option>
+            <option value="Karnal">Karnal</option>
+            <option value="Panipat">Panipat</option>
+            <option value="Sonipat">Sonipat</option>
+            <option value="Meerut">Meerut</option>
+            <option value="Haridwar">Haridwar</option>
+            <option value="Mathura">Mathura</option>
+            <option value="Durgapur">Durgapur</option>
+            <option value="Guntur">Guntur</option>
+            <option value="Salem">Salem</option>
+            <option value="Anand">Anand</option>
+            <option value="Nadiad">Nadiad</option>
+            <option value="Bharuch">Bharuch</option>
+            <option value="Valsad">Valsad</option>
+            <option value="Daman">Daman</option>
+            <option value="Diu">Diu</option>
+            <option value="Ujjain">Ujjain</option>
+          </datalist>
         </div>
         <div class="col-md-10" style="margin: 3% 0;">
-            <input type="text" class="form-control" placeholder="State" [(ngModel)]="state">
-          </div>
+          <label *ngIf="messageErrorLocality" style="color: red;">*{{messageLocality}}</label>
+          <input list="localityList" type="text" [(ngModel)]="locality" class="form-control" id="Country"
+            placeholder="Locality">
+          <datalist id="localityList">
+            <option value="" selected disabled>Select locality</option>
+            <option *ngFor="let localityData of  localityDropdown" [value]="localityData">{{localityData}}</option>
+          </datalist>
+        </div>
+        <div class="col-md-10" style="margin: 3% 0;">
+          <input list="stateList" class="form-control" placeholder="State" [(ngModel)]="state">
+          <datalist id="stateList">
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands </option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+            <option value="Delhi ">Delhi </option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Shimla">Shimla </option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir </option>
+            <option value="Srinagar">Srinagar </option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Ladakh">Ladakh </option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Puducherry">Puducherry </option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+          </datalist>
+        </div>
       </div>
     </div>
-  <div class="requirementMain">
-    <button style="width:100%;" style="margin-top:5px;"(click)="submit()" class="btn btn-success">Submit</button>
+    <div class="requirementMain">
+      <button style="width:100%;" style="margin-top:5px;" (click)="submit()" class="btn btn-success">Submit</button>
+    </div>
   </div>
-</div>
 </section>
 <div id="myModal" class="{{modelClass}}">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close" (click)="closeModal()">
-          <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">
+      <input type="image" height="30" width="30" (click)="closeModal()" src="./assets/img/icons/close.png">
 
-      </span>
-      <div class="modalContent">{{message}}</div>
-    </div>
+    </span>
+    <div class="modalContent">{{message}}</div>
   </div>
+</div>
 <footer></footer>
 <div *ngIf="spinner" class="spinnerAngular">
-    <div class="spinner-border spinnerStyle" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
+  <div class="spinner-border spinnerStyle" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
+</div>

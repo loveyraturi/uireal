@@ -27,6 +27,7 @@ export class PropertiesRegistrationComponent implements OnInit {
     private email = localStorage.getItem("email");
     private phone_number = localStorage.getItem("phoneNumber");
     private message;
+    private modelClass6 = "modal6"
     private sliderPosition = "slide1";
     private spinner=false;
     private dropdownList = [{
@@ -167,6 +168,13 @@ export class PropertiesRegistrationComponent implements OnInit {
         this.selectedItems.push(item)
         console.log(item, "################Selected##################", this.selectedItems)
     }
+    modelClick6() {
+		this.modelClass6 = "modalDisplay6"
+    }
+    closeModal6() {
+		this.modelClass6 = "modal6"
+		// this.router.navigateByUrl("/main")
+	}
     onItemSelectAmenities(item: any) {
         this.selectedItemsAmenities.push(item)
         console.log(item, "################Selected##################", this.selectedItemsAmenities)
@@ -367,6 +375,7 @@ export class PropertiesRegistrationComponent implements OnInit {
         reader.readAsDataURL(event.target.files[0]);
     }
     submit() {
+        this.modelClick6()
       //  this.spinner=true
         this.submitted = true;
 
@@ -397,6 +406,7 @@ export class PropertiesRegistrationComponent implements OnInit {
         console.log(this.myForm.value);
         this.propertiesService.addProperties(this.myForm.value).subscribe(
             data => {
+                this.closeModal6()
                 this.spinner=false
                 console.log("groupdata#######", data)
                 if (data.status == "true") {
@@ -407,6 +417,9 @@ export class PropertiesRegistrationComponent implements OnInit {
                    // this.modelClickRegister(data.message,"failure")
                 }
 
+            },
+            err => {
+                this.closeModal6()
             })
     }
     loginDetailsReceived(data){
