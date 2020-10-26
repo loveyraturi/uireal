@@ -380,6 +380,7 @@ h1 {
   height: 145px;
   background: center;
   background-image: url('/assets/img/icons/upload.png');
+  background-size: 157%;
   cursor: pointer;
   overflow: hidden;
   text-align: center;
@@ -524,5 +525,9 @@ i.material-icons {
     height: auto;
     padding-left: 3%;
     padding-right: 3%;
+  }
+  .upload-options {
+    background-size: 111%;
+    height: 165px;
   }
 }

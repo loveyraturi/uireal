@@ -370,9 +370,13 @@ export class HomeComponent implements OnInit {
 		this.modelClass3 = "modal3"
 	}
 	modelClick1(propertyId) {
-		this.modelClass1 = "modalDisplay1"
-		this.selectedPropertry = propertyId
-		console.log(this.selectedPropertry, "#@@#$@#$@$@")
+		if (this.email != undefined && this.email != "") {
+			this.modelClass1 = "modalDisplay1"
+			this.selectedPropertry = propertyId
+			console.log(this.selectedPropertry, "#@@#$@#$@$@")
+		} else {
+			this.modelClick3()
+		}
 	}
 	bedroomsFilter(event) {
 		this.bedroomFilterValue = event

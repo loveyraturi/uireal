@@ -154,7 +154,7 @@ export class PropertiesRegistrationComponent implements OnInit {
             parking: new FormControl(''),
             modular: new FormControl(''),
             locality: new FormControl('', [Validators.required]),
-            country: new FormControl(''),
+            country: new FormControl('India'),
             addressProof: new FormControl(''),
             maintainance: new FormControl(''),
             security: new FormControl(''),

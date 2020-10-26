@@ -90,6 +90,7 @@ export class TenantsRequirementsComponent implements OnInit {
     fullyFurnished = ""
     semiFurnished = ""
     unFurnished = ""
+    occupation;
     messageBHK: string;
     messageProperty: string;
     messageMinimimPrice: string;
@@ -402,6 +403,7 @@ console.log(this.email,"##################");
         this.response["propertyType"]= this.selectedPropertyType.join()
         this.response["minPrice"]= this.response["minPrice"]
         this.response["maxPrice"]= this.response["maxPrice"]
+        this.response["occupation"] = this.occupation
 
 
         if(this.response["minPrice"]==undefined){
@@ -414,6 +416,10 @@ console.log(this.email,"##################");
             this.messageErrorMaxPrice=true;
           //  this.modelClass = "modalDisplay"
             this.messageMaximumPrice="Enter Max Price"
+            
+        }
+        if(this.response["occupation"]==undefined){
+            this.messageMaximumPrice="Enter Occupation"
             
         }
         if(this.response["minArea"]==undefined){
@@ -455,6 +461,7 @@ console.log(this.email,"##################");
             this.messageBHK=" Please Select Property BHK"
             
         }
+
 
 if(this.messageErrorBHK ||
     this.messageErrorProperty ||
