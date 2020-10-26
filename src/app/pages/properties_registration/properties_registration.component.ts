@@ -1,7 +1,7 @@
 /**
  * Created by andrew.yang on 5/18/2017.
  */
-import { OnInit, Component, Input, ViewContainerRef, Output, EventEmitter } from "@angular/core";
+import { OnInit, Component, Input, ViewContainerRef, Output, EventEmitter, ElementRef } from "@angular/core";
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { UserService } from "src/app/services/user.service";
 import { PropertiesService } from "src/app/services/properties.service";
@@ -118,7 +118,8 @@ export class PropertiesRegistrationComponent implements OnInit {
         }
     loggedUserName: any;
     submitted: boolean =false;
-    constructor(private alertService: AlertService, private router: Router, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService) {
+    constructor(private alertService: AlertService, private router: Router, private _activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private propertiesService: PropertiesService,
+        private el: ElementRef) {
         // this.fetchPropertyDetailsById()
 
         localStorage.setItem("pageName", "properties_registration")
@@ -374,6 +375,15 @@ export class PropertiesRegistrationComponent implements OnInit {
         }
         reader.readAsDataURL(event.target.files[0]);
     }
+    private scrollToFirstInvalidControl() {
+        const firstInvalidControl: HTMLElement = this.el.nativeElement.querySelector(
+          "form .ng-invalid"
+        );
+    
+        firstInvalidControl.focus(); //without smooth behavior
+      }
+    
+    
     submit() {
         this.modelClick6()
       //  this.spinner=true
@@ -401,9 +411,12 @@ export class PropertiesRegistrationComponent implements OnInit {
         //     fileSource:  this.myForm.value.fileSource
         // }
         if (this.myForm.invalid) {
+            this.scrollToFirstInvalidControl();
             this.closeModal6()
             return;
         }
+                  
+ 
         console.log(this.myForm.value);
         this.propertiesService.addProperties(this.myForm.value).subscribe(
             data => {
