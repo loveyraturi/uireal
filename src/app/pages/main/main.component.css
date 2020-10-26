@@ -89,7 +89,10 @@ input::-webkit-calendar-picker-indicator {
   position: absolute;
   padding-left: 30%;
   color: black;
-  font-size: 40px;
+  font-size: 45px;
+  font-family: 'FontAwesome';
+  font-style: italic;
+
 }
 
 .menuItems1 {
@@ -375,6 +378,8 @@ ul {
     padding-left: 11%;
     color: black;
     font-size: 24px;
+    font-family: 'FontAwesome';
+    font-style: italic;
   }
 
   .input-group-prepend-search {
