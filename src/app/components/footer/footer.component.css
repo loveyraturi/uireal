@@ -98,3 +98,14 @@ a:hover {
    right: 0;
    bottom: 0;
  }
+
+ @media only screen and (max-width: 991px) {
+  .small{
+    margin: 10% auto !important;
+    margin-right: 22% !important;
+    border: 1px solid #888 !important;
+    width: 57% !important;
+    background-color: #fefefe;
+
+  }
+}
