@@ -418,10 +418,10 @@ console.log(this.email,"##################");
             this.messageMaximumPrice="Enter Max Price"
             
         }
-        if(this.response["occupation"]==undefined){
-            this.messageMaximumPrice="Enter Occupation"
+        // if(this.response["occupation"]==undefined){
+        //     this.messageMaximumPrice="Enter Occupation"
             
-        }
+        // }
         if(this.response["minArea"]==undefined){
            // this.modelClass = "modalDisplay"
             this.message=" Please Enter Maximum Area"
