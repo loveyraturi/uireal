@@ -82,6 +82,7 @@ export class UserLoginComponent implements OnInit {
         }
         this.userService.validate(request).subscribe(
             data => {
+                this.clear();
                 this.isValid = data.status == "true" ? "valid" : "invalid"
                 console.log("status#######", data)
                 // this.message = data.message

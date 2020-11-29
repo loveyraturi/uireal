@@ -54,6 +54,7 @@ export class AdminLoginComponent implements OnInit {
         }
         this.adminUserService.validate(request).subscribe(
             data => {
+                this.clear();
                 this.isValid = data.status == "true" ? "valid" : "invalid"
                 console.log("status#######", data)
                 if (data.status == "true") {

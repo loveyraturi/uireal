@@ -107,6 +107,7 @@ export class UserRegistrationComponent implements OnInit {
         }
         this.userService.createUser(request).subscribe(
             data => {
+                this.clear();
                 this.spinner = false;
                 console.log("groupdata#######", data)
                 if (data.status == "true") {

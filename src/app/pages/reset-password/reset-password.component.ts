@@ -53,6 +53,7 @@ export class ResetPasswordComponent implements OnInit {
             uuid: this.uuid
         }
         this.userService.resetPassword(request).subscribe(response => {
+            this.clear();
             if (response.status == "true") {
                 this.success("SuccessFully updated password")
                 setTimeout(() =>  this.router.navigateByUrl('/login'),2500);                       

@@ -48,6 +48,7 @@ export class ForgotPasswordComponent implements OnInit {
             hostName: window.location.hostname
         }
         this.userService.sendEmail(request).subscribe(response => {
+            this.clear();
             if (response.status == "true") {
                 this.success("Email has been sent to your email address.")
             } else {
