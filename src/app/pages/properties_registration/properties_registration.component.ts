@@ -428,6 +428,7 @@ export class PropertiesRegistrationComponent implements OnInit {
                     this.modelClickRegister(data.message,"success")
                 } else {
                     console.log(data.message)
+                    this.modelClickRegister(data.message,"failure")
                    // this.modelClickRegister(data.message,"failure")
                 }
 
